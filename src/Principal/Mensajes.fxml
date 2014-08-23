@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="148.0" prefWidth="441.0" spacing="5.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.MensajesControlador">
+  <children>
+    <Label fx:id="Mensaje" alignment="CENTER" contentDisplay="CENTER" labelFor="$Mensaje" prefHeight="105.0" prefWidth="441.0" styleClass="labelNegrita" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
+    <HBox alignment="CENTER_RIGHT" prefHeight="29.0" prefWidth="441.0" spacing="20.0">
+      <children>
+        <Button id="Mensaje" mnemonicParsing="false" onAction="#Cancelar" styleClass="botonAceptar" text="Aceptar" />
+      </children>
+      <padding>
+        <Insets right="20.0" />
+      </padding>
+      <VBox.margin>
+        <Insets fx:id="x1" />
+      </VBox.margin>
+    </HBox>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

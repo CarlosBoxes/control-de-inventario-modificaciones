@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox fx:id="pnlPrincipal" prefHeight="650.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.VentanaPrincipalControlador">
+  <children>
+    <BorderPane prefHeight="650.0" prefWidth="1000.0">
+      <center>
+        <ImageView cache="true" fitHeight="343.0" fitWidth="472.0" opacity="0.7" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="@../Imagenes/Logo.jpg" preserveRatio="false" smooth="false" />
+          </image>
+        </ImageView>
+      </center>
+      <left>
+        <VBox fx:id="pnlMenu" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="180.0" spacing="20.0" styleClass="PanelMenu">
+          <children>
+            <Button fx:id="btnPedidos" alignment="CENTER" mnemonicParsing="false" onAction="#abrirPedidos" prefHeight="60.0" prefWidth="180.0" styleClass="botonPedidos" text="Pedidos" />
+            <Button fx:id="btnBodegas" mnemonicParsing="false" onAction="#abrirBodegas" prefHeight="60.0" prefWidth="180.0" styleClass="botonBodega" text="Bodegas" />
+            <Button fx:id="btnProduccion" alignment="CENTER" mnemonicParsing="false" onAction="#abrirProduccion" prefHeight="60.0" prefWidth="180.0" styleClass="botonProduccion" text="Producción" />
+            <Button fx:id="btnLiquidaciones" mnemonicParsing="false" onAction="#abrirLiquidaciones" prefHeight="60.0" prefWidth="180.0" styleClass="botonLiquidaciones" text="Liquidaciones" />
+            <Button fx:id="btnFinanzas" mnemonicParsing="false" onAction="#abrirFinanzas" prefHeight="60.0" prefWidth="180.0" styleClass="botonFinanzas" text="Finanzas" />
+            <Button fx:id="btnOpciones" mnemonicParsing="false" onAction="#abrirOpciones" prefHeight="60.0" prefWidth="180.0" styleClass="botonOpciones" text="Opciones" />
+            <Button fx:id="btnSalir" mnemonicParsing="false" onAction="#cerrarAplicacion" prefHeight="60.0" prefWidth="180.0" styleClass="botonSalir" text="Salir" />
+          </children>
+        </VBox>
+      </left>
+    </BorderPane>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</HBox>

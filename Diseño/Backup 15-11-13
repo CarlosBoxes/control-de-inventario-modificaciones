@@ -1,0 +1,1130 @@
+CREATE DATABASE  IF NOT EXISTS `bdcc` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `bdcc`;
+-- MySQL dump 10.13  Distrib 5.6.12, for Win64 (x86_64)
+--
+-- Host: 192.168.1.8    Database: bdcc
+-- ------------------------------------------------------
+-- Server version	5.5.34-0ubuntu0.12.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `asignacion de permisos`
+--
+
+DROP TABLE IF EXISTS `asignacion de permisos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `asignacion de permisos` (
+  `idAsignacionDePermisos` int(11) NOT NULL AUTO_INCREMENT,
+  `permisos_idPermisos` int(11) DEFAULT NULL,
+  `Usuario_idUsuario` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idAsignacionDePermisos`),
+  KEY `fk_Usuario_has_permisos_permisos1_idx` (`permisos_idPermisos`),
+  KEY `fk_asignacion de permisos_Usuario1_idx` (`Usuario_idUsuario`),
+  CONSTRAINT `fk_asignacion de permisos_Usuario1` FOREIGN KEY (`Usuario_idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Usuario_has_permisos_permisos1` FOREIGN KEY (`permisos_idPermisos`) REFERENCES `permisos` (`idPermisos`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `asignacion de permisos`
+--
+
+LOCK TABLES `asignacion de permisos` WRITE;
+/*!40000 ALTER TABLE `asignacion de permisos` DISABLE KEYS */;
+INSERT INTO `asignacion de permisos` VALUES (1,1,1),(2,3,1),(3,2,1),(4,4,1),(5,5,1),(6,6,1),(7,1,2),(8,2,2),(9,3,2),(10,4,2),(11,5,2);
+/*!40000 ALTER TABLE `asignacion de permisos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `bancos`
+--
+
+DROP TABLE IF EXISTS `bancos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bancos` (
+  `idbancos` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) NOT NULL,
+  `telefono` varchar(8) NOT NULL,
+  `eliminado` tinyint(1) NOT NULL,
+  PRIMARY KEY (`idbancos`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bancos`
+--
+
+LOCK TABLES `bancos` WRITE;
+/*!40000 ALTER TABLE `bancos` DISABLE KEYS */;
+INSERT INTO `bancos` VALUES (1,'BAM  Distribuidora 30-1259259-4','',0),(2,'Banco Industrial','',0),(3,'Banco Inmobiliario','',0),(4,'Banrural','',0),(5,'Banco Reformador','',0),(6,'Banco G y T','',0),(7,'City Banc','',0),(8,'Banco Internacional','',0),(9,'BAM Jugos 30-3059313-9','',0),(10,'BAM Desinfectante 3-01297319-0','44444444',0),(11,'BAM Tapa 30-1296923-0','55555555',0),(12,'BAM Prestamos 30-1296922-2','66666666',0);
+/*!40000 ALTER TABLE `bancos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `bodegaproduccion`
+--
+
+DROP TABLE IF EXISTS `bodegaproduccion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bodegaproduccion` (
+  `idbodegaProduccion` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) NOT NULL,
+  `eliminado` tinyint(1) NOT NULL,
+  PRIMARY KEY (`idbodegaProduccion`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bodegaproduccion`
+--
+
+LOCK TABLES `bodegaproduccion` WRITE;
+/*!40000 ALTER TABLE `bodegaproduccion` DISABLE KEYS */;
+INSERT INTO `bodegaproduccion` VALUES (1,'Envases',0),(2,'Quimico Jugos',0),(3,'Quimico Desinfectantes',0),(4,'Naranja Fruta',0),(5,'Limon Fruta',0),(6,'Mango Fruta',0),(7,'Tamarindo Fruta',0);
+/*!40000 ALTER TABLE `bodegaproduccion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `bodegaproductos`
+--
+
+DROP TABLE IF EXISTS `bodegaproductos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bodegaproductos` (
+  `idbodega` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) NOT NULL,
+  `eliminado` tinyint(1) NOT NULL,
+  PRIMARY KEY (`idbodega`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bodegaproductos`
+--
+
+LOCK TABLES `bodegaproductos` WRITE;
+/*!40000 ALTER TABLE `bodegaproductos` DISABLE KEYS */;
+INSERT INTO `bodegaproductos` VALUES (1,'Distribuidora',0),(2,'Producto Mexicano',0),(3,'D Light',1),(4,'Manuquinsa',1),(5,'Produccion Del Campo',0);
+/*!40000 ALTER TABLE `bodegaproductos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cargosclientes`
+--
+
+DROP TABLE IF EXISTS `cargosclientes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cargosclientes` (
+  `Idcargosclientes` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha` date NOT NULL,
+  `Total` float NOT NULL,
+  `Clientes_idCliente` int(11) NOT NULL,
+  PRIMARY KEY (`Idcargosclientes`),
+  KEY `fk_cargosclientes_Clientes1_idx` (`Clientes_idCliente`),
+  CONSTRAINT `fk_cargosclientes_Clientes1` FOREIGN KEY (`Clientes_idCliente`) REFERENCES `clientes` (`idCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cargosclientes`
+--
+
+LOCK TABLES `cargosclientes` WRITE;
+/*!40000 ALTER TABLE `cargosclientes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cargosclientes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cheques clientes`
+--
+
+DROP TABLE IF EXISTS `cheques clientes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cheques clientes` (
+  `idcheques_clientes` int(11) NOT NULL AUTO_INCREMENT,
+  `numero` int(11) NOT NULL,
+  `monto` float NOT NULL,
+  `fecha` date NOT NULL,
+  `bancos_idbancos` int(11) NOT NULL,
+  `Clientes_idCliente` int(11) NOT NULL,
+  `eliminado` tinyint(1) NOT NULL,
+  `usado` tinyint(1) NOT NULL,
+  PRIMARY KEY (`idcheques_clientes`),
+  KEY `fk_cheques clientes_bancos1_idx` (`bancos_idbancos`),
+  KEY `fk_cheques clientes_Clientes1_idx` (`Clientes_idCliente`),
+  CONSTRAINT `fk_cheques clientes_bancos1` FOREIGN KEY (`bancos_idbancos`) REFERENCES `bancos` (`idbancos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_cheques clientes_Clientes1` FOREIGN KEY (`Clientes_idCliente`) REFERENCES `clientes` (`idCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cheques clientes`
+--
+
+LOCK TABLES `cheques clientes` WRITE;
+/*!40000 ALTER TABLE `cheques clientes` DISABLE KEYS */;
+INSERT INTO `cheques clientes` VALUES (1,2556,586.75,'2013-10-19',2,46,0,0);
+/*!40000 ALTER TABLE `cheques clientes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cheques_proveedores`
+--
+
+DROP TABLE IF EXISTS `cheques_proveedores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cheques_proveedores` (
+  `idcheques_proveedores` int(11) NOT NULL AUTO_INCREMENT,
+  `numero` int(11) NOT NULL,
+  `monto` float NOT NULL,
+  `fecha` date NOT NULL,
+  `bancos_idbancos` int(11) NOT NULL,
+  `Proveedores_idProveedores` int(11) NOT NULL,
+  `eliminado` tinyint(1) NOT NULL,
+  PRIMARY KEY (`idcheques_proveedores`),
+  KEY `fk_cheques proveedores_bancos1_idx` (`bancos_idbancos`),
+  KEY `fk_cheques proveedores_Proveedores1_idx` (`Proveedores_idProveedores`),
+  CONSTRAINT `fk_cheques proveedores_bancos1` FOREIGN KEY (`bancos_idbancos`) REFERENCES `bancos` (`idbancos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_cheques proveedores_Proveedores1` FOREIGN KEY (`Proveedores_idProveedores`) REFERENCES `proveedores` (`idProveedores`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cheques_proveedores`
+--
+
+LOCK TABLES `cheques_proveedores` WRITE;
+/*!40000 ALTER TABLE `cheques_proveedores` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cheques_proveedores` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `clientes`
+--
+
+DROP TABLE IF EXISTS `clientes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `clientes` (
+  `idCliente` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(70) NOT NULL,
+  `direccion` varchar(100) NOT NULL,
+  `nit` varchar(12) NOT NULL,
+  `Telefono_Celular` varchar(8) DEFAULT NULL,
+  `Telefono_Casa` varchar(8) DEFAULT NULL,
+  `Tipo_Clientes_idTipo_Clientes` int(11) NOT NULL,
+  `eliminado` tinyint(1) NOT NULL,
+  `Saldo` float NOT NULL,
+  `razonsocial` varchar(150) NOT NULL,
+  PRIMARY KEY (`idCliente`),
+  KEY `fk_Clientes_Tipo Clientes1_idx` (`Tipo_Clientes_idTipo_Clientes`),
+  CONSTRAINT `fk_Clientes_Tipo Clientes1` FOREIGN KEY (`Tipo_Clientes_idTipo_Clientes`) REFERENCES `tipo clientes` (`idTipo_Clientes`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `clientes`
+--
+
+LOCK TABLES `clientes` WRITE;
+/*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
+INSERT INTO `clientes` VALUES (1,'Roderico Martínez Perez','Ciudad','143675-9','','',2,0,0,''),(2,'Enrique Villagran/Tinajon','Ciudad','278553-6','','',2,0,0,''),(3,'Gabriela Alcahé/Baviera 1','Ciudad','934042-4','','',2,0,0,''),(4,'Inversiones Invest/Baviera 3','Ciudad','4473876-5','','',4,0,0,''),(5,'Inversiones Invest/Bav. Sn. Lucas','Ciudad','4473876-5','','',4,0,0,''),(6,'Inversiones Invest/Bav. Cemaco','Ciudad','4473876-5','','',2,0,0,''),(7,'Blak Cat','Ciudad','00000-0','','',2,0,0,''),(8,'Café Longe','Ciudad','6151304-5','','',2,0,0,''),(9,'Country Club Cantabria','Ciudad','4857141-5','','',2,0,0,''),(10,'Champions','Ciudad','C.F.','','',2,0,0,''),(11,'Francisco Argueta/Cevichería','Ciudad','391651-0','','',2,0,0,''),(12,'Grupo Copante, S.A.','Ciudad','7952131-2','','',2,0,0,''),(13,'Andrea Estefanié Garcia/Cuernos Largos','Ciudad','3626238-2','','',2,0,0,''),(14,'La Bodeguita del Duende','Ciudad','784833-1','','',2,0,0,''),(15,'Bodeguita Sport Bar','Ciudad','8307778-2','','',2,0,0,''),(16,'Carlos de León/Emilianos','Ciudad','177905-2','','',2,0,0,''),(17,'Centro Neurologico Especializado del Sur Occidente, S.A.','Ciudad','5775933-2','','',2,0,0,''),(18,'El Portal dela 5ta.','Ciudad','C.F.','','',2,0,0,''),(19,'Franco Sardi/Giardinos','Ciudad','2052252-5','','',2,0,0,''),(20,'Angelica de Martínea/Gran Karmel','Ciudad','175155-7','','',5,0,0,''),(21,'Damari, S.A./Hong Kong','Ciudad','5869083-2','','',6,0,0,''),(22,'I E N P G/ La Patria','Ciudad','35612-3','','',2,0,0,''),(23,'Oziel Sanchez/La Postrería','Ciudad','217509-6','','',2,0,0,''),(24,'Gabriela Soto/La sastrería','Ciudad','4361942-8','','',2,0,0,''),(25,'Jorge Rios/La Vaca Gaucha','Ciudad','1755503-8','','',2,0,0,''),(26,'Los Balcones','Ciudad','C.F.','','',2,0,0,''),(27,'Lilian Pereira/Panorama','Ciudad','3111754-6','','',2,0,0,''),(28,'Hans Vielman/Rustichela','Ciudad','711951-8','','',2,0,0,''),(29,'Hans Vielman/Rustichela Stake House','Ciudad','711951-8','','',2,0,0,''),(30,'Glenda Maldonado/Tabasco','Ciudad','3394969-7','','',4,0,0,''),(31,'Juan Carlos Maldonado/Tabasco America','Ciudad','654350-2','','',2,0,0,''),(32,'Industrias Café Real S.A./Tacontento Parque','Ciudad','5729310-4','','',2,0,0,''),(33,'Industrias Café Real, S.A./Tacontento Parque','Ciudad','5729310-4','','',2,0,0,''),(34,'Amarilis Mendoza/Tango','Ciudad','1745738-6','','',2,0,0,''),(35,'Taquería, S.A./Taquería Parque','Ciudad','698480-0','','',2,0,0,''),(36,'Krugamsa/Tecun','Ciudad','4079810-0','','',2,0,0,''),(37,'Teja','Ciudad','C.F.','','',2,0,0,''),(38,'Restaurantes Tertulianos, S.A.','Ciudad','4651580-1','','',2,0,0,''),(39,'Antonio Lau Pum/Tonys','Ciudad','485413-6','','',4,0,0,'Tonys'),(40,'Tregua,S.A./Trefratelli','Plaza paradera xela Local 7 y 8, zona 3','1251299-0','','',2,0,0,''),(41,'Vizviel','Ciudad','C.F.','','',2,0,0,''),(42,'Restaurantes y Servicios, S.A./Los Cebollines','Ciudad','3882231-4','','',2,0,0,''),(43,'Fundacion Voluntarios Afines','Ciudad','7412326-2','','',2,0,0,''),(44,'Astrid Echeverría/Bica Café','Ciudad','3226185-3','','',2,0,0,''),(45,'Corporación de Negocios Hesar, S.A./Rincon Chivo','Ciudad','7404844-9','','',2,0,0,''),(46,'Cascada','San Marcos','000000000-00','','',2,0,0,''),(47,'Supermercado Delco El Nuevo, S.A.','Av. Americas 9-50, Z 3 Quetgo.','C.F.','77674264','77635359',2,0,619.28,''),(48,'Raul Pastor/Abuelos Café','San Marcos','4519026-7','55898227','77601174',2,0,0,''),(49,'Luis Guillermo Orozco Mazariegos/Agua Fria','San Marcos','1822522-5','30369579','',2,0,0,''),(50,'Auto Pan','San Marcos','C.F.','32070200','58926984',2,0,0,''),(51,'Carnicería La Salud','San Marcos','C.F.','','77601436',2,0,0,''),(52,'Hannia Sierra/Cotzic','San Marcos','444009-9','46742321','77604608',2,0,0,''),(53,'Finca Guatemala, S.A.','3a. Av. 10-35 Zona 9 Guatemala','1811029-0','','77679766',2,0,0,''),(54,'Gasolinera Shell','San Pedro Sac. Sn. Mcos.','C.F.','50175272','',2,0,0,''),(55,'Marta Elisa Orozco López/Gitanos Pizza','San Marcos','609299-3','50326982','77605046',2,0,0,''),(56,'Glenda Orozco','San Marcos','5578455-0','58585982','',2,0,0,''),(57,'Julio De León/Hotel Victorias','San Marcos','237944-9','','77707421',2,0,0,''),(58,'Isaias Barrios/Hotel Santa Barbara','San Marcos','413387-0','59150374','77607206',2,0,0,''),(59,'Restaurante La Casona','11 Calle 4-01, Zona 1 San Marcos','803529-6','56673721','77604141',2,0,0,''),(60,'Las Tertulias','San Marcos','C.F.','','77605825',2,0,0,''),(61,'Hania David/Mavic','San Marcos','25528-9','53193714','77605603',2,0,0,''),(62,'Ministerio de Trabajo','San Marcos','C.F.','55147007','77604831',2,0,0,''),(63,'Movil Café','San Marcos','C.F.','59128888','',2,0,0,''),(64,'Pollo del Campo','San Marcos','1274413-1','77602895','',2,0,0,''),(65,'Pollo Dorado, S.A.','4av. 2-13 Zona 1 Sn. Pedro Sac. Sn. Mcos.','729812-9','','77601002',2,0,0,''),(66,'Supermarq, S.A.','San Marcos','3194674-7','','77604156',2,0,0,''),(67,'Obdulio Velasquez/Super V','San Marcos','588388-1','','77605068',2,0,0,''),(68,'Israel Caniz/Camaron Dorado','San Marcos','C.F.','48467727','',2,0,0,''),(69,'La Casita','Totonicapan','C.F.','57265065','',2,0,0,''),(70,'Chajil Siwan','Quiche','C.F.','53757051','',2,0,0,''),(71,'Hotel Gumarkaj','Quiche','C.F.','','77552943',2,0,0,''),(72,'Los Cofrades','Chichicastenango','C.F.','57628713','56877067',2,0,0,''),(73,'Hotel Totonicapán','Totonicapán','C.F.','','79311700',2,0,0,''),(74,'Restaurante El Duende','Cidudad','C.F.','34038976','',2,0,0,''),(75,'Pollo Campestre','Quetzaltenango','C.F.','59901810','',2,0,0,''),(76,'Wendy/Gurmet','Ciudad','C.F.','','',2,0,0,''),(77,'Grupo Wilmarzu, S.A.','Ciudad','7363226-0','','',4,0,0,'');
+/*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cuentaporcobrar`
+--
+
+DROP TABLE IF EXISTS `cuentaporcobrar`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cuentaporcobrar` (
+  `idcuenta` int(11) NOT NULL,
+  `Efectivo` float DEFAULT NULL,
+  `cheques_clientes_idcheques_clientes` int(11) DEFAULT NULL,
+  `Depositos_idDepositos` int(11) DEFAULT NULL,
+  `Clientes_idCliente` int(11) NOT NULL,
+  `Fecha` date NOT NULL,
+  PRIMARY KEY (`idcuenta`),
+  KEY `fk_cuentaporcobrar_cheques clientes1_idx` (`cheques_clientes_idcheques_clientes`),
+  KEY `fk_cuentaporcobrar_Depositos1_idx` (`Depositos_idDepositos`),
+  KEY `fk_cuentaporcobrar_Clientes1_idx` (`Clientes_idCliente`),
+  CONSTRAINT `fk_cuentaporcobrar_cheques clientes1` FOREIGN KEY (`cheques_clientes_idcheques_clientes`) REFERENCES `cheques clientes` (`idcheques_clientes`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_cuentaporcobrar_Clientes1` FOREIGN KEY (`Clientes_idCliente`) REFERENCES `clientes` (`idCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_cuentaporcobrar_Depositos1` FOREIGN KEY (`Depositos_idDepositos`) REFERENCES `depositos` (`idDepositos`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cuentaporcobrar`
+--
+
+LOCK TABLES `cuentaporcobrar` WRITE;
+/*!40000 ALTER TABLE `cuentaporcobrar` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cuentaporcobrar` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `depositos`
+--
+
+DROP TABLE IF EXISTS `depositos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `depositos` (
+  `idDepositos` int(11) NOT NULL AUTO_INCREMENT,
+  `monto` float NOT NULL,
+  `numero_de_boleta` varchar(10) NOT NULL,
+  `bancos_idbancos` int(11) NOT NULL,
+  `eliminado` tinyint(1) NOT NULL,
+  `usado` tinyint(1) NOT NULL,
+  PRIMARY KEY (`idDepositos`),
+  KEY `fk_Depositos_bancos1_idx` (`bancos_idbancos`),
+  CONSTRAINT `fk_Depositos_bancos1` FOREIGN KEY (`bancos_idbancos`) REFERENCES `bancos` (`idbancos`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `depositos`
+--
+
+LOCK TABLES `depositos` WRITE;
+/*!40000 ALTER TABLE `depositos` DISABLE KEYS */;
+INSERT INTO `depositos` VALUES (1,3695,'43131608',1,0,1),(2,362.25,'36862504',1,0,0),(3,2875.35,'43430846',1,0,1),(4,3440.6,'43403245',1,0,1),(5,4870,'43430565',1,0,1),(6,364,'43404272',1,0,1),(7,3466.8,'43430633',1,0,1),(8,2968.35,'42680453',1,0,1),(9,362,'43432405',1,0,1),(10,100,'40080392',1,0,1),(11,3340,'39928766',1,0,1),(12,1137.89,'39924786',1,0,1),(13,1400,'43406131',1,0,1),(14,205.2,'31184459',1,0,1),(15,495,'43432075',1,0,1),(16,1968.5,'43406268',1,0,1),(17,800,'36862727',1,0,1),(18,3226.25,'43430073',1,0,1),(19,12.75,'43430074',1,0,1),(20,3336,'43433803',1,0,1),(21,4401.5,'43262581',1,0,1),(22,1000,'43433894',1,0,1),(23,470,'36362726',1,0,1),(24,2648,'36361538',1,0,0),(25,100,'43436532',1,0,0),(26,1800,'43436502',1,0,0),(27,226.6,'41837369',1,0,1),(28,4536.52,'36862835',1,0,1),(29,3560.5,'36361518',1,0,1),(30,5129.39,'43136889',1,0,1),(31,1402.5,'43136888',1,0,1),(32,2445.15,'31144114',1,0,1),(33,1437.27,'40162160',1,0,1),(34,216.8,'40162159',1,0,1),(35,892.47,'36862944',1,0,1),(36,3720.25,'17842820',1,0,1),(37,5048.39,'36361977',1,0,1),(38,3687.5,'17842660',1,0,1),(39,5158.02,'31257123',1,0,1),(40,245,'31257124',1,0,1),(41,102,'31257125',1,0,1),(42,7240,'40162382',1,0,1),(43,3042.11,'4339002',1,0,1),(44,1912.5,'31144293',1,0,1),(45,1053.89,'36158900',1,0,1),(46,542.1,'38017678',1,0,1),(47,2840,'43439322',1,0,1),(48,3700,'43439321',1,0,1),(49,5,'43439323',1,0,1),(50,3779,'43439324',1,0,0),(51,2481,'38017824',1,0,1),(52,1049.76,'38017687',1,0,1),(53,4415.18,'43437441',1,0,1),(54,75.08,'43437442',1,0,1),(55,3779,'43439324',1,0,0),(56,4259.25,'43406685',1,0,1),(57,3650,'41743229',1,0,1),(58,3.87,'36153296',1,0,1),(59,2000,'43407102',1,0,1),(60,2375.12,'36153297',1,0,1),(61,2555.5,'40161653',1,0,1),(62,78.56,'38013586',1,0,1),(63,35.15,'43430075',1,0,1),(64,1000,'43207495',1,0,1),(65,1349,'41746286',1,0,1),(66,3400,'40161763',1,0,1),(67,2000,'43192543',1,0,1),(68,1032.77,'44369674',1,0,1),(69,1800,'40161764',1,0,1),(70,6897,'43408223',1,0,1),(71,549.5,'40213407',1,0,1),(72,538.8,'44369675',1,0,1),(73,3422.35,'43408235',1,0,1),(74,4916.45,'40213413',1,0,1),(75,4147.25,'24100647',1,0,1),(76,2918.76,'38013737',1,0,1),(77,2264.45,'43403633',1,0,1),(78,2868.7,'43403778',1,0,1),(79,1676.09,'44361648',1,0,1),(80,5000,'44189433',1,0,1),(81,3022,'44136285',1,0,1),(82,1696.88,'44497883',1,0,1),(83,3866,'43405566',1,0,1),(84,4,'43405568',1,0,1),(85,178,'43405567',1,0,1),(86,7.2,'43405764',1,0,1),(87,4700,'43405763',1,0,1),(88,5658.35,'43403886',1,0,1),(89,1949.06,'38013894',1,0,1),(90,4008.75,'43435303',1,0,1),(91,127.2,'43435302',1,0,1),(92,3293.6,'44136403',1,0,1),(93,181.6,'40169374',1,0,1),(94,2916.81,'43405929',1,0,1),(95,5000,'44188911',1,0,1),(96,1500,'43405926',1,0,1),(97,854,'43405927',1,0,1);
+/*!40000 ALTER TABLE `depositos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `descripcion factura`
+--
+
+DROP TABLE IF EXISTS `descripcion factura`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `descripcion factura` (
+  `iddescripcion Factura` int(11) NOT NULL AUTO_INCREMENT,
+  `Descripcion` varchar(90) NOT NULL,
+  `Cantidad` int(11) NOT NULL,
+  `SubTotal` float NOT NULL,
+  `Facturas_idFacturas` int(11) NOT NULL,
+  PRIMARY KEY (`iddescripcion Factura`),
+  KEY `fk_descripcion Factura_Facturas1_idx` (`Facturas_idFacturas`),
+  CONSTRAINT `fk_descripcion Factura_Facturas1` FOREIGN KEY (`Facturas_idFacturas`) REFERENCES `facturas` (`idFacturas`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `descripcion factura`
+--
+
+LOCK TABLES `descripcion factura` WRITE;
+/*!40000 ALTER TABLE `descripcion factura` DISABLE KEYS */;
+/*!40000 ALTER TABLE `descripcion factura` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `descripcion liquidacion`
+--
+
+DROP TABLE IF EXISTS `descripcion liquidacion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `descripcion liquidacion` (
+  `idDescripcionLiquidacion` int(11) NOT NULL AUTO_INCREMENT,
+  `liquidacion_idliquidacion` int(11) NOT NULL,
+  `Depositos_idDepositos` int(11) DEFAULT NULL,
+  `cheques_clientes_idcheques_clientes` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idDescripcionLiquidacion`),
+  KEY `fk_liquidacion_has_Depositos_Depositos1_idx` (`Depositos_idDepositos`),
+  KEY `fk_liquidacion_has_Depositos_liquidacion1_idx` (`liquidacion_idliquidacion`),
+  KEY `fk_liquidacion_has_Depositos_cheques clientes1_idx` (`cheques_clientes_idcheques_clientes`),
+  CONSTRAINT `fk_liquidacion_has_Depositos_cheques clientes1` FOREIGN KEY (`cheques_clientes_idcheques_clientes`) REFERENCES `cheques clientes` (`idcheques_clientes`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_liquidacion_has_Depositos_Depositos1` FOREIGN KEY (`Depositos_idDepositos`) REFERENCES `depositos` (`idDepositos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_liquidacion_has_Depositos_liquidacion1` FOREIGN KEY (`liquidacion_idliquidacion`) REFERENCES `liquidacion` (`idliquidacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `descripcion liquidacion`
+--
+
+LOCK TABLES `descripcion liquidacion` WRITE;
+/*!40000 ALTER TABLE `descripcion liquidacion` DISABLE KEYS */;
+INSERT INTO `descripcion liquidacion` VALUES (1,1,2,NULL),(2,2,1,NULL),(3,3,3,NULL),(4,4,4,NULL),(5,5,5,NULL),(6,5,6,NULL),(7,6,7,NULL),(8,7,8,NULL),(9,9,10,NULL),(10,9,11,NULL),(11,9,12,NULL),(12,9,13,NULL),(13,10,9,NULL),(14,11,15,NULL),(15,11,14,NULL),(16,12,16,NULL),(17,13,17,NULL),(18,15,18,NULL),(19,15,19,NULL),(20,16,20,NULL),(21,17,21,NULL),(22,17,22,NULL),(23,18,23,NULL),(24,19,NULL,1),(25,19,24,NULL),(26,19,25,NULL),(27,19,26,NULL),(28,20,28,NULL),(29,20,27,NULL),(31,22,29,NULL),(32,23,30,NULL),(33,24,31,NULL),(35,26,32,NULL),(36,27,33,NULL),(37,28,34,NULL),(38,29,35,NULL),(39,30,36,NULL),(40,31,37,NULL),(41,32,38,NULL),(42,33,39,NULL),(43,34,40,NULL),(44,35,41,NULL),(45,36,42,NULL),(46,37,43,NULL),(47,38,44,NULL),(48,39,45,NULL),(49,40,46,NULL),(50,41,47,NULL),(51,41,48,NULL),(52,41,49,NULL),(53,42,51,NULL),(54,42,52,NULL),(55,43,53,NULL),(56,44,54,NULL),(57,45,56,NULL),(58,46,57,NULL),(59,47,58,NULL),(60,47,59,NULL),(61,47,60,NULL),(62,48,61,NULL),(63,49,62,NULL),(67,51,63,NULL),(68,51,64,NULL),(69,51,65,NULL),(70,52,66,NULL),(71,52,67,NULL),(72,53,68,NULL),(73,53,69,NULL),(74,54,70,NULL),(75,54,71,NULL),(76,55,72,NULL),(77,55,73,NULL),(78,56,74,NULL),(79,57,76,NULL),(80,58,75,NULL),(81,59,77,NULL),(82,60,78,NULL),(83,61,79,NULL),(84,61,80,NULL),(85,62,81,NULL),(86,63,82,NULL),(87,64,83,NULL),(88,64,84,NULL),(89,65,85,NULL),(90,66,86,NULL),(91,66,87,NULL),(92,67,89,NULL),(93,68,90,NULL),(94,69,91,NULL),(95,70,92,NULL),(96,70,93,NULL),(97,71,88,NULL),(98,72,94,NULL),(99,73,97,NULL),(100,73,96,NULL),(101,73,95,NULL);
+/*!40000 ALTER TABLE `descripcion liquidacion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `descripcion pedido materia prima`
+--
+
+DROP TABLE IF EXISTS `descripcion pedido materia prima`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `descripcion pedido materia prima` (
+  `iddescripcionMP` int(11) NOT NULL AUTO_INCREMENT,
+  `cantidad` float NOT NULL,
+  `precioMateriaPrima` float NOT NULL,
+  `subTotal` float NOT NULL,
+  `materiaPrima_idmateriaPrima` int(11) NOT NULL,
+  `pedido_materia_prima_idpedidoMP` int(11) NOT NULL,
+  PRIMARY KEY (`iddescripcionMP`),
+  KEY `fk_descripcion pedido materia prima_materiaPrima1_idx` (`materiaPrima_idmateriaPrima`),
+  KEY `fk_descripcion pedido materia prima_pedido materia prima1_idx` (`pedido_materia_prima_idpedidoMP`),
+  CONSTRAINT `fk_descripcion pedido materia prima_materiaPrima1` FOREIGN KEY (`materiaPrima_idmateriaPrima`) REFERENCES `materiaprima` (`idmateriaPrima`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_descripcion pedido materia prima_pedido materia prima1` FOREIGN KEY (`pedido_materia_prima_idpedidoMP`) REFERENCES `pedido materia prima` (`idpedidoMP`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `descripcion pedido materia prima`
+--
+
+LOCK TABLES `descripcion pedido materia prima` WRITE;
+/*!40000 ALTER TABLE `descripcion pedido materia prima` DISABLE KEYS */;
+INSERT INTO `descripcion pedido materia prima` VALUES (1,500,0.23,115,15,1);
+/*!40000 ALTER TABLE `descripcion pedido materia prima` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `descripcion pedido proveedores`
+--
+
+DROP TABLE IF EXISTS `descripcion pedido proveedores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `descripcion pedido proveedores` (
+  `iddescripcionP` int(11) NOT NULL AUTO_INCREMENT,
+  `cantidad` int(11) NOT NULL,
+  `precioProducto` float NOT NULL,
+  `Productos_idProductos` int(11) NOT NULL,
+  `pedido_proveedores_idpedido_proveedores` int(11) NOT NULL,
+  PRIMARY KEY (`iddescripcionP`),
+  KEY `fk_descripcion pedido proveedores_Productos1_idx` (`Productos_idProductos`),
+  KEY `fk_descripcion pedido proveedores_pedido proveedores1_idx` (`pedido_proveedores_idpedido_proveedores`),
+  CONSTRAINT `fk_descripcion pedido proveedores_pedido proveedores1` FOREIGN KEY (`pedido_proveedores_idpedido_proveedores`) REFERENCES `pedido proveedores` (`idpedido_proveedores`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_descripcion pedido proveedores_Productos1` FOREIGN KEY (`Productos_idProductos`) REFERENCES `productos` (`idProductos`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=212 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `descripcion pedido proveedores`
+--
+
+LOCK TABLES `descripcion pedido proveedores` WRITE;
+/*!40000 ALTER TABLE `descripcion pedido proveedores` DISABLE KEYS */;
+INSERT INTO `descripcion pedido proveedores` VALUES (1,6000,3.36,1,1),(2,275,9.07,3,1),(3,400,4.97,4,1),(4,35,14,8,1),(5,120,3.75,7,1),(6,25,7.19,97,1),(7,30,44.1,45,2),(8,7,85.1,49,2),(9,6,91.68,50,2),(10,6,550,58,3),(11,12,42.5,55,3),(12,144,12.7083,54,3),(13,1,91.93,98,4),(14,62,9.03,10,5),(15,1,204.12,27,5),(16,2,193.3,29,5),(17,1,143.65,30,5),(18,1,31.05,99,5),(19,9,82.2,20,5),(20,3,78.36,21,5),(21,1,64.85,100,6),(22,3,125.02,28,7),(23,240,9.03,10,7),(24,45,6.75,102,8),(25,5,7,103,8),(26,50,0.26,9,9),(27,1,15.64,6,10),(28,2,85.1,49,11),(29,2,91.68,50,11),(30,2,26.94,68,11),(31,6000,3.36,1,12),(32,275,9.07,3,13),(33,480,4.97,4,13),(34,24,3.75,7,13),(35,300,6.17,5,13),(36,10,18,69,14),(37,4,115.783,39,15),(38,150,10.75,37,15),(39,1,17,70,15),(40,1,17,71,15),(41,5,46.624,42,15),(42,6,92.68,41,15),(43,2,16.5,72,15),(44,2,13,73,15),(45,2,28,74,15),(46,600,4.5,36,16),(47,15,9.03,10,17),(48,1,16.74,25,17),(49,1,15.81,26,17),(50,8,44.6725,16,17),(51,2,83.02,12,17),(52,2,69.49,31,17),(53,1,143.65,30,17),(54,12,82.2,20,17),(55,12,17.13,22,17),(56,1,317.5,104,17),(57,1,197.44,101,17),(58,1,0,105,17),(59,240,9.03,10,18),(60,2,82.2,20,18),(61,8,44.6725,16,18),(62,2,28.82,13,18),(63,1,125.02,28,18),(64,1,125.02,28,19),(65,1,82.2,20,19),(66,1,69.48,31,19),(67,1,78.35,21,20),(68,24,3,51,21),(69,200,2.98,52,21),(70,100,8.95,53,21),(71,10,68,106,21),(72,36,2.98,107,21),(73,300,7.08333,46,22),(74,300,3.8475,47,22),(75,144,12.7083,54,23),(76,12,42.5,55,23),(77,0,0,58,23),(78,60,33.4583,56,23),(79,200,9.07,3,24),(80,400,4.97,4,24),(81,320,6.17,5,24),(82,96,3.75,7,24),(83,36,15.64,6,24),(84,35,14,8,24),(85,20,7.19,97,24),(86,7000,3.36,1,25),(87,2,62,48,26),(88,3,26.94,68,26),(89,1,43.48,110,26),(90,10,91.155,41,27),(91,10,113.198,39,27),(92,16,113.831,39,28),(93,50,10.75,37,28),(94,6,91.3267,41,28),(95,10,18,69,28),(96,18,15.75,40,28),(97,2,46.625,42,28),(98,4,80.1125,77,28),(99,300,7.08333,46,29),(100,240,9.03,10,30),(101,1,82.2,20,30),(102,1,78.35,21,30),(103,3,16,15,30),(104,1,143.65,30,30),(105,1,197.44,101,30),(106,1,28.82,13,30),(107,1,125.02,28,30),(108,16,9.03,10,31),(109,1,248.4,112,31),(110,1,64.85,100,31),(111,1,16,15,31),(112,1,44.86,113,31),(113,12,44.67,16,31),(114,2,69.49,31,31),(115,1,143.65,30,31),(116,3,78.36,21,31),(117,6,82.2,20,31),(118,1,49.39,114,31),(119,1,852.32,115,31),(120,250,9.07,3,32),(121,480,4.97,4,32),(122,400,6.17,5,32),(123,48,15.64,6,32),(124,96,3.75,7,32),(125,45,14,8,32),(126,30,7.19,97,32),(127,2000,3.36,1,33),(128,2000,3.36,1,34),(129,3400,3.36,1,35),(130,10,44.1,45,36),(131,2,85.1,49,36),(132,180,7.08333,46,37),(133,300,3.8475,47,37),(134,336,9.03,10,38),(135,2,78.36,21,38),(136,3,27.45,117,39),(137,3,125.02,28,39),(138,4,44.67,16,40),(139,19,9.03,10,41),(140,2,16.75,25,41),(141,2,15.82,26,41),(142,10,82.2,20,41),(143,2,78.36,21,41),(144,2,114.075,39,42),(145,6,46.625,42,42),(146,6,91.2,41,42),(147,4,75.5625,77,42),(148,3,179.723,119,42),(149,1,321.28,120,42),(150,2,211.065,118,42),(151,84,9.03,10,43),(152,2,69.49,31,43),(153,3,832.24,115,43),(154,5,78.36,21,43),(155,1,204.12,27,43),(156,12,17.13,22,43),(157,1,64.85,100,43),(158,2,20.62,24,43),(159,1,44.86,113,43),(160,9,82.2,20,43),(161,2,125.03,28,44),(162,1,82.2,20,44),(163,0,9.03,10,44),(164,0,9.03,10,44),(165,0,0,117,45),(166,1,822.85,115,46),(167,360,7.08,46,47),(168,7000,3.36,1,48),(169,100,9.07,3,48),(170,24,15.64,6,48),(171,400,6.17,5,48),(172,30,7.19,97,48),(173,45,14,8,48),(174,20,44.1,45,49),(175,3,85.1,49,49),(176,7000,3.36,1,50),(177,175,9.07,3,50),(178,420,4.97,4,50),(179,320,6.17,5,50),(180,48,15.64,6,50),(181,100,3.75,7,50),(182,7000,3.36,1,51),(183,200,9.07,3,51),(184,400,4.97,4,51),(185,24,15.64,6,51),(186,320,6.17,5,51),(187,60,14,8,52),(188,12,106,39,53),(189,100,10.75,37,53),(190,9,86,41,53),(191,15,15.75,40,53),(192,6,46.63,42,53),(193,2,36.25,43,53),(194,300,3.84,47,54),(195,300,7.08,46,54),(196,110,8.06,53,55),(197,20,8.06,53,56),(198,23,2.95,51,56),(199,148,3.84,52,56),(200,36,1.63,107,56),(201,120,12.45,54,57),(202,10,44.1,45,58),(203,1,26.94,68,58),(204,1,85.1,49,58),(205,1,229.92,179,58),(206,7000,3.36,1,59),(207,250,9.07,3,59),(208,440,4.97,4,59),(209,24,15.64,6,59),(210,120,3.75,7,59),(211,240,4.5,36,60);
+/*!40000 ALTER TABLE `descripcion pedido proveedores` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `descripcionclientes`
+--
+
+DROP TABLE IF EXISTS `descripcionclientes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `descripcionclientes` (
+  `iddescripcionclientes` int(11) NOT NULL AUTO_INCREMENT,
+  `productos_idProductos` int(11) NOT NULL,
+  `pedido_idpedido` int(11) DEFAULT NULL,
+  `clientes_idCliente` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `total` float NOT NULL,
+  `precio` float NOT NULL,
+  PRIMARY KEY (`iddescripcionclientes`),
+  KEY `fk_descripcionclientes_productos1_idx` (`productos_idProductos`),
+  KEY `fk_descripcionclientes_pedido1_idx` (`pedido_idpedido`),
+  KEY `fk_descripcionclientes_clientes1_idx` (`clientes_idCliente`),
+  CONSTRAINT `fk_descripcionclientes_clientes1` FOREIGN KEY (`clientes_idCliente`) REFERENCES `clientes` (`idCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_descripcionclientes_pedido1` FOREIGN KEY (`pedido_idpedido`) REFERENCES `pedido` (`idpedido`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_descripcionclientes_productos1` FOREIGN KEY (`productos_idProductos`) REFERENCES `productos` (`idProductos`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `descripcionclientes`
+--
+
+LOCK TABLES `descripcionclientes` WRITE;
+/*!40000 ALTER TABLE `descripcionclientes` DISABLE KEYS */;
+INSERT INTO `descripcionclientes` VALUES (1,83,72,39,5,150,30),(2,88,72,39,3,90,30),(3,83,72,77,2,60,30),(4,88,72,77,2,60,30),(5,83,72,5,1,30,30),(6,8,72,20,4,72,18),(7,3,72,20,32,304,9.5),(8,83,72,4,1,30,30),(9,83,72,21,10,280,28),(10,88,72,30,3,90,30);
+/*!40000 ALTER TABLE `descripcionclientes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `descripcionpedido`
+--
+
+DROP TABLE IF EXISTS `descripcionpedido`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `descripcionpedido` (
+  `iddescripcionPedido` int(11) NOT NULL AUTO_INCREMENT,
+  `Cantidad` int(11) NOT NULL,
+  `Facturado` int(11) NOT NULL,
+  `subTotal` float NOT NULL,
+  `precio` float NOT NULL,
+  `Productos_idProductos` int(11) DEFAULT NULL,
+  `pedido_idpedido` int(11) DEFAULT NULL,
+  PRIMARY KEY (`iddescripcionPedido`),
+  KEY `fk_descripcionPedido_Productos1_idx` (`Productos_idProductos`),
+  KEY `fk_descripcionPedido_pedido1_idx` (`pedido_idpedido`),
+  CONSTRAINT `fk_descripcionPedido_pedido1` FOREIGN KEY (`pedido_idpedido`) REFERENCES `pedido` (`idpedido`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_descripcionPedido_Productos1` FOREIGN KEY (`Productos_idProductos`) REFERENCES `productos` (`idProductos`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=693 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `descripcionpedido`
+--
+
+LOCK TABLES `descripcionpedido` WRITE;
+/*!40000 ALTER TABLE `descripcionpedido` DISABLE KEYS */;
+INSERT INTO `descripcionpedido` VALUES (1,40,0,150.5,0.163889,1,1),(2,5,0,52.5,0.16,3,1),(3,20,0,112,0.2,4,1),(4,3,0,47.25,0.125,8,1),(5,720,0,2817,0.130556,1,2),(6,50,0,298,0.148571,4,2),(7,1,0,17.65,0.0710526,6,2),(8,12,0,51.6,0.14,7,2),(9,25,0,197.5,0,97,2),(10,60,0,678,0.130769,10,2),(11,15,0,84,0.138462,36,2),(12,24,0,342,0.0806452,54,2),(13,12,0,114,0.05,53,2),(14,1400,0,5477.5,0.130556,1,3),(15,30,0,321,0.144,3,3),(16,50,0,298,0.148571,4,3),(17,48,0,542.4,0.130769,10,3),(18,20,0,112,0.138462,36,3),(19,24,0,183.2,0.0747475,46,3),(20,12,0,49.68,0.08,47,3),(21,24,0,342,0.0806452,54,3),(22,600,0,2257.5,0.163889,1,4),(23,5,0,52.5,0.16,3,4),(24,20,0,112,0.2,4,4),(25,4,0,70.4,0.0736844,6,4),(26,10,0,113,0.130769,10,4),(27,10,0,56,0.138462,36,4),(28,2,0,257.3,0.12483,39,4),(29,12,0,49.65,0.0805556,47,4),(47,360,0,1408.5,0.130556,1,5),(48,3,0,32.1,0.144,3,5),(49,20,0,119.2,0.148571,4,5),(50,3,0,52.62,0.0768421,6,5),(51,6,0,25.8,0.14,7,5),(52,12,0,135.6,0.130769,10,5),(53,30,0,168,0.138462,36,5),(54,6,0,85.5,0.0806452,54,5),(55,6,0,19.2,0,52,5),(56,3,0,37.5,0.0384615,37,5),(57,48,0,366.4,0.0747475,46,5),(58,720,0,2817,0.130556,1,6),(59,5,0,53.5,0.144,3,6),(60,10,0,113,0.130769,10,6),(61,50,0,280,0.138462,36,6),(62,12,0,91.6,0.0747475,46,6),(63,6,0,85.5,0.0806452,54,6),(64,320,0,1252,0.130556,1,7),(65,75,0,802.5,0.144,3,7),(66,60,0,357.601,0.14857,4,7),(67,50,0,14.3,0,9,7),(68,20,0,112,0.13846,36,7),(69,1,0,100.055,0.0986,41,7),(70,18,0,137.4,0.074747,46,7),(71,24,0,99.3006,0.08055,47,7),(72,880,0,3443,0.130556,1,8),(73,60,0,642,0.144,3,8),(74,80,0,476.801,0.14857,4,8),(75,6,0,105.24,0.07684,6,8),(76,48,0,542.4,0.130769,10,8),(77,25,0,140,0.13846,36,8),(78,35,0,437.501,0.03846,37,8),(79,12,0,91.6,0.074747,46,8),(80,24,0,99.3001,0.080555,47,8),(81,480,0,1878,0.130555,1,9),(82,25,0,267.5,0.144,3,9),(83,40,0,238.4,0.14857,4,9),(84,1,0,17.54,0.07684,6,9),(85,20,0,86,0.14,7,9),(86,5,0,56.5,0.130769,10,9),(87,50,0,280,0.13846,36,9),(88,60,0,458,0.074747,46,9),(89,24,0,99.3001,0.080555,47,9),(90,6,0,85.5,0.080645,54,9),(91,4,0,12.8,0,52,9),(92,10,0,107,0.144,3,10),(93,15,0,84.0001,0.138461,36,10),(94,12,0,171,0.080645,54,10),(95,10,0,300,0.142857,83,11),(96,7,0,189,0.228571,83,11),(97,4,0,2300,0,58,11),(98,2,0,93.5,0.00531915,57,11),(99,12,0,564,0,57,11),(100,3,0,153,0,55,11),(101,12,0,489,0.128342,56,11),(102,1,0,280,0,64,11),(103,15,0,56.25,0,86,11),(104,160,0,602,0.163889,1,12),(105,25,0,262.5,0.16,3,12),(106,20,0,112,0.2,4,12),(107,20,0,143.408,0.1037,5,12),(108,12,0,135.6,0.130769,10,12),(109,10,0,56.0001,0.13846,36,12),(110,1,0,100.055,0.0986,41,12),(111,18,0,135.001,0.0909,46,12),(112,24,0,99.306,0.0805,47,12),(113,200,0,782.5,0.130555,1,13),(114,20,0,119.2,0.14857,4,13),(115,40,0,288,0.1,5,13),(116,5,0,56.5,0.130769,10,13),(117,3,0,37.5024,0.0384,37,13),(118,72,0,549.604,0.07474,46,13),(119,12,0,49.653,0.0805,47,13),(120,6,0,85.5005,0.08064,54,13),(121,400,0,1565.1,0.1305,1,14),(122,600,0,2347.52,0.13055,1,15),(123,6,0,64.2,0.144,3,15),(124,100,0,596.001,0.14857,4,15),(125,40,0,288,0.1,5,15),(126,48,0,542.4,0.130769,10,15),(127,30,0,375.001,0.03846,37,15),(128,10,0,210,0,69,15),(129,60,0,458.004,0.07474,46,15),(130,60,0,248.265,0.0805,47,15),(131,480,0,1878.01,0.13055,1,16),(132,12,0,128.4,0.144,3,16),(133,80,0,476.801,0.14857,4,16),(134,25,0,180,0.1,5,16),(135,20,0,86,0.14,7,16),(136,30,0,168,0.13846,36,16),(137,24,0,183.201,0.07474,46,16),(138,24,0,99.3006,0.08055,47,16),(139,12,0,171,0.080645,54,16),(140,1200,0,4695.03,0.13055,1,17),(141,20,0,214,0.144,3,17),(142,20,0,119.2,0.14857,4,17),(143,40,0,288,0.1,5,17),(144,48,0,542.443,0.1307,10,17),(145,20,0,112,0.13846,36,17),(146,1,0,128.651,0.12482,39,17),(147,30,0,229.012,0.0747,46,17),(148,12,0,171,0.080645,54,17),(149,5,0,47.5,0.05,53,17),(150,4,0,30,0,102,17),(151,1,0,8.05,0,103,17),(152,680,0,2660.52,0.13055,1,18),(153,50,0,280,0.13846,36,18),(154,6,0,85.5005,0.08064,54,18),(155,15,0,142.5,0.05,53,18),(156,18,0,57.6007,0.28888,107,18),(157,880,0,3443.02,0.13055,1,19),(158,60,0,357.601,0.14857,4,19),(159,40,0,288,0.1,5,19),(160,15,0,64.5,0.14,7,19),(161,15,0,169.502,0.13076,10,19),(162,15,0,84.0002,0.13846,36,19),(163,7,0,74.9,0.144,3,19),(164,2,0,25,0.03846,37,19),(165,4,0,30,0,102,19),(166,7,0,87.5,0,3,20),(167,8,0,56,0,4,20),(168,52,0,260,0,7,20),(169,39,0,507,0,10,20),(170,13,0,84.5,0,36,20),(171,4,0,585.001,0.0051,39,20),(172,34,0,153,0,1,20),(173,5,0,63.75,0.0192307,37,20),(174,8,0,156,0,40,20),(175,10,0,107,0.144,3,21),(176,40,0,238.4,0.14857,4,21),(177,40,0,288,0.1,5,21),(178,15,0,64.5,0.14,7,21),(179,6,0,67.8,0.130769,10,21),(180,20,0,112,0.13846,36,21),(181,72,0,549.604,0.07474,46,21),(182,24,0,99.3006,0.08055,47,21),(183,24,0,79.68,0.262222,51,21),(184,4,0,38,0.05,53,21),(185,4,0,30,0,102,21),(186,1,0,8.05,0,103,21),(187,480,0,1878.01,0.13055,1,21),(188,10,0,750,0,106,22),(189,150,0,480,0,52,22),(190,15,0,142.5,0.05,53,22),(191,800,0,3130.02,0.13055,1,23),(192,60,0,643.95,0.1414,3,23),(193,80,0,476.801,0.14857,4,23),(194,25,0,180,0.1,5,23),(195,48,0,542.406,0.13076,10,23),(196,12,0,49.65,0.080555,47,23),(197,12,0,171,0.080645,54,23),(198,6,0,19.2002,0.28888,107,23),(199,6,0,48.1759,0.02675,46,24),(200,12,0,50.643,0.0621666,47,24),(201,3,0,441,0,39,25),(202,6,0,78,0,10,25),(203,5,0,150,0.142857,83,25),(204,3,0,90,0,88,25),(205,1,0,13,0,37,25),(206,1,0,13,0,10,25),(207,2,0,9,0,1,25),(208,1,0,19,0.05,15,25),(209,31,0,930,0.142857,83,26),(210,20,0,560,0.2,83,26),(211,8,0,200,0.285714,83,26),(212,6,0,90,0.318182,84,26),(213,8,0,240,0,88,26),(214,7,0,189,0.1,88,26),(215,21,0,795.9,0.097619,81,26),(216,24,0,1128,0,57,26),(217,3,0,105,0,83,27),(218,1,0,180,0,28,27),(219,1,0,86,0,31,27),(220,1,0,99,0,20,27),(221,35,0,1050,0.142857,83,28),(222,15,0,420,0.2,83,28),(223,5,0,135,0.22857,83,28),(224,25,0,625.004,0.28571,83,28),(225,26,0,780,0,88,28),(226,2,0,150,0,111,28),(227,36,0,1467,0.12834,56,28),(228,2,0,204,0,49,28),(229,2,0,107.6,0,45,28),(230,1,0,150.001,0.16666,28,28),(231,2,0,198,0,20,28),(232,1,0,0,1,105,29),(233,1,0,237,0,101,29),(234,12,0,1188,0,20,29),(235,1,0,94,0.0105263,21,29),(236,10,0,210,0.0869565,22,29),(237,2,0,168,0.0232558,31,29),(238,1,0,178,0.179723,30,29),(239,15,0,195,0,10,29),(240,1,0,20,0,25,29),(241,1,0,22,0,70,29),(242,1,0,19,0,26,29),(243,1,0,22,0,71,29),(244,1,0,391,0,104,29),(245,8,0,432,0.0442478,16,29),(246,2,0,197.74,0,12,29),(247,10,0,130,0,37,29),(248,24,0,840,0,83,29),(249,3,0,90,0,88,29),(250,10,0,550,0,45,29),(251,2,0,70,0,68,29),(252,400,0,1565.01,0.13055,1,30),(253,20,0,144,0.1,5,30),(254,1,0,17.594,0.074,6,30),(255,10,0,79,0,97,30),(256,15,0,84.0002,0.13846,36,30),(257,6,0,45.8023,0.0747,46,30),(258,1120,0,4382.03,0.13055,1,31),(259,100,0,1070,0.144,3,31),(260,60,0,357.601,0.14857,4,31),(261,24,0,342,0.080645,54,31),(262,10,0,113.009,0.1307,10,31),(263,24,0,422.256,0.074,6,31),(264,25,0,180,0.1,5,31),(265,3,0,300.366,0.098,41,31),(266,15,0,142.5,0.05,53,31),(267,4,0,30,0,102,31),(268,1,0,8.05,0,103,31),(269,6,0,45.8004,0.07474,46,32),(270,12,0,171,0.080645,54,32),(271,80,0,301,0.163888,1,33),(272,15,0,157.5,0.16,3,33),(273,10,0,71.704,0.1037,5,33),(274,10,0,113,0.130769,10,33),(275,24,0,180,0.090909,46,33),(276,12,0,49.6503,0.08055,47,33),(277,2,0,31.5,0.125,8,33),(278,6,0,33.6001,0.13846,36,33),(279,320,0,1252.01,0.13055,1,34),(280,5,0,53.5,0.144,3,34),(281,20,0,119.21,0.1485,4,34),(282,3,0,52.782,0.074,6,34),(283,40,0,288,0.1,5,34),(284,6,0,25.8,0.14,7,34),(285,6,0,67.8007,0.13076,10,34),(286,60,0,458.004,0.07474,46,34),(287,3,0,37.5001,0.03846,37,34),(288,6,0,85.5,0.080645,54,34),(289,3,0,28.5,0.05,53,34),(290,600,0,2347.52,0.13055,1,35),(291,12,0,128.4,0.144,3,35),(292,80,0,482.401,0.13857,4,35),(293,40,0,288,0.1,5,35),(294,48,0,542.4,0.130769,10,35),(295,50,0,625.001,0.03846,37,35),(296,60,0,458,0.074747,46,35),(297,60,0,248.25,0.080555,47,35),(298,4,0,30,0,102,35),(299,1,0,8.05,0,103,35),(300,800,0,3130.02,0.13055,1,36),(301,6,0,64.395,0.1414,3,36),(302,40,0,288,0.1,5,36),(303,40,0,224,0.13846,36,36),(304,2,0,25,0.03846,37,36),(305,5,0,47.5,0.05,53,36),(306,1400,0,5477.54,0.13055,1,37),(307,30,0,321,0.144,3,37),(308,60,0,357.6,0.148571,4,37),(309,40,0,288,0.1,5,37),(310,10,0,79,0,97,37),(311,48,0,542.4,0.130769,10,37),(312,1,0,100.055,0.0986,41,37),(313,30,0,229,0.074747,46,37),(314,12,0,49.6503,0.08055,47,37),(315,5,0,47.5,0.05,53,37),(316,560,0,2107,0.163889,1,38),(317,40,0,224,0.2,4,38),(318,80,0,573.632,0.1037,5,38),(319,15,0,169.5,0.130769,10,38),(320,9,0,50.4,0.138462,36,38),(321,12,0,1543.8,0.12483,39,38),(322,12,0,1200.6,0.098648,41,38),(323,4,0,359.44,0,77,38),(324,12,0,90,0.0909091,46,38),(325,6,0,45,0,102,38),(326,600,0,2347.52,0.13055,1,39),(327,20,0,214,0.144,3,39),(328,60,0,357.6,0.148571,4,39),(329,18,0,77.4,0.14,7,39),(330,15,0,84,0.138462,36,39),(331,60,0,458,0.074747,46,39),(332,36,0,148.95,0.080555,47,39),(333,10,0,210,0,69,40),(334,1,0,35,0,116,40),(335,2,0,102,0,42,41),(336,520,0,2034.51,0.13055,1,42),(337,5,0,53.5,0.144,3,42),(338,3,0,12.9,0.14,7,42),(339,20,0,226,0.130769,10,42),(340,40,0,224,0.138461,36,42),(341,6,0,45.8,0.074747,46,42),(342,24,0,342,0.0806451,54,42),(343,15,0,142.5,0.05,53,42),(344,280,0,1095.51,0.13055,1,43),(345,10,0,107,0.144,3,43),(346,40,0,288,0.1,5,43),(347,3,0,52.782,0.074,6,43),(348,30,0,168,0.138461,36,43),(349,24,0,183.2,0.074747,46,43),(350,3,0,37.5,0.038461,37,43),(351,720,0,2817.02,0.13055,1,44),(352,8,0,85.6,0.144,3,44),(353,100,0,596,0.148571,4,44),(354,60,0,432,0.1,5,44),(355,8,0,140.752,0.074,6,44),(356,48,0,542.4,0.130769,10,44),(357,72,0,549.6,0.074747,46,44),(358,48,0,198.6,0.080555,47,44),(359,15,0,51,0,52,44),(360,1000,0,3912.52,0.13055,1,45),(361,80,0,476.8,0.148571,4,45),(362,75,0,802.5,0.144,3,45),(363,15,0,169.5,0.130769,10,45),(364,40,0,288,0.1,5,45),(365,12,0,211.128,0.074,6,45),(366,48,0,684,0.0806452,54,45),(367,240,0,939.006,0.13055,1,46),(368,5,0,53.5,0.144,3,46),(369,20,0,144,0.1,5,46),(370,12,0,51.6,0.14,7,46),(371,10,0,79,0,97,46),(372,48,0,542.4,0.130769,10,46),(373,20,0,112,0.13846,36,46),(374,6,0,45.8,0.074747,46,46),(375,3,0,28.5,0.05,53,46),(376,12,0,91.6,0.074747,46,47),(377,15,0,84.0001,0.138461,36,47),(378,5,0,53.5,0.144,3,47),(379,80,0,313.002,0.13055,1,47),(380,3,0,385.95,0.124829,39,48),(381,6,0,600.306,0.09864,41,48),(382,2,0,485.06,0,118,48),(383,3,0,619.8,0,119,48),(384,1,0,369.24,0,120,48),(385,4,0,359.44,0,77,48),(386,9,0,270,0.142857,83,49),(387,10,0,250,0.285714,83,49),(388,1,0,27,0.228571,83,49),(389,15,0,56.25,0,86,49),(390,7,0,210,0,88,49),(391,5,0,125,0.166667,88,49),(392,1,0,35,0,13,49),(393,1,0,56.5,0,16,49),(394,1,0,12.5008,0.0384,37,49),(395,1,0,13,0,10,49),(396,1,0,53.8,0.021818,45,49),(397,1,0,51,0,55,49),(398,19,0,570,0.142857,83,50),(399,7,0,189,0.228571,83,50),(400,10,0,280,0.2,83,50),(401,1,0,30,0,88,50),(402,2,0,102,0,55,50),(403,2,0,93.5,0.00531915,57,50),(404,1,0,76,0,48,50),(405,6,0,27,0,1,50),(406,4,0,2300,0,58,50),(407,24,0,978,0.128342,56,50),(408,2,0,150,0,111,51),(409,8,0,240,0.142857,83,51),(410,36,0,1692,0,57,51),(411,15,0,270,0,8,51),(412,12,0,360,0.142857,83,52),(413,12,0,180,0.318182,84,52),(414,7,0,196,0.2,83,52),(415,4,0,108,0.1,88,52),(416,10,0,300,0,88,52),(417,33,0,594,0,8,52),(418,3,0,441,0,39,52),(419,12,0,156,0,10,52),(420,8,0,36,0,1,52),(421,36,0,1080,0.142857,83,53),(422,20,0,560,0.2,83,53),(423,40,0,1000,0.285714,83,53),(424,7,0,189,0.228571,83,53),(425,23,0,690,0,88,53),(426,24,0,978,0.128342,56,53),(427,2,0,1150,0,58,53),(428,1,0,13,0,37,53),(429,2,0,109.415,0.00531914,45,53),(430,2,0,204,0,49,53),(431,1,0,110,0.0833333,62,53),(432,1,0,99,0,20,53),(433,1,0,180,0,28,53),(434,1,0,237,0,101,53),(435,20,0,600,0.142857,83,54),(436,5,0,135,0.228571,83,54),(437,4,0,120,0,88,54),(438,5,0,125.01,0.1666,88,54),(439,15,0,56.25,0,86,54),(440,4,0,2300,0,58,54),(441,1,0,35,0,13,54),(442,4,0,204,0,42,54),(443,72,0,3384,0,57,54),(444,6,0,27,0,1,54),(445,4,0,120,0.142857,83,55),(446,15,0,375,0.285714,83,55),(447,22,0,616,0.2,83,55),(448,5,0,150,0,88,55),(449,24,0,978,0.128342,56,55),(450,2,0,150,0,111,55),(451,2,0,60,0.142857,83,56),(452,1,0,99,0,20,56),(453,24,0,978,0.128342,56,56),(454,2,0,150,0,111,56),(455,1,0,150,0.166667,28,56),(456,720,0,2817.02,0.13055,1,57),(457,5,0,53.5,0.144,3,57),(458,20,0,119.2,0.148571,4,57),(459,40,0,288,0.1,5,57),(460,5,0,21.5,0.14,7,57),(461,10,0,113,0.130769,10,57),(462,60,0,336,0.138462,36,57),(463,6,0,85.5,0.0806455,54,57),(464,1400,0,5477.54,0.13055,1,58),(465,30,0,321,0.144,3,58),(466,60,0,357.6,0.148571,4,58),(467,60,0,432,0.1,5,58),(468,48,0,542.338,0.130869,10,58),(469,40,0,224,0.138461,36,58),(470,1,0,128.651,0.12482,39,58),(471,3,0,300.15,0.098648,41,58),(472,24,0,183.2,0.074747,46,58),(473,12,0,49.65,0.080555,47,58),(474,4,0,40,0.090909,59,58),(475,760,0,2973.52,0.13055,1,59),(476,40,0,238.4,0.14857,4,59),(477,2,0,35.188,0.074,6,59),(478,20,0,144,0.1,5,59),(479,20,0,226,0.130769,10,59),(480,15,0,64.5,0.14,7,59),(481,18,0,100.8,0.138461,36,59),(482,58,0,655.407,0.13076,10,60),(483,1200,0,4695.03,0.13055,1,61),(484,80,0,476.801,0.14857,4,61),(485,60,0,642,0.144,3,61),(486,48,0,542.406,0.13076,10,61),(487,24,0,183.201,0.07474,46,61),(488,48,0,198.601,0.08055,47,61),(489,30,0,427.502,0.08064,54,61),(490,12,0,211.128,0.074,6,61),(491,20,0,190,0.05,53,61),(492,640,0,2504.02,0.13055,1,62),(493,15,0,160.5,0.144,3,62),(494,40,0,238.4,0.14857,4,62),(495,40,0,288,0.1,5,62),(496,3,0,52.782,0.074,6,62),(497,12,0,51.6,0.14,7,62),(498,6,0,67.8007,0.13076,10,62),(499,60,0,336.001,0.13846,36,62),(500,60,0,458.004,0.07474,46,62),(501,36,0,148.951,0.08055,47,62),(502,400,0,1565.01,0.13055,1,63),(503,20,0,144,0.1,5,63),(504,20,0,112,0.138461,36,63),(505,19,0,214.702,0.13076,10,63),(506,1,0,11.3,0.130769,11,63),(507,2,0,25,0.03846,37,63),(508,2,0,257.303,0.12482,39,63),(509,6,0,45.8,0.074747,46,63),(510,360,0,1408.51,0.13055,1,64),(511,40,0,288,0.1,5,64),(512,10,0,113.01,0.13069,10,64),(513,20,0,112,0.13846,36,64),(514,60,0,458,0.074747,46,64),(515,24,0,99.3006,0.08055,47,64),(516,4,0,50.0001,0.03846,37,64),(517,6,0,54.0005,0.18181,59,64),(518,2,0,200.111,0.0986,41,65),(519,8,0,44.8001,0.13846,36,65),(520,3,0,47.25,0.125,8,65),(521,6,0,105.6,0.073684,6,65),(522,32,0,336,0.16,3,65),(523,1400,0,5477.54,0.13055,1,66),(524,15,0,160.5,0.144,3,66),(525,40,0,238.4,0.14857,4,66),(526,10,0,72,0.1,5,66),(527,6,0,105.6,0.07368,6,66),(528,10,0,79,0,97,66),(529,48,0,542.4,0.130769,10,66),(530,30,0,168,0.13846,36,66),(531,36,0,274.802,0.07474,46,66),(532,12,0,49.6503,0.08055,47,66),(533,760,0,2973.52,0.13055,1,67),(534,5,0,53.5,0.144,3,67),(535,20,0,119.2,0.14857,4,67),(536,8,0,34.4,0.14,7,67),(537,50,0,280,0.13846,36,67),(538,36,0,274.814,0.0747,46,67),(539,48,0,198.601,0.08055,47,67),(540,6,0,85.5042,0.0806,54,67),(547,1200,0,4695,3.9125,1,69),(548,60,0,642,10.7,3,69),(549,80,0,476.8,5.96,4,69),(550,20,0,144,7.2,5,69),(551,12,0,211.2,17.6,6,69),(552,12,0,51.6,4.3,7,69),(553,20,0,226,11.3,10,69),(554,3,0,137.4,45.8,46,69),(555,2,0,99.3,49.65,47,69),(556,640,0,2504,3.9125,1,73),(557,30,0,321,10.7,3,73),(558,40,0,238.4,5.96,4,73),(559,40,0,288,7.2,5,73),(560,3,0,52.8,17.6,6,73),(561,10,0,43,4.3,7,73),(562,25,0,140,5.6,36,73),(563,10,0,458,45.8,46,73),(564,3,0,148.95,49.65,47,73),(565,320,0,1252,3.9125,1,74),(566,10,0,107,10.7,3,74),(567,40,0,238.4,5.96,4,74),(568,30,0,339,11.3,10,74),(569,30,0,375,12.5,37,74),(570,10,0,458,45.8,46,74),(571,2,0,99.3,49.65,47,74),(572,520,0,2034.5,3.9125,1,75),(573,20,0,119.2,5.96,4,75),(574,25,0,282.5,11.3,10,75),(575,40,0,224,5.6,36,75),(576,60,0,2748,45.8,46,75),(577,520,0,2034.5,3.9125,1,76),(578,20,0,119.2,5.96,4,76),(579,25,0,282.5,11.3,10,76),(580,40,0,224,5.6,36,76),(581,60,0,458,7.63333,46,76),(582,680,0,2556.8,3.76,1,77),(583,40,0,224,5.6,4,77),(584,10,0,71.7,7.17,5,77),(585,15,0,84,5.6,36,77),(586,10,0,113,11.3,10,77),(587,12,0,49.65,4.1375,47,77),(588,120,0,451.2,3.76,1,78),(589,10,0,56,5.6,36,78),(590,5,0,56.5,11.3,10,78),(591,10,0,56,5.6,4,78),(592,24,0,99.3,4.1375,47,78),(593,168,0,1260,7.5,46,78),(594,16,0,168,10.5,3,78),(595,10,0,71.7,7.17,5,78),(596,480,0,1878,3.9125,1,79),(597,5,0,53.5,10.7,3,79),(598,20,0,226,11.3,10,79),(599,15,0,84,5.6,36,79),(600,3,0,22.95,7.65,178,79),(601,600,0,2347.5,3.9125,1,80),(602,5,0,53.5,10.7,3,80),(603,20,0,119.2,5.96,4,80),(604,12,0,51.6,4.3,7,80),(605,20,0,226,11.3,10,80),(606,10,0,56,5.6,36,80),(607,400,0,1565,3.9125,1,81),(608,100,0,596,5.96,4,81),(609,48,0,542.4,11.3,10,81),(610,60,0,458,7.63333,46,81),(611,60,0,248.25,4.1375,47,81),(612,600,0,2347.5,3.9125,1,82),(613,80,0,476.8,5.96,4,82),(614,12,0,211.2,17.6,6,82),(615,120,0,1284,10.7,3,82),(616,18,0,137.4,7.63333,46,82),(617,36,0,148.95,4.1375,47,82),(618,20,0,112,5.6,36,82),(619,5,0,56.5,11.3,10,82),(620,760,0,2973.5,3.9125,1,83),(621,25,0,267.5,10.7,3,83),(622,30,0,178.8,5.96,4,83),(623,8,0,34.4,4.3,7,83),(624,25,0,282.5,11.3,10,83),(625,9,0,50.4,5.6,36,83),(626,18,0,137.4,7.63333,46,83),(627,1440,0,5634,3.9125,1,84),(628,20,0,214,10.7,3,84),(629,60,0,357.6,5.96,4,84),(630,20,0,144,7.2,5,84),(631,10,0,79,7.9,97,84),(632,48,0,542.4,11.3,10,84),(633,30,0,229,7.63333,46,84),(634,12,0,114,9.5,53,84),(635,20,0,64,3.2,107,85),(636,12,0,114,9.5,53,85),(637,640,0,2504,3.9125,1,86),(638,20,0,214,10.7,3,86),(639,40,0,238.4,5.96,4,86),(640,40,0,288,7.2,5,86),(641,2,0,35.2,17.6,6,86),(642,18,0,77.4,4.3,7,86),(643,72,0,549.6,7.63333,46,86),(644,36,0,148.95,4.1375,47,86),(647,24,0,79.68,3.32,51,88),(648,5,0,47.5,9.5,53,88),(649,1200,0,4695,3.9125,1,89),(650,60,0,642,10.7,3,89),(651,60,0,357.6,5.96,4,89),(652,48,0,542.4,11.3,10,89),(653,12,0,211.2,17.6,6,89),(654,15,0,108,7.2,5,89),(655,24,0,342,14.25,54,89),(656,3,0,300.75,100.25,41,89),(657,20,0,190,9.5,53,89),(658,10,0,32,3.2,107,89),(659,480,0,1878,3.9125,1,90),(660,10,0,107,10.7,3,90),(661,20,0,226,11.3,10,90),(662,48,0,684,14.25,54,90),(663,6,0,57,9.5,53,90),(664,760,0,2857.6,3.76,1,91),(665,40,0,224,5.6,4,91),(666,4,0,70.4,17.6,6,91),(667,12,0,135.6,11.3,10,91),(668,15,0,63,4.2,7,91),(669,520,0,2034.5,3.9125,1,92),(670,6,0,64.2,10.7,3,92),(671,20,0,119.2,5.96,4,92),(672,78,0,595.4,7.63333,46,92),(673,3,0,37.5,12.5,37,92),(674,6,0,85.5,14.25,54,92),(675,240,0,939,3.9125,1,93),(676,20,0,119.2,5.96,4,93),(677,5,0,53.5,10.7,3,93),(678,12,0,51.6,4.3,7,93),(679,73,0,824.9,11.3,10,93),(680,10,0,56,5.6,36,93),(681,6,0,45.8,7.63333,46,93),(682,12,0,171,14.25,54,93),(683,1040,0,4069,3.9125,1,94),(684,30,0,321,10.7,3,94),(685,80,0,476.8,5.96,4,94),(686,8,0,140.8,17.6,6,94),(687,24,0,342,14.25,54,94),(688,12,0,91.6,7.63333,46,94),(689,24,0,99.3,4.1375,47,94),(690,72,0,813.6,11.3,10,94),(691,40,0,224,5.6,36,94),(692,30,0,216,7.2,5,94);
+/*!40000 ALTER TABLE `descripcionpedido` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `facturas`
+--
+
+DROP TABLE IF EXISTS `facturas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `facturas` (
+  `idFacturas` int(11) NOT NULL AUTO_INCREMENT,
+  `serie` varchar(1) NOT NULL,
+  `numero` int(11) NOT NULL,
+  `total` float NOT NULL,
+  `Clientes_idCliente` int(11) NOT NULL,
+  PRIMARY KEY (`idFacturas`),
+  KEY `fk_Facturas_Clientes1_idx` (`Clientes_idCliente`),
+  CONSTRAINT `fk_Facturas_Clientes1` FOREIGN KEY (`Clientes_idCliente`) REFERENCES `clientes` (`idCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `facturas`
+--
+
+LOCK TABLES `facturas` WRITE;
+/*!40000 ALTER TABLE `facturas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `facturas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `inventario materia prima`
+--
+
+DROP TABLE IF EXISTS `inventario materia prima`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `inventario materia prima` (
+  `idInventarioMateriaPrima` int(11) NOT NULL AUTO_INCREMENT,
+  `cantidad` float NOT NULL,
+  `materiaPrima_idmateriaPrima` int(11) NOT NULL,
+  `bodegaProduccion_idbodegaProduccion` int(11) NOT NULL,
+  PRIMARY KEY (`idInventarioMateriaPrima`),
+  KEY `fk_inventario materia prima_bodegaProduccion1_idx` (`bodegaProduccion_idbodegaProduccion`),
+  KEY `fk_inventario materia prima_materiaPrima1` (`materiaPrima_idmateriaPrima`),
+  CONSTRAINT `fk_inventario materia prima_bodegaProduccion1` FOREIGN KEY (`bodegaProduccion_idbodegaProduccion`) REFERENCES `bodegaproduccion` (`idbodegaProduccion`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_inventario materia prima_materiaPrima1` FOREIGN KEY (`materiaPrima_idmateriaPrima`) REFERENCES `materiaprima` (`idmateriaPrima`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `inventario materia prima`
+--
+
+LOCK TABLES `inventario materia prima` WRITE;
+/*!40000 ALTER TABLE `inventario materia prima` DISABLE KEYS */;
+INSERT INTO `inventario materia prima` VALUES (1,326,1,1),(2,208,2,1),(3,145,3,1),(4,39,4,1),(5,93,5,1),(6,6,6,1),(7,9,7,1),(8,226,8,1),(9,1000,9,1),(10,700,10,1),(11,165,11,1),(12,553,12,1),(13,107,13,1),(14,400,15,5),(15,10.49,17,3),(16,0.79,18,3),(17,5.82,19,3),(18,14.3,20,3),(19,0.125,21,3),(20,1.09,22,3),(21,4.77,23,3),(27,4.01,24,3),(28,1.99,25,3),(29,1.61,26,3),(30,5.45,27,3),(31,1.42,28,3),(32,1.3,29,3),(33,0.83,30,3),(34,1.6,31,3),(35,44.44,32,2),(36,1.57,33,2),(37,1.02,34,2),(38,0.53,35,2),(39,53,36,2),(40,2.22,37,2),(41,18.29,38,2),(42,2.78,39,2),(43,2.58,40,2),(44,7000,41,4);
+/*!40000 ALTER TABLE `inventario materia prima` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `inventario producto`
+--
+
+DROP TABLE IF EXISTS `inventario producto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `inventario producto` (
+  `idInventarioProducto` int(11) NOT NULL AUTO_INCREMENT,
+  `cantidad` int(11) NOT NULL,
+  `Productos_idProductos` int(11) NOT NULL,
+  `bodegaProductos_idbodega` int(11) NOT NULL,
+  PRIMARY KEY (`idInventarioProducto`),
+  KEY `fk_Productos_has_bodegaProductos_bodegaProductos1_idx` (`bodegaProductos_idbodega`),
+  KEY `fk_Productos_has_bodegaProductos_Productos1_idx` (`Productos_idProductos`),
+  CONSTRAINT `fk_Productos_has_bodegaProductos_bodegaProductos1` FOREIGN KEY (`bodegaProductos_idbodega`) REFERENCES `bodegaproductos` (`idbodega`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Productos_has_bodegaProductos_Productos1` FOREIGN KEY (`Productos_idProductos`) REFERENCES `productos` (`idProductos`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=180 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `inventario producto`
+--
+
+LOCK TABLES `inventario producto` WRITE;
+/*!40000 ALTER TABLE `inventario producto` DISABLE KEYS */;
+INSERT INTO `inventario producto` VALUES (1,9596,1,1),(2,80,2,1),(3,365,3,1),(4,441,4,1),(5,902,5,1),(6,68,6,1),(7,106,7,1),(8,60,8,1),(9,0,9,1),(10,17,10,1),(11,0,11,1),(12,1,12,5),(13,2,13,5),(14,1,14,1),(15,2,15,1),(16,2,16,1),(17,0,17,1),(18,1,18,1),(19,0,19,1),(20,0,20,1),(21,1,21,5),(22,2,22,1),(23,0,23,5),(24,0,24,1),(25,0,25,1),(26,0,26,1),(27,0,27,1),(28,2,28,5),(29,0,29,1),(30,1,30,1),(31,0,31,5),(32,0,32,1),(33,0,33,1),(34,0,34,1),(35,1,35,1),(36,280,36,1),(37,133,37,1),(38,0,38,1),(39,16,39,1),(40,15,40,1),(41,6,41,1),(42,18,42,1),(43,2,43,1),(44,0,44,1),(45,25,45,5),(46,613,46,1),(47,482,47,1),(48,1,48,1),(49,4,49,1),(50,2,50,1),(51,0,51,2),(52,0,52,2),(53,-6,53,2),(54,12,54,1),(55,1,55,1),(56,4,56,5),(57,1,57,1),(58,0,58,1),(59,9,59,2),(60,17,60,1),(61,0,61,1),(62,1,62,1),(63,0,63,1),(64,0,64,1),(65,0,65,1),(66,22,66,1),(67,0,67,1),(68,1,68,5),(69,0,69,1),(70,0,70,1),(71,0,71,5),(72,0,72,1),(73,0,73,1),(74,0,74,1),(75,0,75,1),(76,0,76,1),(77,0,77,1),(78,0,78,1),(79,0,79,5),(80,0,80,5),(81,47,81,5),(82,0,82,5),(83,36,83,5),(84,9,84,5),(85,0,85,5),(86,0,86,5),(87,0,87,5),(88,2,88,5),(89,0,89,5),(90,0,90,5),(91,2,91,5),(92,157,92,1),(93,4,93,5),(94,0,94,5),(95,48,95,5),(96,0,96,1),(97,40,97,1),(98,1,98,1),(99,0,99,5),(100,1,100,1),(101,0,101,1),(102,3,102,1),(103,0,103,1),(104,0,104,1),(105,0,105,5),(106,0,106,2),(107,0,107,2),(108,6,108,2),(109,0,109,2),(110,0,110,5),(111,0,111,2),(112,1,112,5),(113,0,113,5),(114,0,114,5),(115,2,115,5),(116,0,116,2),(117,0,117,5),(118,0,118,1),(119,0,119,1),(120,0,120,1),(121,2,121,2),(122,10,122,2),(123,3,123,2),(124,0,124,2),(125,1,125,2),(126,1,126,2),(127,2,127,2),(128,1,128,2),(129,1,129,2),(130,0,130,2),(131,1,131,2),(132,1,132,2),(133,1,133,2),(134,3,134,2),(135,0,135,2),(136,1,136,2),(137,0,137,2),(138,0,138,2),(139,0,139,2),(140,13,140,2),(141,0,141,2),(142,0,142,2),(143,1,143,2),(144,3,144,2),(145,0,145,2),(146,0,146,2),(147,0,147,2),(148,0,148,2),(149,0,149,2),(150,0,150,2),(151,0,151,2),(152,0,152,2),(153,0,153,2),(154,0,154,2),(155,0,155,2),(156,0,156,2),(157,0,157,2),(158,0,158,2),(159,0,159,2),(160,2,160,2),(161,1,161,2),(162,0,162,2),(163,1,163,2),(164,3,164,2),(165,2,165,2),(166,1,166,2),(167,0,167,2),(168,0,168,2),(169,0,169,2),(170,0,170,2),(171,0,171,2),(172,0,172,2),(173,0,173,2),(174,0,174,2),(175,0,175,2),(176,0,176,2),(177,0,177,2),(178,26,178,1),(179,2,179,1);
+/*!40000 ALTER TABLE `inventario producto` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `liquidacion`
+--
+
+DROP TABLE IF EXISTS `liquidacion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `liquidacion` (
+  `idliquidacion` int(11) NOT NULL AUTO_INCREMENT,
+  `total` float NOT NULL,
+  `subtotal` float NOT NULL,
+  `pedido_idpedido` int(11) NOT NULL,
+  PRIMARY KEY (`idliquidacion`),
+  KEY `fk_liquidacion_pedido1_idx` (`pedido_idpedido`),
+  CONSTRAINT `fk_liquidacion_pedido1` FOREIGN KEY (`pedido_idpedido`) REFERENCES `pedido` (`idpedido`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `liquidacion`
+--
+
+LOCK TABLES `liquidacion` WRITE;
+/*!40000 ALTER TABLE `liquidacion` DISABLE KEYS */;
+INSERT INTO `liquidacion` VALUES (1,362.25,362.25,1),(2,4655,4653.45,2),(3,2875.35,2875.16,7),(4,3440.6,3440.6,6),(5,7401.5,7389.5,3),(6,3466.8,3479.54,9),(7,2968.35,2968.35,4),(9,5977.89,5977.84,8),(10,362,362,10),(11,1630.2,1630.2,14),(12,1968.5,1981.2,13),(13,1419.28,1645.87,12),(14,1959.25,1952.75,20),(15,3239,3238.82,18),(16,3336,3335.51,16),(17,6674,6673.97,17),(18,470,470,27),(19,5134.75,5133.74,23),(20,4763.12,4763.11,19),(22,3560.5,3560.35,21),(23,5129.39,5129.39,15),(24,1402.5,1372.5,22),(26,2445.15,2445.12,34),(27,1939.27,1939.25,30),(28,216.8,216.8,32),(29,932.82,937.955,33),(30,3720.25,3720.23,36),(31,7675.64,7675.65,37),(32,3687.5,3687.47,39),(33,5158.02,5158.02,35),(34,245,245,40),(35,102,102,41),(36,7240,7246.11,31),(37,3042.11,3046.01,42),(38,1912.5,1912.43,43),(39,2049.89,2053.77,46),(40,542.1,547.237,47),(41,6545,6550.56,45),(42,6368.9,6368.51,38),(43,6131.18,8135.04,58),(44,699.08,2702.95,60),(45,4259.25,4259.1,62),(46,3782.4,3782.41,59),(47,4378.99,4378.99,63),(48,2555.5,2555.43,64),(49,733.76,733.771,65),(51,2384.15,2423.03,5),(52,5400,5412.97,44),(53,2832.77,2832.77,48),(54,7446.5,7572.23,61),(55,3961.15,3960.85,67),(56,7236.45,7236.39,66),(57,2918.76,3099.15,77),(58,4147.25,4147.2,73),(59,2264.45,2264.45,79),(60,2868.7,2868.7,74),(61,6676.09,6683.3,69),(62,3079,3083.06,76),(63,2940.88,2940.88,80),(64,3870,3869.88,83),(65,178,178,85),(66,4707.2,4707.25,82),(67,2219.06,2399.09,78),(68,4008.75,4008.6,86),(69,127.2,127.18,88),(70,3475.2,3530.63,91),(71,7373.35,7373.32,84),(72,2916.81,2916.79,90),(73,7354,7310.44,89);
+/*!40000 ALTER TABLE `liquidacion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `listaclientes`
+--
+
+DROP TABLE IF EXISTS `listaclientes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `listaclientes` (
+  `idlistaclientes` int(11) NOT NULL AUTO_INCREMENT,
+  `clientes_idCliente` int(11) NOT NULL,
+  `vendedores_idvendedores` int(11) NOT NULL,
+  PRIMARY KEY (`idlistaclientes`),
+  KEY `fk_listaclientes_clientes1_idx` (`clientes_idCliente`),
+  KEY `fk_listaclientes_vendedores1_idx` (`vendedores_idvendedores`),
+  CONSTRAINT `fk_listaclientes_clientes1` FOREIGN KEY (`clientes_idCliente`) REFERENCES `clientes` (`idCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_listaclientes_vendedores1` FOREIGN KEY (`vendedores_idvendedores`) REFERENCES `vendedores` (`idvendedores`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `listaclientes`
+--
+
+LOCK TABLES `listaclientes` WRITE;
+/*!40000 ALTER TABLE `listaclientes` DISABLE KEYS */;
+INSERT INTO `listaclientes` VALUES (1,39,7),(2,77,7),(3,5,7),(4,4,7),(5,21,7),(6,30,7),(7,20,7);
+/*!40000 ALTER TABLE `listaclientes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `materiaprima`
+--
+
+DROP TABLE IF EXISTS `materiaprima`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `materiaprima` (
+  `idmateriaPrima` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) NOT NULL,
+  `presentacion` varchar(45) NOT NULL,
+  `eliminado` tinyint(1) NOT NULL,
+  `precio` float NOT NULL,
+  PRIMARY KEY (`idmateriaPrima`)
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `materiaprima`
+--
+
+LOCK TABLES `materiaprima` WRITE;
+/*!40000 ALTER TABLE `materiaprima` DISABLE KEYS */;
+INSERT INTO `materiaprima` VALUES (1,'Envase Plastico Para Jugo','Natural Gl.',0,0),(2,'Envase Plastico Para Jugo','Natural 1/2 Gl.',0,0),(3,'Envase Para Jugo','Natural Litro',0,0),(4,'Envase para jugo','Natural Vasito',0,0),(5,'Envase Limpia Vidrio','Plastico ',0,0),(6,'Envase Desinfectante ','Lt. ',0,0),(7,'Envase Desinfectante ','Botella',0,0),(8,'Envase Para Desinfectante','Caneca',0,0),(9,'Envase para Helado','Plastico con tapa',0,0),(10,'Envase para Helado ','Plastico con tapa 16 Oz.',0,0),(11,'Tapa Presion','Naranja Plastica',0,0),(12,'Tapa Presion','Verde Plastica',0,0),(13,'Atomizador','Plastico Color Azul',0,0),(15,'Limon','Fruta',0,0),(17,'Alcohol Isoprofilico Lb.','Liquido',0,0),(18,'Nonil Fenol Lb.','Liquido|',0,0),(19,'Alcohol Etilico Lb.','Liquido',0,0),(20,'Propelincol Lb.','Liquido',0,0),(21,'Azul mineral','Liquido',0,0),(22,'Enformol','Liquido',0,0),(23,'Amonio Cuaternario','Liquido',0,0),(24,'Aroma Floral','Liquido',0,0),(25,'Butil Sello Sol','Liquido',0,0),(26,'Laurid Etel Sulfato','Liquido',0,0),(27,'Aroma Canela','Liquido',0,0),(28,'Aroma Fabuloso','Liquido',0,0),(29,'Aroma Brisas Marinas','Liquido',0,0),(30,'Aroma Manzana','Liquido',0,0),(31,'Aroma Limon','Liquido',0,0),(32,'Azucar','Bolsa 5lbs. ',0,0),(33,'Sabor Naranja','Liquido',0,0),(34,'Sabor Limon','Liquido',0,0),(35,'Color Naranja','Liquido',0,0),(36,'Color Limon','Liquido',0,0),(37,'Dulzi','Grano 1 Kl',0,0),(38,'Acido','Polvo',0,0),(39,'Benzoato Sodio','Polvo',0,0),(40,'Potacio','Polvo',0,0),(41,'Naranja','Fruta',0,0.65);
+/*!40000 ALTER TABLE `materiaprima` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pedido`
+--
+
+DROP TABLE IF EXISTS `pedido`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pedido` (
+  `idpedido` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha` date NOT NULL,
+  `aplicado` tinyint(1) DEFAULT NULL,
+  `descuento` float DEFAULT NULL,
+  `subtotal` float NOT NULL,
+  `total` float NOT NULL,
+  `liquidado` tinyint(1) DEFAULT NULL,
+  `vendedores_idvendedores` int(11) NOT NULL,
+  `observaciones` varchar(400) DEFAULT NULL,
+  `contraseñas` float NOT NULL,
+  `ISR` float NOT NULL,
+  PRIMARY KEY (`idpedido`),
+  KEY `fk_pedido_vendedores1_idx` (`vendedores_idvendedores`),
+  CONSTRAINT `fk_pedido_vendedores1` FOREIGN KEY (`vendedores_idvendedores`) REFERENCES `vendedores` (`idvendedores`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pedido`
+--
+
+LOCK TABLES `pedido` WRITE;
+/*!40000 ALTER TABLE `pedido` DISABLE KEYS */;
+INSERT INTO `pedido` VALUES (1,'2013-10-04',0,0,362.25,362.25,1,5,NULL,0,0),(2,'2013-10-04',0,0,4599.75,4653.45,1,1,NULL,960,0.07),(3,'2013-10-07',0,0,7325.78,7389.5,1,1,NULL,2167.5,0.07),(4,'2013-10-07',0,0,2968.35,2968.35,1,5,NULL,0,0),(5,'2013-10-03',0,0,2450.42,2423.03,1,2,NULL,0,0),(6,'2013-10-04',0,0,3440.6,3440.6,1,2,NULL,0,0),(7,'2013-10-04',0,0,2875.16,2875.16,1,3,NULL,0,0),(8,'2013-10-08',0,0,5977.84,5977.84,1,3,NULL,0,0),(9,'2013-10-08',0,0,3479.54,3479.54,1,2,NULL,0,0),(10,'2013-10-09',0,0,362,362,1,1,NULL,0,0),(11,'2013-10-08',0,0,4424.75,4424.75,0,7,NULL,0,0),(12,'2013-10-10',0,0,1645.87,1645.87,1,5,NULL,0,0),(13,'2013-10-10',0,0,1968.46,1968.46,1,2,NULL,0,0),(14,'2013-10-11',0,0,1565.1,1630.2,1,1,NULL,930,0.07),(15,'2013-10-11',0,0,5129.39,5129.39,1,4,NULL,0,0),(16,'2013-10-11',0,0,3370.72,3335.51,1,3,NULL,0,0),(17,'2013-10-14',0,0,6584.89,6673.97,1,1,NULL,1272.5,0.07),(18,'2013-10-14',0,0,3226.12,3226.12,1,2,NULL,0,0),(19,'2013-10-14',0,0,4536.52,4536.52,1,5,NULL,0,0),(20,'2013-10-09',0,0,1952.75,1952.75,1,11,NULL,0,0),(21,'2013-10-15',0,0,3560.35,3560.35,1,2,NULL,0,0),(22,'2013-10-15',0,0,1372.5,1372.5,1,4,NULL,0,0),(23,'2013-10-15',0,0,5213.03,5133.74,1,3,NULL,0,0),(24,'2013-10-15',0,0,98.8189,98.8189,0,12,NULL,0,0),(25,'2013-10-15',0,0,813,813,0,7,NULL,0,0),(26,'2013-10-10',0,0,4132.9,4132.9,0,7,NULL,0,0),(27,'2013-10-10',0,0,470,470,1,10,NULL,0,0),(28,'2013-10-11',0,0,5286.61,5286.61,0,7,NULL,0,0),(29,'2013-10-11',0,0,5053.74,5053.74,0,8,NULL,0,0),(30,'2013-10-16',0,0,1935.41,1939.25,1,1,NULL,502,0.07),(31,'2013-10-17',0,0,7347.81,7246.11,1,3,NULL,0,0),(32,'2013-10-17',0,0,216.8,216.8,1,1,NULL,0,0),(33,'2013-10-17',0,0,937.955,937.955,1,5,NULL,40.35,0),(34,'2013-10-17',0,0,2468.6,2445.12,1,2,NULL,0,0),(35,'2013-10-18',0,0,5158.02,5158.02,1,4,NULL,0,0),(36,'2013-10-18',0,0,3778.92,3720.23,1,2,NULL,0,0),(37,'2013-10-21',0,0,7491.74,7675.65,1,1,NULL,2627.25,0.07),(38,'2013-10-21',0,0,6363.37,6363.37,1,5,NULL,0,0),(39,'2013-10-22',0,0,3687.47,3687.47,1,2,NULL,0,0),(40,'2013-10-22',0,0,245,245,1,4,NULL,0,0),(41,'2013-10-22',0,0,102,102,1,4,NULL,0,0),(42,'2013-10-23',0,0,3081.21,3046,1,1,NULL,0,0),(43,'2013-10-24',0,0,1931.99,1912.43,1,2,NULL,0,0),(44,'2013-10-24',0,0,5412.97,5412.97,1,4,NULL,0,0),(45,'2013-10-24',0,0,6544.45,6544.45,1,3,NULL,0,0),(46,'2013-10-25',0,0,1995.81,2049.88,1,1,NULL,996,0.07),(47,'2013-10-25',0,0,542.102,542.102,1,5,NULL,0,0),(48,'2013-10-25',0,0,2819.8,2819.8,1,4,NULL,0,0),(49,'2013-10-14',0,0,1160.05,1160.05,0,7,NULL,0,0),(50,'2013-10-15',0,0,4645.5,4645.5,0,7,NULL,0,0),(51,'2013-10-16',0,0,2352,2352,0,7,NULL,0,0),(52,'2013-10-17',0,0,2371,2371,0,7,NULL,0,0),(53,'2013-10-18',0,0,6599.42,6599.42,0,7,NULL,0,0),(54,'2013-10-21',0,0,6986.26,6986.26,0,7,NULL,0,0),(55,'2013-10-22',0,0,2389,2389,0,7,NULL,0,0),(56,'2013-10-23',0,0,1437,1437,0,7,NULL,0,0),(57,'2013-10-25',0,0,3833.72,3833.72,0,2,NULL,0,0),(58,'2013-10-28',0,0,8056.12,8131.15,1,1,NULL,1716,0.07),(59,'2013-10-28',0,0,3782.41,3782.41,1,5,NULL,0,0),(60,'2013-10-29',0,0,655.407,699.087,1,1,NULL,624,0.07),(61,'2013-10-29',0,0,7566.67,7566.67,1,3,NULL,0,0),(62,'2013-10-29',0,0,4306.05,4259.1,1,2,NULL,0,0),(63,'2013-10-30',0,0,2375.12,2375.12,1,1,NULL,0,0),(64,'2013-10-31',0,0,2582.82,2555.43,1,2,NULL,0,0),(65,'2013-10-31',0,0,733.761,733.761,1,5,NULL,0,0),(66,'2013-11-04',0,0,7167.89,7236.39,1,1,NULL,2320,0.07),(67,'2013-11-04',0,0,4019.54,3960.85,1,2,NULL,0,0),(69,'2013-11-05',0,NULL,6683.3,6683.3,1,3,NULL,0,0),(72,'2013-11-06',0,NULL,1166,1166,0,7,NULL,0,0),(73,'2013-11-06',0,NULL,4194.15,4147.2,1,2,NULL,0,0),(74,'2013-11-05',0,NULL,2868.7,2868.7,1,4,NULL,0,0),(75,'2013-11-07',0,NULL,5408.2,5408.2,0,2,NULL,0,0),(76,'2013-11-07',0,NULL,3118.2,3083.06,1,2,NULL,57,0.07),(77,'2013-11-04',0,NULL,3099.15,3099.15,1,5,NULL,0,0),(78,'2013-11-07',0,NULL,2218.7,2218.7,1,5,NULL,270,0),(79,'2013-11-06',0,NULL,2264.45,2264.45,1,1,NULL,0,0),(80,'2013-11-07',0,NULL,2853.8,2940.88,1,1,NULL,1244,0.07),(81,'2013-11-08',0,NULL,3409.65,3409.65,0,4,NULL,0,0),(82,'2013-11-08',0,NULL,4774.35,4700.04,1,3,NULL,0,0),(83,'2013-11-08',0,NULL,3924.5,3865.81,1,2,NULL,0,0),(84,'2013-11-11',0,NULL,7314,7373.31,1,1,NULL,1715,0.07),(85,'2013-11-11',0,NULL,178,178,1,2,NULL,0,0),(86,'2013-11-12',0,NULL,4055.55,4008.6,1,2,NULL,0,0),(88,'2013-11-12',0,NULL,127.18,127.18,1,2,NULL,0,0),(89,'2013-11-12',0,NULL,7420.95,7310.39,1,3,NULL,0,0),(90,'2013-11-13',0,NULL,2952,2916.79,1,1,NULL,0,0),(91,'2013-11-12',0,NULL,3350.6,3350.6,1,5,NULL,0,0),(92,'2013-11-14',0,NULL,2936.3,2936.3,0,2,NULL,0,0),(93,'2013-11-15',0,NULL,2261,2261,0,1,NULL,0,0),(94,'2013-11-15',0,NULL,6794.1,6794.1,0,3,NULL,0,0);
+/*!40000 ALTER TABLE `pedido` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pedido materia prima`
+--
+
+DROP TABLE IF EXISTS `pedido materia prima`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pedido materia prima` (
+  `idpedidoMP` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha` date NOT NULL,
+  `aplicado` tinyint(1) DEFAULT NULL,
+  `total` float NOT NULL,
+  `Proveedores_idProveedores` int(11) NOT NULL,
+  PRIMARY KEY (`idpedidoMP`),
+  KEY `fk_pedido materia prima_Proveedores1_idx` (`Proveedores_idProveedores`),
+  CONSTRAINT `fk_pedido materia prima_Proveedores1` FOREIGN KEY (`Proveedores_idProveedores`) REFERENCES `proveedores` (`idProveedores`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pedido materia prima`
+--
+
+LOCK TABLES `pedido materia prima` WRITE;
+/*!40000 ALTER TABLE `pedido materia prima` DISABLE KEYS */;
+INSERT INTO `pedido materia prima` VALUES (1,'2013-10-10',1,115,11);
+/*!40000 ALTER TABLE `pedido materia prima` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pedido proveedores`
+--
+
+DROP TABLE IF EXISTS `pedido proveedores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pedido proveedores` (
+  `idpedido_proveedores` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha` date NOT NULL,
+  `aplicado` tinyint(1) DEFAULT NULL,
+  `NoFactura` varchar(15) DEFAULT NULL,
+  `total` float NOT NULL,
+  `FechaVencimiento` date DEFAULT NULL,
+  `Saldo` float NOT NULL,
+  `almacenado` tinyint(1) DEFAULT NULL,
+  `Proveedores_idProveedores` int(11) NOT NULL,
+  PRIMARY KEY (`idpedido_proveedores`),
+  KEY `fk_pedido proveedores_Proveedores1_idx` (`Proveedores_idProveedores`),
+  CONSTRAINT `fk_pedido proveedores_Proveedores1` FOREIGN KEY (`Proveedores_idProveedores`) REFERENCES `proveedores` (`idProveedores`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pedido proveedores`
+--
+
+LOCK TABLES `pedido proveedores` WRITE;
+/*!40000 ALTER TABLE `pedido proveedores` DISABLE KEYS */;
+INSERT INTO `pedido proveedores` VALUES (1,'2013-10-02',1,'130000006217',25762,'2013-10-16',0,1,1),(2,'2013-10-02',1,'130000048239',2468.78,'2013-10-02',0,1,2),(3,'2013-10-02',1,'AAA 7001',5640,'2013-10-17',5640,1,7),(4,'2013-10-02',1,'21573',91.93,'2013-10-18',0,1,6),(5,'2013-10-02',1,'21605',2300.16,'2013-10-18',0,1,6),(6,'2013-10-02',1,'21605',64.85,'2013-10-18',0,1,6),(7,'2013-10-02',1,'2542.27',2542.26,'2013-10-18',-0.00000976585,1,6),(8,'2013-10-07',1,'00000',338.75,'2013-10-07',0,1,9),(9,'2013-10-08',1,'0000',13,'2013-10-08',0,1,10),(10,'2013-10-08',1,'0000',15.64,'2013-10-08',0,1,10),(11,'2013-10-08',1,'49186',407.44,'2013-10-09',0,1,2),(12,'2013-10-02',1,'6456-58, 6486',20160,'2013-10-22',-0.0000675781,1,1),(13,'2013-10-02',1,'6459',6820.85,'2013-10-22',0,1,1),(14,'2013-10-10',1,'24203',180,'2013-10-31',180,1,4),(15,'2013-10-09',1,'24191',3013.83,'2013-10-31',3013.83,1,4),(16,'2013-10-09',1,'267636',2700,'2014-08-10',0,1,3),(17,'2013-10-09',1,'22425',2680.95,'2013-10-23',0,1,6),(18,'2013-10-09',1,'22427',2871.64,'2013-10-23',0,1,6),(19,'2013-10-09',1,'22428',276.7,'2013-10-23',0,1,6),(20,'2013-10-09',1,'22426',78.35,'2013-10-23',0,1,6),(21,'2013-10-13',1,'00001',2350.28,'2013-10-28',-0.52002,1,10),(22,'2013-10-11',1,'AA  44654',3279.25,'2013-10-14',-6558.5,1,8),(23,'2013-10-15',1,'7379',4347.49,'2013-11-01',4347.49,1,7),(24,'2013-10-10',1,'6684',7333.24,'2013-10-30',7333.24,1,1),(25,'2013-10-10',1,'6681-6682-6683',23520,'2013-10-03',23520,1,1),(26,'2013-10-15',1,'49958',248.3,'2013-10-16',0,1,2),(27,'2013-10-18',1,'24316',2043.52,'2013-11-08',2043.52,1,4),(28,'2013-10-18',1,'24315',3783.96,'2013-11-08',3783.96,1,4),(29,'2013-10-18',1,'44980',2125,'2013-10-21',0,1,8),(30,'2013-10-16',1,'23210',2870.68,'2013-10-30',2870.68,1,6),(31,'2013-10-16',1,'23209',2967.25,'2013-10-30',2967.25,1,6),(32,'2013-10-17',1,'6849',9077.52,'2013-11-06',9077.52,1,1),(33,'2013-10-16',1,'6846',6720,'2013-11-06',6720,1,1),(34,'2013-10-16',1,'6847',6720,'2013-11-06',6720,1,1),(35,'2013-10-16',1,'6848',11424,'2013-11-06',11424,1,1),(36,'2013-10-21',1,'50819',611.2,'2013-10-23',0,1,2),(37,'2013-10-25',1,'45295',2429.25,'2013-10-29',0,1,8),(38,'2013-10-22',1,'24056',3190.8,'2013-11-07',3190.8,1,6),(39,'2013-10-22',1,'24057',457.41,'2013-11-07',457.41,1,6),(40,'2013-10-22',1,'24072',178.68,'2013-11-07',178.68,1,6),(41,'2013-10-22',1,'24055',1215.43,'2013-11-07',1215.43,1,6),(42,'2013-10-24',1,'24419',2639.93,'2013-11-15',2639.93,1,4),(43,'2013-10-29',1,'24999',5086.45,'2013-11-14',5086.45,1,6),(44,'2013-10-29',1,'25000',332.26,'2013-11-14',332.26,1,6),(45,'2013-10-29',1,'0',0,NULL,0,1,6),(46,'2013-10-29',1,'24762',822.85,'2013-11-13',0,1,6),(47,'2013-10-31',1,'45651',2548.8,'2013-11-04',0,1,8),(48,'2013-10-30',1,'7071',28116.1,'2013-11-13',28116.1,1,1),(49,'2030-10-29',1,'51755',1137.3,'2013-10-30',0,1,2),(50,'2013-10-30',0,'',30294.8,NULL,0,1,1),(51,'2013-11-07',0,'',29671.8,NULL,0,1,1),(52,'2013-11-07',1,'7334',840,'2013-11-22',840,1,1),(53,'2013-11-08',0,'',3709.53,NULL,0,1,4),(54,'2013-11-08',1,'45976',3276,'2013-11-11',0,1,8),(55,'2013-11-11',0,'',886.6,NULL,0,1,17),(56,'2013-11-10',1,'139',856.05,'2013-11-11',0,1,17),(57,'2013-11-11',0,'',1494,NULL,0,1,7),(58,'2013-11-13',1,'53378',782.96,'2013-11-13',0.00994873,1,2),(59,'2013-11-15',0,'',28799.7,NULL,0,0,1),(60,'2013-11-14',1,'26854',1080,'2013-11-14',0,1,3);
+/*!40000 ALTER TABLE `pedido proveedores` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `permisos`
+--
+
+DROP TABLE IF EXISTS `permisos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `permisos` (
+  `idPermisos` int(11) NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(30) NOT NULL,
+  PRIMARY KEY (`idPermisos`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `permisos`
+--
+
+LOCK TABLES `permisos` WRITE;
+/*!40000 ALTER TABLE `permisos` DISABLE KEYS */;
+INSERT INTO `permisos` VALUES (1,'Acceso a Pedidos'),(2,'Acceso a Bodegas'),(3,'Acceso a Producción'),(4,'Acceso a Liquidaciones'),(5,'Acceso a Finanzas'),(6,'Modificar Usuarios');
+/*!40000 ALTER TABLE `permisos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `productoacambiar`
+--
+
+DROP TABLE IF EXISTS `productoacambiar`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `productoacambiar` (
+  `idproductoacambiar` int(11) NOT NULL AUTO_INCREMENT,
+  `Producto` varchar(90) NOT NULL,
+  `Cantidad` int(11) NOT NULL,
+  `liquidacion_idliquidacion` int(11) NOT NULL,
+  `precio` float NOT NULL,
+  PRIMARY KEY (`idproductoacambiar`),
+  KEY `fk_productoacambiar_liquidacion1_idx` (`liquidacion_idliquidacion`),
+  CONSTRAINT `fk_productoacambiar_liquidacion1` FOREIGN KEY (`liquidacion_idliquidacion`) REFERENCES `liquidacion` (`idliquidacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `productoacambiar`
+--
+
+LOCK TABLES `productoacambiar` WRITE;
+/*!40000 ALTER TABLE `productoacambiar` DISABLE KEYS */;
+INSERT INTO `productoacambiar` VALUES (1,'Crema Comercial ',3,2,0),(2,'Crema Comercial ',18,5,0),(3,'Queso Crema ',1,5,0),(4,'Crema Comercial Vaso Bolsa',9,16,0),(5,'Crema Comercial Vaso Bolsa',16,19,3.91252),(6,'Queso Crema  Caja 1/2 Lb',1,19,10.7325),(7,'Queso Crema Caja de 1/4 Lb.',1,19,5.96001),(9,'Crema Comercial Vaso Bolsa',6,26,3.91252),(10,'Crema Comercial Vaso Bolsa',8,27,3.91252),(11,'Crema Comercial Vaso Bolsa',8,28,3.91252),(12,'Crema Comercial Vaso Bolsa',15,30,3.91252),(13,'Crema Comercial Vaso Bolsa',19,36,3.91252),(14,'Queso Crema  Caja 1/2 Lb',2,36,10.7),(15,'Queso Crema Caja de 1/4 Lb.',1,36,5.96001),(16,'Crema Comercial Vaso Bolsa',9,37,3.91252),(17,'Crema Comercial Vaso Bolsa',5,38,3.91252),(18,'Crema Comercial Vaso Bolsa',4,39,3.91252),(19,'Crema Comercial Vaso Bolsa',10,43,3.91252),(20,'Queso Crema Caja de 1/4 Lb.',1,43,5.96),(21,'Crema Comercial Vaso Bolsa',10,44,3.91252),(22,'Queso Crema Caja de 1/4 Lb.',1,44,5.96),(23,'Crema Comercial Vaso Bolsa',12,45,3.91252),(24,'Crema Comercial Vaso Bolsa',7,48,3.91252),(26,'Crema Comercial Vaso Bolsa',7,51,3.9125),(27,'Crema Comercial Vaso Bolsa',15,55,3.91252),(28,'Crema Comercial Vaso Bolsa',24,56,3.91252),(29,'Crema Comercial Vaso Bolsa',12,58,3.9125),(30,'Crema Comercial Vaso Bolsa',10,62,3.9125),(31,'Crema Comercial Vaso Bolsa',15,64,3.9125),(32,'Crema Comercial Vaso Bolsa',12,66,3.9125),(33,'Queso Crema Caja de 1/4 Lb.',1,66,5.96),(34,'Queso Crema  Caja 1/2 Lb',2,66,10.7),(35,'Crema Comercial Vaso Bolsa',12,68,3.9125),(36,'Crema Comercial Vaso Bolsa',12,68,3.9125),(37,'Crema Comercial Vaso Bolsa',14,71,3.9125),(38,'Queso Crema Caja de 1/4 Lb.',1,71,5.96),(39,'Crema Comercial Vaso Bolsa',9,72,3.9125),(40,'Crema Comercial Vaso Bolsa',24,73,3.9125),(41,'Queso Crema  Caja 1/2 Lb',1,73,10.7),(42,'Queso Crema Caja de 1/4 Lb.',1,73,5.96);
+/*!40000 ALTER TABLE `productoacambiar` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `productos`
+--
+
+DROP TABLE IF EXISTS `productos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `productos` (
+  `idProductos` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(70) NOT NULL,
+  `presentacion` varchar(70) NOT NULL,
+  `unidad_de_medida` int(11) NOT NULL,
+  `precio_costo` float NOT NULL,
+  `precio_venta` float NOT NULL,
+  `fecha_de_vencimiento` date DEFAULT NULL,
+  `descripcion` varchar(300) DEFAULT NULL,
+  `categoria` varchar(50) DEFAULT NULL,
+  `eliminado` tinyint(1) NOT NULL,
+  `cambio` tinyint(1) NOT NULL,
+  `devoluciones` float NOT NULL,
+  PRIMARY KEY (`idProductos`)
+) ENGINE=InnoDB AUTO_INCREMENT=180 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `productos`
+--
+
+LOCK TABLES `productos` WRITE;
+/*!40000 ALTER TABLE `productos` DISABLE KEYS */;
+INSERT INTO `productos` VALUES (1,'Crema Comercial','Vaso Bolsa',1,3.36,4.5,'2013-11-22','','Lacteos',0,1,2),(2,'Crema Comercial ','1/2 Vaso',1,1.92,2,'2013-11-03','	','Lacteos',0,1,2),(3,'Queso Crema ','Caja 1/2 Lb',1,9.07,12.5,'2013-11-11','\n','Lacteos',0,1,2),(4,'Queso Crema','Caja de 1/4 Lb.',1,4.97,7,'2013-11-22','','Lacteos',0,1,2),(5,'Queso Duro ','1/4 Lb.',1,6.17,8,'2013-11-30','','Lacteos',0,1,0),(6,'Queso Spreed','8 Oz.',1,15.64,19,'2013-11-15','','Lacteos',0,1,2),(7,'Yogur de Sabores','Vasito',1,3.75,5,'2013-11-01','','Lacteos',0,1,0),(8,'Queso Crema Agranel','Bolsa de  Lb.',1,14,18,'2013-11-15','','Lacteos',0,1,2),(9,'Refresco Skipy','Bolsa',1,0.26,0.286,'2013-11-30','	','Bebida',0,1,0),(10,'Queso Kraf Paquete 16','16 Rodajas',1,9.03,13,'2014-08-01','','Lacteos',0,1,0),(11,'Queso Kraf Blanco 16','Paquete 16',1,9.23,13,'2014-05-01','','Lacteos',0,1,0),(12,'Arrachera Nacional','Bolsa de 2.56',1,83.84,98.87,'2014-02-01','','Carnes',0,1,0),(13,'Hashbrown Caradish','Paquete',1,28.82,35,'2014-02-01','','Extras',0,1,0),(14,'Queso Para Nacho','Bote',1,63,85,'2014-01-01','	','Lacteos',0,0,0),(15,'Platano Bolsa ','2 Lb.',1,16,20,'2013-12-31','','Extras',0,0,0),(16,'Platano Bolsa','6 Lb',1,44.67,56.5,'2013-12-31','','Extras',0,0,0),(17,'Bolovique','Bolsa de 2.9',1,73.75,90,'2014-02-01','	','Carnes',0,0,0),(18,'Bolovique','Bolsa de 3.31',1,84.2,102,'2014-02-01','','Carnes',0,0,0),(19,'Filete de Pechuga','Bolsa 2.9',1,52.78,65,'2014-01-01','','Carnes',0,0,0),(20,'Torta de Carne 2 Oz.','Caja ',1,82.2,99,'2013-12-31','','Carnes',0,0,0),(21,'Torta de Res 4 Oz.','Caja ',1,78.36,95,'2013-11-30','	','Carnes',0,0,0),(22,'Torta de Res 2 Oz','Paquete',1,19.61,23,'2013-11-30','','Carnes',0,0,0),(23,'Torta de Res 4 Oz.','Paquete',1,19.78,24,'2013-11-30','','Carnes',0,0,0),(24,'Torta Desayuno 2 Oz. ','Paquete',1,20.62,25,'2013-11-30','','Carnes',0,0,0),(25,'Chorizo','Bandeja 8 U',1,16.75,20,'2013-11-30','','Enbutidos',0,0,0),(26,'Longaniza','Bandeja 8 U',1,15.82,19,'2013-11-30','','Enbutidos',0,0,0),(27,'Papas Shoestring','Caja 6 x 4.50 Lb.',1,204.12,245,'2013-11-30','','Extras',0,0,0),(28,'Papa Aviko','Caja 22 Lb.',1,125.02,180,'2013-11-30','			','Extras',0,0,0),(29,'Super Costilla','Bolsa de 5 Lb.',1,193.3,256,'2013-11-30','','Extras',0,0,0),(30,'Queso Amarillo Tipo Americano','Paquete de 160 Lascas',1,143.65,217,'2013-11-30','','Lacteos',0,0,0),(31,'Mayonesa Plantation','Frasco de 1 Gl',1,69.49,86,'2013-11-30','	','Varios',0,0,0),(32,'Mariscos Mixtos ','Bolsa 1 Lb.',1,23.24,28,'2013-11-30','','Mariscos',0,0,0),(33,'Torta de res de 2  Oz. ','Caja 5 Lb.',1,0,0,'2013-11-30','','Carnes',0,0,0),(34,'Camaron Pre Cocido','Bolsa de 2.5 Lbs.',1,0,0,'2013-11-30','','Mariscos',0,0,0),(35,'Cangrejo Sticks Imitación','Paquete 1 Lb.',1,17.38,21,'2013-11-30','	','Mariscos',0,0,0),(36,'Queso Kfraf 6','Paquete de 6 Rodajas',1,4.5,6.5,'2014-05-21','','Lacteos',0,0,0),(37,'Jamon California Lb.','Empaque al Vacio Lb.',1,10.75,13,'2013-10-27','','Embutidos',0,0,0),(38,'Jamon California 1/2 Lb.','Empaque al Vacío 1/2',1,6.05,7,'2013-11-30','','Embutido',0,0,0),(39,'Jamon California','Pieza 11.7 Lbs.',1,114.07,147,'2013-11-24','','Embutidos',0,0,0),(40,'Galantina ','Empaque al Vacío Lb.',1,15.75,19.5,'2013-10-27','','Embutidos',0,0,0),(41,'Galantina ','Pieza 6 Lb.',1,88.5,111,NULL,'','Embutido',0,0,0),(42,'Peperoni','Bolsa 2.5',1,46.625,51,'2013-10-27','','Embutidos',0,0,0),(43,'Tocino','Empaque al vacio Lb.',1,36.25,44,'2013-12-30','','Carnes',0,0,0),(44,'Filete de Merro','Bolsa de 2 Kilos',1,44.1,53.8,'2015-06-01','','Mariscos',1,0,0),(45,'Filete de Pescado','Bolsa de 2 Kilos',1,44.1,55,'2014-06-01','','Mariscos ',0,0,0),(46,'Leche Trebolac','Bolsa de Litro',1,7.08,8.25,'2013-10-31','','Lacteos',0,0,0),(47,'Leche Trebolac','Bolsa 1/2 Lt',1,3.84,4.5,'2013-12-06','','Lacteos',0,0,0),(48,'Mejillon 1/2 Concha','Caja 2 Lbs. Belk',1,62,76,'2013-12-31','','Mariscos',0,0,0),(49,'Pulpo Baby','Paquete 2 Lb.',1,85.1,102,'2013-12-31','	','Mariscos ',0,0,0),(50,'Calamar Tubo','Paquete 2.5 Lbs.',1,91.68,112,'2013-12-31','','Mariscos',0,0,0),(51,'Yogurt Danone sabores','Frasco',1,3,4.5,'2013-12-05','','Lacteos',0,1,0),(52,'Yogur Yoplayt','Bebible Frasco',1,2.9,3.4,'2013-12-09','','Lacteos',0,0,0),(53,'Queso Pita','Bolsa 1/2 Lb.',1,8.65,10,'2013-11-30','','Lacteos',0,1,5),(54,'Crema Fern Vaso','Cajita',1,12.7083,15.5,'2013-11-14','','Lacteos',0,0,0),(55,'Crema Fern ','Caja Lt',1,42.5,51,'2013-12-31','','Lacteos',0,0,0),(56,'Crema Culinaria','Caja Lt.',1,33.45,46.75,'2013-11-19','','Lacteos',0,0,0),(57,'Crema Para Batir','Caja Lt.',1,38.75,47,'2013-11-08','','Lacteos',0,0,0),(58,'Queso Mozarella','Bloque 22.22 Lb.',1,550,575,'2016-01-01','','Lacteos',0,0,0),(59,'Leche Evaporada','Lata ',1,9.25,11,'2013-11-29','','Lacteos',0,1,5),(60,'Servilleta de Cocina','Rollo',1,0,0,NULL,'','Limpieza',0,0,0),(61,'Jumbo Roll Blanco 2P','Caja de 6 U',1,102.39,123,NULL,'','Limpieza',0,0,0),(62,'Jumbo Roll Blanco','Caja de 6 u',1,87.03,120,NULL,'','Limpieza',0,0,0),(63,'Jumbo Roll Natural','Caja de 6 U',1,80.17,125,NULL,'','Limpieza',0,0,0),(64,'Toalla Blanca ','Caja de 6 u ',1,219.64,280,'2014-01-01','','Limpieza',0,0,0),(65,'Toalla Ecologica','Caja de 6 U',1,197.67,237,NULL,'','Limpieza',0,0,0),(66,'Servilleta Dispensador','Paquete de 24 x 100',1,2.708,3.54167,'2014-06-20','','Limpieza',0,0,0),(67,'Servilleta Interfoliada','6 x 200',1,0,0,NULL,'','Limpieza',0,0,0),(68,'Mariscada','Bolsa de 1 Lb.  Belk',1,26.94,35,'2013-12-12','Belca','Mariscos',0,0,0),(69,'Salami Ahumado','Lb. Empaque al vacio',1,18,21,'2013-11-10','','Embutidos',0,0,0),(70,'Chorizo Economico','Bolsa de Lb. La Blanca',1,17,22,'2013-11-09','	','Embutidos',0,0,0),(71,'Longaniza Economica ','Bolsa Lb. La Blanca',1,17,22,'2013-12-09','	','Embutidos',0,0,0),(72,'Salchicha Frank Furt','Empaque al Vacio LB.',1,16.5,20,'2013-11-09','','Embutido',0,0,0),(73,'Salchicha Doggis','Empaque al vacio Lb.',1,13,16,NULL,'','Embutido',0,0,0),(74,'Chuleta de Pollo','Empaque al Vacio Lb.',1,28,35,'2013-11-09','','Embutido',0,0,0),(75,'Chuleta de Cerdo','Empaque al Vacio Lb.',1,0,35,'2013-11-09','','Embutido',0,0,0),(76,'Mortadela ','Empaque al vacio 1/2 Lb.',1,0,0,'2014-01-01','','Embutido',0,0,0),(77,'Mortadela Pz','Pieza de 6 Lb. Aprox',1,75,89.86,'2013-12-31','','Embutidos',0,0,0),(78,'Salami Pz','Piesa de 3 Lb. Aprox',1,51,63,'2013-12-31','','Embutido',0,0,0),(79,'Tapa Verde','Presion',1,0.1816,0.1816,NULL,'','Tapa',0,0,0),(80,'Atomizador','Color Azul',1,0,0,NULL,'','Articulos',0,0,0),(81,'Pulpa de Mango','Tableta',1,0,42,NULL,'','Bebidas',0,0,0),(82,'Jugo de Naranja','Galon',1,0,35,NULL,'','Bebida',1,0,0),(83,'Jugo de Naranja','Galon',1,0,35,'2013-10-31','','Bebida',0,0,0),(84,'Jugo de Naranja Pulpa','1/2 Galon',1,0,22,NULL,'','Bebida',0,0,0),(85,'Jugo de Naranja','Lt.',1,0,0,NULL,'','Bebida',0,0,0),(86,'Jugo de Naranja Vaso','Vaso',1,0,3.75,'2013-10-31','','Bebida',0,0,0),(87,'Jugo de Limon','Galon',1,0,27.19,NULL,'	','Ecencia',0,0,0),(88,'Jugo de Limon','1/2 Galon',1,0,30,NULL,'','Ecencia',0,0,0),(89,'Jugo de Linon','Litro',1,0,18,NULL,'','Escencia',0,0,0),(90,'Jugo Limon Vaso','Vaso',1,0,8,'2013-10-31','','Escencia',0,0,0),(91,'Escencia  de Tamarindo','1/2 Galon',1,0,32,NULL,'','Escencia',0,0,0),(92,'Shampo y Acondicionador','Caja de 24 U',1,0,0,NULL,'','Extras',0,0,0),(93,'Desinfectante Aromas','Caneca 10 Lt.',1,55,115,NULL,'','Limpieza',0,0,0),(94,'Desinfectante Aromas','Litro',1,0,0,NULL,'','Limpieza',0,0,0),(95,'Desinfectante Variedad','Botella',1,0,7.5,NULL,'','Limpieza',0,0,0),(96,'Bolsa para papa','Paquete de 1000',1,0,35,NULL,'','Articulos',0,0,0),(97,'Queso Rayado Tipo Zacapa','Bolsita',1,7.19,7.9,'2013-11-03','','Lacteos',0,1,2),(98,'Papa Gratin Crema Cheese Aviko','Bolsa de 1.5 Kl.',1,91.93,110.5,'2013-11-30','','Extras',0,0,0),(99,'Ketchup La Bonita','Bolsa de 7.6 Lb. ',1,31.05,37.5,'2013-11-30','','Extras',0,0,0),(100,'Carne Molida Estandar','Bolsa  de 5 Lb.',1,64.85,85,'2013-11-30','','Carnes',0,0,0),(101,'Salsa Ketchup Hentz','Caja 1000 Porcionado',1,197.44,237,'2014-05-15','','Extras',0,0,0),(102,'Maní, picante, barbac, haba, salada','Tira de 12 U.',1,6.75,7.5,'2013-11-15','','Extras',0,0,0),(103,'Mani Pasas','Tira de 12 U',1,7,8.05,NULL,'','Extras',0,0,0),(104,'Peperoni 2.5 Lbs.','Caja de 10 Lbs.',1,317.5,391,'2014-01-01','','Embutidos',0,0,0),(105,'Tocino Rodajado','Caja de 15 Lbs.',1,342.6,412.8,'2014-01-01','','Embutidos',0,0,0),(106,'Queso Para Nachos','Lata',1,68,75,'2013-12-12','	','Extras',0,0,0),(107,'Yogurt Alpura','Vaso',1,2.95,4.5,'2013-11-09','','Lacteos',0,0,0),(108,'Leche Condensada','Enlatado',1,0,10,NULL,'','Extras',0,0,0),(109,'Yogur Yoplayt Ligth','Bebible',1,0,0,'2013-11-01','','Lacteos',0,0,0),(110,'Papa en Gajos','Bolsa Belk',1,43.48,54.35,'2013-12-31','','Extras',0,0,0),(111,'Dulces Usher','Bolsa',1,60,75,NULL,'','Extras',0,0,0),(112,'Papa en Gajos Sazonado','Caja  6 x 5 Lb. ',1,248.4,321,NULL,'','Extras',0,0,0),(113,'Hashbrown Avik','Triangulares',1,44.86,56.5,NULL,'','Extras',0,0,0),(114,'Aderezo La Bonita ','Tipo mayonesa Bolsa Grande',1,49.39,60,NULL,'','Extra',0,0,0),(115,'Arrachera Nacional','Caja de 10Bol. 26.61 Lbs.',1,852.32,1011.18,NULL,'	','Carnes',0,0,0),(116,'Picante Lata ','Escaveche',1,0,35,NULL,'','Extras',0,0,0),(117,'Retazo de Pollo','Bol. 5 Lb.',1,27.45,35,NULL,'','Carnes',0,0,0),(118,'Jamon de Pollo Pz','Pz Lb.',1,114.07,242.53,NULL,'','Embutidos',0,0,0),(119,'Jamon de Pierna/Prensado Pz','Pz Lb.',1,179.73,206.6,NULL,'','Embutidos',0,0,0),(120,'Jamon Pechuga de Pavo Danes Pz.','Pz. Lb.',1,321.3,369.24,NULL,'','Embutido',0,0,0),(121,'Toallas Humedas-Suavelastic','paquete de 110 u',1,14.8,20,NULL,'','bebe',0,0,0),(122,'Toalla Sanitaria Kotex Noc','paquete',1,8.14,11,NULL,'','higiene',0,0,0),(123,'Toallas Sanitarias kotex Dia','paquete',1,7.41,10,NULL,'','higiene',0,0,0),(124,'Protectores Largos Pequeños  Kotex','paquete',1,5.93,8,NULL,'','Higiene',0,0,0),(125,'Dulce Sonrics','Bolsa de 1 kg',1,62.96,85,NULL,'','Confiteria',0,0,0),(126,'Cucharas-Tamarindo','Bolsa de 30 piezas',1,29.63,40,NULL,'','Confiteria',0,0,0),(127,'Dulces Mini Chiditas','Bolsa de 70 piezas',1,17.41,23.5,NULL,'','Confieteria',0,0,0),(128,'Dulces Tiliko-Tamarindo','Bolsa de 50 piezas',1,25.18,34,NULL,'','Confiteria',0,0,0),(129,'Paletas Tamarindo','Bolsa de 80 piezas',2,51.66,70,NULL,'','Confiteria',0,0,0),(130,'Cubiertos Bebe Plastico','unidad',1,1.26,2,NULL,'','cocina',0,0,0),(131,'Desodorante Rexona Teens','108ml',1,20,27,NULL,'','higiene',0,0,0),(132,'Gatorade en Polvo','1kg',1,100,135,NULL,'','Deporte',0,0,0),(133,'Avena Molida Angelita','1 kg',1,40.75,55,NULL,'','Alimentos',0,0,0),(134,'Papel Aluminio','7.5 mts',1,5.18,7,NULL,'','Cocina',0,0,0),(135,'Suavitel','850ml',1,8.88,12,NULL,'','Limpieza',0,0,0),(136,'Limpia Vidrios Mr. Musculo','1 lt',1,19.25,26,NULL,'','Limpieza',0,0,0),(137,'Crema Sedal','botella',1,16.3,22,NULL,'','higiene',0,0,0),(138,'Galletas Mantequilla Pequeñas','Caja',1,11.11,15,NULL,'','alimentos',0,0,0),(139,'Leche condensada nestle','bote',1,8.15,11,NULL,'','alimentos',0,0,0),(140,'Atun con ensalada','lata',1,8.15,11,NULL,'','alimentos',0,0,0),(141,'Consome Iberia','paquete',1,4.45,6,NULL,'','alimentos',0,0,0),(142,'Jarabe Granadina-Madrileña','botella',1,18.52,25,NULL,'','alimentos',0,0,0),(143,'Barbacoa Masterpiece','1.13kgs',1,32.6,44,NULL,'','alimentos',0,0,0),(144,'Barbacoa Heinz','botella',1,14.82,20,NULL,'','alimentos',0,0,0),(145,'Aderezo Ranch','botella',1,25.92,35,NULL,'','alimentos',0,0,0),(146,'Mole instantaneo doña maria','carton',1,9.69,13,NULL,'','alimentos',0,0,0),(147,'Condimento Knorr','bolsa',1,9.63,13,NULL,'','alimentos',0,0,0),(148,'Condimento Maggy','sobre',1,9.63,13,NULL,'','alimentos',0,0,0),(149,'Cafe nescafe','bote',1,39.26,53,NULL,'','alimentos',0,0,0),(150,'Mayonesa mc cormik','bote',1,14.07,19,NULL,'','alimentos',0,0,0),(151,'Champiñones','lata',1,7.41,10,NULL,'','alimentos',0,0,0),(152,'Twistos','bolsa',1,6.66,9,NULL,'','aliementos',0,0,0),(153,'Galleas saladas gamma','paquete',1,6.66,9,NULL,'','alimentos',0,0,0),(154,'Galletas Quaker dieta','Cajita',1,9.63,13,NULL,'','alimentos',0,0,0),(155,'Galletas Quaker Sabores','Bolsa',1,18.52,25,NULL,'','alimentos',0,0,0),(156,'Galletas Nutri Gran','paquete',1,53.35,72,NULL,'','alimentos',0,0,0),(157,'Galletas Canela Marinela','paquete',1,6.66,9,NULL,'','alimentos',0,0,0),(158,'Cereal Fitness Pequeño','caja',1,23.71,32,NULL,'','alimentos',0,0,0),(159,'Cereal Special K Grande','caja',1,25.93,35,NULL,'','alimentos',0,0,0),(160,'Galletas Besos','caja',1,14.82,20,NULL,'','alimentos',0,0,0),(161,'Cereal kellogs mini','cajita',1,2.6,3.5,NULL,'','alimentos',0,0,0),(162,'Aceite de oliva PAM','Bote',1,19.3,26,NULL,'','alimentos',0,0,0),(163,'Chocolate cajita decorada','caja',1,44.45,60,NULL,'','alimentos',0,0,0),(164,'Chocolate Shots','bolsa',1,6.66,9,NULL,'','alimentos',0,0,0),(165,'Chocolates huevitos','bolsa',1,9.63,13,NULL,'','alimentos',0,0,0),(166,'Chocolate MyM','bote',1,46.3,63.5,NULL,'','alimentos',0,0,0),(167,'Cafe mocachino Nestle','caja',1,21.48,29,NULL,'','alimentos',0,0,0),(168,'Cafe Capuchino Nestle','cajita',1,21.48,29,NULL,'','alimentos',0,0,0),(169,'Aceite Nutrioli','botella',1,17.03,23,NULL,'','alimentos',0,0,0),(170,'Aderezo Italiano','bote',1,25.93,35,NULL,'','alimentos',0,0,0),(171,'Poporopos Ranch','paquete',1,4.45,6,NULL,'','alimentos',0,0,0),(172,'Poporopos Jalapeño','paquete',1,5.18,7,NULL,'','alimentos',0,0,0),(173,'Poporopos Light','paquete',1,4.45,6,NULL,'','alimentos',0,0,0),(174,'Chips Ahoi','unidad',1,2.6,3.5,NULL,'','alimentos',0,0,0),(175,'Chicles Ice Brakers','cajita',1,2.25,3,NULL,'','dulces',0,0,0),(176,'Sardina pronto','cajita',1,7.41,10,NULL,'','alimentos',0,0,0),(177,'Atun en agua','lata',1,6.66,9,NULL,'','alimentos',0,0,0),(178,'Pan Molde','Grande',1,7.1,7.65,'2013-11-11','','Panaderia',0,1,100),(179,'Papa Redstone Canyon','Gajos',1,229.92,285,NULL,'','complementos',0,0,0);
+/*!40000 ALTER TABLE `productos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `productos defectuoso`
+--
+
+DROP TABLE IF EXISTS `productos defectuoso`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `productos defectuoso` (
+  `idProductoDefectuoso` int(11) NOT NULL AUTO_INCREMENT,
+  `Productos_idProductos` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `descripcion` varchar(300) DEFAULT NULL,
+  `vendedores_idvendedores` int(11) NOT NULL,
+  PRIMARY KEY (`idProductoDefectuoso`),
+  KEY `fk_productos defectuoso_Productos1_idx` (`Productos_idProductos`),
+  KEY `fk_productos defectuoso_vendedores1_idx` (`vendedores_idvendedores`),
+  CONSTRAINT `fk_productos defectuoso_Productos1` FOREIGN KEY (`Productos_idProductos`) REFERENCES `productos` (`idProductos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_productos defectuoso_vendedores1` FOREIGN KEY (`vendedores_idvendedores`) REFERENCES `vendedores` (`idvendedores`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `productos defectuoso`
+--
+
+LOCK TABLES `productos defectuoso` WRITE;
+/*!40000 ALTER TABLE `productos defectuoso` DISABLE KEYS */;
+/*!40000 ALTER TABLE `productos defectuoso` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `productos vencidos`
+--
+
+DROP TABLE IF EXISTS `productos vencidos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `productos vencidos` (
+  `idProductosVencidos` int(11) NOT NULL AUTO_INCREMENT,
+  `Productos_idProductos` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  PRIMARY KEY (`idProductosVencidos`),
+  KEY `fk_productos vencidos_Productos1_idx` (`Productos_idProductos`),
+  CONSTRAINT `fk_productos vencidos_Productos1` FOREIGN KEY (`Productos_idProductos`) REFERENCES `productos` (`idProductos`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `productos vencidos`
+--
+
+LOCK TABLES `productos vencidos` WRITE;
+/*!40000 ALTER TABLE `productos vencidos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `productos vencidos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `productosclientes`
+--
+
+DROP TABLE IF EXISTS `productosclientes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `productosclientes` (
+  `idproductosespecialclientes` int(11) NOT NULL AUTO_INCREMENT,
+  `precio` float NOT NULL,
+  `tipoclientes_idTipo_Clientes` int(11) NOT NULL,
+  `productos_idProductos` int(11) NOT NULL,
+  `eliminado` tinyint(1) NOT NULL,
+  PRIMARY KEY (`idproductosespecialclientes`),
+  KEY `fk_productosespecialclientes_tipo clientes1_idx` (`tipoclientes_idTipo_Clientes`),
+  KEY `fk_productosespecialclientes_productos1_idx` (`productos_idProductos`),
+  CONSTRAINT `fk_productosespecialclientes_productos1` FOREIGN KEY (`productos_idProductos`) REFERENCES `productos` (`idProductos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_productosespecialclientes_tipo clientes1` FOREIGN KEY (`tipoclientes_idTipo_Clientes`) REFERENCES `tipo clientes` (`idTipo_Clientes`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `productosclientes`
+--
+
+LOCK TABLES `productosclientes` WRITE;
+/*!40000 ALTER TABLE `productosclientes` DISABLE KEYS */;
+INSERT INTO `productosclientes` VALUES (1,30,4,83,0),(2,30,4,88,0),(3,18,5,8,0),(4,9.5,5,3,0),(5,28,6,83,0),(6,30,6,88,0),(7,40,6,81,0),(8,30,6,91,0),(9,13,7,37,0),(10,30,7,88,0),(11,35,7,83,0),(12,84,7,31,0),(13,13,7,10,0),(14,99,7,20,0),(15,178,7,30,0),(16,120,7,62,0),(17,90,7,100,0);
+/*!40000 ALTER TABLE `productosclientes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `productosvendedores`
+--
+
+DROP TABLE IF EXISTS `productosvendedores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `productosvendedores` (
+  `idlisitaproductosvendedores` int(11) NOT NULL AUTO_INCREMENT,
+  `precioespecial` float NOT NULL,
+  `tipovendedores_idTipo_Vendedores` int(11) NOT NULL,
+  `productos_idProductos` int(11) NOT NULL,
+  `eliminado` tinyint(1) NOT NULL,
+  PRIMARY KEY (`idlisitaproductosvendedores`),
+  KEY `fk_lisitaproductosvendedores_tipo vendedores1_idx` (`tipovendedores_idTipo_Vendedores`),
+  KEY `fk_productosespecialvendedores_productos1_idx` (`productos_idProductos`),
+  CONSTRAINT `fk_lisitaproductosvendedores_tipo vendedores1` FOREIGN KEY (`tipovendedores_idTipo_Vendedores`) REFERENCES `tipo vendedores` (`idTipo_Vendedores`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_productosespecialvendedores_productos1` FOREIGN KEY (`productos_idProductos`) REFERENCES `productos` (`idProductos`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `productosvendedores`
+--
+
+LOCK TABLES `productosvendedores` WRITE;
+/*!40000 ALTER TABLE `productosvendedores` DISABLE KEYS */;
+INSERT INTO `productosvendedores` VALUES (1,3.9125,3,1,0),(2,10.7,3,3,0),(3,5.96,3,4,0),(4,7.2,3,5,0),(5,17.6,3,6,0),(6,4.3,3,7,0),(7,7.9,3,97,0),(8,11.3,3,10,0),(9,5.6,3,36,0),(10,12.5,3,37,0),(11,120,3,39,0),(12,16.75,3,40,0),(13,100.25,3,41,0),(14,21,3,69,0),(15,63,3,78,0),(16,7.63333,3,46,0),(17,4.1375,3,47,0),(18,14.25,3,54,0),(19,3.2,3,107,0),(21,3.2,3,52,0),(22,9.5,3,53,0),(23,3.76,4,1,0),(24,10.5,4,3,0),(25,5.6,4,4,0),(26,7.17,4,5,0),(27,17.6,4,6,0),(28,4.2,4,7,0),(29,15.75,4,8,0),(30,11.3,4,10,0),(31,5.6,4,36,0),(32,12.5,4,37,0),(33,128.65,4,39,0),(34,17.75,4,40,0),(35,100.05,4,41,0),(36,7.5,4,46,0),(37,4.1375,4,47,0),(38,3.1,4,107,0),(39,3.85,4,52,0),(40,9.5,4,53,0),(41,3.32,3,51,0);
+/*!40000 ALTER TABLE `productosvendedores` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `proveedores`
+--
+
+DROP TABLE IF EXISTS `proveedores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `proveedores` (
+  `idProveedores` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(70) NOT NULL,
+  `nit` varchar(12) NOT NULL,
+  `direccion` varchar(100) DEFAULT NULL,
+  `telefono1` varchar(8) DEFAULT NULL,
+  `telefono2` varchar(8) DEFAULT NULL,
+  `Saldo` float NOT NULL,
+  `eliminado` tinyint(1) NOT NULL,
+  PRIMARY KEY (`idProveedores`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `proveedores`
+--
+
+LOCK TABLES `proveedores` WRITE;
+/*!40000 ALTER TABLE `proveedores` DISABLE KEYS */;
+INSERT INTO `proveedores` VALUES (1,'Agrinsa','170034-0','Km. 13 Carretera al Pacifico','23810909','',153718,0),(2,'Belca Guatemal, S.A.','5047632-7','Km. 15 Ruta al Pacifico','66287000','',0.00994873,0),(3,'Industrias Copérnico, S.A.','3704537-7','39 Calle B 11-40, Zona 8 Gt','23866199','',0,0),(4,'Empacadora La Blanca, S.A','561558-5','14 Calle 00-014, Zona 1 Gt','22211152','',11661.2,0),(5,'Papelera Internacional, S.A.','5215233-2','Aldea Justo Rufino Barrios Olintepeque','24271300','',0,0),(6,'Grupo Campeon, S.A.','124851-0','22 Calle 13-80 Zona 11 Guatemala','66857777','',16298.9,0),(7,'Suministros de Refrigerados, S.A.','3300741-1','8Va. Calle 3er. Nivel 0-32, Zona 9 Guatemala','','',9987.49,0),(8,'Amerador, S.A.','6435740-6','Vía 1 4-88, Zona 4 Guatemala','','58747951',3279.25,0),(9,'Roberto Sandoval','000000000-0','Quetzaltenango','','44005664',0,0),(10,'Jugos del Campo','22561247-6','Ciudad','50161272','',-0.52002,0),(11,'Compras Mercado','C.F.','Terminal de buses','','',0,0),(12,'Compra de Mango','c.f.','Independiente','','',0,0),(13,'Obispo Cabrera','C.F.','Quetzaltenango.','','',0,0),(14,'Dist. Panamericana','128935-7','Ciudad','77636611','',0,0),(15,'Dist. Gabriel','2053585-6','Ciudad','77613559','',0,0),(16,'Panem','ingresar','xela','','46182092',0,0),(17,'Producto indepediente','123','ciudad','123','',0,0);
+/*!40000 ALTER TABLE `proveedores` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tipo clientes`
+--
+
+DROP TABLE IF EXISTS `tipo clientes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tipo clientes` (
+  `idTipo_Clientes` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(25) NOT NULL,
+  `eliminado` tinyint(1) NOT NULL,
+  PRIMARY KEY (`idTipo_Clientes`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tipo clientes`
+--
+
+LOCK TABLES `tipo clientes` WRITE;
+/*!40000 ALTER TABLE `tipo clientes` DISABLE KEYS */;
+INSERT INTO `tipo clientes` VALUES (1,'Mayoristas',1),(2,'Minoristas',0),(3,'Mayorista',0),(4,'Xela General',0),(5,'Gran Karmel',0),(6,'Hong Kong',0),(7,'San Marcos',0);
+/*!40000 ALTER TABLE `tipo clientes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tipo vendedores`
+--
+
+DROP TABLE IF EXISTS `tipo vendedores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tipo vendedores` (
+  `idTipo_Vendedores` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(25) NOT NULL,
+  `eliminado` tinyint(1) NOT NULL,
+  `listaproductos` tinyint(1) NOT NULL,
+  PRIMARY KEY (`idTipo_Vendedores`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tipo vendedores`
+--
+
+LOCK TABLES `tipo vendedores` WRITE;
+/*!40000 ALTER TABLE `tipo vendedores` DISABLE KEYS */;
+INSERT INTO `tipo vendedores` VALUES (1,'Independiente',0,0),(2,'Dependiente',0,0),(3,'Oro',0,1),(4,'Plata',0,1);
+/*!40000 ALTER TABLE `tipo vendedores` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `usuario`
+--
+
+DROP TABLE IF EXISTS `usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `usuario` (
+  `idUsuario` int(11) NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(45) COLLATE utf8_bin NOT NULL,
+  `Contraseña` varchar(2000) COLLATE utf8_bin NOT NULL,
+  `Puesto` varchar(30) COLLATE utf8_bin NOT NULL,
+  `eliminado` tinyint(1) NOT NULL,
+  PRIMARY KEY (`idUsuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuario`
+--
+
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (1,'Administrador','dec7d00a5a0bc6265037e5c8cd4fa5eac6660255518da523e1ea93cfe6c8f3b7','Gerente',0),(2,'Contabilidad','e3ba2a7eb8e21e9ddccf8c11baeee51291b99bc67ebf7579c0d48c95192bf1d8','Contador',0);
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `vendedores`
+--
+
+DROP TABLE IF EXISTS `vendedores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `vendedores` (
+  `idvendedores` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) NOT NULL,
+  `Apellido` varchar(45) DEFAULT NULL,
+  `Telefono_Celular` varchar(8) DEFAULT NULL,
+  `Telefono_Casa` varchar(8) DEFAULT NULL,
+  `saldo_Anterior` float DEFAULT NULL,
+  `eliminado` tinyint(1) NOT NULL,
+  `DPI` varchar(45) NOT NULL,
+  `Tipo_Vendedores_idTipo_Vendedores` int(11) NOT NULL,
+  PRIMARY KEY (`idvendedores`),
+  KEY `fk_vendedores_Tipo Vendedores1_idx` (`Tipo_Vendedores_idTipo_Vendedores`),
+  CONSTRAINT `fk_vendedores_Tipo Vendedores1` FOREIGN KEY (`Tipo_Vendedores_idTipo_Vendedores`) REFERENCES `tipo vendedores` (`idTipo_Vendedores`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `vendedores`
+--
+
+LOCK TABLES `vendedores` WRITE;
+/*!40000 ALTER TABLE `vendedores` DISABLE KEYS */;
+INSERT INTO `vendedores` VALUES (1,'Arnulfo Marinel','Saucedo','45160971','',0,0,'2413-60250-1315',3),(2,'Luis ','López Chaclan','43983845','',0,0,'2242-62594-1001',3),(3,'Henry Daniel','Werner López','59817606','',0,0,'',3),(4,'Pablo Josman','Vicente','59309697','',0,0,'',3),(5,'Francisco','Tayum','30233640','',55.4299,0,'1848-54318-1303',4),(6,'María José','De Leon Argueta','50172477','',0,0,'2531-93915-0901',2),(7,'ORDENES DE PEDIDO ','Distribuidora Brayan','','',0,0,'000000000000000',2),(8,'Ventas San Marcos','Restaurantes','','',0,0,'000000000000000',2),(9,'Egresos Por Venta en Casa...','Compras del Personal','','',0,0,'000000000000000',2),(10,'Ventas Quiche','Ruta','','',0,0,'0000000000000',2),(11,'Venta Supermercados (Gallos)','Varios','','',0,0,'00000000-0',2),(12,'Vendedores Don Brayan','Varios','54437090','',0,0,'1600 43832 0901',1),(13,'Produccion','Cambio','','',0,0,'0000 00000 0000',2);
+/*!40000 ALTER TABLE `vendedores` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2013-11-15 12:42:27

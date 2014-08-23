@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="pnlFunciones" prefHeight="550.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ControladoresGUI.BancosControlador">
+  <children>
+    <Label id="lblTituloPnl" alignment="CENTER" prefHeight="47.0" prefWidth="146.0" styleClass="PanelSubMenu, laberMenu" text="Bancos:">
+      <VBox.margin>
+        <Insets left="20.0" top="20.0" fx:id="x1" />
+      </VBox.margin>
+    </Label>
+    <VBox alignment="TOP_CENTER" prefHeight="483.0" prefWidth="700.0">
+      <children>
+        <HBox alignment="CENTER_LEFT" maxWidth="500.0" minWidth="550.0" prefHeight="50.0" prefWidth="550.0" spacing="20.0">
+          <children>
+            <Label maxWidth="110.0" minWidth="110.0" prefWidth="110.0" text="Buscar Bancos:">
+              <HBox.margin>
+                <Insets left="20.0" />
+              </HBox.margin>
+            </Label>
+            <TextField fx:id="TFBusqueda" maxHeight="25.0" minHeight="25.0" onAction="#BorrarBanco" prefHeight="25.0" prefWidth="292.0" />
+            <Button maxWidth="120.0" minWidth="120.0" mnemonicParsing="false" onAction="#Buscar" prefWidth="120.0" styleClass="botonBuscar" text="Buscar" />
+          </children>
+          <VBox.margin>
+            <Insets left="50.0" right="50.0" top="20.0" />
+          </VBox.margin>
+        </HBox>
+        <HBox alignment="TOP_RIGHT" maxWidth="500.0" minWidth="550.0" prefHeight="32.0" prefWidth="550.0" spacing="5.0">
+          <children>
+            <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#abrirNuevoBanco" prefHeight="30.0" prefWidth="30.0" styleClass="botonNuevo" textAlignment="CENTER" />
+            <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#BorrarBanco" prefHeight="30.0" prefWidth="30.0" styleClass="botonEliminar" textAlignment="CENTER" />
+            <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#EditarBanco" prefHeight="30.0" prefWidth="30.0" styleClass="botonEditar" textAlignment="CENTER" />
+          </children>
+          <VBox.margin>
+            <Insets left="50.0" right="50.0" fx:id="x2" />
+          </VBox.margin>
+        </HBox>
+        <TableView fx:id="TablaBancos" maxWidth="551.0" minWidth="551.0" prefHeight="350.0" prefWidth="551.0">
+          <VBox.margin>
+            <Insets />
+          </VBox.margin>
+        </TableView>
+      </children>
+    </VBox>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

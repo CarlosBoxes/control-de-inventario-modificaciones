@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="pnlFunciones" prefHeight="641.999977929685" prefWidth="788.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.RecepcionControlador">
+  <children>
+    <Label id="lblTituloPnl" alignment="CENTER" prefHeight="47.0" prefWidth="198.0" styleClass="PanelSubMenu, laberMenu" text="Recepción de Pedidos:">
+      <VBox.margin>
+        <Insets left="20.0" top="20.0" fx:id="x1" />
+      </VBox.margin>
+    </Label>
+    <HBox alignment="TOP_RIGHT" prefHeight="32.0" prefWidth="600.0" spacing="5.0">
+      <children>
+        <Button fx:id="btnVer" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#AgregarDescripcion" prefHeight="30.0" prefWidth="30.0" styleClass="botonVer" textAlignment="CENTER" />
+      </children>
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" fx:id="x2" />
+      </VBox.margin>
+    </HBox>
+    <TableView id="TablaDespacho" fx:id="TablaRecepcion" prefHeight="187.0" prefWidth="600.0" VBox.margin="$x2" />
+    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+      <children>
+        <HBox alignment="TOP_RIGHT" maxWidth="551.0" minWidth="551.0" prefHeight="32.0" prefWidth="551.0" spacing="5.0">
+          <children>
+            <Button fx:id="btnDescripcion" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#SeleccionarProducto" prefHeight="30.0" prefWidth="30.0" styleClass="botonEditar" textAlignment="CENTER" />
+          </children>
+          <VBox.margin>
+            <Insets top="10.0" />
+          </VBox.margin>
+        </HBox>
+        <TableView fx:id="TablaDescripciones" maxWidth="551.0" minWidth="551.0" prefHeight="147.0" prefWidth="551.0">
+          <VBox.margin>
+            <Insets />
+          </VBox.margin>
+        </TableView>
+      </children>
+    </VBox>
+    <HBox id="" alignment="CENTER_RIGHT" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" prefWidth="600.0" spacing="5.0">
+      <children>
+        <Label fx:id="LblNombre" prefWidth="170.0" />
+        <Label maxWidth="60.0" minWidth="60.0" prefWidth="60.0" text="Cantidad:">
+          <HBox.margin>
+            <Insets left="10.0" />
+          </HBox.margin>
+        </Label>
+        <TextField fx:id="TFCantidad" alignment="CENTER" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="66.0" />
+        <Label maxWidth="45.0" minWidth="45.0" prefWidth="45.0" text="Precio:" />
+        <TextField fx:id="TFPrecio" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="83.0" />
+        <Button fx:id="btnCancelar" maxHeight="35.0" maxWidth="125.0" minHeight="35.0" minWidth="125.0" mnemonicParsing="false" onAction="#Cancelar" prefHeight="35.0" prefWidth="125.0" styleClass="botonCancelar" text="Cancelar" />
+        <Button fx:id="btnGuardar" maxHeight="35.0" maxWidth="125.0" minHeight="35.0" minWidth="125.0" mnemonicParsing="false" onAction="#GuardarInventario" prefHeight="35.0" prefWidth="125.0" styleClass="botonGuardar" text="Guardar" textAlignment="CENTER" />
+      </children>
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" top="5.0" />
+      </VBox.margin>
+    </HBox>
+    <VBox fx:id="VBDatosExtra" prefHeight="105.0" prefWidth="788.0">
+      <children>
+        <HBox id="" alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="688.0" spacing="10.0">
+          <children>
+            <Label maxWidth="85.0" minWidth="85.0" prefWidth="85.0" text="No. Factura:" />
+            <TextField fx:id="TFNoFactura" alignment="CENTER" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="110.0" />
+            <Label maxWidth="130.0" minWidth="130.0" prefWidth="130.0" text="Fecha Vencimiento:" />
+            <TextField fx:id="TFFecha" alignment="CENTER" maxHeight="25.0" maxWidth="104.0" minHeight="25.0" minWidth="75.0" prefHeight="25.0" prefWidth="104.0" />
+            <Label maxWidth="110.0" minWidth="110.0" prefWidth="110.0" text="Saldo Cancelado:" />
+            <TextField fx:id="TFSaldo" alignment="CENTER" maxHeight="25.0" maxWidth="125.0" minHeight="25.0" minWidth="125.0" prefHeight="25.0" prefWidth="125.0" />
+          </children>
+          <VBox.margin>
+            <Insets top="10.0" />
+          </VBox.margin>
+        </HBox>
+        <HBox alignment="CENTER_RIGHT" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" prefWidth="688.0" spacing="10.0">
+          <children>
+            <Label maxWidth="110.0" minWidth="110.0" prefWidth="110.0" text="Total a Pagar:" />
+            <TextField fx:id="TFPago" alignment="CENTER" disable="true" maxHeight="25.0" maxWidth="125.0" minHeight="25.0" minWidth="125.0" prefHeight="25.0" prefWidth="125.0" />
+          </children>
+          <VBox.margin>
+            <Insets />
+          </VBox.margin>
+        </HBox>
+        <HBox alignment="CENTER_RIGHT" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" prefWidth="688.0" spacing="5.0">
+          <children>
+            <Button maxHeight="35.0" maxWidth="125.0" minHeight="35.0" minWidth="125.0" mnemonicParsing="false" onAction="#CancelarDatosExtra" prefHeight="35.0" prefWidth="125.0" styleClass="botonCancelar" text="Cancelar" />
+            <Button id="" maxHeight="35.0" maxWidth="125.0" minHeight="30.0" minWidth="125.0" mnemonicParsing="false" onAction="#GuardarCambiosPedido" prefHeight="30.0" prefWidth="125.0" styleClass="botonGuardar" text="Guardar" />
+          </children>
+        </HBox>
+      </children>
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" fx:id="x88" />
+      </VBox.margin>
+    </VBox>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

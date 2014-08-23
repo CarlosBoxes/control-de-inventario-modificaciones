@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="pnlFunciones" prefHeight="408.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.ProductosClienteControlador">
+  <children>
+    <Label id="lblTituloPnl" alignment="CENTER" prefHeight="47.0" prefWidth="238.0" styleClass="PanelSubMenu, laberMenu" text="Lista de Productos:">
+      <VBox.margin>
+        <Insets left="20.0" top="20.0" fx:id="x1" />
+      </VBox.margin>
+    </Label>
+    <VBox alignment="TOP_CENTER" prefHeight="341.0" prefWidth="700.0">
+      <children>
+        <HBox alignment="CENTER_LEFT" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="700.0">
+          <children>
+            <Label maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Id Producto:" />
+            <TextField fx:id="TFId" alignment="CENTER" maxHeight="25.0" maxWidth="100.0" minHeight="25.0" minWidth="100.0" onAction="#BuscarProducto" prefHeight="25.0" prefWidth="100.0" />
+            <Label maxWidth="60.0" minWidth="60.0" prefWidth="60.0" text="Precio:">
+              <HBox.margin>
+                <Insets left="10.0" fx:id="x2" />
+              </HBox.margin>
+            </Label>
+            <TextField fx:id="TFPrecio" alignment="CENTER" maxHeight="25.0" maxWidth="100.0" minHeight="25.0" minWidth="100.0" onAction="#AgregarProducto" prefHeight="25.0" prefWidth="100.0" />
+            <Label id="Nombre" fx:id="LblNombre" maxWidth="250.0" minWidth="250.0" prefWidth="250.0" HBox.margin="$x2" />
+            <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#AgregarProducto" prefHeight="30.0" prefWidth="30.0" styleClass="botonNuevo" textAlignment="CENTER">
+              <HBox.margin>
+                <Insets left="5.0" right="5.0" />
+              </HBox.margin>
+            </Button>
+            <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="botonEliminar" textAlignment="CENTER" />
+          </children>
+          <VBox.margin>
+            <Insets top="20.0" />
+          </VBox.margin>
+        </HBox>
+        <TableView fx:id="TablaLista" editable="true" maxWidth="601.0" minWidth="601.0" prefHeight="236.0" prefWidth="601.0" tableMenuButtonVisible="true">
+          <VBox.margin>
+            <Insets top="10.0" />
+          </VBox.margin>
+        </TableView>
+        <HBox alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="498.0" spacing="20.0">
+          <children>
+            <Button mnemonicParsing="false" onAction="#Cancelar" styleClass="botonCancelar" text="Cancelar" />
+            <Button mnemonicParsing="false" onAction="#Guardar" styleClass="botonAceptar" text="Aceptar" />
+          </children>
+        </HBox>
+      </children>
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" />
+      </VBox.margin>
+    </VBox>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

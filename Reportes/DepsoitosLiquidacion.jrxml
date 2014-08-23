@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="4eef8cab-c3e7-48ba-acbc-f45e1084724d">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="Id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     bancos.`nombre` AS bancos_nombre,
+     liquidacion.`idliquidacion` AS liquidacion_idliquidacion,
+     depositos.`monto` AS Depositos_monto,
+     depositos.`numero_de_boleta` AS Depositos_numero_de_boleta,
+     bancos.`nombre` AS bancos_nombre
+FROM
+     `liquidacion` liquidacion INNER JOIN `descripcion liquidacion` descripcion_liquidacion ON liquidacion.`idliquidacion` = descripcion_liquidacion.`liquidacion_idliquidacion`
+     INNER JOIN `depositos` depositos ON descripcion_liquidacion.`Depositos_idDepositos` = depositos.`idDepositos`
+     INNER JOIN `bancos` bancos ON depositos.`bancos_idbancos` = bancos.`idbancos`
+WHERE
+     liquidacion.`idliquidacion` = $P{Id}]]>
+	</queryString>
+	<field name="bancos_nombre" class="java.lang.String"/>
+	<field name="liquidacion_idliquidacion" class="java.lang.Integer"/>
+	<field name="Depositos_monto" class="java.lang.Float"/>
+	<field name="Depositos_numero_de_boleta" class="java.lang.String"/>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="af1efb7e-1c1a-4eeb-8f7b-889d87d5924e" x="119" y="0" width="112" height="15"/>
+				<box>
+					<pen lineWidth="2.0"/>
+					<topPen lineWidth="2.0"/>
+					<leftPen lineWidth="2.0"/>
+					<bottomPen lineWidth="2.0"/>
+					<rightPen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Numero Deposito]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6c199fea-562e-4c3e-8aec-976e5244987e" x="371" y="0" width="100" height="15"/>
+				<box>
+					<pen lineWidth="2.0"/>
+					<topPen lineWidth="2.0"/>
+					<leftPen lineWidth="2.0"/>
+					<bottomPen lineWidth="2.0"/>
+					<rightPen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Monto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f10a8c16-704a-4284-8a50-cb95799e4f36" x="231" y="0" width="140" height="15"/>
+				<box>
+					<pen lineWidth="2.0"/>
+					<topPen lineWidth="2.0"/>
+					<leftPen lineWidth="2.0"/>
+					<bottomPen lineWidth="2.0"/>
+					<rightPen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Banco]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement uuid="b46c8ff1-db4e-4af9-ae62-4702568a7a14" x="119" y="0" width="112" height="15"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Depositos_numero_de_boleta}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="3dab13ee-6a59-4bd3-86be-9124de0c2263" x="371" y="0" width="100" height="15"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Depositos_monto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5bd4b50e-c13b-4947-9d93-20b968383a76" x="231" y="0" width="140" height="15"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bancos_nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

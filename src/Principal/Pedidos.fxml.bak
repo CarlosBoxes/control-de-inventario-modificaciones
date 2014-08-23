@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="pnlPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1013.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.PedidosControlador">
+  <children>
+    <HBox prefHeight="50.0" prefWidth="800.0" spacing="20.0" styleClass="PanelSubMenu">
+      <children>
+        <Label fx:id="lblTituloSubMenuCatedraticos" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="laberMenu" text="Pedidos">
+          <stylesheets>
+            <URL value="@estilos.css" />
+          </stylesheets>
+        </Label>
+        <Button mnemonicParsing="false" onAction="#abrirPnlPedidoNuevo" prefHeight="50.0" prefWidth="200.0" styleClass="botonNuevoPedidos" text="Nuevo" />
+        <Button mnemonicParsing="false" onAction="#abrirPnlPedidoNuevo" prefHeight="50.0" prefWidth="200.0" styleClass="botonNuevoPedidos" text="Especial" />
+        <Button mnemonicParsing="false" onAction="#abrirPnlVendedodres" prefHeight="50.0" prefWidth="200.0" styleClass="botonVendedores" text="Vendedor" />
+        <Button mnemonicParsing="false" onAction="#abrirPnlTipoVendedor" prefHeight="50.0" prefWidth="200.0" styleClass="botonTipoVendedore" text="Tipos" />
+        <Button mnemonicParsing="false" onAction="#abrirPnlClientes" prefHeight="50.0" prefWidth="200.0" styleClass="botonClientes" text="Clientes" />
+      </children>
+      <stylesheets>
+        <URL value="@estilos.css" />
+      </stylesheets>
+    </HBox>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

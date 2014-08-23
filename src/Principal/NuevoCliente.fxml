@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="517.0" prefWidth="350.0" spacing="5.0" styleClass="fondoNaranja" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.NuevoClienteControlador">
+  <children>
+    <Label id="lblTituloPnl" alignment="CENTER" prefHeight="47.0" prefWidth="280.0" styleClass="PanelSubMenu, laberMenu" text="Agregar Nuevo Cliente">
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" top="20.0" />
+      </VBox.margin>
+    </Label>
+    <Label styleClass="labelNegrita" text="Nombre:">
+      <VBox.margin>
+        <Insets left="50.0" top="20.0" />
+      </VBox.margin>
+    </Label>
+    <TextField fx:id="TFNombre" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="200.0">
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" fx:id="x1" />
+      </VBox.margin>
+    </TextField>
+    <Label styleClass="labelNegrita" text="Razón Social:">
+      <VBox.margin>
+        <Insets left="50.0" fx:id="x2" />
+      </VBox.margin>
+    </Label>
+    <TextField id="TFNombre" fx:id="TFRazonSocial" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="200.0">
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" fx:id="x12" />
+      </VBox.margin>
+    </TextField>
+    <Label styleClass="labelNegrita" text="Nit:">
+      <VBox.margin>
+        <Insets left="50.0" fx:id="x22" />
+      </VBox.margin>
+    </Label>
+    <TextField id="TFContraseña" fx:id="TFNit" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="200.0" VBox.margin="$x1" />
+    <Label styleClass="labelNegrita" text="Dirección:">
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" fx:id="x6" />
+      </VBox.margin>
+    </Label>
+    <TextField id="TFNombre" fx:id="TFDireccion" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="200.0">
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" fx:id="x7" />
+      </VBox.margin>
+    </TextField>
+    <Label styleClass="labelNegrita" text="Telefono Celular:">
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" fx:id="x8" />
+      </VBox.margin>
+    </Label>
+    <TextField id="TFContraseña" fx:id="TFTelefonoCelular" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="200.0">
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" fx:id="x9" />
+      </VBox.margin>
+    </TextField>
+    <Label styleClass="labelNegrita" text="Telefono Casa:">
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" fx:id="x10" />
+      </VBox.margin>
+    </Label>
+    <TextField id="TFContraseña" fx:id="TFTelefonoCasa" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="200.0">
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" fx:id="x11" />
+      </VBox.margin>
+    </TextField>
+    <Label styleClass="labelNegrita" text="Tipo:">
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" fx:id="x12" />
+      </VBox.margin>
+    </Label>
+    <ComboBox fx:id="ComBoTipoCliente" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="250.0" styleClass="fondoBlanco">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" fx:id="x13" />
+      </VBox.margin>
+    </ComboBox>
+    <HBox alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="498.0" spacing="20.0">
+      <children>
+        <Button mnemonicParsing="false" onAction="#Cancelar" styleClass="botonCancelar" text="Cancelar" />
+        <Button mnemonicParsing="false" onAction="#crearNuevoCliente" styleClass="botonAceptar" text="Aceptar" />
+      </children>
+      <padding>
+        <Insets right="20.0" />
+      </padding>
+      <VBox.margin>
+        <Insets top="20.0" />
+      </VBox.margin>
+    </HBox>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="565.9998779296875" spacing="5.0" styleClass="fondoNaranja" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.NuevoProductoControlador">
+  <children>
+    <Label id="lblTituloPnl" alignment="CENTER" minWidth="300.0" prefHeight="47.0" prefWidth="300.0" styleClass="PanelSubMenu, laberMenu" text="Agregar Nuevo Producto">
+      <VBox.margin>
+        <Insets left="150.0" right="100.0" top="20.0" />
+      </VBox.margin>
+    </Label>
+    <VBox alignment="TOP_CENTER" prefHeight="474.0" prefWidth="566.0">
+      <children>
+        <HBox minHeight="337.0" prefHeight="426.0" prefWidth="466.0" spacing="10.0">
+          <children>
+            <VBox prefHeight="332.0" prefWidth="233.0" spacing="10.0">
+              <children>
+                <Label styleClass="labelNegrita" text="Nombre:">
+                  <VBox.margin>
+                    <Insets left="10.0" fx:id="x1" />
+                  </VBox.margin>
+                </Label>
+                <TextField fx:id="TFNombre" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" VBox.margin="$x1" />
+                <Label styleClass="labelNegrita" text="Presentación:">
+                  <VBox.margin>
+                    <Insets left="10.0" fx:id="x2" />
+                  </VBox.margin>
+                </Label>
+                <TextField id="TFContraseña" fx:id="TFPresentacion" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="250.0" VBox.margin="$x1" />
+                <Label styleClass="labelNegrita" text="Unidad De Medida:">
+                  <VBox.margin>
+                    <Insets left="10.0" fx:id="x3" />
+                  </VBox.margin>
+                </Label>
+                <TextField fx:id="TFUnidadDeMedida" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="200.0" VBox.margin="$x1" />
+                <Label styleClass="labelNegrita" text="Categoria:">
+                  <VBox.margin>
+                    <Insets left="10.0" fx:id="x4" />
+                  </VBox.margin>
+                </Label>
+                <TextField id="TFNombre" fx:id="TFCategoria" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" VBox.margin="$x1" />
+                <Label styleClass="labelNegrita" text="Bodega:">
+                  <VBox.margin>
+                    <Insets left="10.0" fx:id="x17" />
+                  </VBox.margin>
+                </Label>
+                <ComboBox id="ComBo" fx:id="ComBoBodega" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="217.0" styleClass="fondoBlanco" VBox.margin="$x1">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <HBox alignment="CENTER" prefHeight="25.0" prefWidth="242.0" spacing="20.0">
+                  <children>
+                    <Label maxWidth="150.0" minWidth="150.0" prefWidth="150.0" styleClass="labelNegrita" text="Fecha de Vencimiento:" />
+                    <CheckBox id="CBCambio" fx:id="CBVencimiento" mnemonicParsing="false" onAction="#habilitarFechaDeVencimiento">
+                      <HBox.margin>
+                        <Insets fx:id="x6" />
+                      </HBox.margin>
+                    </CheckBox>
+                  </children>
+                </HBox>
+                <HBox fx:id="fechaDeVencimiento" alignment="CENTER" disable="true">
+                  <children>
+                    <TextField fx:id="TFFecha" maxHeight="25.0" maxWidth="104.0" minHeight="25.0" minWidth="104.0" onKeyReleased="#SoltoTecla" prefHeight="25.0" prefWidth="104.0">
+                      <HBox.margin>
+                        <Insets right="5.0" />
+                      </HBox.margin>
+                    </TextField>
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefWidth="100.0">
+                  <children>
+                    <Label styleClass="labelNegrita" text="Devolución:">
+                      <HBox.margin>
+                        <Insets right="20.0" />
+                      </HBox.margin>
+                    </Label>
+                    <CheckBox fx:id="CBCambio" mnemonicParsing="false" />
+                  </children>
+                </HBox>
+              </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" minWidth="223.0" prefHeight="489.0" prefWidth="250.0" spacing="10.0">
+              <children>
+                <Label styleClass="labelNegrita" text="Porcentaje de Cambio:">
+                  <VBox.margin>
+                    <Insets fx:id="x7" />
+                  </VBox.margin>
+                </Label>
+                <HBox alignment="CENTER" prefWidth="100.0" spacing="10.0">
+                  <children>
+                    <Label alignment="CENTER_RIGHT" text="\%">
+                      <HBox.margin>
+                        <Insets left="2.0" right="2.0" />
+                      </HBox.margin>
+                    </Label>
+                    <TextField fx:id="TFPorcentajeDeDevolucion" alignment="CENTER" maxHeight="25.0" maxWidth="100.0" minHeight="25.0" minWidth="100.0" prefHeight="25.0" prefWidth="100.0" text="0" />
+                  </children>
+                  <VBox.margin>
+                    <Insets left="10.0" fx:id="x10" />
+                  </VBox.margin>
+                </HBox>
+                <Label styleClass="labelNegrita" text="Precio Costo:">
+                  <VBox.margin>
+                    <Insets left="10.0" fx:id="x11" />
+                  </VBox.margin>
+                </Label>
+                <HBox alignment="CENTER" prefWidth="100.0" spacing="10.0">
+                  <children>
+                    <Label alignment="CENTER_RIGHT" text="Q.">
+                      <HBox.margin>
+                        <Insets left="2.0" right="2.0" />
+                      </HBox.margin>
+                    </Label>
+                    <TextField id="TFContraseña" fx:id="TFPrecioCosto" alignment="CENTER_RIGHT" maxHeight="25.0" maxWidth="100.0" minHeight="25.0" minWidth="100.0" prefHeight="25.0" prefWidth="100.0">
+                      <HBox.margin>
+                        <Insets right="1.0" />
+                      </HBox.margin>
+                    </TextField>
+                  </children>
+                  <VBox.margin>
+                    <Insets left="10.0" fx:id="x12" />
+                  </VBox.margin>
+                </HBox>
+                <Label styleClass="labelNegrita" text="Precio Venta:">
+                  <VBox.margin>
+                    <Insets left="10.0" fx:id="x13" />
+                  </VBox.margin>
+                </Label>
+                <HBox alignment="CENTER" prefWidth="100.0" spacing="10.0">
+                  <children>
+                    <Label alignment="CENTER_RIGHT" text="Q.">
+                      <HBox.margin>
+                        <Insets left="2.0" right="2.0" />
+                      </HBox.margin>
+                    </Label>
+                    <TextField id="TFContraseña" fx:id="TFPrecioVenta" alignment="CENTER_RIGHT" maxHeight="25.0" maxWidth="100.0" minHeight="25.0" minWidth="100.0" prefHeight="25.0" prefWidth="100.0">
+                      <HBox.margin>
+                        <Insets right="1.0" />
+                      </HBox.margin>
+                    </TextField>
+                  </children>
+                  <VBox.margin>
+                    <Insets left="10.0" fx:id="x14" />
+                  </VBox.margin>
+                </HBox>
+                <Label styleClass="labelNegrita" text="Cantidad:" />
+                <HBox alignment="CENTER" prefWidth="100.0" spacing="10.0">
+                  <children>
+                    <Label alignment="CENTER_RIGHT" prefWidth="19.0">
+                      <HBox.margin>
+                        <Insets left="2.0" right="2.0" />
+                      </HBox.margin>
+                    </Label>
+                    <TextField id="TFContraseña" fx:id="TFCantidad" alignment="CENTER_RIGHT" maxHeight="25.0" maxWidth="100.0" minHeight="25.0" minWidth="100.0" prefHeight="25.0" prefWidth="100.0">
+                      <HBox.margin>
+                        <Insets right="1.0" />
+                      </HBox.margin>
+                    </TextField>
+                  </children>
+                </HBox>
+                <Label styleClass="labelNegrita" text="Descripción:">
+                  <VBox.margin>
+                    <Insets left="10.0" fx:id="x16" />
+                  </VBox.margin>
+                </Label>
+                <TextArea fx:id="TADescripcion" maxHeight="125.0" minHeight="125.0" prefHeight="125.0" prefWidth="213.0" wrapText="true">
+                  <VBox.margin>
+                    <Insets left="10.0" right="10.0" />
+                  </VBox.margin>
+                </TextArea>
+              </children>
+            </VBox>
+          </children>
+          <VBox.margin>
+            <Insets left="50.0" right="50.0" />
+          </VBox.margin>
+        </HBox>
+        <HBox alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="498.0" spacing="10.0">
+          <children>
+            <Button maxWidth="125.0" minWidth="125.0" mnemonicParsing="false" onAction="#Cancelar" prefWidth="125.0" styleClass="botonCancelar" text="Cancelar" />
+            <Button maxWidth="125.0" minWidth="125.0" mnemonicParsing="false" onAction="#CrearNuevoProducto" prefWidth="125.0" styleClass="botonAceptar" text="Aceptar" />
+          </children>
+          <VBox.margin>
+            <Insets left="50.0" right="50.0" top="5.0" />
+          </VBox.margin>
+        </HBox>
+      </children>
+    </VBox>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

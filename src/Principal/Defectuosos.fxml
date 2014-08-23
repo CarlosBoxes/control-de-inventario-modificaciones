@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="pnlFunciones" prefHeight="633.0" prefWidth="741.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.DefectuosoControlador">
+  <children>
+    <Label id="lblTituloPnl" alignment="CENTER" prefHeight="44.0" prefWidth="192.0" styleClass="PanelSubMenu, laberMenu" text="Productos Vencidos">
+      <VBox.margin>
+        <Insets left="20.0" top="20.0" fx:id="x1" />
+      </VBox.margin>
+    </Label>
+    <VBox alignment="TOP_CENTER" prefHeight="214.0" prefWidth="741.0">
+      <children>
+        <TableView fx:id="TablaVencidos" maxWidth="651.0" minWidth="651.0" prefHeight="165.0" prefWidth="651.0">
+          <VBox.margin>
+            <Insets top="10.0" />
+          </VBox.margin>
+        </TableView>
+        <HBox alignment="CENTER_RIGHT" maxWidth="650.0" minWidth="650.0" prefHeight="38.0" prefWidth="650.0">
+          <children>
+            <Label text="Cantidad:">
+              <HBox.margin>
+                <Insets right="10.0" fx:id="x2" />
+              </HBox.margin>
+            </Label>
+            <TextField fx:id="TFCVencido" prefWidth="60.0" HBox.margin="$x2" />
+            <Button fx:id="btnSacar" maxWidth="190.0" minWidth="190.0" mnemonicParsing="false" onAction="#SacarProductos" prefWidth="190.0" styleClass="botonCancelar" text="Sacar del Inventario">
+              <HBox.margin>
+                <Insets />
+              </HBox.margin>
+            </Button>
+          </children>
+          <VBox.margin>
+            <Insets left="50.0" right="50.0" fx:id="x4" />
+          </VBox.margin>
+        </HBox>
+      </children>
+    </VBox>
+    <Label id="lblTituloPnl" alignment="CENTER" prefHeight="44.0" prefWidth="218.0" styleClass="PanelMenu, laberMenu" text="Productos Defectuosos">
+      <VBox.margin>
+        <Insets left="20.0" fx:id="x9" />
+      </VBox.margin>
+    </Label>
+    <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="700.0">
+      <children>
+        <Label maxWidth="90.0" minWidth="90.0" prefWidth="90.0" text="Id Producto:" />
+        <TextField id="TFMateriaPrima" fx:id="TFIdProducto" prefWidth="129.0">
+          <HBox.margin>
+            <Insets left="20.0" fx:id="x93" />
+          </HBox.margin>
+        </TextField>
+        <Label maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Cantidad:">
+          <HBox.margin>
+            <Insets left="20.0" right="20.0" />
+          </HBox.margin>
+        </Label>
+        <TextField id="TFCantidadMP" fx:id="TFCantidad" prefWidth="88.0" />
+        <Label maxWidth="90.0" minWidth="90.0" prefWidth="90.0" text="Id Vendedor:">
+          <HBox.margin>
+            <Insets left="20.0" right="20.0" />
+          </HBox.margin>
+        </Label>
+        <TextField fx:id="TFVendedor" onAction="#Vendedor" prefWidth="88.0" />
+        <Label fx:id="lblVendedor">
+          <HBox.margin>
+            <Insets left="10.0" />
+          </HBox.margin>
+        </Label>
+      </children>
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" top="20.0" />
+      </VBox.margin>
+    </HBox>
+    <Label maxWidth="90.0" minWidth="90.0" prefWidth="90.0" text="Descripcion:">
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" fx:id="x43" />
+      </VBox.margin>
+    </Label>
+    <TextArea fx:id="TADescripcion" prefHeight="44.0" prefWidth="641.0" wrapText="true" VBox.margin="$x4" />
+    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+      <children>
+        <HBox alignment="TOP_RIGHT" maxHeight="30.0" maxWidth="751.0" minHeight="30.0" minWidth="751.0" prefHeight="30.0" prefWidth="751.0">
+          <children>
+            <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#AgregarProductoDefectuoso" prefHeight="30.0" prefWidth="30.0" styleClass="botonNuevo" textAlignment="CENTER">
+              <HBox.margin>
+                <Insets left="20.0" fx:id="x32" />
+              </HBox.margin>
+            </Button>
+            <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#SacarProductoDefectusos" prefHeight="30.0" prefWidth="30.0" styleClass="botonEliminar" textAlignment="CENTER">
+              <HBox.margin>
+                <Insets left="5.0" />
+              </HBox.margin>
+            </Button>
+          </children>
+          <VBox.margin>
+            <Insets top="5.0" />
+          </VBox.margin>
+        </HBox>
+        <TableView fx:id="TablaDefectuosos" maxWidth="751.0" minWidth="751.0" prefHeight="200.0" prefWidth="741.0" />
+      </children>
+    </VBox>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

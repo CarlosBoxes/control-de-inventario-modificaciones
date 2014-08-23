@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="pnlFunciones" prefHeight="567.0" prefWidth="751.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ControladoresGUI.MateriaPrimaControlador">
+  <children>
+    <Label id="lblTituloPnl" alignment="CENTER" prefHeight="45.0" prefWidth="148.0" styleClass="PanelSubMenu, laberMenu" text="Materia Prima:">
+      <VBox.margin>
+        <Insets left="20.0" top="20.0" fx:id="x1" />
+      </VBox.margin>
+    </Label>
+    <VBox alignment="TOP_CENTER" prefHeight="471.0" prefWidth="751.0">
+      <children>
+        <HBox alignment="CENTER_LEFT" maxWidth="650.0" minWidth="650.0" prefHeight="50.0" prefWidth="650.0" spacing="20.0">
+          <children>
+            <Label maxWidth="160.0" minWidth="160.0" prefWidth="160.0" text="Buscar Materia Prima:">
+              <HBox.margin>
+                <Insets left="20.0" />
+              </HBox.margin>
+            </Label>
+            <TextField fx:id="TFBusqueda" maxHeight="25.0" minHeight="25.0" onAction="#Buscar" prefHeight="25.0" prefWidth="292.0" />
+            <Button maxWidth="120.0" minWidth="120.0" mnemonicParsing="false" onAction="#Buscar" prefWidth="120.0" styleClass="botonBuscar" text="Buscar" />
+          </children>
+          <VBox.margin>
+            <Insets top="20.0" />
+          </VBox.margin>
+        </HBox>
+        <HBox alignment="TOP_RIGHT" maxWidth="650.0" minWidth="650.0" prefHeight="32.0" prefWidth="650.0" spacing="5.0">
+          <children>
+            <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#abrirNuevaMateriaPrima" prefHeight="30.0" prefWidth="30.0" styleClass="botonNuevo" textAlignment="CENTER" />
+            <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#BorrarMateriaPrima" prefHeight="30.0" prefWidth="30.0" styleClass="botonEliminar" textAlignment="CENTER" />
+            <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#EditarMateriaPrima" prefHeight="30.0" prefWidth="30.0" styleClass="botonEditar" textAlignment="CENTER" />
+          </children>
+          <VBox.margin>
+            <Insets top="5.0" />
+          </VBox.margin>
+        </HBox>
+        <TableView fx:id="TablaMateriaPrima" maxWidth="651.0" minWidth="651.0" prefHeight="344.0" prefWidth="651.0">
+          <VBox.margin>
+            <Insets />
+          </VBox.margin>
+        </TableView>
+        <HBox alignment="TOP_RIGHT" maxWidth="650.0" minWidth="650.0" prefHeight="62.0" prefWidth="650.0">
+          <children>
+            <Button maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" onAction="#AbrirReporte" prefHeight="45.0" prefWidth="220.0" styleClass="botonAbrirReporte" text="Guardar o Imprimir" />
+          </children>
+          <VBox.margin>
+            <Insets top="10.0" />
+          </VBox.margin>
+        </HBox>
+      </children>
+    </VBox>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

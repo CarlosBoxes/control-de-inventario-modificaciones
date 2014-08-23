@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="583.0000999999975" prefWidth="850.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.VendedoresControlador">
+  <children>
+    <Label alignment="CENTER" prefHeight="47.0" prefWidth="127.0" styleClass="PanelSubMenu, laberMenu" text="Vendedores:">
+      <VBox.margin>
+        <Insets left="20.0" top="20.0" />
+      </VBox.margin>
+    </Label>
+    <VBox alignment="TOP_CENTER" prefHeight="497.0" prefWidth="850.0">
+      <children>
+        <HBox alignment="CENTER_LEFT" maxWidth="750.0" minWidth="750.0" prefHeight="50.0" prefWidth="750.0" spacing="20.0">
+          <children>
+            <Label maxWidth="145.0" minWidth="145.0" prefWidth="145.0" text="Buscar Vendedores:" />
+            <TextField fx:id="TFBusqueda" maxHeight="25.0" minHeight="25.0" onAction="#Buscar" prefHeight="25.0" prefWidth="234.0" />
+            <Button maxWidth="120.0" minWidth="120.0" mnemonicParsing="false" onAction="#Buscar" prefWidth="120.0" styleClass="botonBuscar" text="Buscar" />
+          </children>
+          <VBox.margin>
+            <Insets left="50.0" right="50.0" top="20.0" />
+          </VBox.margin>
+        </HBox>
+        <HBox alignment="TOP_RIGHT" maxWidth="750.0" minWidth="750.0" prefHeight="32.0" prefWidth="750.0" spacing="5.0">
+          <children>
+            <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#abrirNuevoVendedor" prefHeight="30.0" prefWidth="30.0" styleClass="botonNuevo" textAlignment="CENTER" />
+            <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#BorrarVendedor" prefHeight="30.0" prefWidth="30.0" styleClass="botonEliminar" textAlignment="CENTER" />
+            <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#EditarVendedor" prefHeight="30.0" prefWidth="30.0" styleClass="botonEditar" textAlignment="CENTER" />
+            <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#AbrirListaProductos2" prefHeight="30.0" prefWidth="30.0" styleClass="botonLista" textAlignment="CENTER" />
+          </children>
+          <VBox.margin>
+            <Insets left="50.0" right="50.0" fx:id="x1" />
+          </VBox.margin>
+        </HBox>
+        <TableView fx:id="TablaVendedores" maxWidth="751.0" minWidth="751.0" prefHeight="295.0" prefWidth="751.0" />
+        <SplitPane dividerPositions="0.4947089947089947" focusTraversable="true" maxWidth="750.0" minWidth="750.0" prefHeight="160.0" prefWidth="750.0">
+          <items>
+            <VBox prefHeight="125.0" prefWidth="375.0">
+              <children>
+                <Label alignment="CENTER" prefHeight="30.0" prefWidth="175.0" styleClass="laberMenu, fondoNaranja" text="Ventas Anuales" />
+                <HBox alignment="CENTER" maxWidth="375.0" minWidth="375.0" prefHeight="40.0" prefWidth="375.0" spacing="20.0">
+                  <children>
+                    <Label maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="Año:" />
+                    <TextField fx:id="TFAnual" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onAction="#AbrirReporteVentasAnuales" prefHeight="25.0" prefWidth="86.0" />
+                  </children>
+                </HBox>
+                <HBox alignment="TOP_RIGHT" prefHeight="45.0" prefWidth="375.0">
+                  <children>
+                    <Button maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" onAction="#AbrirReporteVentasAnuales" prefHeight="45.0" prefWidth="220.0" styleClass="botonAbrirReporte" text="Guardar o Imprimir" />
+                  </children>
+                </HBox>
+              </children>
+            </VBox>
+            <VBox prefHeight="120.0" prefWidth="375.0">
+              <children>
+                <Label alignment="CENTER" prefHeight="30.0" prefWidth="190.0" styleClass="laberMenu, fondoNaranja" text="Ventas Mensuales" />
+                <HBox alignment="CENTER" maxWidth="375.0" minWidth="375.0" prefHeight="40.0" prefWidth="375.0" spacing="20.0">
+                  <children>
+                    <Label maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="Mes:" />
+                    <ComboBox fx:id="ComBoMes" prefHeight="21.0" prefWidth="111.0" styleClass="fondoBlanco">
+                      <items>
+                        <FXCollections fx:factory="observableArrayList">
+                          <String fx:value="Enero" />
+                          <String fx:value="Febrero" />
+                          <String fx:value="Marzo" />
+                          <String fx:value="Abril" />
+                          <String fx:value="Mayo" />
+                          <String fx:value="Junio" />
+                          <String fx:value="Julio" />
+                          <String fx:value="Agosto" />
+                          <String fx:value="Septiembre" />
+                          <String fx:value="Octubre" />
+                          <String fx:value="Noviembre" />
+                          <String fx:value="Diciembre" />
+                        </FXCollections>
+                      </items>
+                    </ComboBox>
+                    <Label maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="Año:" />
+                    <TextField fx:id="TFAño" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onAction="#AbrirReporteVentasMensuales" prefHeight="25.0" prefWidth="86.0" />
+                  </children>
+                </HBox>
+                <HBox alignment="TOP_RIGHT" prefHeight="45.0" prefWidth="375.0">
+                  <children>
+                    <Button maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" onAction="#AbrirReporteVentasMensuales" prefHeight="45.0" prefWidth="220.0" styleClass="botonAbrirReporte" text="Guardar o Imprimir" />
+                  </children>
+                </HBox>
+              </children>
+            </VBox>
+          </items>
+          <VBox.margin>
+            <Insets top="10.0" />
+          </VBox.margin>
+        </SplitPane>
+      </children>
+    </VBox>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

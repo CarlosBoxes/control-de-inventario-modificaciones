@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="pnlPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="928.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.LiquidacionesControlador">
+  <children>
+    <HBox prefHeight="50.0" prefWidth="800.0" spacing="20.0" styleClass="PanelSubMenu">
+      <children>
+        <Label id="lblTituloSubMenuCatedraticos" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="laberMenu" text="Liquidaciones">
+          <stylesheets>
+            <URL value="@estilos.css" />
+          </stylesheets>
+        </Label>
+        <Button maxWidth="200.0" minWidth="150.0" mnemonicParsing="false" onAction="#abrirPnlNuevaLiquidacion" prefHeight="50.0" prefWidth="150.0" styleClass="botonNuevoPedidos" text="Nueva" />
+        <Button maxWidth="200.0" minWidth="150.0" mnemonicParsing="false" onAction="#abrirPnlNuevaLiquidacionEspecial" prefHeight="50.0" prefWidth="150.0" styleClass="botonNuevoPedidos" text="Especial" />
+        <Button maxWidth="170.0" minWidth="170.0" mnemonicParsing="false" onAction="#abrirPnlReportesLiquidacion" prefHeight="50.0" prefWidth="170.0" styleClass="botonReporte" text="Utilidades" />
+        <Button maxWidth="170.0" minWidth="170.0" mnemonicParsing="false" onAction="#abrirPnlReportesFinanzas" prefHeight="56.0" prefWidth="170.0" styleClass="botonReporte" text="Compras" />
+        <Button maxWidth="170.0" minWidth="170.0" mnemonicParsing="false" onAction="#abrirPnlReportesVentas" prefHeight="56.0" prefWidth="170.0" styleClass="botonReporte" text="Ventas" />
+      </children>
+      <stylesheets>
+        <URL value="@estilos.css" />
+      </stylesheets>
+    </HBox>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

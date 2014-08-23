@@ -1,0 +1,1043 @@
+.botonInicioSesion{
+    -fx-background-color: #9FD836;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #9FD836;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Login.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonInicioSesion:hover, .botonInicioSesion:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonInicioSesion:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.label{
+    -fx-text-fill: #003672;
+    -fx-font-size: 14px;  
+}
+
+.labelNegrita{
+    -fx-text-fill: #000000;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.Panel{
+    -fx-border-color: #000000;
+}
+
+.PanelMenu{
+    -fx-background-color: #F2C849;
+}
+
+.PanelSubMenu{
+    -fx-background-color: #9FD836;
+}
+
+.laberMenu{
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.botonPedidos{
+    -fx-background-color: #9FD836;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #9FD836;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Pedidos.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonPedidos:hover, .botonPedidos:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonPedidos:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonNuevoPedidos{
+    -fx-background-color: #F2C849;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #F2C849;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/NuevoDocumento.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonNuevoPedidos:hover, .botonNuevoPedidos:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonNuevoPedidos:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonVendedores{
+    -fx-background-color: #F2C849;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #F2C849;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Vendedor.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonVendedores:hover, .botonVendedores:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonVendedores:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonTipoVendedore{
+    -fx-background-color: #F2C849;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #F2C849;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/TipoVendedor.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonTipoVendedore:hover, .botonTipoVendedore:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonTipoVendedore:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonClientes{
+    -fx-background-color: #F2C849;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #F2C849;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Clientes.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonClientes:hover, .botonClientes:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonClientes:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonBodega{
+    -fx-background-color: #9FD836;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #9FD836;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Bodega.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonBodega:hover, .botonBodega:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonBodega:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonProductos{
+    -fx-background-color: #F2C849;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #F2C849;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Nuevo.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonProductos:hover, .botonProductos:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonProductos:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonDefectuosos{
+    -fx-background-color: #F2C849;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #F2C849;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Defectuosos.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonDefectuosos:hover, .botonDefectuosos:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonDefectuosos:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonProveedores{
+    -fx-background-color: #F2C849;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #F2C849;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Proveedor.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonProveedores:hover, .botonProveedores:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonProveedores:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonBodegas{
+    -fx-background-color: #F2C849;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #F2C849;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Bodegas.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonBodegas:hover, .botonBodegas:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonBodegas:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonDespacho{
+    -fx-background-color: #F2C849;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #F2C849;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Despacho.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonDespacho:hover, .botonDespacho:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonDespacho:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonPedido{
+    -fx-background-color: #F2C849;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #F2C849;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Compras.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonPedido:hover, .botonPedido:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonPedido:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonLiquidaciones{
+    -fx-background-color: #9FD836;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #9FD836;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Liquidaciones.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonLiquidaciones:hover, .botonLiquidaciones:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonLiquidaciones:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonFinanzas{
+    -fx-background-color: #9FD836;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #9FD836;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Finanzas.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonFinanzas:hover, .botonFinanzas:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonFinanzas:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonOpciones{
+    -fx-background-color: #9FD836;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #9FD836;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Opciones.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonOpciones:hover, .botonOpciones:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonOpciones:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonReporte{
+    -fx-background-color: #F2C849;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #F2C849;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Reporte.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonReporte:hover, .botonReporte:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonReporte:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonRecuperarCon{
+    -fx-background-color: #F2C849;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #F2C849;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Llave.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonRecuperarCon:hover, .botonRecuperarCon:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonRecuperarCon:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonUsuarios{
+    -fx-background-color: #F2C849;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #F2C849;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Usuario.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonUsuarios:hover, .botonUsuarios:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonUsuarios:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonSalir{
+    -fx-background-color: #9FD836;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #9FD836;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Salir.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonSalir:hover, .botonSalir:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonSalir:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonEditar{
+    -fx-background-color: #1CBABA;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #1CBABA;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Editar.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonEditar:hover, .botonEditar:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #1CAAAA;
+}
+
+.botonEditar:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #1CAAAA;
+}
+
+.botonLista{
+    -fx-background-color: #1CBABA;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #1CBABA;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Lista.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonLista:hover, .botonLista:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #1CAAAA;
+}
+
+.botonLista:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #1CAAAA;
+}
+
+.botonVer{
+    -fx-background-color: #1CBABA;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #1CBABA;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Ver.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonVer:hover, .botonVer:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #1CAAAA;
+}
+
+.botonVer:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #1CAAAA;
+}
+
+.botonBuscar{
+    -fx-background-color: #1CBABA;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #1CBABA;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Buscar.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonBuscar:hover, .botonBuscar:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #1CAAAA;
+}
+
+.botonBuscar:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #1CAAAA;
+}
+
+.botonNuevo{
+    -fx-background-color: #1CBABA;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #1CBABA;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Nuevo.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonNuevo:hover, .botonNuevo:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #1CAAAA;
+}
+
+.botonNuevo:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #1CAAAA;
+}
+
+.botonEliminar{
+    -fx-background-color: #1CBABA;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #1CBABA;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Eliminar.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonEliminar:hover, .botonEliminar:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #1CAAAA;
+}
+
+.botonEliminar:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #1CAAAA;
+}
+
+
+.botonAceptar{
+    -fx-background-color: #9FD836;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #9FD836;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Aceptar.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonAceptar:hover, .botonAceptar:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonAceptar:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonCancelar{
+    -fx-background-color: #F24130;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #F24130;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Cancelar.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonCancelar:hover, .botonCancelar:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #BA3225;
+}
+
+.botonCancelar:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #BA3225;
+}
+
+
+.fondoNaranja{
+    -fx-background-color: #F2C849;
+}
+
+.fondoBlanco{
+    -fx-background-color: #FFFFFF;
+}
+
+input[type=check-box] { 
+    visibility: hidden; 
+}
+
+.checkbox-2:before { 
+    content: 'Sí'; 
+    position: absolute; 
+    top: 0; left: 20px; 
+    color: #19DD89; 
+    font-size: 20px; 
+    line-height: 40px; 
+    text-shadow: 0 0 2px #FFFFFF; 
+} 
+
+.checkbox-2:after { 
+    content: 'No'; 
+    color: #BCB589; 
+    position: absolute; 
+    top: 0px; 
+    right: 20px; 
+    font-size: 20px; 
+    line-height: 40px; 
+    text-shadow: 0 0 1px #000000; 
+} 
+
+.checkbox-2 input[type=check-box]:checked + label { 
+    left: 115px; 
+    background: #19DD89; 
+} 
+
+.botonProduccion{
+    -fx-background-color: #9FD836;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #9FD836;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Produccion.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonProduccion:hover, .botonProduccion:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonProduccion:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonMP{
+    -fx-background-color: #F2C849;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #F2C849;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/MP.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonMP:hover, .botonMP:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonMP:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonRecepcion{
+    -fx-background-color: #F2C849;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #F2C849;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Recepcion.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonRecepcion:hover, .botonRecepcion:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonRecepcion:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonFactura{
+    -fx-background-color: #F2C849;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #F2C849;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Facturas.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonFactura:hover, .botonFactura:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonFactura:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonGenerarFactura{
+    -fx-background-color: #9FD836;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #9FD836;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Factura.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonGenerarFactura:hover, .botonGenerarFactura:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonGenerarFactura:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonBancos{
+    -fx-background-color: #F2C849;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #F2C849;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Bancos.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonBancos:hover, .botonBancos:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonBancos:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonDepositos{
+    -fx-background-color: #F2C849;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #F2C849;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Depositos.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonDepositos:hover, .botonDepositos:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonDepositos:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonCheques{
+    -fx-background-color: #F2C849;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #F2C849;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Liquidaciones.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonCheques:hover, .botonCheques:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonCheques:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #FF9926;
+}
+
+.botonGuardar{
+    -fx-background-color: #9FD836;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #9FD836;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Guardar.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonGuardar:hover, .botonGuardar:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonGuardar:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonAbrirReporte{
+    -fx-background-color: #9FD836;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #9FD836;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Abrir.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonAbrirReporte:hover, .botonAbrirReporte:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonAbrirReporte:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #9FB836;
+}
+
+.botonPago{
+    -fx-background-color: #1CBABA;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #1CBABA;
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-font-weight: bold;
+    -fx-graphic:  url('../Imagenes/Pago.png');
+    -fx-graphic-text-gap: 10;
+    -fx-padding-left: 10;
+}
+
+.botonPago:hover, .botonPago:focus{
+    -fx-cursor: hand;
+    -fx-background-color: #1CAAAA;
+}
+
+.botonPago:focused{
+    -fx-cursor: hand;
+    -fx-background-color: #1CAAAA;
+}

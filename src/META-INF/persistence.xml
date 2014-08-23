@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="ControlInventarioCCPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>EntidadesJPA.AsignacionDePermisos</class>
+    <class>EntidadesJPA.Bancos</class>
+    <class>EntidadesJPA.BodegaProduccion</class>
+    <class>EntidadesJPA.BodegaProductos</class>
+    <class>EntidadesJPA.CargosClientes</class>
+    <class>EntidadesJPA.ChequesClientes</class>
+    <class>EntidadesJPA.ChequesProveedores</class>
+    <class>EntidadesJPA.Clientes</class>
+    <class>EntidadesJPA.CuentaporCobrar</class>
+    <class>EntidadesJPA.Depositos</class>
+    <class>EntidadesJPA.DescripcionClientes</class>
+    <class>EntidadesJPA.DescripcionFactura</class>
+    <class>EntidadesJPA.DescripcionLiquidacion</class>
+    <class>EntidadesJPA.DescripcionPedido</class>
+    <class>EntidadesJPA.DescripcionPedidoMateriaPrima</class>
+    <class>EntidadesJPA.DescripcionPedidoProveedores</class>
+    <class>EntidadesJPA.Facturas</class>
+    <class>EntidadesJPA.InventarioMateriaPrima</class>
+    <class>EntidadesJPA.InventarioProducto</class>
+    <class>EntidadesJPA.Liquidacion</class>
+    <class>EntidadesJPA.ListaClientes</class>
+    <class>EntidadesJPA.MateriaPrima</class>
+    <class>EntidadesJPA.Pedido</class>
+    <class>EntidadesJPA.PedidoMateriaPrima</class>
+    <class>EntidadesJPA.PedidoProveedores</class>
+    <class>EntidadesJPA.Permisos</class>
+    <class>EntidadesJPA.ProductoaCambiar</class>
+    <class>EntidadesJPA.Productos</class>
+    <class>EntidadesJPA.ProductosClientes</class>
+    <class>EntidadesJPA.ProductosDefectuoso</class>
+    <class>EntidadesJPA.ProductosVencidos</class>
+    <class>EntidadesJPA.ProductosVendedores</class>
+    <class>EntidadesJPA.Proveedores</class>
+    <class>EntidadesJPA.TipoClientes</class>
+    <class>EntidadesJPA.TipoVendedores</class>
+    <class>EntidadesJPA.Usuario</class>
+    <class>EntidadesJPA.Vendedores</class>
+    <class>EntidadesJPA.Produccion</class>
+    <class>EntidadesJPA.Bodegaproductos</class>
+    <class>EntidadesJPA.Descripcionclientes</class>
+    <class>EntidadesJPA.Materiaprima</class>
+    <class>EntidadesJPA.Productosclientes</class>
+    <class>EntidadesJPA.Productosvendedores</class>
+    <class>EntidadesJPA.Cuentaporcobrar</class>
+    <class>EntidadesJPA.Productoacambiar</class>
+    <class>EntidadesJPA.Listaclientes</class>
+    <class>EntidadesJPA.Descripcionfactura</class>
+    <class>EntidadesJPA.DescripcionFactura_1</class>
+    <class>EntidadesJPA.Traslado</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bdcc?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.password" value="1234"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+    </properties>
+  </persistence-unit>
+</persistence>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox id="pnlFunciones" fx:id="pnlPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ControladoresGUI.UsuariosControlador">
+  <children>
+    <Label id="lblTituloPnl" alignment="CENTER" prefHeight="47.0" prefWidth="137.0" styleClass="PanelSubMenu, laberMenu" text="Usuarios:">
+      <VBox.margin>
+        <Insets left="20.0" top="20.0" fx:id="x1" />
+      </VBox.margin>
+    </Label>
+    <HBox alignment="TOP_RIGHT" prefHeight="22.0" prefWidth="650.0">
+      <children>
+        <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#ActivarModificarUsuario" prefHeight="30.0" prefWidth="30.0" styleClass="botonEditar">
+          <HBox.margin>
+            <Insets fx:id="x4" />
+          </HBox.margin>
+        </Button>
+      </children>
+      <VBox.margin>
+        <Insets left="100.0" right="100.0" fx:id="x2" />
+      </VBox.margin>
+    </HBox>
+    <VBox prefHeight="200.00009999999747" prefWidth="499.9998779296875" styleClass="Panel" VBox.margin="$x2">
+      <children>
+        <Label id="lblTituloPnl" alignment="CENTER" prefHeight="30.0" prefWidth="177.0" styleClass="laberMenu, PanelMenu" text="Datos Acutales:">
+          <VBox.margin>
+            <Insets left="10.0" top="10.0" fx:id="x3" />
+          </VBox.margin>
+        </Label>
+        <HBox alignment="CENTER" prefHeight="125.0" prefWidth="498.0" spacing="20.0">
+          <children>
+            <Label styleClass="labelNegrita" text="Nombre de Usuario:" />
+            <TextField fx:id="TFNombre" editable="false" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="200.0" />
+          </children>
+        </HBox>
+        <HBox alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="498.0" spacing="20.0">
+          <children>
+            <Button mnemonicParsing="false" onAction="#start" styleClass="botonCancelar" text="Cerrar Sesión" />
+          </children>
+          <padding>
+            <Insets right="20.0" />
+          </padding>
+        </HBox>
+      </children>
+    </VBox>
+    <VBox fx:id="pnlModificar" prefHeight="200.0" prefWidth="100.0" styleClass="Panel">
+      <children>
+        <Label id="lblTituloPnl" alignment="CENTER" prefHeight="30.0" prefWidth="184.0" styleClass="laberMenu, PanelMenu" text="Datos a Modificar:" VBox.margin="$x3" />
+        <VBox alignment="CENTER_RIGHT" prefHeight="113.0" prefWidth="498.0">
+          <children>
+            <HBox alignment="CENTER" prefHeight="26.0" prefWidth="700.0" spacing="0.0">
+              <children>
+                <Label maxWidth="220.0" minWidth="220.0" prefWidth="220.0" styleClass="labelNegrita" text="Nombre de Usuario Nuevo:" />
+                <TextField fx:id="TFNuevoNombre" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="200.0" />
+              </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="22.0" prefWidth="700.0" spacing="0.0">
+              <children>
+                <Label maxWidth="220.0" minWidth="220.0" prefWidth="220.0" styleClass="labelNegrita" text="Contraseña Nueva:">
+                  <HBox.margin>
+                    <Insets fx:id="x4" />
+                  </HBox.margin>
+                </Label>
+                <TextField fx:id="TFNuevaContraseña" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="200.0" HBox.margin="$x4" />
+              </children>
+            </HBox>
+          </children>
+          <VBox.margin>
+            <Insets fx:id="x4" />
+          </VBox.margin>
+        </VBox>
+        <HBox alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="498.0" spacing="20.0">
+          <children>
+            <Button mnemonicParsing="false" onAction="#Cancelar" styleClass="botonCancelar" text="Cancelar" />
+            <Button mnemonicParsing="false" onAction="#ModificarUsuario" styleClass="botonAceptar" text="Aceptar" />
+          </children>
+          <padding>
+            <Insets right="20.0" />
+          </padding>
+        </HBox>
+      </children>
+      <VBox.margin>
+        <Insets left="100.0" right="100.0" top="20.0" />
+      </VBox.margin>
+    </VBox>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

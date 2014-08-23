@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="12d6d476-80aa-49e5-923c-403e0b58f235">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="263" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="3a38f576-0bde-43a1-bbdc-d9b2adaa8e25" x="20" y="30" width="259" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Prueba de Fuentes 1234567890 - Q.0.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4c621ff0-076d-44bd-b877-16d470fc00e5" x="20" y="60" width="259" height="20"/>
+				<textElement>
+					<font fontName="Serif" size="9"/>
+				</textElement>
+				<text><![CDATA[Prueba de Fuentes 1234567890 - Q.0.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="36d77421-fb5b-40de-b83f-15d284b41514" x="20" y="92" width="259" height="20"/>
+				<textElement>
+					<font fontName="Bitstream Charter" size="9"/>
+				</textElement>
+				<text><![CDATA[Prueba de Fuentes 1234567890 - Q.0.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c4cad5f6-ee39-40f7-953c-6fe200cdda73" x="20" y="129" width="259" height="20"/>
+				<textElement>
+					<font fontName="Century Schoolbook L" size="9"/>
+				</textElement>
+				<text><![CDATA[Prueba de Fuentes 1234567890 - Q.0.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="88000edd-affa-4c3a-8674-4a0dee47a90a" x="20" y="167" width="259" height="20"/>
+				<textElement>
+					<font fontName="Courier 10 Pitch" size="9"/>
+				</textElement>
+				<text><![CDATA[Prueba de Fuentes 1234567890 - Q.0.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="55e6f647-1d3d-4e01-8f04-741624b06877" x="20" y="208" width="259" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<text><![CDATA[Prueba de Fuentes 1234567890 - Q.0.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="69750d98-2268-4154-804d-8009a361f5b5" x="296" y="30" width="259" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="9"/>
+				</textElement>
+				<text><![CDATA[Prueba de Fuentes 1234567890 - Q.0.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1200bbfd-1204-46a7-aa3d-134ace58cf72" x="296" y="60" width="259" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Serif" size="9"/>
+				</textElement>
+				<text><![CDATA[Prueba de Fuentes 1234567890 - Q.0.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f9f6e2f7-b0b5-4f28-a138-d70e7066e0c0" x="296" y="92" width="259" height="20"/>
+				<textElement>
+					<font fontName="Dialog" size="9"/>
+				</textElement>
+				<text><![CDATA[Prueba de Fuentes 1234567890 - Q.0.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6ec95d2-ca17-48a9-8b25-8644ff58c544" x="296" y="129" width="259" height="20"/>
+				<textElement>
+					<font fontName="DialogInput" size="9"/>
+				</textElement>
+				<text><![CDATA[Prueba de Fuentes 1234567890 - Q.0.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f89b8d16-f62b-4d4f-bb8f-2a07e94dd7da" x="296" y="167" width="259" height="20"/>
+				<textElement>
+					<font fontName="FreeMono" size="9"/>
+				</textElement>
+				<text><![CDATA[Prueba de Fuentes 1234567890 - Q.0.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cdd69219-849a-4d38-8472-5da0df351adc" x="296" y="208" width="259" height="20"/>
+				<textElement>
+					<font fontName="FreeSans" size="9"/>
+				</textElement>
+				<text><![CDATA[Prueba de Fuentes 1234567890 - Q.0.00]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

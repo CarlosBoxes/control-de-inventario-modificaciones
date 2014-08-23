@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="pnlFunciones" prefHeight="550.0" prefWidth="930.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.TiposControlador">
+  <children>
+    <Label id="lblTituloPnl" alignment="CENTER" prefHeight="47.0" prefWidth="104.0" styleClass="PanelSubMenu, laberMenu" text="Tipos:">
+      <VBox.margin>
+        <Insets left="20.0" top="20.0" fx:id="x1" />
+      </VBox.margin>
+    </Label>
+    <SplitPane dividerPositions="0.49879227053140096" focusTraversable="true" prefHeight="446.0" prefWidth="830.0">
+      <items>
+        <VBox prefHeight="480.0" prefWidth="379.0">
+          <children>
+            <Label id="lblTituloPnl" alignment="CENTER" prefHeight="35.0" prefWidth="152.0" styleClass="PanelMenu, laberMenu" text="Vendedores:" />
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="700.0" spacing="20.0">
+              <children>
+                <Label maxWidth="40.0" minWidth="40.0" prefWidth="40.0" text="Tipo:">
+                  <HBox.margin>
+                    <Insets left="20.0" />
+                  </HBox.margin>
+                </Label>
+                <TextField fx:id="TFBusquedaVendedor" maxHeight="25.0" minHeight="25.0" onAction="#BuscarTipoVendedores" prefHeight="25.0" prefWidth="194.0" />
+                <Button maxWidth="120.0" minWidth="120.0" mnemonicParsing="false" onAction="#BuscarTipoVendedores" prefWidth="120.0" styleClass="botonBuscar" text="Buscar" />
+              </children>
+              <VBox.margin>
+                <Insets top="20.0" />
+              </VBox.margin>
+            </HBox>
+            <VBox alignment="TOP_CENTER" prefHeight="339.0" prefWidth="410.0">
+              <children>
+                <HBox alignment="TOP_RIGHT" maxWidth="250.0" minWidth="250.0" prefHeight="32.0" prefWidth="250.0" spacing="5.0">
+                  <children>
+                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#abrirNuevoTipoVendedor" prefHeight="30.0" prefWidth="30.0" styleClass="botonNuevo" textAlignment="CENTER" />
+                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#BorrarTipoVendedor" prefHeight="30.0" prefWidth="30.0" styleClass="botonEliminar" textAlignment="CENTER" />
+                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#EditarTipoVendedor" prefHeight="30.0" prefWidth="30.0" styleClass="botonEditar" textAlignment="CENTER" />
+                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#AbrirListaProductos" prefHeight="30.0" prefWidth="30.0" styleClass="botonLista" textAlignment="CENTER" />
+                  </children>
+                  <VBox.margin>
+                    <Insets fx:id="x2" />
+                  </VBox.margin>
+                </HBox>
+                <TableView fx:id="TablaTipoVendedores" maxWidth="250.0" minWidth="250.0" prefHeight="284.0" prefWidth="250.0" VBox.margin="$x2" />
+              </children>
+            </VBox>
+          </children>
+        </VBox>
+        <VBox prefHeight="421.0" prefWidth="412.0">
+          <children>
+            <Label id="lblTituloPnl" alignment="CENTER" prefHeight="35.0" prefWidth="152.0" styleClass="PanelMenu, laberMenu" text="Clientes:" />
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="700.0" spacing="20.0">
+              <children>
+                <Label maxWidth="40.0" minWidth="40.0" prefWidth="40.0" text="Tipo:">
+                  <HBox.margin>
+                    <Insets left="20.0" />
+                  </HBox.margin>
+                </Label>
+                <TextField id="TFBusqueda" fx:id="TFBusquedaCliente" maxHeight="25.0" minHeight="25.0" onAction="#BuscarTipoCliente" prefHeight="25.0" prefWidth="194.0" />
+                <Button maxWidth="120.0" minWidth="120.0" mnemonicParsing="false" onAction="#BuscarTipoCliente" prefWidth="120.0" styleClass="botonBuscar" text="Buscar" />
+              </children>
+              <VBox.margin>
+                <Insets top="20.0" />
+              </VBox.margin>
+            </HBox>
+            <VBox alignment="TOP_CENTER" prefHeight="339.0" prefWidth="412.0">
+              <children>
+                <HBox alignment="TOP_RIGHT" maxWidth="250.0" minWidth="250.0" prefHeight="32.0" prefWidth="250.0" spacing="5.0">
+                  <children>
+                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#abrirNuevoTipoCliente" prefHeight="30.0" prefWidth="30.0" styleClass="botonNuevo" textAlignment="CENTER" />
+                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#BorrarTipoCliente" prefHeight="30.0" prefWidth="30.0" styleClass="botonEliminar" textAlignment="CENTER" />
+                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#EditarTipoCliente" prefHeight="30.0" prefWidth="30.0" styleClass="botonEditar" textAlignment="CENTER" />
+                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#AbrirListaProductos" prefHeight="30.0" prefWidth="30.0" styleClass="botonLista" textAlignment="CENTER" />
+                  </children>
+                  <VBox.margin>
+                    <Insets fx:id="x4" />
+                  </VBox.margin>
+                </HBox>
+                <TableView fx:id="TablaTipoClientes" maxWidth="250.0" minWidth="250.0" prefHeight="284.0" prefWidth="250.0">
+                  <VBox.margin>
+                    <Insets fx:id="x5" />
+                  </VBox.margin>
+                </TableView>
+              </children>
+            </VBox>
+          </children>
+        </VBox>
+      </items>
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" top="20.0" />
+      </VBox.margin>
+    </SplitPane>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="pnlFunciones" prefHeight="606.0" prefWidth="872.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.FabricacionControlador">
+  <children>
+    <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="872.0">
+      <children>
+        <Label id="lblTituloPnl" alignment="CENTER" prefHeight="47.0" prefWidth="137.0" styleClass="PanelSubMenu, laberMenu" text="Producción:" />
+        <RadioButton fx:id="RBIngresar" mnemonicParsing="false" onAction="#cambioDeSeleccionIngresar" selected="true" styleClass="label" text="Ingresar">
+          <HBox.margin>
+            <Insets left="20.0" right="10.0" />
+          </HBox.margin>
+        </RadioButton>
+        <RadioButton fx:id="RBExtraer" mnemonicParsing="false" onAction="#cambioDeSeleccionExtraer" styleClass="label" text="Retirar">
+          <HBox.margin>
+            <Insets left="10.0" />
+          </HBox.margin>
+        </RadioButton>
+      </children>
+      <VBox.margin>
+        <Insets left="30.0" right="10.0" top="10.0" />
+      </VBox.margin>
+    </HBox>
+    <VBox alignment="TOP_CENTER" prefHeight="255.0" prefWidth="872.0">
+      <children>
+        <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="700.0">
+          <children>
+            <Label maxWidth="90.0" minWidth="90.0" prefWidth="90.0" text="Id Producto:" />
+            <TextField fx:id="TFProducto" maxHeight="25.0" minHeight="25.0" onAction="#verificarIdProducto" prefHeight="25.0" prefWidth="129.0">
+              <HBox.margin>
+                <Insets left="20.0" fx:id="x2" />
+              </HBox.margin>
+            </TextField>
+            <Label maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Cantidad:">
+              <HBox.margin>
+                <Insets left="20.0" right="20.0" />
+              </HBox.margin>
+            </Label>
+            <TextField fx:id="TFCantidad" maxHeight="25.0" minHeight="25.0" onAction="#AgregarProducto" prefHeight="25.0" prefWidth="88.0" />
+            <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#AgregarProducto" prefHeight="30.0" prefWidth="30.0" styleClass="botonNuevo" textAlignment="CENTER" HBox.margin="$x2" />
+            <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#SacarProducto" prefHeight="30.0" prefWidth="30.0" styleClass="botonEliminar" textAlignment="CENTER">
+              <HBox.margin>
+                <Insets left="5.0" right="10.0" fx:id="x3" />
+              </HBox.margin>
+            </Button>
+            <Label fx:id="LblNombreProducto" prefWidth="292.0" />
+          </children>
+          <VBox.margin>
+            <Insets left="50.0" right="50.0" top="20.0" />
+          </VBox.margin>
+        </HBox>
+        <TableView fx:id="TablaProductos" maxWidth="651.0" minWidth="651.0" prefHeight="165.0" prefWidth="651.0">
+          <VBox.margin>
+            <Insets top="10.0" fx:id="x5" />
+          </VBox.margin>
+        </TableView>
+        <HBox alignment="CENTER_RIGHT" maxWidth="650.0" minWidth="650.0" prefHeight="38.0" prefWidth="650.0" spacing="20.0">
+          <children>
+            <Button mnemonicParsing="false" onAction="#limpiarProductos" styleClass="botonCancelar" text="Cancelar" />
+            <Button mnemonicParsing="false" onAction="#meterAlInventarioProducto" styleClass="botonAceptar" text="Aceptar">
+              <HBox.margin>
+                <Insets />
+              </HBox.margin>
+            </Button>
+          </children>
+          <padding>
+            <Insets right="20.0" />
+          </padding>
+          <VBox.margin>
+            <Insets top="5.0" />
+          </VBox.margin>
+        </HBox>
+      </children>
+    </VBox>
+    <Label id="lblTituloPnl" alignment="CENTER" prefHeight="31.0" prefWidth="242.0" styleClass="PanelMenu, laberMenu" text="Retiro de Materia Prima">
+      <VBox.margin>
+        <Insets left="50.0" top="10.0" />
+      </VBox.margin>
+    </Label>
+    <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="700.0">
+      <children>
+        <Label maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="MateriaPrima:" />
+        <TextField fx:id="TFMateriaPrima" maxHeight="25.0" minHeight="25.0" onAction="#verificarIdMateriaPrima" prefHeight="25.0" prefWidth="129.0">
+          <HBox.margin>
+            <Insets left="20.0" fx:id="x9" />
+          </HBox.margin>
+        </TextField>
+        <Label maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Cantidad:">
+          <HBox.margin>
+            <Insets left="20.0" right="20.0" />
+          </HBox.margin>
+        </Label>
+        <TextField fx:id="TFCantidadMP" maxHeight="25.0" minHeight="25.0" onAction="#AgregarMateriaPrima" prefHeight="25.0" prefWidth="88.0" />
+        <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#AgregarMateriaPrima" prefHeight="30.0" prefWidth="30.0" styleClass="botonNuevo" textAlignment="CENTER" HBox.margin="$x2" />
+        <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#SacarMateriaPrima" prefHeight="30.0" prefWidth="30.0" styleClass="botonEliminar" textAlignment="CENTER" HBox.margin="$x3" />
+        <Label id="Lbl" fx:id="LblNombreMP" prefWidth="283.0" />
+      </children>
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" top="20.0" />
+      </VBox.margin>
+    </HBox>
+    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+      <children>
+        <TableView fx:id="TablaMateriaPrima" maxWidth="651.0" minWidth="651.0" prefHeight="143.0" prefWidth="651.0" VBox.margin="$x5" />
+        <HBox alignment="CENTER_RIGHT" maxWidth="651.0" minWidth="651.0" prefHeight="38.0" prefWidth="651.0" spacing="20.0">
+          <children>
+            <Button mnemonicParsing="false" onAction="#limpiarMateriaPrima" styleClass="botonCancelar" text="Cancelar" />
+            <Button mnemonicParsing="false" onAction="#sacarDelInventarioMateriaPrima" styleClass="botonAceptar" text="Aceptar" />
+          </children>
+          <padding>
+            <Insets right="20.0" />
+          </padding>
+          <VBox.margin>
+            <Insets left="50.0" right="50.0" fx:id="x4" />
+          </VBox.margin>
+        </HBox>
+      </children>
+    </VBox>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

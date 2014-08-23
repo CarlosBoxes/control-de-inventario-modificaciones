@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="pnlFunciones" prefHeight="550.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.FacturasControlador">
+  <children>
+    <Label id="lblTituloPnl" alignment="CENTER" prefHeight="47.0" prefWidth="146.0" styleClass="PanelSubMenu, laberMenu" text="Facturas:">
+      <VBox.margin>
+        <Insets left="20.0" top="20.0" fx:id="x1" />
+      </VBox.margin>
+    </Label>
+    <VBox alignment="TOP_CENTER" prefHeight="483.0" prefWidth="700.0">
+      <children>
+        <HBox alignment="CENTER_LEFT" maxWidth="650.0" minWidth="650.0" prefHeight="50.0" prefWidth="650.0" spacing="20.0">
+          <children>
+            <Label maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="Buscar Facturas:">
+              <HBox.margin>
+                <Insets left="20.0" />
+              </HBox.margin>
+            </Label>
+            <TextField fx:id="TFBusqueda" maxHeight="25.0" minHeight="25.0" onAction="#BuscarFactura" prefHeight="25.0" prefWidth="292.0" />
+            <Button maxWidth="120.0" minWidth="120.0" mnemonicParsing="false" onAction="#BuscarFactura" prefWidth="120.0" styleClass="botonBuscar" text="Buscar" />
+          </children>
+          <VBox.margin>
+            <Insets top="20.0" />
+          </VBox.margin>
+        </HBox>
+        <HBox alignment="TOP_RIGHT" maxWidth="650.0" minWidth="650.0" prefHeight="32.0" prefWidth="650.0" spacing="5.0">
+          <children>
+            <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#AnularFactura" prefHeight="30.0" prefWidth="30.0" styleClass="botonEliminar" textAlignment="CENTER" />
+          </children>
+        </HBox>
+        <TableView fx:id="TablaFacturas" maxWidth="651.0" minWidth="651.0" prefHeight="399.0" prefWidth="651.0">
+          <VBox.margin>
+            <Insets />
+          </VBox.margin>
+        </TableView>
+      </children>
+    </VBox>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="ContenedorLogin" alignment="TOP_CENTER" maxHeight="350.0" maxWidth="270.0" minHeight="350.0" minWidth="270.0" prefHeight="350.0" prefWidth="270.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.InicioSesionControlador">
+  <children>
+    <ImageView fitHeight="113.0358011076995" fitWidth="155.28524780273438" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../Imagenes/Logo.jpg" preserveRatio="false" smooth="false" />
+      </image>
+      <VBox.margin>
+        <Insets top="40.0" />
+      </VBox.margin>
+    </ImageView>
+    <Label maxHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" styleClass="labelNegrita" text="Usuario:">
+      <VBox.margin>
+        <Insets top="20.0" />
+      </VBox.margin>
+    </Label>
+    <TextField id="txtUsuario" fx:id="TFNombre" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" />
+    <Label prefWidth="200.0" styleClass="labelNegrita" text="Contraseña:">
+      <VBox.margin>
+        <Insets top="5.0" fx:id="x1" />
+      </VBox.margin>
+    </Label>
+    <PasswordField id="pswContraseña" fx:id="PWContraseña" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#iniciarSesion" prefHeight="25.0" prefWidth="200.0">
+      <VBox.margin>
+        <Insets />
+      </VBox.margin>
+    </PasswordField>
+    <Button id="btnInicioSesion" maxWidth="-Infinity" mnemonicParsing="false" onAction="#iniciarSesion" prefHeight="30.0" prefWidth="200.0" styleClass="botonInicioSesion" text="Iniciar Sesión" VBox.margin="$x1" />
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

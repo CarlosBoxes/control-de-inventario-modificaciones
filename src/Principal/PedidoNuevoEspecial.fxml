@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="pnlFunciones" prefHeight="660.0" prefWidth="907.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.PedidoNuevoEspecialControlador">
+  <children>
+    <Label id="lblTituloPnl" alignment="CENTER" prefHeight="47.0" prefWidth="213.0" styleClass="PanelSubMenu, laberMenu" text="Nuevo Pedido Especial:">
+      <VBox.margin>
+        <Insets left="20.0" top="20.0" fx:id="x1" />
+      </VBox.margin>
+    </Label>
+    <HBox prefHeight="24.0" prefWidth="700.0">
+      <children>
+        <Label maxWidth="90.0" minWidth="90.0" prefWidth="90.0" text="Fecha:">
+          <HBox.margin>
+            <Insets right="10.0" fx:id="x6" />
+          </HBox.margin>
+        </Label>
+        <TextField id="TFDia" fx:id="TFFecha" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onKeyReleased="#SoltoTecla" prefHeight="25.0" prefWidth="104.0">
+          <HBox.margin>
+            <Insets right="10.0" fx:id="x7" />
+          </HBox.margin>
+        </TextField>
+        <Label maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Id. Vendedor:" HBox.margin="$x6" />
+        <TextField id="TFIdProveedor" fx:id="TFIdVendedor" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onAction="#mostrarVendedor" prefHeight="25.0" prefWidth="102.0">
+          <HBox.margin>
+            <Insets right="10.0" fx:id="x8" />
+          </HBox.margin>
+        </TextField>
+        <Label id="LBlNombreProveedor" fx:id="LblNombreVendedor" maxWidth="300.0" minWidth="300.0" prefHeight="25.0" prefWidth="300.0" />
+      </children>
+      <VBox.margin>
+        <Insets bottom="5.0" left="50.0" right="50.0" top="20.0" />
+      </VBox.margin>
+    </HBox>
+    <HBox fx:id="HBoxClientes" alignment="CENTER" prefHeight="24.0" prefWidth="700.0">
+      <children>
+        <Label maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Cliente:" />
+        <ComboBox fx:id="ComBoClientes" maxHeight="25.0" maxWidth="500.0" minHeight="25.0" minWidth="500.0" onAction="#cambioCliente" prefHeight="25.0" prefWidth="500.0" styleClass="fondoBlanco" />
+      </children>
+      <VBox.margin>
+        <Insets bottom="5.0" left="50.0" right="50.0" top="10.0" />
+      </VBox.margin>
+    </HBox>
+    <HBox fx:id="HBoxProducto" alignment="CENTER_LEFT" disable="true" prefHeight="30.0" prefWidth="852.0">
+      <children>
+        <Label maxWidth="90.0" minWidth="90.0" prefWidth="90.0" text="Id Producto:">
+          <HBox.margin>
+            <Insets right="10.0" fx:id="x9" />
+          </HBox.margin>
+        </Label>
+        <TextField id="TFIdProduto" fx:id="TFIdProducto" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onAction="#mostrarProducto" prefHeight="25.0" prefWidth="129.0">
+          <HBox.margin>
+            <Insets right="10.0" fx:id="x10" />
+          </HBox.margin>
+        </TextField>
+        <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#HabilitarBusqueda" prefHeight="30.0" prefWidth="30.0" styleClass="botonBuscar" textAlignment="CENTER">
+          <HBox.margin>
+            <Insets right="20.0" />
+          </HBox.margin>
+        </Button>
+        <Label maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Cantidad:">
+          <HBox.margin>
+            <Insets right="10.0" fx:id="x11" />
+          </HBox.margin>
+        </Label>
+        <TextField fx:id="TFCantidad" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onAction="#comprobarInventarioProducto" prefHeight="25.0" prefWidth="103.0">
+          <HBox.margin>
+            <Insets right="10.0" fx:id="x12" />
+          </HBox.margin>
+        </TextField>
+        <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#AgregarProducto" prefHeight="30.0" prefWidth="30.0" styleClass="botonNuevo" textAlignment="CENTER" />
+        <Label id="TFNombreDeProducto" fx:id="LblNombreDeProducto" maxWidth="200.0" minWidth="200.0" prefWidth="200.0">
+          <HBox.margin>
+            <Insets left="10.0" />
+          </HBox.margin>
+        </Label>
+      </children>
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" fx:id="x2" />
+      </VBox.margin>
+    </HBox>
+    <VBox id="HBoxTabla" fx:id="VBoxTabla" alignment="TOP_CENTER" prefHeight="166.0" prefWidth="807.0">
+      <children>
+        <TableView fx:id="TablaDescripciones" maxWidth="751.0" minWidth="800.0" prefHeight="116.0" prefWidth="751.0">
+          <VBox.margin>
+            <Insets top="10.0" />
+          </VBox.margin>
+        </TableView>
+        <HBox alignment="CENTER_RIGHT" prefHeight="27.0">
+          <children>
+            <Label maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Total:">
+              <HBox.margin>
+                <Insets right="10.0" fx:id="x64" />
+              </HBox.margin>
+            </Label>
+            <TextField id="TFIdProveedor" fx:id="TFTotalCliente" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onAction="#mostrarVendedor" prefHeight="25.0" prefWidth="102.0">
+              <HBox.margin>
+                <Insets right="10.0" fx:id="x66" />
+              </HBox.margin>
+            </TextField>
+            <Button mnemonicParsing="false" onAction="#ingresarDescripcion" styleClass="botonAceptar" text="Aceptar" />
+          </children>
+          <VBox.margin>
+            <Insets left="77.0" right="77.0" top="5.0" />
+          </VBox.margin>
+        </HBox>
+      </children>
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" fx:id="x22" />
+      </VBox.margin>
+    </VBox>
+    <VBox id="HBoxTabla" alignment="TOP_CENTER" prefHeight="150.0" prefWidth="807.0" VBox.margin="$x2">
+      <children>
+        <TableView id="TablaDescripciones" fx:id="TablaResumen" maxWidth="751.0" minWidth="800.0" prefHeight="135.0" prefWidth="751.0">
+          <VBox.margin>
+            <Insets top="10.0" />
+          </VBox.margin>
+        </TableView>
+      </children>
+    </VBox>
+    <SplitPane fx:id="SPTotales" dividerPositions="0.4993788819875776" focusTraversable="true" prefHeight="116.0" prefWidth="807.0">
+      <items>
+        <VBox prefHeight="100.0" prefWidth="337.0">
+          <children>
+            <Label maxWidth="110.0" minWidth="110.0" prefWidth="110.0" text="Obsevaciones:" />
+            <TextArea fx:id="TAObservaciones" prefWidth="200.0" wrapText="true">
+              <VBox.margin>
+                <Insets bottom="5.0" left="10.0" right="10.0" />
+              </VBox.margin>
+            </TextArea>
+          </children>
+        </VBox>
+        <VBox prefHeight="90.0" prefWidth="320.0">
+          <children>
+            <HBox alignment="CENTER_RIGHT" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="700.0" spacing="20.0">
+              <children>
+                <Label maxWidth="105.0" minWidth="105.0" prefWidth="105.0" text="SubTotal:" />
+                <TextField fx:id="TFSubTotal" alignment="CENTER_RIGHT" disable="true" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="151.0" />
+              </children>
+              <VBox.margin>
+                <Insets fx:id="x3" />
+              </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="700.0" spacing="20.0">
+              <children>
+                <Label maxWidth="105.0" minWidth="105.0" prefWidth="105.0" text="Total:" />
+                <TextField fx:id="TFTotal" alignment="CENTER_RIGHT" disable="true" prefWidth="151.0" />
+              </children>
+              <VBox.margin>
+                <Insets fx:id="x15" />
+              </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="498.0" spacing="20.0">
+              <children>
+                <Button mnemonicParsing="false" onAction="#cancelar" styleClass="botonCancelar" text="Cancelar" />
+                <Button mnemonicParsing="false" onAction="#crearNuevoPedido" styleClass="botonAceptar" text="Aceptar" />
+              </children>
+            </HBox>
+          </children>
+        </VBox>
+      </items>
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" top="10.0" />
+      </VBox.margin>
+    </SplitPane>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

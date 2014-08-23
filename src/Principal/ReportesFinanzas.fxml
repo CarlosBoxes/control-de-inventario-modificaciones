@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="pnlFunciones" prefHeight="550.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.ReportesFinanzasControlador">
+  <children>
+    <Label id="lblTituloPnl" alignment="CENTER" prefHeight="47.0" prefWidth="230.0" styleClass="PanelSubMenu, laberMenu" text="Reportes de Compras:">
+      <VBox.margin>
+        <Insets left="20.0" top="20.0" fx:id="x1" />
+      </VBox.margin>
+    </Label>
+    <VBox alignment="TOP_CENTER" prefHeight="483.0" prefWidth="850.0">
+      <children>
+        <SplitPane dividerPositions="0.4947089947089947" focusTraversable="true" maxWidth="750.0" minWidth="750.0" prefHeight="160.0" prefWidth="750.0">
+          <items>
+            <VBox prefHeight="120.0" prefWidth="375.0">
+              <children>
+                <Label alignment="CENTER" prefHeight="30.0" prefWidth="190.0" styleClass="laberMenu, fondoNaranja" text="Compras Mensuales:" />
+                <HBox alignment="CENTER_LEFT" maxWidth="375.0" minWidth="375.0" prefHeight="40.0" prefWidth="375.0" spacing="20.0">
+                  <children>
+                    <Label maxWidth="105.0" minWidth="105.0" prefWidth="105.0" text="Id Proveedor:">
+                      <HBox.margin>
+                        <Insets left="10.0" />
+                      </HBox.margin>
+                    </Label>
+                    <TextField fx:id="IdMes" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onAction="#ProveedorMes" prefHeight="25.0" prefWidth="86.0" />
+                    <Label id="LblMeslblNombre" fx:id="LblMes" prefWidth="200.0" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" maxWidth="375.0" minWidth="375.0" prefHeight="40.0" prefWidth="375.0" spacing="20.0">
+                  <children>
+                    <Label maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="Mes:" />
+                    <ComboBox fx:id="ComBoMesProveedores" prefHeight="21.0" prefWidth="111.0" styleClass="fondoBlanco">
+                      <items>
+                        <FXCollections fx:factory="observableArrayList">
+                          <String fx:value="Enero" />
+                          <String fx:value="Febrero" />
+                          <String fx:value="Marzo" />
+                          <String fx:value="Abril" />
+                          <String fx:value="Mayo" />
+                          <String fx:value="Junio" />
+                          <String fx:value="Julio" />
+                          <String fx:value="Agosto" />
+                          <String fx:value="Septiembre" />
+                          <String fx:value="Octubre" />
+                          <String fx:value="Noviembre" />
+                          <String fx:value="Diciembre" />
+                        </FXCollections>
+                      </items>
+                    </ComboBox>
+                    <Label maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="Año:" />
+                    <TextField fx:id="TFAñoMes" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onAction="#AbrirReporteComprasMensuales" prefHeight="25.0" prefWidth="86.0" />
+                  </children>
+                </HBox>
+                <HBox alignment="TOP_RIGHT" prefHeight="45.0" prefWidth="375.0">
+                  <children>
+                    <Button maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" onAction="#AbrirReporteComprasMensuales" prefHeight="45.0" prefWidth="220.0" styleClass="botonAbrirReporte" text="Guardar o Imprimir" />
+                  </children>
+                </HBox>
+              </children>
+            </VBox>
+            <VBox prefHeight="120.0" prefWidth="375.0">
+              <children>
+                <Label alignment="CENTER" prefHeight="30.0" prefWidth="190.0" styleClass="laberMenu, fondoNaranja" text="Compras Anuales:" />
+                <HBox alignment="CENTER_LEFT" maxWidth="375.0" minWidth="375.0" prefHeight="40.0" prefWidth="375.0" spacing="20.0">
+                  <children>
+                    <Label maxWidth="105.0" minWidth="105.0" prefWidth="105.0" text="Id Proveedor:">
+                      <HBox.margin>
+                        <Insets left="10.0" />
+                      </HBox.margin>
+                    </Label>
+                    <TextField fx:id="IdAño" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onAction="#ProveedorAño" prefHeight="25.0" prefWidth="86.0" />
+                    <Label fx:id="LblAño" prefWidth="200.0" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" maxWidth="375.0" minWidth="375.0" prefHeight="40.0" prefWidth="375.0" spacing="20.0">
+                  <children>
+                    <Label maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="Año:" />
+                    <TextField fx:id="TFAño" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onAction="#AbrirReporteComprasAnuales" prefHeight="25.0" prefWidth="86.0" />
+                  </children>
+                </HBox>
+                <HBox alignment="TOP_RIGHT" prefHeight="45.0" prefWidth="375.0">
+                  <children>
+                    <Button maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" onAction="#AbrirReporteComprasAnuales" prefHeight="45.0" prefWidth="220.0" styleClass="botonAbrirReporte" text="Guardar o Imprimir" />
+                  </children>
+                </HBox>
+              </children>
+            </VBox>
+          </items>
+          <VBox.margin>
+            <Insets top="20.0" />
+          </VBox.margin>
+        </SplitPane>
+      </children>
+    </VBox>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

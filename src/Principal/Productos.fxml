@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="pnlFunciones" prefHeight="632.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.ProductosControlador">
+  <children>
+    <Label id="lblTituloPnl" alignment="CENTER" prefHeight="47.0" prefWidth="137.0" styleClass="PanelSubMenu, laberMenu" text="Productos:">
+      <VBox.margin>
+        <Insets left="20.0" top="20.0" fx:id="x1" />
+      </VBox.margin>
+    </Label>
+    <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="700.0" spacing="20.0">
+      <children>
+        <Label maxWidth="130.0" minWidth="130.0" prefWidth="130.0" text="Buscar Productos:">
+          <HBox.margin>
+            <Insets left="20.0" />
+          </HBox.margin>
+        </Label>
+        <TextField fx:id="TFBusqueda" onAction="#Buscar" prefWidth="292.0" />
+        <Button maxWidth="120.0" minWidth="120.0" mnemonicParsing="false" onAction="#Buscar" prefWidth="120.0" styleClass="botonBuscar" text="Buscar" />
+      </children>
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" top="20.0" />
+      </VBox.margin>
+    </HBox>
+    <HBox alignment="TOP_RIGHT" prefHeight="32.0" prefWidth="600.0" spacing="5.0">
+      <children>
+        <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#abrirNuevoProducto" prefHeight="30.0" prefWidth="30.0" styleClass="botonNuevo" textAlignment="CENTER" />
+        <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#BorrarProducto" prefHeight="30.0" prefWidth="30.0" styleClass="botonEliminar" textAlignment="CENTER" />
+        <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#EditarProducto" prefHeight="30.0" prefWidth="30.0" styleClass="botonEditar" textAlignment="CENTER" />
+      </children>
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" fx:id="x2" />
+      </VBox.margin>
+    </HBox>
+    <TableView fx:id="TablaProductos" prefHeight="314.0" prefWidth="600.0" tableMenuButtonVisible="true" VBox.margin="$x2" />
+    <SplitPane dividerPositions="0.5" focusTraversable="true" prefHeight="102.0" prefWidth="600.0">
+      <items>
+        <VBox prefHeight="100.0" prefWidth="290.0">
+          <children>
+            <Label id="lblTituloPnl" alignment="CENTER" prefHeight="22.0" prefWidth="217.0" styleClass="PanelMenu, laberMenu" text="Inventario por Bodega:" />
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+              <children>
+                <Label styleClass="labelNegrita" text="Bodega:" />
+                <ComboBox fx:id="ComBoBodega" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="217.0" styleClass="fondoBlanco" />
+                <Button maxWidth="220.0" minHeight="32.0" minWidth="220.0" mnemonicParsing="false" onAction="#AbrirReporteBodega" prefHeight="32.0" prefWidth="220.0" styleClass="botonAbrirReporte" text="Guardar o Imprimir">
+                  <VBox.margin>
+                    <Insets top="5.0" />
+                  </VBox.margin>
+                </Button>
+              </children>
+            </VBox>
+          </children>
+        </VBox>
+        <VBox prefHeight="100.0" prefWidth="337.0">
+          <children>
+            <Label id="lblTituloPnl" alignment="CENTER" prefHeight="22.0" prefWidth="152.0" styleClass="PanelMenu, laberMenu" text="Inventario:" />
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+              <children>
+                <Button maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" onAction="#AbrirReporte" prefHeight="45.0" prefWidth="220.0" styleClass="botonAbrirReporte" text="Guardar o Imprimir" />
+              </children>
+            </VBox>
+          </children>
+        </VBox>
+      </items>
+      <VBox.margin>
+        <Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
+      </VBox.margin>
+    </SplitPane>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

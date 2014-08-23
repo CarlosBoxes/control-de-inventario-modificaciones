@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Resumen" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1548eba0-c032-4a76-bd1b-e3ccec88ee45">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="235"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     SUM(descripcionclientes.`cantidad`) AS descripcionclientes_cantidad,
+     SUM(descripcionclientes.`total`) AS descripcionclientes_total,
+     pedido.`idpedido` AS pedido_idpedido,
+     productos.`nombre` AS productos_nombre,
+     productos.`presentacion` AS productos_presentacion
+FROM
+     `pedido` pedido INNER JOIN `descripcionclientes` descripcionclientes ON pedido.`idpedido` = descripcionclientes.`pedido_idpedido`
+     INNER JOIN `productos` productos ON descripcionclientes.`productos_idProductos` = productos.`idProductos`
+WHERE
+     pedido.`idpedido` = $P{Id}
+GROUP BY
+     productos.`nombre`,
+     productos.`presentacion`]]>
+	</queryString>
+	<field name="descripcionclientes_cantidad" class="java.math.BigDecimal"/>
+	<field name="descripcionclientes_total" class="java.lang.Double"/>
+	<field name="pedido_idpedido" class="java.lang.Integer"/>
+	<field name="productos_nombre" class="java.lang.String"/>
+	<field name="productos_presentacion" class="java.lang.String"/>
+	<variable name="Total" class="java.lang.Float" calculation="Sum">
+		<variableExpression><![CDATA[$F{descripcionclientes_total}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="ebb177bc-faa8-48ec-9e52-dcc2a3da4bbe" x="0" y="0" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Resumen]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f0fe1dcc-d47c-497f-ba50-3e70a6ca9433" mode="Transparent" x="53" y="25" width="307" height="12"/>
+				<box>
+					<pen lineWidth="2.0"/>
+					<topPen lineWidth="2.0"/>
+					<leftPen lineWidth="2.0"/>
+					<bottomPen lineWidth="2.0"/>
+					<rightPen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4acae878-8515-48b2-83f9-d4545c9d2f3c" x="360" y="25" width="63" height="12"/>
+				<box>
+					<pen lineWidth="2.0"/>
+					<topPen lineWidth="2.0"/>
+					<leftPen lineWidth="2.0"/>
+					<bottomPen lineWidth="2.0"/>
+					<rightPen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8c5913d9-13d5-4f0e-8014-df75bcd492c1" x="423" y="25" width="79" height="12"/>
+				<box>
+					<pen lineWidth="2.0"/>
+					<topPen lineWidth="2.0"/>
+					<leftPen lineWidth="2.0"/>
+					<bottomPen lineWidth="2.0"/>
+					<rightPen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<textField>
+				<reportElement uuid="ff4723d4-01f2-42d6-9a31-2051f623d5b1" x="53" y="0" width="307" height="11"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{productos_nombre}+" "+$F{productos_presentacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4c674c9a-09e7-48bc-b651-6e74e1872d30" x="360" y="0" width="63" height="11"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcionclientes_cantidad}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="ba9afc51-f8bd-4d9c-94a5-8a49b8f0f8ca" x="423" y="0" width="79" height="11"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcionclientes_total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="50">
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="64edad63-3246-43dd-9d72-10e7aadf25be" x="423" y="0" width="79" height="12"/>
+				<box>
+					<pen lineWidth="2.0"/>
+					<topPen lineWidth="2.0"/>
+					<leftPen lineWidth="2.0"/>
+					<bottomPen lineWidth="2.0"/>
+					<rightPen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="96cf3988-0ceb-471e-9ccf-34d3978f6279" x="360" y="0" width="63" height="12"/>
+				<box>
+					<pen lineWidth="2.0"/>
+					<topPen lineWidth="2.0"/>
+					<leftPen lineWidth="2.0"/>
+					<bottomPen lineWidth="2.0"/>
+					<rightPen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

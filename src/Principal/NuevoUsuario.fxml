@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="402.0" spacing="5.0" styleClass="fondoNaranja" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.NuevoUsuarioControlador">
+  <children>
+    <Label id="lblTituloPnl" alignment="CENTER" prefHeight="47.0" prefWidth="297.0" styleClass="PanelSubMenu, laberMenu" text="Agregar Nuevo Usuario">
+      <VBox.margin>
+        <Insets left="60.0" right="60.0" top="20.0" />
+      </VBox.margin>
+    </Label>
+    <Label styleClass="labelNegrita" text="Nombre:">
+      <VBox.margin>
+        <Insets left="50.0" top="20.0" />
+      </VBox.margin>
+    </Label>
+    <TextField fx:id="TFNombre" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="200.0">
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" fx:id="x1" />
+      </VBox.margin>
+    </TextField>
+    <Label styleClass="labelNegrita" text="Contraseña:">
+      <VBox.margin>
+        <Insets left="50.0" fx:id="x2" />
+      </VBox.margin>
+    </Label>
+    <TextField fx:id="TFContraseña" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="200.0" VBox.margin="$x1" />
+    <Label styleClass="labelNegrita" text="Tipo" VBox.margin="$x2" />
+    <ComboBox id="CoBoTipo" fx:id="ComBoTipo" maxHeight="25.0" minHeight="25.0" onAction="#SeleccionAutomatica" prefHeight="25.0" prefWidth="302.0" styleClass="fondoBlanco">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Administrador" />
+          <String fx:value="Bodeguero" />
+          <String fx:value="Contador" />
+          <String fx:value="Vendedores" />
+          <String fx:value="Secretaria" />
+          <String fx:value="Empleado" />
+        </FXCollections>
+      </items>
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" fx:id="x" />
+      </VBox.margin>
+    </ComboBox>
+    <Label styleClass="labelNegrita" text="Permisos:">
+      <VBox.margin>
+        <Insets left="50.0" top="10.0" />
+      </VBox.margin>
+    </Label>
+    <HBox prefHeight="19.0" prefWidth="350.0" spacing="10.0">
+      <children>
+        <CheckBox fx:id="CBAccesoPedidos" maxWidth="160.0" minWidth="160.0" mnemonicParsing="false" prefWidth="160.0" text="Acceso a Pedidos" />
+        <CheckBox fx:id="CBAccesoBodegas" maxWidth="160.0" minWidth="160.0" mnemonicParsing="false" prefWidth="160.0" styleClass="checkbox-2" text="Acceso a Bodegas" />
+      </children>
+      <VBox.margin>
+        <Insets left="30.0" right="30.0" top="10.0" />
+      </VBox.margin>
+    </HBox>
+    <HBox prefHeight="19.0" prefWidth="350.0" spacing="10.0">
+      <children>
+        <CheckBox id="CBAccesoModificarUsuarios" fx:id="CBAccesoProduccion" maxWidth="160.0" minWidth="160.0" mnemonicParsing="false" prefWidth="160.0" text="Acceso a Producción" />
+        <CheckBox fx:id="CBAccesoLiquidaciones" maxWidth="160.0" minWidth="160.0" mnemonicParsing="false" prefWidth="160.0" text="Acceso a Liquidaciones" />
+      </children>
+      <VBox.margin>
+        <Insets left="30.0" right="30.0" fx:id="x3" />
+      </VBox.margin>
+    </HBox>
+    <HBox prefHeight="19.0" prefWidth="350.0" spacing="10.0" VBox.margin="$x3">
+      <children>
+        <CheckBox fx:id="CBAccesoFinanzas" maxWidth="160.0" minWidth="160.0" mnemonicParsing="false" prefWidth="160.0" text="Acceso a Finanzas" />
+        <CheckBox fx:id="CBAccesoModificarUsuarios" maxWidth="160.0" minWidth="160.0" mnemonicParsing="false" prefWidth="160.0" text="Modificar Usuarios" />
+      </children>
+    </HBox>
+    <HBox alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="498.0" spacing="20.0">
+      <children>
+        <Button mnemonicParsing="false" onAction="#Cancelar" styleClass="botonCancelar" text="Cancelar" />
+        <Button mnemonicParsing="false" onAction="#CrearNuevoUsuario" styleClass="botonAceptar" text="Aceptar" />
+      </children>
+      <padding>
+        <Insets right="20.0" />
+      </padding>
+      <VBox.margin>
+        <Insets top="20.0" />
+      </VBox.margin>
+    </HBox>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="201.0" prefWidth="350.0" spacing="5.0" styleClass="fondoNaranja" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.NuevoTipoClienteControlador">
+  <children>
+    <Label id="lblTituloPnl" alignment="CENTER" prefHeight="47.0" prefWidth="280.0" styleClass="PanelSubMenu, laberMenu" text="Agregar Nuevo Tipo Cliente">
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" top="20.0" />
+      </VBox.margin>
+    </Label>
+    <Label styleClass="labelNegrita" text="Nombre:">
+      <VBox.margin>
+        <Insets left="50.0" top="20.0" />
+      </VBox.margin>
+    </Label>
+    <TextField fx:id="TFNombre" minHeight="25.0" prefHeight="25.0" prefWidth="200.0">
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" fx:id="x1" />
+      </VBox.margin>
+    </TextField>
+    <HBox alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="498.0" spacing="20.0">
+      <children>
+        <Button mnemonicParsing="false" onAction="#Cancelar" styleClass="botonCancelar" text="Cancelar" />
+        <Button mnemonicParsing="false" onAction="#crearNuevoTipoDeCliente" styleClass="botonAceptar" text="Aceptar" />
+      </children>
+      <padding>
+        <Insets right="20.0" />
+      </padding>
+      <VBox.margin>
+        <Insets top="10.0" />
+      </VBox.margin>
+    </HBox>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

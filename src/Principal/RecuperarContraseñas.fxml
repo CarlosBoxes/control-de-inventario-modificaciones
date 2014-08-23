@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="pnlPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.RecuperarContraseñasControlador">
+  <children>
+    <Label id="lblTituloPnl" alignment="CENTER" prefHeight="47.0" prefWidth="234.0" styleClass="PanelSubMenu, laberMenu" text="Recuperar Contraseñas:">
+      <VBox.margin>
+        <Insets left="20.0" top="20.0" fx:id="x1" />
+      </VBox.margin>
+    </Label>
+    <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="20.0">
+      <children>
+        <Label maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="Buscar Usuarios:" />
+        <TextField fx:id="TFBusqueda" maxHeight="25.0" minHeight="25.0" onAction="#Buscar" prefHeight="25.0" prefWidth="234.0" />
+        <Button maxWidth="120.0" minWidth="120.0" mnemonicParsing="false" onAction="#Buscar" prefWidth="120.0" styleClass="botonBuscar" text="Buscar" />
+      </children>
+      <VBox.margin>
+        <Insets left="50.0" right="50.0" top="20.0" />
+      </VBox.margin>
+    </HBox>
+    <VBox alignment="TOP_CENTER" prefHeight="250.0" prefWidth="700.0">
+      <children>
+        <HBox alignment="TOP_RIGHT" maxWidth="451.0" minWidth="451.0" prefHeight="32.0" prefWidth="451.0" spacing="5.0">
+          <children>
+            <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#abrirNuevoUsuario" prefHeight="30.0" prefWidth="30.0" styleClass="botonNuevo" textAlignment="CENTER" />
+            <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#BorrarUsuario" prefHeight="30.0" prefWidth="30.0" styleClass="botonEliminar" textAlignment="CENTER" />
+            <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#EditarUsuario" prefHeight="30.0" prefWidth="30.0" styleClass="botonEditar" textAlignment="CENTER" />
+          </children>
+          <VBox.margin>
+            <Insets fx:id="x2" />
+          </VBox.margin>
+        </HBox>
+        <TableView fx:id="TablaUsuarios" maxWidth="451.0" minWidth="451.0" prefHeight="206.0" prefWidth="451.0" VBox.margin="$x2" />
+      </children>
+    </VBox>
+    <VBox prefHeight="200.0" prefWidth="100.0">
+      <children>
+        <Label id="lblTituloPnl" alignment="CENTER" prefHeight="47.0" prefWidth="234.0" styleClass="PanelSubMenu, laberMenu" text="Eliminar Pedido:">
+          <VBox.margin>
+            <Insets left="20.0" top="20.0" fx:id="x1" />
+          </VBox.margin>
+        </Label>
+        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="20.0">
+          <children>
+            <VBox prefHeight="50.0" prefWidth="600.0">
+              <children>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                    <Label maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="Buscar Pedido:" />
+                    <TextField id="TFBusqueda" fx:id="TFIdPedido" maxHeight="25.0" minHeight="25.0" onAction="#BuscarPedido" prefHeight="25.0" prefWidth="84.0">
+                      <HBox.margin>
+                        <Insets right="10.0" />
+                      </HBox.margin>
+                    </TextField>
+                    <Button maxWidth="120.0" minHeight="25.0" minWidth="109.0" mnemonicParsing="false" onAction="#BuscarPedido" prefHeight="25.0" prefWidth="109.0" styleClass="botonBuscar" text="Buscar" />
+                    <CheckBox fx:id="CBTipo" mnemonicParsing="false" text="Proveedores">
+                      <HBox.margin>
+                        <Insets left="50.0" top="5.0" />
+                      </HBox.margin>
+                    </CheckBox>
+                  </children>
+                  <VBox.margin>
+                    <Insets bottom="20.0" />
+                  </VBox.margin>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                    <Label fx:id="LBLVendedor" disable="true" maxWidth="333.0" minWidth="120.0" prefWidth="333.0" />
+                    <Label maxWidth="120.0" minWidth="20.0" prefWidth="20.0" text="Q." />
+                    <TextField id="TFBusqueda" fx:id="TFTotalPedido" disable="true" maxHeight="25.0" minHeight="25.0" onAction="#Buscar" prefHeight="25.0" prefWidth="84.0" />
+                    <Button fx:id="BtnBorrar" disable="true" mnemonicParsing="false" onAction="#EliminarPedido" styleClass="botonCancelar" text="Borrar">
+                      <HBox.margin>
+                        <Insets left="10.0" />
+                      </HBox.margin>
+                    </Button>
+                  </children>
+                </HBox>
+              </children>
+            </VBox>
+          </children>
+          <VBox.margin>
+            <Insets left="50.0" right="50.0" top="20.0" />
+          </VBox.margin>
+        </HBox>
+      </children>
+    </VBox>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

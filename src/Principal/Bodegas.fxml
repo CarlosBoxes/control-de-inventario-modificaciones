@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="pnlPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ControladoresGUI.BodegasControlador">
+  <children>
+    <HBox prefHeight="50.0" prefWidth="800.0" spacing="5.0" styleClass="PanelSubMenu">
+      <children>
+        <Label id="lblTituloSubMenuCatedraticos" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="laberMenu" text="Bodegas">
+          <stylesheets>
+            <URL value="@estilos.css" />
+          </stylesheets>
+        </Label>
+        <Button maxWidth="140.0" minWidth="140.0" mnemonicParsing="false" onAction="#abrirPnlProducto" prefHeight="50.0" prefWidth="140.0" styleClass="botonProductos" text="Productos" />
+        <Button maxWidth="130.0" minWidth="130.0" mnemonicParsing="false" onAction="#abrirPnlPedidoProveedores" prefHeight="50.0" prefWidth="130.0" styleClass="botonPedido" text="Compras" />
+        <Button maxWidth="160.0" minWidth="160.0" mnemonicParsing="false" onAction="#abrirPnlProveedores" prefHeight="50.0" prefWidth="160.0" styleClass="botonProveedores" text="Proveedores" />
+        <Button maxWidth="128.0" minWidth="128.0" mnemonicParsing="false" onAction="#abrirPnlNuevaBodega" prefHeight="50.0" prefWidth="128.0" styleClass="botonBodegas" text="Bodegas" />
+        <Button maxWidth="137.0" minWidth="137.0" mnemonicParsing="false" onAction="#abrirPnlDespacho" prefHeight="50.0" prefWidth="137.0" styleClass="botonDespacho" text="Despacho" />
+        <Button maxWidth="156.0" minWidth="156.0" mnemonicParsing="false" onAction="#abrirPnlDefectuoso" prefHeight="50.0" prefWidth="156.0" styleClass="botonDefectuosos" text="Defectusos" />
+      </children>
+      <stylesheets>
+        <URL value="@estilos.css" />
+      </stylesheets>
+    </HBox>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

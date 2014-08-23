@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="532" leftMargin="43" rightMargin="20" topMargin="57" bottomMargin="20" uuid="046dd0a0-2d50-4802-b741-9be445d742a7">
+	<property name="template.type" value="columnar"/>
+	<property name="ireport.zoom" value="1.241842646118311"/>
+	<property name="ireport.x" value="71"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="Logo" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     materiaprima.`nombre` AS materiaPrima_nombre,
+     materiaprima.`idmateriaPrima` AS materiaPrima_idmateriaPrima,
+     bodegaproduccion.`nombre` AS bodegaProduccion_nombre,
+     materiaprima.`presentacion` AS materiaPrima_presentacion,
+     materiaprima.`precio` AS materiaPrima_precio,
+     inventario_materia_prima.`cantidad` AS inventario_materia_prima_cantidad
+FROM
+     `materiaprima` materiaprima INNER JOIN `inventario materia prima` inventario_materia_prima ON materiaprima.`idmateriaPrima` = inventario_materia_prima.`materiaPrima_idmateriaPrima`
+     INNER JOIN `bodegaproduccion` bodegaproduccion ON inventario_materia_prima.`bodegaProduccion_idbodegaProduccion` = bodegaproduccion.`idbodegaProduccion`]]>
+	</queryString>
+	<field name="materiaPrima_nombre" class="java.lang.String"/>
+	<field name="materiaPrima_idmateriaPrima" class="java.lang.Integer"/>
+	<field name="bodegaProduccion_nombre" class="java.lang.String"/>
+	<field name="materiaPrima_presentacion" class="java.lang.String"/>
+	<field name="materiaPrima_precio" class="java.lang.Float"/>
+	<field name="inventario_materia_prima_cantidad" class="java.lang.Float"/>
+	<variable name="TotalBodega" class="java.lang.Float" resetType="Group" resetGroup="bodegaproduccion_nombre" calculation="Sum">
+		<variableExpression><![CDATA[$F{materiaPrima_precio}*$F{inventario_materia_prima_cantidad}]]></variableExpression>
+	</variable>
+	<variable name="Total" class="java.lang.Float" calculation="Sum">
+		<variableExpression><![CDATA[$F{materiaPrima_precio}*$F{inventario_materia_prima_cantidad}]]></variableExpression>
+	</variable>
+	<group name="bodegaproduccion_nombre">
+		<groupExpression><![CDATA[$F{bodegaProduccion_nombre}]]></groupExpression>
+		<groupHeader>
+			<band height="58">
+				<frame>
+					<reportElement uuid="b16ebd76-0134-4a8d-bb4d-1af6e928433b" mode="Opaque" x="0" y="7" width="229" height="24" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+				</frame>
+				<staticText>
+					<reportElement uuid="6007d373-6f42-4d38-a7c4-044d9a54dbd1" style="Column header" positionType="Float" x="305" y="43" width="67" height="15" forecolor="#000000"/>
+					<box>
+						<pen lineWidth="2.0"/>
+						<topPen lineWidth="2.0"/>
+						<leftPen lineWidth="2.0"/>
+						<bottomPen lineWidth="2.0"/>
+						<rightPen lineWidth="2.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cantidad]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="e9bdd746-d320-4772-8ed4-81ed0ad1b588" style="Column header" positionType="Float" x="2" y="43" width="42" height="15" forecolor="#000000"/>
+					<box>
+						<pen lineWidth="2.0"/>
+						<topPen lineWidth="2.0"/>
+						<leftPen lineWidth="2.0"/>
+						<bottomPen lineWidth="2.0"/>
+						<rightPen lineWidth="2.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Id]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="130b8e04-9cec-499b-a9c1-e0f3fac2d0fb" style="Column header" positionType="Float" x="44" y="43" width="261" height="15" forecolor="#000000"/>
+					<box>
+						<pen lineWidth="2.0"/>
+						<topPen lineWidth="2.0"/>
+						<leftPen lineWidth="2.0"/>
+						<bottomPen lineWidth="2.0"/>
+						<rightPen lineWidth="2.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Producto]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="a59002a9-1a0a-4761-bcdd-45e4eed5645c" style="SubTitle" isPrintRepeatedValues="false" x="2" y="7" width="242" height="23" forecolor="#000000" backcolor="#000000"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{bodegaProduccion_nombre}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="2d7feeef-8d4c-4ed2-a40e-7080b978672d" style="Column header" positionType="Float" x="439" y="43" width="93" height="15" forecolor="#000000"/>
+					<box>
+						<pen lineWidth="2.0"/>
+						<topPen lineWidth="2.0"/>
+						<leftPen lineWidth="2.0"/>
+						<bottomPen lineWidth="2.0"/>
+						<rightPen lineWidth="2.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="41eafee7-0b94-4303-be82-e3f428913df1" style="Column header" positionType="Float" x="372" y="43" width="67" height="15" forecolor="#000000"/>
+					<box>
+						<pen lineWidth="2.0"/>
+						<topPen lineWidth="2.0"/>
+						<leftPen lineWidth="2.0"/>
+						<bottomPen lineWidth="2.0"/>
+						<rightPen lineWidth="2.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Precio]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="15">
+				<textField>
+					<reportElement uuid="0fe5f094-2ebb-43b4-8346-ae9144718049" x="256" y="0" width="183" height="15"/>
+					<box>
+						<pen lineWidth="1.0"/>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Total en "+$F{bodegaProduccion_nombre}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00">
+					<reportElement uuid="7fd634b2-8947-4ed0-a8d9-18aab4a34f7d" x="439" y="0" width="93" height="15"/>
+					<box>
+						<pen lineWidth="1.0"/>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TotalBodega}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<title>
+		<band height="102" splitType="Stretch">
+			<image>
+				<reportElement uuid="b1d20342-5bec-47ce-b847-f5f5b6a4e4e0" x="382" y="1" width="150" height="100"/>
+				<imageExpression><![CDATA[$P{Logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="6d47e974-b029-46a9-9b4c-f10a4bd40d9d" style="Title" x="0" y="18" width="382" height="59"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="25"/>
+				</textElement>
+				<text><![CDATA[Inventario Materia Prima]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="811c543c-3fec-4b4a-b7dd-de787392407e" x="42" y="78" width="219" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="bdb84221-3884-4e4e-be3e-ba839d175281" x="2" y="77" width="40" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="bde6309a-a180-4152-94d9-230c8229461d" style="Detail" positionType="Float" x="44" y="0" width="261" height="15"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="false" pdfFontName="Times-Bold"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{materiaPrima_nombre}+" "+$F{materiaPrima_presentacion}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="565a0885-5684-4e09-8fe0-5c929b18d86d" style="Detail" positionType="Float" x="2" y="0" width="42" height="15"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="false" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{materiaPrima_idmateriaPrima}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="46e0d15d-1749-43e8-9820-c5168837a912" style="Detail" positionType="Float" x="305" y="0" width="67" height="15"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="false" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{inventario_materia_prima_cantidad}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="¤ #,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="b9a89a2d-7d6a-490b-884e-1c2f8ccb2d1b" style="Detail" positionType="Float" x="439" y="0" width="93" height="15"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="false" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{inventario_materia_prima_cantidad}*$F{materiaPrima_precio}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="e4f16769-2d5b-461f-bf7e-40941c791bf9" style="Detail" positionType="Float" x="372" y="0" width="67" height="15"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="false" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{materiaPrima_precio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement uuid="19be0cb0-fadb-494b-91bb-0eed843d067d" style="Column header" x="492" y="0" width="40" height="20" forecolor="#000000"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cb39692f-7b09-4679-be8b-8d2d6c6d88f0" style="Column header" x="412" y="0" width="80" height="20" forecolor="#000000"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pagnina "+$V{PAGE_NUMBER}+" de "]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="33">
+			<staticText>
+				<reportElement uuid="b45ee521-f8d2-4887-9ee1-7b0317a7b573" style="Column header" positionType="Float" x="256" y="0" width="183" height="15" forecolor="#000000"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="b9aa26f2-9cab-4310-bc72-c2cf4eb93b1b" x="439" y="0" width="93" height="15"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

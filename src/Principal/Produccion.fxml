@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="pnlPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="905.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.ProduccionControlador">
+  <children>
+    <HBox prefHeight="50.0" prefWidth="800.0" spacing="20.0" styleClass="PanelSubMenu">
+      <children>
+        <Label id="lblTituloSubMenuCatedraticos" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="laberMenu" text="Producción">
+          <stylesheets>
+            <URL value="@estilos.css" />
+          </stylesheets>
+        </Label>
+        <Button mnemonicParsing="false" onAction="#abrirPnlFabricacion" prefHeight="50.0" prefWidth="225.0" styleClass="botonProductos" text="Producción" />
+        <Button mnemonicParsing="false" onAction="#abrirPnlPedidoMateriaPrima" prefHeight="50.0" prefWidth="200.0" styleClass="botonPedido" text="Compras" />
+        <Button mnemonicParsing="false" onAction="#abrirPnlMateriaPrima" prefHeight="50.0" prefWidth="250.0" styleClass="botonMP" text="Materia Prima" />
+        <Button mnemonicParsing="false" onAction="#abrirPnlNuevaBodegaMP" prefHeight="50.0" prefWidth="200.0" styleClass="botonBodegas" text="Bodegas" />
+        <Button mnemonicParsing="false" onAction="#abrirPnlRecepcion" prefHeight="50.0" prefWidth="200.0" styleClass="botonRecepcion" text="Recepción" />
+      </children>
+      <stylesheets>
+        <URL value="@estilos.css" />
+      </stylesheets>
+    </HBox>
+  </children>
+  <stylesheets>
+    <URL value="@estilos.css" />
+  </stylesheets>
+</VBox>

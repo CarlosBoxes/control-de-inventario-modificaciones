@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PedidoAProveedores" language="groovy" pageWidth="612" pageHeight="396" whenNoDataType="BlankPage" columnWidth="570" leftMargin="22" rightMargin="20" topMargin="57" bottomMargin="72" uuid="09d37a91-5864-4078-b355-c3d2eaa4e02f">
+	<property name="ireport.zoom" value="1.5026296018031553"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="20"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="d76e3a86-fac0-4472-a325-b011ee391db0">
+		<parameter name="Id" class="java.lang.Integer">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT
+     pedido_proveedores.`total` AS pedido_proveedores_total,
+     descripcion_pedido_proveedores.`cantidad` AS descripcion_pedido_proveedores_cantidad,
+     descripcion_pedido_proveedores.`precioProducto` AS descripcion_pedido_proveedores_precioProducto,
+     productos.`nombre` AS productos_nombre,
+     pedido_proveedores.`idpedido_proveedores` AS pedido_proveedores_idpedido_proveedores
+FROM
+     `pedido proveedores` pedido_proveedores INNER JOIN `descripcion pedido proveedores` descripcion_pedido_proveedores ON pedido_proveedores.`idpedido_proveedores` = descripcion_pedido_proveedores.`pedido_proveedores_idpedido_proveedores`
+     INNER JOIN `productos` productos ON descripcion_pedido_proveedores.`Productos_idProductos` = productos.`idProductos`
+WHERE
+     Idpedido_proveedores = $P{Id}]]>
+		</queryString>
+		<field name="pedido_proveedores_total" class="java.lang.Float"/>
+		<field name="descripcion_pedido_proveedores_cantidad" class="java.lang.Integer"/>
+		<field name="descripcion_pedido_proveedores_precioProducto" class="java.lang.Float"/>
+		<field name="productos_nombre" class="java.lang.String"/>
+		<field name="pedido_proveedores_idpedido_proveedores" class="java.lang.Integer"/>
+	</subDataset>
+	<parameter name="Id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     facturas.`idFacturas` AS facturas_idFacturas,
+     facturas.`total` AS facturas_total,
+     facturas.`cantidadletras` AS facturas_cantidadletras,
+     clientes.`nombre` AS clientes_nombre,
+     clientes.`direccion` AS clientes_direccion,
+     clientes.`nit` AS clientes_nit,
+     clientes.`Telefono_Casa` AS clientes_Telefono_Casa,
+     clientes.`eliminado` AS clientes_eliminado,
+     descripcion_Factura.`precio` AS descripcion_Factura_precio,
+     descripcion_Factura.`Cantidad` AS descripcion_Factura_Cantidad,
+     descripcion_Factura.`SubTotal` AS descripcion_Factura_SubTotal,
+     productos.`nombre` AS productos_nombre,
+     productos.`presentacion` AS productos_presentacion,
+     vendedores.`idvendedores` AS vendedores_idvendedores
+FROM
+     `clientes` clientes INNER JOIN `facturas` facturas ON clientes.`idCliente` = facturas.`Clientes_idCliente` AND clientes.`eliminado` = 0
+     INNER JOIN `vendedores` vendedores ON facturas.`Vendedor_idVendedor` = vendedores.`idvendedores`
+     INNER JOIN `descripcion Factura` descripcion_Factura ON facturas.`idFacturas` = descripcion_Factura.`Facturas_idFacturas`
+     INNER JOIN `productos` productos ON descripcion_Factura.`productos_idProductos` = productos.`idProductos`
+WHERE
+	facturas.`idFacturas` = $P{Id}]]>
+	</queryString>
+	<field name="facturas_idFacturas" class="java.lang.Integer"/>
+	<field name="facturas_total" class="java.lang.Float"/>
+	<field name="facturas_cantidadletras" class="java.lang.String"/>
+	<field name="clientes_nombre" class="java.lang.String"/>
+	<field name="clientes_direccion" class="java.lang.String"/>
+	<field name="clientes_nit" class="java.lang.String"/>
+	<field name="clientes_Telefono_Casa" class="java.lang.String"/>
+	<field name="clientes_eliminado" class="java.lang.Boolean"/>
+	<field name="descripcion_Factura_precio" class="java.lang.Float"/>
+	<field name="descripcion_Factura_Cantidad" class="java.lang.Integer"/>
+	<field name="descripcion_Factura_SubTotal" class="java.lang.Float"/>
+	<field name="productos_nombre" class="java.lang.String"/>
+	<field name="productos_presentacion" class="java.lang.String"/>
+	<field name="vendedores_idvendedores" class="java.lang.Integer"/>
+	<variable name="pedido_proveedores_total_1" class="java.lang.Float" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<title>
+		<band height="64" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="31b0915a-764b-4d2b-87b8-3ea962c2e584" x="401" y="53" width="119" height="11"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Dialog" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c5a1c7f8-99ff-436d-9e53-c84f1971bd88" x="42" y="17" width="284" height="11"/>
+				<textElement>
+					<font fontName="Dialog" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{clientes_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d1577c39-7832-480b-bf1f-ec3fb46faffd" x="42" y="35" width="284" height="11"/>
+				<textElement>
+					<font fontName="Dialog" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{clientes_direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="afd841b2-6df8-439a-a44d-5e47654dcbb1" x="81" y="53" width="245" height="11"/>
+				<textElement>
+					<font fontName="Dialog" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vendedores_idvendedores}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d9b5ba9d-efed-4a56-9345-3648f408f8c7" x="397" y="17" width="119" height="11"/>
+				<textElement>
+					<font fontName="Dialog" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{clientes_nit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ae08c3b2-edb7-4d32-9945-55853c29e55c" x="405" y="35" width="138" height="11"/>
+				<textElement>
+					<font fontName="Dialog" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{clientes_Telefono_Casa}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20"/>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement uuid="b3e23b1b-e7a3-4273-a1e4-004a4ef4710b" x="48" y="0" width="53" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{productos_presentacion}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="111f5c0e-e435-46db-a7b5-0520f04c70f8" x="408" y="0" width="81" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcion_Factura_precio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="55b347b4-f7ff-4063-9fba-0c04f4253608" x="6" y="0" width="42" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcion_Factura_Cantidad}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="5edbd628-2796-40a6-bd2c-13e11ba2c422" x="489" y="0" width="79" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcion_Factura_SubTotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0a7ac171-37fd-489a-95e0-5206ec3ecf48" x="107" y="0" width="301" height="15"/>
+				<textElement>
+					<font fontName="Dialog" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{productos_nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="15">
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="2a9536c4-6987-4b0e-a2cc-6abb36f8c153" x="489" y="0" width="79" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{facturas_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b041dcb8-ab83-4e8c-8243-31b868058eca" x="12" y="0" width="396" height="15"/>
+				<textElement>
+					<font fontName="Dialog" size="9"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{facturas_cantidadletras}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
