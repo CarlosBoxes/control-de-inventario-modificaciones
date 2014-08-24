@@ -32,6 +32,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Descripcionclientes.findByTotal", query = "SELECT d FROM DescripcionClientes d WHERE d.total = :total")})
 public class DescripcionClientes implements Serializable {
     @Basic(optional = false)
+    @Column(name = "cantidad")
+    private float cantidad;
+    @Basic(optional = false)
     @Column(name = "precio")
     private float precio;
     private static final long serialVersionUID = 1L;
@@ -40,9 +43,6 @@ public class DescripcionClientes implements Serializable {
     @Basic(optional = false)
     @Column(name = "iddescripcionclientes")
     private Integer iddescripcionclientes;
-    @Basic(optional = false)
-    @Column(name = "cantidad")
-    private int cantidad;
     @Basic(optional = false)
     @Column(name = "total")
     private float total;
@@ -75,14 +75,6 @@ public class DescripcionClientes implements Serializable {
 
     public void setIddescripcionclientes(Integer iddescripcionclientes) {
         this.iddescripcionclientes = iddescripcionclientes;
-    }
-
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
     }
 
     public float getTotal() {
@@ -148,6 +140,14 @@ public class DescripcionClientes implements Serializable {
 
     public void setPrecio(float precio) {
         this.precio = precio;
+    }
+
+    public float getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(float cantidad) {
+        this.cantidad = cantidad;
     }
     
 }

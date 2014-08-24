@@ -133,7 +133,7 @@ public class NuevoPedidoAClientes {
                 {
                     if ((descripciones.getIdProducto()==descripcion.getProducto().getIdProductos())&&(descripciones.getPrecio()==descripcion.getPrecio()))
                     {
-                        int cantidad = descripcion.getCantidad() + descripciones.getCantidad();
+                        float cantidad = descripcion.getCantidad() + descripciones.getCantidad();
                         float subTotalNuevo = descripcion.getSubTotal() + descripciones.getSubTotal();
                         descripciones.EditarDescripcionModeloResumen(cantidad,subTotalNuevo);
                         break;
@@ -173,7 +173,7 @@ public class NuevoPedidoAClientes {
      
      public void guardarDescripcionPedido ()
      {
-         int cantidad =0;
+         float cantidad =0;
          float subTotalDesc = 0;
          float precio =0;
          Productos producto = new Productos ();

@@ -275,7 +275,7 @@ public class PedidoNuevoEspecialControlador
             {
                 for(Productos Lista:Producto)
                 {
-                    int cantidad = new IInventarioProducto().buscarInventarioPorProducto(Lista).getCantidad();
+                    float cantidad = new IInventarioProducto().buscarInventarioPorProducto(Lista).getCantidad();
                     SimpleDateFormat Formato = new java.text.SimpleDateFormat("dd/MM/yyyy");
                     String Fecha = Formato.format(Lista.getFechaDeVencimiento());
                     ProductoModelo ProductoModelo = new ProductoModelo(Lista.getIdProductos(), Lista.getNombre(), cantidad, Lista.getPresentacion(), Lista.getUnidadDeMedida(), Lista.getPrecioCosto(), Lista.getPrecioVenta(), Fecha, Lista.getDescripcion(), Lista.getCategoria());
@@ -291,7 +291,7 @@ public class PedidoNuevoEspecialControlador
             {
                 for(Productos Lista:Producto)
                 {
-                    int cantidad = new IInventarioProducto().buscarInventarioPorProducto(Lista).getCantidad();
+                    float cantidad = new IInventarioProducto().buscarInventarioPorProducto(Lista).getCantidad();
                     SimpleDateFormat Formato = new java.text.SimpleDateFormat("dd/MM/yyyy");
                     String Fecha = Formato.format(Lista.getFechaDeVencimiento());
                     ProductoModelo ProductoModelo = new ProductoModelo(Lista.getIdProductos(), Lista.getNombre(),cantidad, Lista.getPresentacion(), Lista.getUnidadDeMedida(), Lista.getPrecioCosto(), Lista.getPrecioVenta(), Fecha, Lista.getDescripcion(), Lista.getCategoria());

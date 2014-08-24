@@ -17,15 +17,15 @@ public class DescripcionModelo
 {
         public SimpleIntegerProperty IdProducto;
         public SimpleStringProperty Nombre;
-        public SimpleIntegerProperty Cantidad;
+        public SimpleFloatProperty Cantidad;
         public SimpleFloatProperty Precio;
         public SimpleFloatProperty SubTotal;
         
-        public DescripcionModelo(Integer Id, String Nombre, Integer Cantidad,float precio, float SubTotal)
+        public DescripcionModelo(Integer Id, String Nombre, float Cantidad,float precio, float SubTotal)
         {
             this.IdProducto = new SimpleIntegerProperty(Id);
             this.Nombre = new SimpleStringProperty(Nombre);
-            this.Cantidad = new SimpleIntegerProperty(Cantidad);
+            this.Cantidad = new SimpleFloatProperty(Cantidad);
             this.Precio = new SimpleFloatProperty(precio);
             this.SubTotal = new SimpleFloatProperty(SubTotal);
         }
@@ -40,7 +40,7 @@ public class DescripcionModelo
             return Nombre.get();
         }
         
-        public Integer getCantidad()
+        public float getCantidad()
         {
             return Cantidad.get();
         }

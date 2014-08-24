@@ -20,7 +20,7 @@ import javax.persistence.Query;
 public class IDescripcionPedido {
      public IDescripcionPedido(){}
      
-     public String guardar(int cantidad,float subTotal,Productos producto,Pedido pedido,float precio)
+     public String guardar(float cantidad,float subTotal,Productos producto,Pedido pedido,float precio)
     {
         try{
             DescripcionPedido descripcionPedido = new DescripcionPedido();

@@ -133,7 +133,7 @@ public class ProductosControlador
             {
                 for(Productos nuevo:Producto)
                 {
-                    int cantidad = new IInventarioProducto().buscarInventarioPorProducto(nuevo).getCantidad();
+                    float cantidad = new IInventarioProducto().buscarInventarioPorProducto(nuevo).getCantidad();
                     SimpleDateFormat Formato = new java.text.SimpleDateFormat("dd/MM/yyyy");
                     String Fecha = null;
                     if(nuevo.getFechaDeVencimiento() != null)
@@ -156,7 +156,7 @@ public class ProductosControlador
             {
                 for(Productos nuevo:Productos)
                 {
-                    int cantidad = new IInventarioProducto().buscarInventarioPorProducto(nuevo).getCantidad();
+                    float cantidad = new IInventarioProducto().buscarInventarioPorProducto(nuevo).getCantidad();
                     SimpleDateFormat Formato = new java.text.SimpleDateFormat("dd/MM/yyyy");
                     String Fecha = null;
                     if(nuevo.getFechaDeVencimiento() != null)
