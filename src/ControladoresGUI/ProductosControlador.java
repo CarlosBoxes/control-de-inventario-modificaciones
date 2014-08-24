@@ -13,9 +13,14 @@ import GestorDeTablasJPA.IBodegaProductos;
 import GestorDeTablasJPA.IInventarioProducto;
 import GestorDeTablasJPA.IProductos;
 import Modelos.ProductoModelo;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -70,6 +75,7 @@ public class ProductosControlador
         FechaVencimiento = new TableColumn();
         Descripcion = new TableColumn();
         Categoria = new TableColumn();
+        Validar = new Validaciones();
         CargarColumnas();
         llenarBodega ();
     }
@@ -172,13 +178,13 @@ public class ProductosControlador
                     ProductoModelo ProductoModelo = new ProductoModelo(nuevo.getIdProductos(), nuevo.getNombre(), cantidad, nuevo.getPresentacion(), nuevo.getUnidadDeMedida(), nuevo.getPrecioCosto(), nuevo.getPrecioVenta(), Fecha, nuevo.getDescripcion(), nuevo.getCategoria());
                     data.add(ProductoModelo);
                 }
-            }
+}
             else
             {
                 this.ProductoAdministrador.showMensajes("No Existen Productos que Contenga(n) esa(s) Letra(s)");
             }
         }
-    }
+ }
     
     public void Buscar(ActionEvent event)
     {
@@ -220,7 +226,7 @@ public class ProductosControlador
             {
                 data.remove(indice);
                 TablaProductos.setItems(data);
-            }
+        }
         }
     }
     
@@ -246,7 +252,37 @@ public class ProductosControlador
     
     public void AbrirReporteVentas(ActionEvent event)
     {
-        
+        ProductoModelo Seleccionado = (ProductoModelo) TablaProductos.getSelectionModel().getSelectedItem();
+        if(Seleccionado == null)
+        {
+            this.ProductoAdministrador.showMensajes("Debe Selecionar un Dato");
+        }
+        else
+        {
+            GeneradordeReportes Reporte = new GeneradordeReportes();
+            if(ValidarFecha(TFFechaI.getText()) && ValidarFecha(TFFechaF.getText()))
+            {
+                String FechaIn = TFFechaI.getText();
+                String FechaFin = TFFechaF.getText();
+                DateFormat Formato = DateFormat.getDateInstance(DateFormat.SHORT);
+                Date FechaI = null;
+                Date FechaF = null;
+                try 
+                {
+                    FechaI = Formato.parse(FechaIn);
+                    FechaF = Formato.parse(FechaFin);
+                } 
+                catch (ParseException ex) 
+                {
+                    Logger.getLogger(NuevoProductoControlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                Reporte.AbrirReporte("VentasPorProductos.jasper",Seleccionado.getId(),FechaI,FechaF);
+            }
+            else
+            {
+                this.ProductoAdministrador.showMensajes("Verifique los campos Fecha Inicio o Fecha Fin");
+            }  
+        }
     }
     
     public void SoltoTeclaI(KeyEvent e)
