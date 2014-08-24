@@ -5,7 +5,6 @@
 package ControladoresGUI;
 
 import AdministradoresGUI.ProductosAdministrador;
-import EntidadesJPA.BodegaProduccion;
 import EntidadesJPA.BodegaProductos;
 import EntidadesJPA.Productos;
 import Especiales.GeneradordeReportes;

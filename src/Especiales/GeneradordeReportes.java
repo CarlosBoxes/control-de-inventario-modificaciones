@@ -7,6 +7,7 @@ package Especiales;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
@@ -32,8 +33,9 @@ public class GeneradordeReportes
     
     private Connection conexionBaseDeDatos() throws ClassNotFoundException, SQLException
     {
+        //"jdbc:mysql://192.168.1.8:3306/bdcc", "administradorCC", "corporacioncampo"
         Class.forName("com.mysql.jdbc.Driver"); 
-        Connection Conexion = DriverManager.getConnection("jdbc:mysql://192.168.1.8:3306/bdcc", "administradorCC", "corporacioncampo");
+        Connection Conexion = DriverManager.getConnection("jdbc:mysql://localhost/bdcc", "root", "1234");
         //Connection Conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdcc", "root", "1234");
         return Conexion;
     }
@@ -66,6 +68,18 @@ public class GeneradordeReportes
          Parametro.put("ID", Id);
          Parametro.put("Año", Año);
          Parametro.put("Logo", Logo);
+         JasperPrint JasperPrint = JasperFillManager.fillReport(Reporte,Parametro,conexionBaseDeDatos());
+         return JasperPrint;
+    }
+    
+    private JasperPrint GenerarReporte(String pathRaiz, Integer Id, Date FechaI, Date FechaF) throws ClassNotFoundException, SQLException, JRException
+    {    
+         JasperReport Reporte = (JasperReport) JRLoader.loadObject(pathRaiz);
+         Map<String, Object> Parametro = new HashMap<String, Object>();
+         Parametro.put("ID", Id);
+         Parametro.put("Logo", Logo);
+         Parametro.put("FechaI", FechaI);
+         Parametro.put("FechaF", FechaF);
          JasperPrint JasperPrint = JasperFillManager.fillReport(Reporte,Parametro,conexionBaseDeDatos());
          return JasperPrint;
     }
@@ -141,6 +155,21 @@ public class GeneradordeReportes
         try
         {
             JasperViewer.viewReport(GenerarReporte(pathRaiz, Id, Año, Mes),false);
+            return true;
+        }
+        catch (ClassNotFoundException | SQLException | JRException e)
+        {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, e);
+            return false;
+        }                
+    }
+    
+    public boolean AbrirReporte(String pathRaiz, Integer Id, Date FechaI, Date FechaF)
+    {
+        try
+        {
+            JasperViewer.viewReport(GenerarReporte(pathRaiz, Id, FechaI, FechaF),false);
             return true;
         }
         catch (ClassNotFoundException | SQLException | JRException e)
