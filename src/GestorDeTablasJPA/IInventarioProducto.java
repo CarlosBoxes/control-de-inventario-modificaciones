@@ -19,7 +19,7 @@ import javax.persistence.Query;
  */
 public class IInventarioProducto {
     public IInventarioProducto(){}
-     public String guardar(Productos producto,BodegaProductos bodega,int cantidad)
+     public String guardar(Productos producto,BodegaProductos bodega,float cantidad)
     {
         try{
             InventarioProducto inventarioProducto = new InventarioProducto();
@@ -91,7 +91,7 @@ public class IInventarioProducto {
     }
     
     InventarioProducto inven = new InventarioProducto ();
-    public void sacarDeInventario (Productos producto,int cantidad)
+    public void sacarDeInventario (Productos producto,float cantidad)
     {
         try{
             for (InventarioProducto inventa:this.listaDeInventarioProductos())
@@ -111,7 +111,7 @@ public class IInventarioProducto {
                 }
     }
     
-    public void meterAlInventario (Productos producto,int cantidad)
+    public void meterAlInventario (Productos producto,float cantidad)
     {
         try{
             for (InventarioProducto inventa:this.listaDeInventarioProductos())

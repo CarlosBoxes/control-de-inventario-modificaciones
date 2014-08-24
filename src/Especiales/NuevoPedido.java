@@ -43,7 +43,7 @@ public class NuevoPedido {
         this.listaDeDescripcion.clear();
     }
     
-    public void añadirDescripcionAUltimoPedido(int cantidad,float subTotal,Productos idProductos,float precio)
+    public void añadirDescripcionAUltimoPedido(float cantidad,float subTotal,Productos idProductos,float precio)
     {
         
         descripcionPedido.guardar(cantidad, subTotal, idProductos,this.pedidoC,precio);

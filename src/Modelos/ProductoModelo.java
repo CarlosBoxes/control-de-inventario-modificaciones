@@ -17,7 +17,7 @@ public class ProductoModelo
 {
         public SimpleIntegerProperty Id;
         public SimpleStringProperty Nombre;
-        public SimpleIntegerProperty Cantidad;
+        public SimpleFloatProperty Cantidad;
         public SimpleStringProperty Presentacion;
         public SimpleIntegerProperty UnidadMedida;
         public SimpleFloatProperty PrecioCosto;
@@ -26,11 +26,11 @@ public class ProductoModelo
         public SimpleStringProperty Descripcion;
         public SimpleStringProperty Categoria;
         
-        public ProductoModelo(Integer Id, String Nombre, int Cantidad , String Presentacion, int UnidadMedida, float PrecioCosto, float PrecioVenta, String FechaVencimiento, String Descripcion, String Categoria)
+        public ProductoModelo(Integer Id, String Nombre, float Cantidad , String Presentacion, int UnidadMedida, float PrecioCosto, float PrecioVenta, String FechaVencimiento, String Descripcion, String Categoria)
         {
             this.Id = new SimpleIntegerProperty(Id);
             this.Nombre = new SimpleStringProperty(Nombre);
-            this.Cantidad = new SimpleIntegerProperty(Cantidad);
+            this.Cantidad = new SimpleFloatProperty(Cantidad);
             this.Presentacion = new SimpleStringProperty(Presentacion);
             this.UnidadMedida = new SimpleIntegerProperty(UnidadMedida);
             this.PrecioCosto = new SimpleFloatProperty(PrecioCosto);
@@ -50,7 +50,7 @@ public class ProductoModelo
             return Nombre.get();
         }
         
-        public int getCantidad()
+        public float getCantidad()
         {
             return Cantidad.get();
         }

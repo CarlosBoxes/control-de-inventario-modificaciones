@@ -21,7 +21,7 @@ public class IDescripcionClientes {
     
      public IDescripcionClientes (){}
  
-    public String guardar(Productos pro,Clientes cli,Pedido pe,int cantidad,float subTotal,float precio)
+    public String guardar(Productos pro,Clientes cli,Pedido pe,float cantidad,float subTotal,float precio)
     {
         try
         {

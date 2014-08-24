@@ -16,7 +16,7 @@ public class DescripcionPedidoAClientes {
     private Productos producto;
     private Clientes cliente;
     private Pedido pedido;
-    private int cantidad;
+    private float cantidad;
     private float subTotal;
     private float precio;
     
@@ -29,7 +29,7 @@ public class DescripcionPedidoAClientes {
         precio =0;
     }
     
-    public void setearValores (Productos pro,Clientes cli,Pedido pe,int cantidad,float subTotal,float precio)
+    public void setearValores (Productos pro,Clientes cli,Pedido pe,float cantidad,float subTotal,float precio)
     {
         this.producto=pro;
         this.cantidad=cantidad;
@@ -52,7 +52,7 @@ public class DescripcionPedidoAClientes {
         return this.pedido;
     }
     
-    public int getCantidad()
+    public float getCantidad()
     {
         return this.cantidad;
     }

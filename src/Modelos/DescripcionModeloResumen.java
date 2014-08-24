@@ -17,22 +17,22 @@ public class DescripcionModeloResumen
 {
         public SimpleIntegerProperty IdProducto;
         public SimpleStringProperty Nombre;
-        public SimpleIntegerProperty Cantidad;
+        public SimpleFloatProperty Cantidad;
         public SimpleFloatProperty Precio;
         public SimpleFloatProperty SubTotal;
         
-        public DescripcionModeloResumen(Integer Id, String Nombre, Integer Cantidad,float precio, float SubTotal)
+        public DescripcionModeloResumen(Integer Id, String Nombre, float Cantidad,float precio, float SubTotal)
         {
             this.IdProducto = new SimpleIntegerProperty(Id);
             this.Nombre = new SimpleStringProperty(Nombre);
-            this.Cantidad = new SimpleIntegerProperty(Cantidad);
+            this.Cantidad = new SimpleFloatProperty(Cantidad);
             this.Precio = new SimpleFloatProperty(precio);
             this.SubTotal = new SimpleFloatProperty(SubTotal);
         }
         
-        public void EditarDescripcionModeloResumen(Integer Cantidad,float SubTotal)
+        public void EditarDescripcionModeloResumen(float Cantidad,float SubTotal)
         {
-            this.Cantidad = new SimpleIntegerProperty(Cantidad);
+            this.Cantidad = new SimpleFloatProperty(Cantidad);
             this.SubTotal = new SimpleFloatProperty(SubTotal);
         }
         
@@ -46,7 +46,7 @@ public class DescripcionModeloResumen
             return Nombre.get();
         }
         
-        public Integer getCantidad()
+        public float getCantidad()
         {
             return Cantidad.get();
         }

@@ -31,15 +31,15 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "InventarioProducto.findByInventario", query = "SELECT i FROM InventarioProducto i WHERE i.productosidProductos = :idProducto"),
     @NamedQuery(name = "InventarioProducto.findByCantidad", query = "SELECT i FROM InventarioProducto i WHERE i.cantidad = :cantidad")})
 public class InventarioProducto implements Serializable {
+    @Basic(optional = false)
+    @Column(name = "cantidad")
+    private float cantidad;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idInventarioProducto")
     private Integer idInventarioProducto;
-    @Basic(optional = false)
-    @Column(name = "cantidad")
-    private int cantidad;
     @JoinColumn(name = "Productos_idProductos", referencedColumnName = "idProductos")
     @ManyToOne(optional = false)
     private Productos productosidProductos;
@@ -65,14 +65,6 @@ public class InventarioProducto implements Serializable {
 
     public void setIdInventarioProducto(Integer idInventarioProducto) {
         this.idInventarioProducto = idInventarioProducto;
-    }
-
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
     }
 
     public Productos getProductosidProductos() {
@@ -114,6 +106,14 @@ public class InventarioProducto implements Serializable {
     @Override
     public String toString() {
         return "Entidades.InventarioProducto[ idInventarioProducto=" + idInventarioProducto + " ]";
+    }
+
+    public float getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(float cantidad) {
+        this.cantidad = cantidad;
     }
     
 }

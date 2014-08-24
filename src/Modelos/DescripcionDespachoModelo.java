@@ -17,16 +17,16 @@ public class DescripcionDespachoModelo
 {
         public SimpleIntegerProperty IdProducto;
         public SimpleStringProperty Nombre;
-        public SimpleIntegerProperty Cantidad;
+        public SimpleFloatProperty Cantidad;
         public SimpleIntegerProperty Facturado;
         public SimpleFloatProperty SubTotal;
         public SimpleFloatProperty Precio;
         
-        public DescripcionDespachoModelo(Integer Id, String Nombre, Integer Cantidad, Integer Facturado, float SubTotal,float Precio)
+        public DescripcionDespachoModelo(Integer Id, String Nombre, float Cantidad, Integer Facturado, float SubTotal,float Precio)
         {
             this.IdProducto = new SimpleIntegerProperty(Id);
             this.Nombre = new SimpleStringProperty(Nombre);
-            this.Cantidad = new SimpleIntegerProperty(Cantidad);
+            this.Cantidad = new SimpleFloatProperty(Cantidad);
             this.Facturado = new SimpleIntegerProperty(Facturado);
             this.SubTotal = new SimpleFloatProperty(SubTotal);
             this.Precio = new SimpleFloatProperty(Precio);
@@ -42,7 +42,7 @@ public class DescripcionDespachoModelo
             return Nombre.get();
         }
         
-        public Integer getCantidad()
+        public float getCantidad()
         {
             return Cantidad.get();
         }

@@ -4,6 +4,7 @@
  */
 package Modelos;
 
+import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -16,13 +17,13 @@ public class VencidosModelo
 {
         public SimpleIntegerProperty Id;
         public SimpleStringProperty Nombre;
-        public SimpleIntegerProperty Cantidad;
+        public SimpleFloatProperty Cantidad;
         
-        public VencidosModelo(Integer Id, String Nombre, Integer Cantidad)
+        public VencidosModelo(Integer Id, String Nombre, float Cantidad)
         {
             this.Id = new SimpleIntegerProperty(Id);
             this.Nombre = new SimpleStringProperty(Nombre);
-            this.Cantidad = new SimpleIntegerProperty(Cantidad);
+            this.Cantidad = new SimpleFloatProperty(Cantidad);
         }
         
         public Integer getId()
@@ -35,7 +36,7 @@ public class VencidosModelo
             return Nombre.get();
         }
         
-        public int getCantidad()
+        public float getCantidad()
         {
             return Cantidad.get();
         }
