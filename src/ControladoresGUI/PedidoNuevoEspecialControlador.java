@@ -308,7 +308,7 @@ public class PedidoNuevoEspecialControlador
             IProductos busqueda = new IProductos();           
             int id = Integer.parseInt(TFIdProducto.getText()); 
             Productos Producto = busqueda.buscarProductoPorId(id);
-            int cantidad = Integer.parseInt(TFCantidad.getText());
+            float cantidad = Float.parseFloat(TFCantidad.getText());
             if (Producto.getEliminado())
             {
                 this.PedidoNuevoAdministrador.showMensajes("Este producto NO existe");
