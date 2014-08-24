@@ -354,7 +354,7 @@ public class NuevaLiquidacionControlador
     
     public void SeleccinarProducto(ActionEvent evnet)
     {
-        if (!this.validar.ValidarNumeros(this.TFCantidad2.getText()))
+        if (!this.validar.ValidarMontos(this.TFCantidad2.getText()))
         {
             this.NuevaLiquidacionAdministrador.showMensajes("Verifique La cantidad que Desea  Devolver");
         }
@@ -597,7 +597,7 @@ public class NuevaLiquidacionControlador
         {
             this.NuevaLiquidacionAdministrador.showMensajes("Id del Producto no Valido");
         }
-        else if(!Validar.ValidarNumeros(TFCantidad.getText()) && Validar.ValidarNumeros(TFProducto.getText()))
+        else if(!Validar.ValidarMontos(TFCantidad.getText()) && Validar.ValidarNumeros(TFProducto.getText()))
         {
             this.NuevaLiquidacionAdministrador.showMensajes("Cantidad no Valida");
         }

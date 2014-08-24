@@ -161,7 +161,7 @@ public class FabricacionControlador
             this.TFProducto.requestFocus();
         }
         else
-            if (!this.validar.ValidarNumeros(this.TFCantidad.getText())||(this.TFCantidad.getText().isEmpty()))
+            if (!this.validar.ValidarMontos(this.TFCantidad.getText())||(this.TFCantidad.getText().isEmpty()))
             {
                 this.FabricacionAdministrador.showMensajes("Verificar la Cantidad Producida");
                 this.TFCantidad.requestFocus();

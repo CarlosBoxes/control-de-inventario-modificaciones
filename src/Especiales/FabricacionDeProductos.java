@@ -29,12 +29,12 @@ public class FabricacionDeProductos {
         this.materiaPrimaGestor = new IMateriaPrima();
     }
     
-    public void ingresarAlInventario (int id,int cantidad)
+    public void ingresarAlInventario (int id,float cantidad)
     {
         this.inventarioGestor.meterAlInventario(this.encontrarProducto(id), cantidad);
     }
     
-    public void sacarDelInventario (int id,int cantidad)
+    public void sacarDelInventario (int id,float cantidad)
     {
         this.inventarioGestor.sacarDeInventario(this.encontrarProducto(id), cantidad);
     }
