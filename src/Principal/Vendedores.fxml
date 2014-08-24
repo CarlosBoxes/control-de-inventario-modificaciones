@@ -93,6 +93,28 @@
                 </HBox>
               </children>
             </VBox>
+                  <VBox maxWidth="250.0" minWidth="250.0" prefHeight="125.0" prefWidth="250.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="141.0" styleClass="laberMenu, fondoNaranja" text="Ventas Periodo" />
+                        <HBox alignment="CENTER" maxWidth="250.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" spacing="20.0">
+                           <children>
+                              <Label maxWidth="87.0" minWidth="50.0" prefHeight="20.0" prefWidth="87.0" text="Fecha Inicio:" />
+                              <TextField fx:id="TFFechaI" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onAction="#AbrirReporteVentasPeriodo" onKeyReleased="#SoltoTeclaI" prefHeight="25.0" prefWidth="86.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" maxWidth="250.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" spacing="20.0">
+                           <children>
+                              <Label maxWidth="87.0" minWidth="50.0" prefHeight="20.0" prefWidth="87.0" text="Fecha Fin:" />
+                              <TextField fx:id="TFFechaF" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onAction="#AbrirReporteVentasPeriodo" onKeyReleased="#SoltoTeclaF" prefHeight="25.0" prefWidth="86.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_RIGHT" prefHeight="45.0" prefWidth="375.0">
+                           <children>
+                              <Button maxWidth="192.0" minHeight="35.0" minWidth="192.0" mnemonicParsing="false" onAction="#AbrirReporteVentasPeriodo" prefHeight="35.0" prefWidth="192.0" styleClass="botonAbrirReporte" text="Guardar o Imprimir" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
           </items>
           <VBox.margin>
             <Insets top="10.0" />

@@ -9,6 +9,7 @@ import EntidadesJPA.BodegaProduccion;
 import EntidadesJPA.BodegaProductos;
 import EntidadesJPA.Productos;
 import Especiales.GeneradordeReportes;
+import Especiales.Validaciones;
 import GestorDeTablasJPA.IBodegaProductos;
 import GestorDeTablasJPA.IInventarioProducto;
 import GestorDeTablasJPA.IProductos;
@@ -25,6 +26,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 /**
  *
  * @author luis__000
@@ -45,7 +47,12 @@ public class ProductosControlador
     public TableColumn Descripcion;
     public TableColumn Categoria;
     public TextField TFBusqueda;
+    public TextField TFFechaI;
+    public TextField TFFechaF;
     public ComboBox ComBoBodega;
+    private Validaciones Validar;
+    private int ContadorTeclaI;
+    private int ContadorTeclaF;
     private ObservableList<ProductoModelo> data;
     
     public void initialize() {}
@@ -235,6 +242,193 @@ public class ProductosControlador
         else
         {
             this.ProductoAdministrador.showMensajes("Seleccione un Bodega");
+        }
+    }
+    
+    public void AbrirReporteVentas(ActionEvent event)
+    {
+        
+    }
+    
+    public void SoltoTeclaI(KeyEvent e)
+    {
+        String Tecla = e.getText();
+        int Key;
+        Key = e.getCode().impl_getCode();
+        boolean Valido = Validar.ValidarNumero(Tecla);
+        if(Key == 8)
+        {
+            ComprobarTamañoI();
+        }
+        else if(Key == 111 || Key == 55)
+        {
+            AgregarCeroI();
+        }
+        else
+        {
+            if((Key > 46 && Key < 106))
+            {
+                if(!Valido)
+                {
+                    TFFechaI.deletePreviousChar();
+                }
+                else
+                {
+
+                    ContadorTeclaI++;
+                    if(TFFechaI.getText().length()<6)
+                    {
+                        if(ContadorTeclaI == 2)
+                        {
+                            TFFechaI.setText(TFFechaI.getText()+"/");
+                            TFFechaI.end();
+                            ComprobarTamañoI();
+                        }
+                    }
+                    else if(TFFechaI.getText().length() > 10)
+                    {
+                        TFFechaI.deletePreviousChar();
+                    }
+                    ComprobarTamañoI();
+                }
+            }
+        }
+    }
+    
+    private void ComprobarTamañoI()
+    {
+        if(TFFechaI.getText().length() == 0 || TFFechaI.getText().length() == 3 || TFFechaI.getText().length() == 5)
+        {
+            ContadorTeclaI = 0;
+        }
+        if(TFFechaI.getText().length() == 1 || TFFechaI.getText().length() == 4)
+        {
+            ContadorTeclaI = 1;
+        }
+    }
+    
+    private void AgregarCeroI()
+    {
+        if(TFFechaI.getText().length() == 2)
+        {
+            TFFechaI.setText("0"+TFFechaI.getText());
+            TFFechaI.end();
+            ContadorTeclaI = 0;
+        }
+        else if(TFFechaI.getText().length() == 5)
+        {
+            TFFechaI.insertText(3, "0");
+            TFFechaI.end();
+            ContadorTeclaI = 0;
+        }
+        else if(TFFechaI.getText().length() < 3)
+        {
+            TFFechaI.deletePreviousChar();
+        }
+        else if(TFFechaI.getText().length() > 3 && TFFechaI.getText().length() < 6)
+        {
+            TFFechaI.deletePreviousChar();
+        }
+        else if(TFFechaI.getText().length() > 6)
+        {
+            TFFechaI.deletePreviousChar();
+        }
+    }
+    
+    public void SoltoTeclaF(KeyEvent e)
+    {
+        String Tecla = e.getText();
+        int Key;
+        Key = e.getCode().impl_getCode();
+        boolean Valido = Validar.ValidarNumero(Tecla);
+        if(Key == 8)
+        {
+            ComprobarTamañoF();
+        }
+        else if(Key == 111 || Key == 55)
+        {
+            AgregarCeroF();
+        }
+        else
+        {
+            if((Key > 46 && Key < 106))
+            {
+                if(!Valido)
+                {
+                    TFFechaF.deletePreviousChar();
+                }
+                else
+                {
+
+                    ContadorTeclaF++;
+                    if(TFFechaF.getText().length()<6)
+                    {
+                        if(ContadorTeclaF == 2)
+                        {
+                            TFFechaF.setText(TFFechaF.getText()+"/");
+                            TFFechaF.end();
+                            ComprobarTamañoF();
+                        }
+                    }
+                    else if(TFFechaF.getText().length() > 10)
+                    {
+                        TFFechaF.deletePreviousChar();
+                    }
+                    ComprobarTamañoF();
+                }
+            }
+        }
+    }
+    
+    private void ComprobarTamañoF()
+    {
+        if(TFFechaF.getText().length() == 0 || TFFechaF.getText().length() == 3 || TFFechaF.getText().length() == 5)
+        {
+            ContadorTeclaF = 0;
+        }
+        if(TFFechaF.getText().length() == 1 || TFFechaF.getText().length() == 4)
+        {
+            ContadorTeclaF = 1;
+        }
+    }
+    
+    private void AgregarCeroF()
+    {
+        if(TFFechaF.getText().length() == 2)
+        {
+            TFFechaF.setText("0"+TFFechaF.getText());
+            TFFechaF.end();
+            ContadorTeclaF = 0;
+        }
+        else if(TFFechaF.getText().length() == 5)
+        {
+            TFFechaF.insertText(3, "0");
+            TFFechaF.end();
+            ContadorTeclaF = 0;
+        }
+        else if(TFFechaF.getText().length() < 3)
+        {
+            TFFechaF.deletePreviousChar();
+        }
+        else if(TFFechaF.getText().length() > 3 && TFFechaF.getText().length() < 6)
+        {
+            TFFechaF.deletePreviousChar();
+        }
+        else if(TFFechaF.getText().length() > 6)
+        {
+            TFFechaF.deletePreviousChar();
+        }
+    }
+    
+    private boolean ValidarFecha(String Fecha)
+    {
+        if(Validar.FormatoFecha(Fecha))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
     
