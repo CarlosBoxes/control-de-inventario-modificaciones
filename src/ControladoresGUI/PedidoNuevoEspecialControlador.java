@@ -303,7 +303,7 @@ public class PedidoNuevoEspecialControlador
     
     private void LLenarTablaPedido()
     {
-        if(ValidarNumero(TFCantidad.getText()))
+        if(ValidarNumeroDecimales(TFCantidad.getText()))
         {
             IProductos busqueda = new IProductos();           
             int id = Integer.parseInt(TFIdProducto.getText()); 
@@ -326,11 +326,11 @@ public class PedidoNuevoEspecialControlador
                 data.add(DescripcionModelo);
             }
         }
-        else if(!ValidarNumero(TFCantidad.getText()))
+        else if(!ValidarNumeroDecimales(TFCantidad.getText()))
         {
             this.PedidoNuevoAdministrador.showMensajes("Cantidad del Producto no Validos");
         }
-        else if(!ValidarNumero(TFCantidad.getText()))
+        else if(!ValidarNumeroDecimales(TFCantidad.getText()))
         {
             this.PedidoNuevoAdministrador.showMensajes("Cantidad no Valida");
         }
@@ -501,9 +501,9 @@ public class PedidoNuevoEspecialControlador
     
     public void comprobarInventarioProducto(ActionEvent e)
     {
-        if(ValidarNumero(TFCantidad.getText()))
+        if(ValidarNumeroDecimales(TFCantidad.getText()))
         {
-            if (!inventarioGestor.verificarInventario(this.productoGestor.buscarProductoPorId(Integer.parseInt(TFIdProducto.getText())), Integer.parseInt(TFCantidad.getText())))
+            if (!inventarioGestor.verificarInventario(this.productoGestor.buscarProductoPorId(Integer.parseInt(TFIdProducto.getText())), Float.parseFloat(TFCantidad.getText())))
             {
                 this.PedidoNuevoAdministrador.showMensajes("No Existe Suficiente Producto en Bodega");
                 TFCantidad.requestFocus();
@@ -511,8 +511,7 @@ public class PedidoNuevoEspecialControlador
             else
             {
                 this.AgregarProducto(null);
-            }
-                  
+            }                  
         }
         else
         {
@@ -667,6 +666,18 @@ public class PedidoNuevoEspecialControlador
     {
         
         if(Validar.ValidarNumeros(Numero))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    private boolean ValidarNumeroDecimales(String Numero)
+    {
+        
+        if(Validar.ValidarMontos(Numero))
         {
             return true;
         }

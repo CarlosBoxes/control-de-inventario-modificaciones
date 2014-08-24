@@ -24,7 +24,7 @@ public class Validaciones
     }
     public boolean ValidarMontos (String Numero)
     {
-        Pattern Patron = Pattern.compile("[0-9]+(.[0-9][0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?)?");
+        Pattern Patron = Pattern.compile("[0-9]?[0-9]?[0-9]?[0-9]?+(.[0-9][0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?)?");
         Matcher Matcher = Patron.matcher(Numero);
         boolean Validar = Matcher.matches();
         return Validar;

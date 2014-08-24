@@ -131,7 +131,7 @@ public class IInventarioProducto {
                 }
     }
     
-    public boolean verificarInventario (Productos producto,int cantidad)
+    public boolean verificarInventario (Productos producto,float cantidad)
     {
         boolean verificado=false;
         try
