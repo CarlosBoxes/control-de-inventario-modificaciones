@@ -103,13 +103,13 @@
                         <HBox alignment="CENTER" maxWidth="250.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" spacing="20.0">
                            <children>
                               <Label maxWidth="87.0" minWidth="50.0" prefHeight="20.0" prefWidth="87.0" text="Fecha Inicio:" />
-                              <TextField fx:id="TFFechaI" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onAction="#AbrirReporteVentasAnuales" onKeyReleased="#SoltoTeclaI" prefHeight="25.0" prefWidth="86.0" />
+                              <TextField fx:id="TFFechaI" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onAction="#AbrirReporteVentasPeriodo" onKeyReleased="#SoltoTeclaI" prefHeight="25.0" prefWidth="86.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" maxWidth="250.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" spacing="20.0">
                            <children>
                               <Label maxWidth="87.0" minWidth="50.0" prefHeight="20.0" prefWidth="87.0" text="Fecha Fin:" />
-                              <TextField fx:id="TFFechaF" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onAction="#AbrirReporteVentasAnuales" onKeyReleased="#SoltoTeclaF" prefHeight="25.0" prefWidth="86.0" />
+                              <TextField fx:id="TFFechaF" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onAction="#AbrirReporteVentasPeriodo" onKeyReleased="#SoltoTeclaF" prefHeight="25.0" prefWidth="86.0" />
                            </children>
                         </HBox>
                         <HBox alignment="TOP_RIGHT" prefHeight="45.0" prefWidth="375.0">
