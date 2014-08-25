@@ -61,46 +61,46 @@ GROUP BY
 	<title>
 		<band height="166" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="6d47e974-b029-46a9-9b4c-f10a4bd40d9d" style="Title" x="0" y="18" width="382" height="59"/>
+				<reportElement style="Title" x="0" y="18" width="382" height="59" uuid="6d47e974-b029-46a9-9b4c-f10a4bd40d9d"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" size="25" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Ventas Anuales]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement uuid="811c543c-3fec-4b4a-b7dd-de787392407e" x="51" y="108" width="284" height="24"/>
+				<reportElement x="51" y="108" width="284" height="24" uuid="811c543c-3fec-4b4a-b7dd-de787392407e"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="SansSerif" size="9" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="bdb84221-3884-4e4e-be3e-ba839d175281" x="1" y="108" width="50" height="24"/>
+				<reportElement x="1" y="108" width="50" height="24" uuid="bdb84221-3884-4e4e-be3e-ba839d175281"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="SansSerif" size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="647d92ed-1048-49c4-9ff3-ef28726ae464" x="1" y="84" width="50" height="24"/>
+				<reportElement x="1" y="84" width="50" height="24" uuid="647d92ed-1048-49c4-9ff3-ef28726ae464"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="SansSerif" size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Vendedor:]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement uuid="79bce5ef-0c06-4645-8761-bfc1276cdd11" x="51" y="84" width="284" height="24"/>
+				<reportElement x="51" y="84" width="284" height="24" uuid="79bce5ef-0c06-4645-8761-bfc1276cdd11"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="SansSerif" size="9" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{vendedores_nombre}+" "+$F{vendedores_Apellido}]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement uuid="03027d80-58b4-4f65-a844-b65b61b7b764" x="382" y="0" width="150" height="100"/>
+				<reportElement x="382" y="0" width="150" height="100" uuid="03027d80-58b4-4f65-a844-b65b61b7b764"/>
 				<imageExpression><![CDATA[$P{Logo}]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement uuid="30a7ccb1-49e7-404d-ab47-41ff71605425" style="Column header" positionType="Float" x="0" y="150" width="349" height="15" forecolor="#000000"/>
+				<reportElement style="Column header" positionType="Float" x="0" y="150" width="349" height="15" forecolor="#000000" uuid="30a7ccb1-49e7-404d-ab47-41ff71605425"/>
 				<box>
 					<pen lineWidth="2.0" lineColor="#000000"/>
 					<topPen lineWidth="2.0" lineColor="#000000"/>
@@ -114,7 +114,7 @@ GROUP BY
 				<text><![CDATA[Producto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="9585c150-8ca3-4831-b3b2-b0a7ff560a3a" style="Column header" positionType="Float" x="349" y="150" width="91" height="15" forecolor="#000000"/>
+				<reportElement style="Column header" positionType="Float" x="349" y="150" width="91" height="15" forecolor="#000000" uuid="9585c150-8ca3-4831-b3b2-b0a7ff560a3a"/>
 				<box>
 					<pen lineWidth="2.0" lineColor="#000000"/>
 					<topPen lineWidth="2.0" lineColor="#000000"/>
@@ -128,7 +128,7 @@ GROUP BY
 				<text><![CDATA[Cantidad]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="0962903b-553d-4b65-9303-5f0279226e25" style="Column header" positionType="Float" x="440" y="150" width="91" height="15" forecolor="#000000"/>
+				<reportElement style="Column header" positionType="Float" x="440" y="150" width="91" height="15" forecolor="#000000" uuid="0962903b-553d-4b65-9303-5f0279226e25"/>
 				<box>
 					<pen lineWidth="2.0" lineColor="#000000"/>
 					<topPen lineWidth="2.0" lineColor="#000000"/>
@@ -152,7 +152,7 @@ GROUP BY
 	<detail>
 		<band height="15" splitType="Stretch">
 			<textField pattern="¤ #,##0.00">
-				<reportElement uuid="0532624c-453b-4e9c-8e54-0e7ecc518f9c" x="0" y="0" width="349" height="15"/>
+				<reportElement x="0" y="0" width="349" height="15" uuid="0532624c-453b-4e9c-8e54-0e7ecc518f9c"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -166,8 +166,8 @@ GROUP BY
 				</textElement>
 				<textFieldExpression><![CDATA[$F{productos_nombre}+" "+$F{productos_presentacion}]]></textFieldExpression>
 			</textField>
-			<textField pattern="###0">
-				<reportElement uuid="b2bd3ced-c3c4-43c0-b867-578514dfb383" x="349" y="0" width="91" height="15"/>
+			<textField pattern="###0.00">
+				<reportElement x="349" y="0" width="91" height="15" uuid="b2bd3ced-c3c4-43c0-b867-578514dfb383"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -181,7 +181,7 @@ GROUP BY
 				<textFieldExpression><![CDATA[$F{descripcionpedido_Cantidad}]]></textFieldExpression>
 			</textField>
 			<textField pattern="¤ #,##0.00">
-				<reportElement uuid="ab74adfe-7fd0-4776-ae52-731c886fc952" x="440" y="0" width="91" height="15"/>
+				<reportElement x="440" y="0" width="91" height="15" uuid="ab74adfe-7fd0-4776-ae52-731c886fc952"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -199,14 +199,14 @@ GROUP BY
 	<pageFooter>
 		<band height="20" splitType="Stretch">
 			<textField evaluationTime="Report">
-				<reportElement uuid="19be0cb0-fadb-494b-91bb-0eed843d067d" style="Column header" x="492" y="0" width="40" height="20" forecolor="#000000"/>
+				<reportElement style="Column header" x="492" y="0" width="40" height="20" forecolor="#000000" uuid="19be0cb0-fadb-494b-91bb-0eed843d067d"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="cb39692f-7b09-4679-be8b-8d2d6c6d88f0" style="Column header" x="412" y="0" width="80" height="20" forecolor="#000000"/>
+				<reportElement style="Column header" x="412" y="0" width="80" height="20" forecolor="#000000" uuid="cb39692f-7b09-4679-be8b-8d2d6c6d88f0"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
@@ -217,7 +217,7 @@ GROUP BY
 	<summary>
 		<band height="21">
 			<staticText>
-				<reportElement uuid="cb9611f0-cbdd-49f8-8e3e-524799a13362" style="Column header" positionType="Float" x="349" y="-1" width="91" height="20" forecolor="#000000"/>
+				<reportElement style="Column header" positionType="Float" x="349" y="-1" width="91" height="20" forecolor="#000000" uuid="cb9611f0-cbdd-49f8-8e3e-524799a13362"/>
 				<box>
 					<pen lineWidth="2.0" lineColor="#000000"/>
 					<topPen lineWidth="2.0" lineColor="#000000"/>
@@ -231,7 +231,7 @@ GROUP BY
 				<text><![CDATA[Total]]></text>
 			</staticText>
 			<textField pattern="¤ #,##0.00">
-				<reportElement uuid="b112b705-7703-4357-bb5e-b31fb4dde277" x="440" y="-1" width="91" height="20"/>
+				<reportElement x="440" y="-1" width="91" height="20" uuid="b112b705-7703-4357-bb5e-b31fb4dde277"/>
 				<box>
 					<pen lineWidth="2.0"/>
 					<topPen lineWidth="2.0"/>
