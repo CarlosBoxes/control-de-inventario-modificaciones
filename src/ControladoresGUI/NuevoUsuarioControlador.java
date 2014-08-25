@@ -34,6 +34,7 @@ public class NuevoUsuarioControlador
     public CheckBox CBAccesoLiquidaciones;
     public CheckBox CBAccesoFinanzas;
     public CheckBox CBAccesoModificarUsuarios;
+    public CheckBox CBGestionInventario;
     public TextField TFNombre;
     public TextField TFContraseña;
     public ComboBox ComBoTipo;
@@ -66,6 +67,7 @@ public class NuevoUsuarioControlador
                 CBAccesoLiquidaciones.setSelected(true);
                 CBAccesoFinanzas.setSelected(true);
                 CBAccesoModificarUsuarios.setSelected(true);
+                CBGestionInventario.setSelected(true);
                 break;
             case "Bodeguero":
                 CBAccesoPedidos.setSelected(true);
@@ -74,6 +76,7 @@ public class NuevoUsuarioControlador
                 CBAccesoLiquidaciones.setSelected(false);
                 CBAccesoFinanzas.setSelected(false);
                 CBAccesoModificarUsuarios.setSelected(false);
+                CBGestionInventario.setSelected(true);
                 break;
             case "Contador":
                 CBAccesoPedidos.setSelected(false);
@@ -82,6 +85,7 @@ public class NuevoUsuarioControlador
                 CBAccesoLiquidaciones.setSelected(true);
                 CBAccesoFinanzas.setSelected(true);
                 CBAccesoModificarUsuarios.setSelected(false);
+                CBGestionInventario.setSelected(false);
                 break;
             case "Vendedores":
                 CBAccesoPedidos.setSelected(true);
@@ -90,6 +94,7 @@ public class NuevoUsuarioControlador
                 CBAccesoLiquidaciones.setSelected(false);
                 CBAccesoFinanzas.setSelected(false);
                 CBAccesoModificarUsuarios.setSelected(false);
+                CBGestionInventario.setSelected(false);
                 break;
             case "Secretaria":
                 CBAccesoPedidos.setSelected(true);
@@ -98,6 +103,7 @@ public class NuevoUsuarioControlador
                 CBAccesoLiquidaciones.setSelected(true);
                 CBAccesoFinanzas.setSelected(true);
                 CBAccesoModificarUsuarios.setSelected(false);
+                CBGestionInventario.setSelected(false);
                 break;
             case "Empleado":
                 CBAccesoPedidos.setSelected(false);
@@ -106,6 +112,7 @@ public class NuevoUsuarioControlador
                 CBAccesoLiquidaciones.setSelected(false);
                 CBAccesoFinanzas.setSelected(false);
                 CBAccesoModificarUsuarios.setSelected(false);
+                CBGestionInventario.setSelected(false);
                 break;
         }
     }
@@ -137,6 +144,10 @@ public class NuevoUsuarioControlador
         {
             ListaPermisos.add(CBAccesoModificarUsuarios.getText());
         }
+        if(CBGestionInventario.isSelected())
+        {
+            ListaPermisos.add(CBGestionInventario.getText());
+        }
         if(Usuario.buscarNombreDeUsuarioExistente(TFNombre.getText()))
         {
             String Mensaje = Usuario.guardar(TFNombre.getText(), TFContraseña.getText(), (String)ComBoTipo.getValue(), ListaPermisos);
@@ -149,6 +160,7 @@ public class NuevoUsuarioControlador
             CBAccesoLiquidaciones.setSelected(false);
             CBAccesoFinanzas.setSelected(false);
             CBAccesoModificarUsuarios.setSelected(false);
+            CBGestionInventario.setSelected(false);
         }
         else
         {

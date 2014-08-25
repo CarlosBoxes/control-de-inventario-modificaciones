@@ -46,7 +46,7 @@ public class VentanaPrincipalControlador
         btnProduccion.setDisable(true);
         btnLiquidaciones.setDisable(true);
         btnFinanzas.setDisable(true);
-        AbilitarBotones();
+        HabilitarBotones();
     }
     
     @FXML
@@ -97,7 +97,7 @@ public class VentanaPrincipalControlador
         System.exit(0);
     }
     
-    private void AbilitarBotones()
+    private void HabilitarBotones()
     {
         List<AsignacionDePermisos> Permisos = (List<AsignacionDePermisos>) this.ventanaAdministrador.Usuario.getAsignacionDePermisosCollection();
         for(int i = 0; i < Permisos.size(); i++)

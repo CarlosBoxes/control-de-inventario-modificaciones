@@ -11,16 +11,16 @@
   <children>
     <HBox prefHeight="50.0" prefWidth="800.0" spacing="20.0" styleClass="PanelSubMenu">
       <children>
-        <Label id="lblTituloSubMenuCatedraticos" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="laberMenu" text="Produccion">
+        <Label id="lblTituloSubMenuCatedraticos" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="laberMenu" text="Producción">
           <stylesheets>
             <URL value="@estilos.css" />
           </stylesheets>
         </Label>
-        <Button mnemonicParsing="false" onAction="#abrirPnlFabricacion" prefHeight="50.0" prefWidth="225.0" styleClass="botonProductos" text="Produccion" />
+        <Button mnemonicParsing="false" onAction="#abrirPnlFabricacion" prefHeight="50.0" prefWidth="225.0" styleClass="botonProductos" text="Producción" />
         <Button mnemonicParsing="false" onAction="#abrirPnlPedidoMateriaPrima" prefHeight="50.0" prefWidth="200.0" styleClass="botonPedido" text="Compras" />
         <Button mnemonicParsing="false" onAction="#abrirPnlMateriaPrima" prefHeight="50.0" prefWidth="250.0" styleClass="botonMP" text="Materia Prima" />
         <Button mnemonicParsing="false" onAction="#abrirPnlNuevaBodegaMP" prefHeight="50.0" prefWidth="200.0" styleClass="botonBodegas" text="Bodegas" />
-        <Button mnemonicParsing="false" onAction="#abrirPnlRecepcion" prefHeight="50.0" prefWidth="200.0" styleClass="botonRecepcion" text="Recepcion" />
+        <Button mnemonicParsing="false" onAction="#abrirPnlRecepcion" prefHeight="50.0" prefWidth="200.0" styleClass="botonRecepcion" text="Recepción" />
       </children>
       <stylesheets>
         <URL value="@estilos.css" />
