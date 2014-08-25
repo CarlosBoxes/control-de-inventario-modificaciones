@@ -34,8 +34,9 @@ public class GeneradordeReportes
     private Connection conexionBaseDeDatos() throws ClassNotFoundException, SQLException
     {
         //"jdbc:mysql://192.168.1.8:3306/bdcc", "administradorCC", "corporacioncampo"
+        //jdbc:mysql://localhost/bdcc", "root", "1234
         Class.forName("com.mysql.jdbc.Driver"); 
-        Connection Conexion = DriverManager.getConnection("jdbc:mysql://localhost/bdcc", "root", "1234");
+        Connection Conexion = DriverManager.getConnection("jdbc:mysql://192.168.1.8:3306/bdcc", "administradorCC", "corporacioncampo");
         //Connection Conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdcc", "root", "1234");
         return Conexion;
     }

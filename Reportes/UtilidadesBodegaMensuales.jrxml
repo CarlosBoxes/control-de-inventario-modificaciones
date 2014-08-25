@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="532" leftMargin="43" rightMargin="20" topMargin="57" bottomMargin="20" uuid="046dd0a0-2d50-4802-b741-9be445d742a7">
 	<property name="template.type" value="columnar"/>
-	<property name="ireport.zoom" value="2.727272727272727"/>
-	<property name="ireport.x" value="860"/>
-	<property name="ireport.y" value="388"/>
+	<property name="ireport.zoom" value="1.2722928551174546"/>
+	<property name="ireport.x" value="25"/>
+	<property name="ireport.y" value="64"/>
 	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -76,46 +76,46 @@ GROUP BY
 	<title>
 		<band height="169" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="6d47e974-b029-46a9-9b4c-f10a4bd40d9d" style="Title" x="0" y="18" width="382" height="59"/>
+				<reportElement style="Title" x="0" y="18" width="382" height="59" uuid="6d47e974-b029-46a9-9b4c-f10a4bd40d9d"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" size="25" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Utilidad Mensual]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement uuid="811c543c-3fec-4b4a-b7dd-de787392407e" x="108" y="108" width="219" height="24"/>
+				<reportElement x="108" y="108" width="219" height="24" uuid="811c543c-3fec-4b4a-b7dd-de787392407e"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="SansSerif" size="9" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="bdb84221-3884-4e4e-be3e-ba839d175281" x="1" y="108" width="107" height="24"/>
+				<reportElement x="1" y="108" width="107" height="24" uuid="bdb84221-3884-4e4e-be3e-ba839d175281"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="SansSerif" size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="647d92ed-1048-49c4-9ff3-ef28726ae464" x="1" y="84" width="107" height="24"/>
+				<reportElement x="1" y="84" width="107" height="24" uuid="647d92ed-1048-49c4-9ff3-ef28726ae464"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="SansSerif" size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Bodega:]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement uuid="79bce5ef-0c06-4645-8761-bfc1276cdd11" x="108" y="84" width="219" height="24"/>
+				<reportElement x="108" y="84" width="219" height="24" uuid="79bce5ef-0c06-4645-8761-bfc1276cdd11"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="SansSerif" size="9" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{bodegaproductos_nombre}]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement uuid="03027d80-58b4-4f65-a844-b65b61b7b764" x="382" y="0" width="150" height="100"/>
+				<reportElement x="382" y="0" width="150" height="100" uuid="03027d80-58b4-4f65-a844-b65b61b7b764"/>
 				<imageExpression><![CDATA[$P{Logo}]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement uuid="0cffb9c8-a951-40d0-85ad-af54411edb63" style="Column header" positionType="Float" x="276" y="153" width="56" height="15" forecolor="#000000"/>
+				<reportElement style="Column header" positionType="Float" x="276" y="153" width="56" height="15" forecolor="#000000" uuid="0cffb9c8-a951-40d0-85ad-af54411edb63"/>
 				<box>
 					<pen lineWidth="2.0" lineColor="#000000"/>
 					<topPen lineWidth="2.0" lineColor="#000000"/>
@@ -129,7 +129,7 @@ GROUP BY
 				<text><![CDATA[Cantidad]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="5051adff-b5bc-446f-a128-cb995b206dc3" style="Column header" positionType="Float" x="1" y="153" width="275" height="15" forecolor="#000000"/>
+				<reportElement style="Column header" positionType="Float" x="1" y="153" width="275" height="15" forecolor="#000000" uuid="5051adff-b5bc-446f-a128-cb995b206dc3"/>
 				<box>
 					<pen lineWidth="2.0" lineColor="#000000"/>
 					<topPen lineWidth="2.0" lineColor="#000000"/>
@@ -143,7 +143,7 @@ GROUP BY
 				<text><![CDATA[Producto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="d57343a7-2b4f-4d1c-88af-65c428353aa2" style="Column header" positionType="Float" x="332" y="153" width="67" height="15" forecolor="#000000"/>
+				<reportElement style="Column header" positionType="Float" x="332" y="153" width="67" height="15" forecolor="#000000" uuid="d57343a7-2b4f-4d1c-88af-65c428353aa2"/>
 				<box>
 					<pen lineWidth="2.0" lineColor="#000000"/>
 					<topPen lineWidth="2.0" lineColor="#000000"/>
@@ -157,7 +157,7 @@ GROUP BY
 				<text><![CDATA[Venta]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="cc65d5ce-225b-4ee9-91f5-3a14cc5fdd50" style="Column header" positionType="Float" x="466" y="153" width="67" height="15" forecolor="#000000"/>
+				<reportElement style="Column header" positionType="Float" x="466" y="153" width="67" height="15" forecolor="#000000" uuid="cc65d5ce-225b-4ee9-91f5-3a14cc5fdd50"/>
 				<box>
 					<pen lineWidth="2.0" lineColor="#000000"/>
 					<topPen lineWidth="2.0" lineColor="#000000"/>
@@ -171,7 +171,7 @@ GROUP BY
 				<text><![CDATA[Utilidad]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="d4fa1304-db40-4027-a02b-9e7957e12822" style="Column header" positionType="Float" x="399" y="153" width="67" height="15" forecolor="#000000"/>
+				<reportElement style="Column header" positionType="Float" x="399" y="153" width="67" height="15" forecolor="#000000" uuid="d4fa1304-db40-4027-a02b-9e7957e12822"/>
 				<box>
 					<pen lineWidth="2.0" lineColor="#000000"/>
 					<topPen lineWidth="2.0" lineColor="#000000"/>
@@ -195,7 +195,7 @@ GROUP BY
 	<detail>
 		<band height="15" splitType="Stretch">
 			<textField pattern="¤ #,##0.00">
-				<reportElement uuid="484ced0f-5b5f-4dc2-a2c0-ee7b7d80c63f" x="1" y="-1" width="275" height="15"/>
+				<reportElement x="1" y="-1" width="275" height="15" uuid="484ced0f-5b5f-4dc2-a2c0-ee7b7d80c63f"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -209,8 +209,8 @@ GROUP BY
 				</textElement>
 				<textFieldExpression><![CDATA[$F{productos_nombre}+" "+$F{productos_presentacion}]]></textFieldExpression>
 			</textField>
-			<textField pattern="###0">
-				<reportElement uuid="d8de520a-2521-469a-9f09-695c5bc3b62b" x="276" y="-1" width="56" height="15"/>
+			<textField pattern="###0.00">
+				<reportElement x="276" y="-1" width="56" height="15" uuid="d8de520a-2521-469a-9f09-695c5bc3b62b"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -224,7 +224,7 @@ GROUP BY
 				<textFieldExpression><![CDATA[$F{descripcionpedido_Cantidad}]]></textFieldExpression>
 			</textField>
 			<textField pattern="¤ #,##0.00">
-				<reportElement uuid="666cd5a3-5bad-4ddb-bb44-2e84b52f1d8e" x="332" y="-1" width="67" height="15"/>
+				<reportElement x="332" y="-1" width="67" height="15" uuid="666cd5a3-5bad-4ddb-bb44-2e84b52f1d8e"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -238,7 +238,7 @@ GROUP BY
 				<textFieldExpression><![CDATA[$F{descripcionpedido_subTotal}]]></textFieldExpression>
 			</textField>
 			<textField pattern="¤ #,##0.00">
-				<reportElement uuid="89b7d0c9-db7a-47e8-a480-cb671754d03d" x="466" y="-1" width="66" height="15"/>
+				<reportElement x="466" y="-1" width="66" height="15" uuid="89b7d0c9-db7a-47e8-a480-cb671754d03d"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -252,7 +252,7 @@ GROUP BY
 				<textFieldExpression><![CDATA[$F{descripcionpedido_subTotal}-($F{Productos_precio_costo}*$F{descripcionpedido_Cantidad})]]></textFieldExpression>
 			</textField>
 			<textField pattern="¤ #,##0.00">
-				<reportElement uuid="505ffae5-a93a-4ac4-ae06-8989777db6a4" x="399" y="-1" width="67" height="15"/>
+				<reportElement x="399" y="-1" width="67" height="15" uuid="505ffae5-a93a-4ac4-ae06-8989777db6a4"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -270,14 +270,14 @@ GROUP BY
 	<pageFooter>
 		<band height="20" splitType="Stretch">
 			<textField evaluationTime="Report">
-				<reportElement uuid="19be0cb0-fadb-494b-91bb-0eed843d067d" style="Column header" x="491" y="0" width="40" height="20" forecolor="#000000"/>
+				<reportElement style="Column header" x="491" y="0" width="40" height="20" forecolor="#000000" uuid="19be0cb0-fadb-494b-91bb-0eed843d067d"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="cb39692f-7b09-4679-be8b-8d2d6c6d88f0" style="Column header" x="411" y="0" width="80" height="20" forecolor="#000000"/>
+				<reportElement style="Column header" x="411" y="0" width="80" height="20" forecolor="#000000" uuid="cb39692f-7b09-4679-be8b-8d2d6c6d88f0"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="SansSerif" size="10" isBold="false"/>
 				</textElement>
@@ -288,7 +288,7 @@ GROUP BY
 	<summary>
 		<band height="71">
 			<staticText>
-				<reportElement uuid="3b27ed25-719f-402b-bd7b-f7e843a0d97b" style="Column header" positionType="Float" x="276" y="0" width="56" height="20" forecolor="#000000"/>
+				<reportElement style="Column header" positionType="Float" x="276" y="0" width="56" height="20" forecolor="#000000" uuid="3b27ed25-719f-402b-bd7b-f7e843a0d97b"/>
 				<box>
 					<pen lineWidth="2.0" lineColor="#000000"/>
 					<topPen lineWidth="2.0" lineColor="#000000"/>
@@ -303,7 +303,7 @@ GROUP BY
 				<text><![CDATA[Totales]]></text>
 			</staticText>
 			<textField pattern="¤ #,##0.00">
-				<reportElement uuid="05308b25-e3e9-4729-ab2d-f65686326c70" x="466" y="0" width="67" height="20"/>
+				<reportElement x="466" y="0" width="67" height="20" uuid="05308b25-e3e9-4729-ab2d-f65686326c70"/>
 				<box>
 					<pen lineWidth="2.0"/>
 					<topPen lineWidth="2.0"/>
@@ -317,7 +317,7 @@ GROUP BY
 				<textFieldExpression><![CDATA[$V{TotalUtiidad}]]></textFieldExpression>
 			</textField>
 			<textField pattern="¤ #,##0.00">
-				<reportElement uuid="0f267618-8684-4c9e-b556-b026e921f5ab" x="332" y="0" width="67" height="20"/>
+				<reportElement x="332" y="0" width="67" height="20" uuid="0f267618-8684-4c9e-b556-b026e921f5ab"/>
 				<box>
 					<pen lineWidth="2.0"/>
 					<topPen lineWidth="2.0"/>
@@ -331,7 +331,7 @@ GROUP BY
 				<textFieldExpression><![CDATA[$V{TotalVentas}]]></textFieldExpression>
 			</textField>
 			<textField pattern="¤ #,##0.00">
-				<reportElement uuid="3e051fdf-0773-41ac-a416-e76d4b3257fd" x="399" y="0" width="67" height="20"/>
+				<reportElement x="399" y="0" width="67" height="20" uuid="3e051fdf-0773-41ac-a416-e76d4b3257fd"/>
 				<box>
 					<pen lineWidth="2.0"/>
 					<topPen lineWidth="2.0"/>
