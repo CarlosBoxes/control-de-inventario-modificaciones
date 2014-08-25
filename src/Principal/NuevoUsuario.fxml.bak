@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="350.0" spacing="5.0" styleClass="fondoNaranja" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ControladoresGUI.NuevoUsuarioControlador">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="402.0" spacing="5.0" styleClass="fondoNaranja" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.NuevoUsuarioControlador">
   <children>
     <Label id="lblTituloPnl" alignment="CENTER" prefHeight="47.0" prefWidth="297.0" styleClass="PanelSubMenu, laberMenu" text="Agregar Nuevo Usuario">
       <VBox.margin>
@@ -33,7 +33,7 @@
     </Label>
     <TextField fx:id="TFContraseña" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="200.0" VBox.margin="$x1" />
     <Label styleClass="labelNegrita" text="Tipo" VBox.margin="$x2" />
-    <ComboBox id="CoBoTipo" fx:id="ComBoTipo" maxHeight="25.0" minHeight="25.0" onAction="#SeleccionAutomatica" prefHeight="25.0" prefWidth="250.0" styleClass="fondoBlanco">
+    <ComboBox id="CoBoTipo" fx:id="ComBoTipo" maxHeight="25.0" minHeight="25.0" onAction="#SeleccionAutomatica" prefHeight="25.0" prefWidth="302.0" styleClass="fondoBlanco">
       <items>
         <FXCollections fx:factory="observableArrayList">
           <String fx:value="Administrador" />
@@ -55,8 +55,8 @@
     </Label>
     <HBox prefHeight="19.0" prefWidth="350.0" spacing="10.0">
       <children>
-        <CheckBox fx:id="CBAccesoPedidos" mnemonicParsing="false" prefWidth="138.0" text="Acceso a Pedidos" />
-        <CheckBox fx:id="CBAccesoBodegas" mnemonicParsing="false" prefWidth="118.0" styleClass="checkbox-2" text="Acceso a Bodegas" />
+        <CheckBox fx:id="CBAccesoPedidos" maxWidth="160.0" minWidth="160.0" mnemonicParsing="false" prefWidth="160.0" text="Acceso a Pedidos" />
+        <CheckBox fx:id="CBAccesoBodegas" maxWidth="160.0" minWidth="160.0" mnemonicParsing="false" prefWidth="160.0" styleClass="checkbox-2" text="Acceso a Bodegas" />
       </children>
       <VBox.margin>
         <Insets left="30.0" right="30.0" top="10.0" />
@@ -64,8 +64,8 @@
     </HBox>
     <HBox prefHeight="19.0" prefWidth="350.0" spacing="10.0">
       <children>
-        <CheckBox id="CBAccesoModificarUsuarios" fx:id="CBAccesoProduccion" mnemonicParsing="false" prefWidth="146.0" text="Acceso a Producción" />
-        <CheckBox fx:id="CBAccesoLiquidaciones" mnemonicParsing="false" prefWidth="150.0" text="Acceso a Liquidaciones" />
+        <CheckBox id="CBAccesoModificarUsuarios" fx:id="CBAccesoProduccion" maxWidth="160.0" minWidth="160.0" mnemonicParsing="false" prefWidth="160.0" text="Acceso a Producción" />
+        <CheckBox fx:id="CBAccesoLiquidaciones" maxWidth="160.0" minWidth="160.0" mnemonicParsing="false" prefWidth="160.0" text="Acceso a Liquidaciones" />
       </children>
       <VBox.margin>
         <Insets left="30.0" right="30.0" fx:id="x3" />
@@ -73,9 +73,17 @@
     </HBox>
     <HBox prefHeight="19.0" prefWidth="350.0" spacing="10.0" VBox.margin="$x3">
       <children>
-        <CheckBox fx:id="CBAccesoFinanzas" mnemonicParsing="false" prefWidth="138.0" text="Acceso a Finanzas" />
-        <CheckBox fx:id="CBAccesoModificarUsuarios" mnemonicParsing="false" text="Modificar Usuarios" />
+        <CheckBox fx:id="CBAccesoFinanzas" maxWidth="160.0" minWidth="160.0" mnemonicParsing="false" prefWidth="160.0" text="Acceso a Finanzas" />
+        <CheckBox fx:id="CBAccesoModificarUsuarios" maxWidth="160.0" minWidth="160.0" mnemonicParsing="false" prefWidth="160.0" text="Modificar Usuarios" />
       </children>
+    </HBox>
+    <HBox alignment="CENTER" prefHeight="19.0" prefWidth="350.0" spacing="10.0">
+      <children>
+        <CheckBox id="CBAccesoFinanzas" fx:id="CBGestionInventario" maxWidth="160.0" minWidth="160.0" mnemonicParsing="false" prefWidth="160.0" text="Gestíon de Inventario" />
+      </children>
+      <VBox.margin>
+        <Insets left="30.0" right="30.0" fx:id="x3" />
+      </VBox.margin>
     </HBox>
     <HBox alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="498.0" spacing="20.0">
       <children>

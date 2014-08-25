@@ -18,7 +18,7 @@
         </Label>
         <Button mnemonicParsing="false" onAction="#abrirPnlFabricacion" prefHeight="50.0" prefWidth="225.0" styleClass="botonProductos" text="Producción" />
         <Button mnemonicParsing="false" onAction="#abrirPnlPedidoMateriaPrima" prefHeight="50.0" prefWidth="200.0" styleClass="botonPedido" text="Compras" />
-        <Button mnemonicParsing="false" onAction="#abrirPnlMateriaPrima" prefHeight="50.0" prefWidth="250.0" styleClass="botonMP" text="Materia Prima" />
+        <Button fx:id="BtnMateriaPrima" disable="true" mnemonicParsing="false" onAction="#abrirPnlMateriaPrima" prefHeight="50.0" prefWidth="250.0" styleClass="botonMP" text="Materia Prima" />
         <Button mnemonicParsing="false" onAction="#abrirPnlNuevaBodegaMP" prefHeight="50.0" prefWidth="200.0" styleClass="botonBodegas" text="Bodegas" />
         <Button mnemonicParsing="false" onAction="#abrirPnlRecepcion" prefHeight="50.0" prefWidth="200.0" styleClass="botonRecepcion" text="Recepción" />
       </children>

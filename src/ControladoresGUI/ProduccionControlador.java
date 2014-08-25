@@ -5,10 +5,13 @@
 package ControladoresGUI;
 
 import AdministradoresGUI.ProduccionAdministrador;
+import EntidadesJPA.AsignacionDePermisos;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.List;
 import javafx.event.*;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
 /**
@@ -22,6 +25,7 @@ public class ProduccionControlador
     Dimension TamañoVentana = Toolkit.getDefaultToolkit().getScreenSize();
     @FXML 
     private VBox pnlPrincipal;
+    public Button BtnMateriaPrima;
     
     public void initialize() {}
   
@@ -31,7 +35,20 @@ public class ProduccionControlador
         this.ProduccionAdministrador = ProduccionAdministrador;
         this.ProduccionAdministrador.pnlPrincipal = this.pnlPrincipal;
         this.pnlPrincipal.setPrefSize(TamañoVentana.getWidth()-180, TamañoVentana.getWidth());        
-        this.ProduccionAdministrador.showPnlFabricacion();     
+        this.ProduccionAdministrador.showPnlFabricacion();
+        HabilitarBotones();
+    }
+    
+    private void HabilitarBotones()
+    {
+        List<AsignacionDePermisos> Permisos = (List<AsignacionDePermisos>) this.ProduccionAdministrador.Usuario.getAsignacionDePermisosCollection();
+        for(int i = 0; i < Permisos.size(); i++)
+        {
+            if(Permisos.get(i).getPermisosidPermisos().getNombre().equals("Gestión de Inventario"))
+            {
+                BtnMateriaPrima.setDisable(false);
+            }
+        }
     }
     
     public void abrirPnlFabricacion(ActionEvent event)

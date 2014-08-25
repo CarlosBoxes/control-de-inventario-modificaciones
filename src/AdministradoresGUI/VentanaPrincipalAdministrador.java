@@ -57,7 +57,7 @@ public class VentanaPrincipalAdministrador
      public Parent showBodegas()
      {
          Parent root = null;
-         BodegasAdministrador BodegasAdministrador = new BodegasAdministrador(scene,stage);
+         BodegasAdministrador BodegasAdministrador = new BodegasAdministrador(scene,stage,Usuario);
          BodegasAdministrador.abrirPanelBodegas();
          root = BodegasAdministrador.root;
          return root;
@@ -93,7 +93,7 @@ public class VentanaPrincipalAdministrador
      public Parent showProduccion()
      {
          Parent root = null;
-         ProduccionAdministrador ProduccionAdministrador = new ProduccionAdministrador(scene,stage);
+         ProduccionAdministrador ProduccionAdministrador = new ProduccionAdministrador(scene,stage,Usuario);
          ProduccionAdministrador.abrirPanelProduccion();
          root = ProduccionAdministrador.root;
          return root;

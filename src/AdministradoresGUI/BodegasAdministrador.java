@@ -4,6 +4,7 @@
  */
 package AdministradoresGUI;
 import ControladoresGUI.BodegasControlador;
+import EntidadesJPA.Usuario;
 import java.io.IOException;
 import java.util.logging.*;
 import javafx.fxml.FXMLLoader;
@@ -20,11 +21,13 @@ public class BodegasAdministrador
     private Stage stage;
     public Parent root;
     public VBox pnlPrincipal;
+    public Usuario Usuario;
     
-    public BodegasAdministrador(Scene scene, Stage stage) 
+    public BodegasAdministrador(Scene scene, Stage stage, Usuario Usuario) 
     {
         this.scene = scene;
         this.stage = stage;
+        this.Usuario = Usuario;
     }
 
     public void abrirPanelBodegas()

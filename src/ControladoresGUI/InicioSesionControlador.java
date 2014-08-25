@@ -42,11 +42,14 @@ public class InicioSesionControlador{
             {
                 Usuario Logeado = logear.buscarUsuarioPorNombre(TFNombre.getText());
                 System.out.println("Bienvenido");
-                this.loginManager.showMensajes("Bienvenido"+" "+TFNombre.getText());
                 this.loginManager.showVentanaPrincipal(Logeado);
                 if(new IProductos().ListaProductosVencidos() != null)
                 {
-                    this.loginManager.showMensajes("Hay Productos Vencidos.");
+                    this.loginManager.showMensajes("Bienvenido"+" "+TFNombre.getText()+"\nHay Productos Vencidos.");
+                }
+                else
+                {
+                    this.loginManager.showMensajes("Bienvenido"+" "+TFNombre.getText());
                 }
             }
             else

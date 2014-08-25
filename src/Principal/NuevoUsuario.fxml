@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="402.0" spacing="5.0" styleClass="fondoNaranja" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.NuevoUsuarioControlador">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="402.0" spacing="5.0" styleClass="fondoNaranja" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.NuevoUsuarioControlador">
   <children>
     <Label id="lblTituloPnl" alignment="CENTER" prefHeight="47.0" prefWidth="297.0" styleClass="PanelSubMenu, laberMenu" text="Agregar Nuevo Usuario">
       <VBox.margin>
@@ -76,6 +76,14 @@
         <CheckBox fx:id="CBAccesoFinanzas" maxWidth="160.0" minWidth="160.0" mnemonicParsing="false" prefWidth="160.0" text="Acceso a Finanzas" />
         <CheckBox fx:id="CBAccesoModificarUsuarios" maxWidth="160.0" minWidth="160.0" mnemonicParsing="false" prefWidth="160.0" text="Modificar Usuarios" />
       </children>
+    </HBox>
+    <HBox alignment="CENTER" prefHeight="19.0" prefWidth="350.0" spacing="10.0">
+      <children>
+        <CheckBox id="CBAccesoFinanzas" fx:id="CBGestionInventario" maxWidth="160.0" minWidth="160.0" mnemonicParsing="false" prefWidth="160.0" text="Gestión de Inventario" />
+      </children>
+      <VBox.margin>
+        <Insets left="30.0" right="30.0" fx:id="x3" />
+      </VBox.margin>
     </HBox>
     <HBox alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="498.0" spacing="20.0">
       <children>

@@ -53,6 +53,7 @@ public class IPermisosTest {
         listaDePermisos.add("Acceso a Liquidaciones");
         listaDePermisos.add("Acceso a Finanzas");
         listaDePermisos.add("Modificar Usuarios");
+        //listaDePermisos.add("Gestión de Inventario");
         IPermisos instance = new IPermisos();
         for (String perm:listaDePermisos)
         {
