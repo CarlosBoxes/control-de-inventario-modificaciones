@@ -115,7 +115,7 @@ public class NuevoProductoControlador
             this.NuevoProductoAdminsitrador.showMensajes("Verifique El Precio De Venta Del Producto.");
         }        
         else
-        if (!this.validar.ValidarNumeros(this.TFCantidad.getText()))
+        if (!this.validar.ValidarMontos(this.TFCantidad.getText()))
         {
             this.NuevoProductoAdminsitrador.showMensajes("Verifique La Cantidad Del Producto.");
         }
@@ -145,7 +145,7 @@ public class NuevoProductoControlador
             
             {
                 String mensaje = productoNuevo.guardar(TFNombre.getText(), TFPresentacion.getText(),unidadDeMedida,precioCosto,precioVenta ,fechaVencimiento,TADescripcion.getText(), TFCategoria.getText(),cambio,porcentajeDevolucion);
-                this.ingresarAlInventariNuevoProducto(bodegas.buscarBodegaPorNombre((String)ComBoBodega.getValue()),productoNuevo.retornarUltimoIngresado(), Integer.parseInt( TFCantidad.getText()));
+                this.ingresarAlInventariNuevoProducto(bodegas.buscarBodegaPorNombre((String)ComBoBodega.getValue()),productoNuevo.retornarUltimoIngresado(),Float.parseFloat(TFCantidad.getText()));
                 this.NuevoProductoAdminsitrador.showMensajes(mensaje);  
                 this.limpiarTodo();
             }
@@ -175,7 +175,7 @@ public class NuevoProductoControlador
          ComBoBodega.setItems(observableList);
     }
      
-     public void ingresarAlInventariNuevoProducto (BodegaProductos bodega,Productos producto,int cantidad)
+     public void ingresarAlInventariNuevoProducto (BodegaProductos bodega,Productos producto,float cantidad)
      {
          IInventarioProducto inventario = new IInventarioProducto ();
          
