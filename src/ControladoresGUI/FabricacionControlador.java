@@ -5,6 +5,7 @@
 package ControladoresGUI;
 
 import AdministradoresGUI.FabricacionAdministrador;
+import EntidadesJPA.AsignacionDePermisos;
 import EntidadesJPA.MateriaPrima;
 import EntidadesJPA.Productos;
 import Especiales.FabricacionDeProductos;
@@ -14,6 +15,7 @@ import GestorDeTablasJPA.IProduccion;
 import GestorDeTablasJPA.IProductos;
 import Modelos.MateriaPrimaModelo;
 import java.util.Date;
+import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -50,6 +52,7 @@ public class FabricacionControlador
     public TableColumn CantidadMateriaPrima;
     public Label LblNombreProducto;
     public Label LblNombreMP;
+    public VBox VBRetiro;
     
     public RadioButton RBIngresar;
     public RadioButton RBExtraer;
@@ -86,6 +89,19 @@ public class FabricacionControlador
         this.validar = new Validaciones();
         this.gestorProductos = new IProductos ();
         this.gestorMateriaPrima = new IMateriaPrima ();
+        HabilitarPanel();
+    }
+    
+    private void HabilitarPanel()
+    {
+        List<AsignacionDePermisos> Permisos = (List<AsignacionDePermisos>) this.FabricacionAdministrador.Usuario.getAsignacionDePermisosCollection();
+        for(int i = 0; i < Permisos.size(); i++)
+        {
+            if(Permisos.get(i).getPermisosidPermisos().getNombre().equals("Gestión de Inventario"))
+            {
+                VBRetiro.setDisable(false);
+            }
+        }
     }
     
     private void CargarColumnasProductos()

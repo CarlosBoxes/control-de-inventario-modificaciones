@@ -51,7 +51,7 @@ public class ProduccionAdministrador
     public void showPnlFabricacion()
      {      
          Parent root = null;
-         FabricacionAdministrador FabricacionAdministrador = new FabricacionAdministrador(scene,stage, this);
+         FabricacionAdministrador FabricacionAdministrador = new FabricacionAdministrador(scene,stage, this, Usuario);
          FabricacionAdministrador.abrirPanelFabricacion();
          root = FabricacionAdministrador.root;
          if(pnlPrincipal.getChildren().size()>1)

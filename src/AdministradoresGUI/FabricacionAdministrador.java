@@ -5,12 +5,12 @@
 package AdministradoresGUI;
 
 import ControladoresGUI.FabricacionControlador;
+import EntidadesJPA.Usuario;
 import java.io.IOException;
 import java.util.logging.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
 import javafx.scene.layout.StackPane;
-
 import javafx.stage.Stage;
 
 /**
@@ -23,12 +23,14 @@ public class FabricacionAdministrador
     private Stage stage;
     public Parent root;
     public ProduccionAdministrador ProduccionAdministrador;
+    public Usuario Usuario;
     
-    public FabricacionAdministrador(Scene scene, Stage stage, ProduccionAdministrador ProduccionAdministrador)
+    public FabricacionAdministrador(Scene scene, Stage stage, ProduccionAdministrador ProduccionAdministrador, Usuario Usuario)
     {
         this.scene = scene;
         this.stage = stage;
         this.ProduccionAdministrador = ProduccionAdministrador;
+        this.Usuario = Usuario;
     }
 
     public void abrirPanelFabricacion()
