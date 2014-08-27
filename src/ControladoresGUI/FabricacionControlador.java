@@ -26,6 +26,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 /**
@@ -60,6 +61,7 @@ public class FabricacionControlador
     private ObservableList<MateriaPrimaModelo> dataProductos;
     private ObservableList<MateriaPrimaModelo> dataMateriaPrima;
     public VBox pnlFunciones;
+    public HBox HBBotones;
     private Validaciones validar ;
     private IProductos gestorProductos;
     private IMateriaPrima gestorMateriaPrima;
@@ -100,6 +102,7 @@ public class FabricacionControlador
             if(Permisos.get(i).getPermisosidPermisos().getNombre().equals("Gestión de Inventario"))
             {
                 VBRetiro.setDisable(false);
+                HBBotones.setDisable(false);
             }
         }
     }

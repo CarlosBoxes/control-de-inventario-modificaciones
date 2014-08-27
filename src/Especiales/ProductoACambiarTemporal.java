@@ -10,14 +10,14 @@ package Especiales;
  */
 public class ProductoACambiarTemporal {
     public String nombre;
-    public int cantidad;
+    public float cantidad;
     public float precio;
     public ProductoACambiarTemporal(){
         this.nombre = "";
         this.cantidad =0;
         this.precio = 0;
     }
-    public void setProducto (String nombre,int cantidad,float precio)
+    public void setProducto (String nombre,float cantidad,float precio)
     {
         this.nombre = nombre;
         this.cantidad = cantidad;

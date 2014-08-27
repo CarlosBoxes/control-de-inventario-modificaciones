@@ -171,7 +171,7 @@ public class NuevaLiquidacionVariante {
            return this.listaDeProductosACambiar;
        }
        
-       public float cambioARealizar (int posicion,int cantidad)
+       public float cambioARealizar (int posicion,float cantidad)
        {
            float descontar =0;
            float precioVenta = (float)this.listaDeProductosACambiar.get(posicion).precioAdevolver();
@@ -194,7 +194,7 @@ public class NuevaLiquidacionVariante {
            
        }
        
-       public float montoADescontarDeDerechoADevolver (String nombre,int cantidad)
+       public float montoADescontarDeDerechoADevolver (String nombre,float cantidad)
     {        
         float montoADescontar =0;
         montoADescontar = this.productosGestor.buscarProductoPorNombre(nombre).getPrecioVenta()*cantidad;
@@ -281,7 +281,7 @@ public class NuevaLiquidacionVariante {
           }
       }
       
-      public void ingresarAlistaDeCambios (String nombre,int cantidad,float precio)
+      public void ingresarAlistaDeCambios (String nombre,float cantidad,float precio)
       {
           ProductoACambiarTemporal productoTemporal = new ProductoACambiarTemporal ();
           productoTemporal.setProducto(nombre, cantidad,precio);
