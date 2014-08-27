@@ -35,15 +35,15 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Produccion.findByFecha", query = "SELECT p FROM Produccion p WHERE p.fecha = :fecha"),
     @NamedQuery(name = "Produccion.findByFechaPorMes", query = "SELECT p FROM Produccion p WHERE p.fecha = :fecha")})
 public class Produccion implements Serializable {
-    private static final long serialVersionUID = 1L;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    @Column(name = "cantidad")
+    private Float cantidad;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idproduccion")
     private Integer idproduccion;
-    @Basic(optional = false)
-    @Column(name = "cantidad")
-    private int cantidad;
     @Basic(optional = false)
     @Column(name = "fecha")
     @Temporal(TemporalType.DATE)
@@ -59,7 +59,7 @@ public class Produccion implements Serializable {
         this.idproduccion = idproduccion;
     }
 
-    public Produccion(Integer idproduccion, int cantidad, Date fecha) {
+    public Produccion(Integer idproduccion, float cantidad, Date fecha) {
         this.idproduccion = idproduccion;
         this.cantidad = cantidad;
         this.fecha = fecha;
@@ -71,14 +71,6 @@ public class Produccion implements Serializable {
 
     public void setIdproduccion(Integer idproduccion) {
         this.idproduccion = idproduccion;
-    }
-
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
     }
 
     public Date getFecha() {
@@ -121,5 +113,15 @@ public class Produccion implements Serializable {
     public String toString() {
         return "EntidadesJPA.Produccion[ idproduccion=" + idproduccion + " ]";
     }
+
+    public Float getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(Float cantidad) {
+        this.cantidad = cantidad;
+    }
+
+   
     
 }

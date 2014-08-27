@@ -32,6 +32,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Productoacambiar.findByCantidad", query = "SELECT p FROM ProductoaCambiar p WHERE p.cantidad = :cantidad"),
     @NamedQuery(name = "Productoacambiar.findByPrecio", query = "SELECT p FROM ProductoaCambiar p WHERE p.precio = :precio")})
 public class ProductoaCambiar implements Serializable {
+    @Basic(optional = false)
+    @Column(name = "Cantidad")
+    private float cantidad;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,9 +44,6 @@ public class ProductoaCambiar implements Serializable {
     @Basic(optional = false)
     @Column(name = "Producto")
     private String producto;
-    @Basic(optional = false)
-    @Column(name = "Cantidad")
-    private int cantidad;
     @Basic(optional = false)
     @Column(name = "precio")
     private float precio;
@@ -79,14 +79,6 @@ public class ProductoaCambiar implements Serializable {
 
     public void setProducto(String producto) {
         this.producto = producto;
-    }
-
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
     }
 
     public float getPrecio() {
@@ -128,6 +120,14 @@ public class ProductoaCambiar implements Serializable {
     @Override
     public String toString() {
         return "Entidades.ProductoaCambiar[ idproductoacambiar=" + idproductoacambiar + " ]";
+    }
+
+    public float getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(float cantidad) {
+        this.cantidad = cantidad;
     }
     
 }

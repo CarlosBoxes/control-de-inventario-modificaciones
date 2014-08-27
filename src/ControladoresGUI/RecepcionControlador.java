@@ -332,7 +332,7 @@ public class RecepcionControlador
                 TFPrecio.setDisable(true);
                 btnVer.setDisable(false);
             }
-            else if(!validar.ValidarNumeros(TFCantidad.getText()) && validar.ValidarMontos(TFPrecio.getText()))
+            else if(!validar.ValidarMontos(TFCantidad.getText()) && validar.ValidarMontos(TFPrecio.getText()))
             {
                 this.RecepcionAdministrador.showMensajes("Verifique la Cantidad");
             }
@@ -362,9 +362,9 @@ public class RecepcionControlador
                 {
                     float NumeroReal=ListaCantidad.get(i);
                     String auxNumeroReal;
-                    int Cantidad;
+                    float Cantidad;
                     auxNumeroReal=String.valueOf(NumeroReal);
-                    Cantidad=(int) NumeroReal;
+                    Cantidad=(float) NumeroReal;
                     new IInventarioProducto().meterAlInventario(ListaProducto.get(i), Cantidad);
                     for(DescripcionPedidoProveedores nuevo: Pedido.getDescripcionPedidoProveedoresCollection())
                     {
@@ -372,9 +372,9 @@ public class RecepcionControlador
                         {
                             float NumeroReal2=ListaCantidad.get(i);
                             String auxNumeroReal2;
-                            int Cantidad2;
+                            float Cantidad2;
                             auxNumeroReal=String.valueOf(NumeroReal2);
-                            Cantidad2=(int) NumeroReal;
+                            Cantidad2=(float) NumeroReal;
                             nuevo.setCantidad(Cantidad2);
                             nuevo.setPrecioProducto(ListaPrecios.get(i));
                             new IDescripcionPedidoProveedores().modificar(nuevo);

@@ -19,7 +19,7 @@ import javax.persistence.Query;
  */
 public class IPedidoProveedores {
     public IPedidoProveedores(){}
-     public String guardar(Date fecha,boolean aplicado,String noFactura,float total,Proveedores proveedor)
+     public String guardar(Date fecha,boolean aplicado,String noFactura,float total,Proveedores proveedor,float subTotal,float descuento)
     {
         try{
             PedidoProveedores pedidoProveedores = new PedidoProveedores();
@@ -29,6 +29,8 @@ public class IPedidoProveedores {
             pedidoProveedores.setAplicado(aplicado);
             pedidoProveedores.setNoFactura(noFactura);
             pedidoProveedores.setTotal(total);
+            pedidoProveedores.setDescuento(descuento);
+            pedidoProveedores.setSubTotal(subTotal);
             pedidoProveedores.setProveedoresidProveedores(proveedor);
             pedidoProveedores.setSaldo(0f);
             pedidoProveedores.setAlmacenado(false);

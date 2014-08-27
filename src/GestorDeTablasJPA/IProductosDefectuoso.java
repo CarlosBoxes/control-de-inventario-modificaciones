@@ -19,7 +19,7 @@ import javax.persistence.Query;
  */
 public class IProductosDefectuoso {
     public IProductosDefectuoso (){}
-     public String guardar(Productos producto,int cantidad,String descripcion, Vendedores Vendedor)
+     public String guardar(Productos producto,float cantidad,String descripcion, Vendedores Vendedor)
     {
         try{
             ProductosDefectuoso productoDefectuoso = new ProductosDefectuoso();

@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="pnlFunciones" prefHeight="530.99995585937" prefWidth="1002.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ControladoresGUI.PedidoProveedoresControlador">
+<VBox fx:id="pnlFunciones" prefHeight="530.99995585937" prefWidth="1002.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControladoresGUI.PedidoProveedoresControlador">
   <children>
     <Label id="lblTituloPnl" alignment="CENTER" prefHeight="47.0" prefWidth="209.0" styleClass="PanelSubMenu, laberMenu" text="Pedido a Proveedores:">
       <VBox.margin>
@@ -83,8 +83,13 @@
           <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="24.0" prefWidth="700.0" spacing="20.0">
               <children>
-                <Label maxWidth="67.0" minWidth="67.0" prefWidth="67.0" text="Total:" />
-                <TextField fx:id="TFTotal" disable="true" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="151.0" />
+                <Label maxWidth="93.0" minWidth="67.0" prefHeight="20.0" prefWidth="87.0" text="Descuento:" />
+                <TextField fx:id="TFDescuento" maxHeight="25.0" minHeight="25.0" onAction="#AplicarDescuento" prefHeight="25.0" prefWidth="36.0" text="0" />
+                        <Label maxWidth="67.0" minWidth="14.0" prefHeight="20.0" prefWidth="14.0" text="\%" />
+                        <Label maxWidth="67.0" minWidth="58.0" prefHeight="20.0" prefWidth="58.0" text="SubTotal:" />
+                        <TextField fx:id="TFSubTotal" disable="true" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="73.0" text="0" />
+                        <Label maxWidth="67.0" minWidth="67.0" prefWidth="67.0" text="Total:" />
+                        <TextField fx:id="TFTotal" disable="true" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="107.0" text="0" />
               </children>
               <VBox.margin>
                 <Insets top="5.0" />

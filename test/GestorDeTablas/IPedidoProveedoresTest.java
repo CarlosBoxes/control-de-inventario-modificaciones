@@ -55,7 +55,7 @@ public class IPedidoProveedoresTest {
         Proveedores proveedor = null;
         IPedidoProveedores instance = new IPedidoProveedores();
         String expResult = "";
-        String result = instance.guardar(fecha, aplicado, noFactura, total, proveedor);
+        String result = instance.guardar(fecha, aplicado, noFactura, total, proveedor,0,0);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

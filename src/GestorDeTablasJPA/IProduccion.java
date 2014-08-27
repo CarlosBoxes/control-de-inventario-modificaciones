@@ -24,7 +24,7 @@ public class IProduccion {
     
     
     
-    public String guardar(Productos producto,Date fecha, int cantidad)
+    public String guardar(Productos producto,Date fecha, float cantidad)
     {
         try{
             Produccion produccion = new Produccion();

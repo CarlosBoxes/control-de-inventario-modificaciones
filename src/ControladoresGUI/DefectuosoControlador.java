@@ -157,7 +157,7 @@ public class DefectuosoControlador
         else
         {
             Productos Producto = new IProductos().buscarProductoPorId(Seleccionado.getId());
-            if(Validar.ValidarNumeros(TFCVencido.getText()))
+            if(Validar.ValidarMontos(TFCVencido.getText()))
             {
                 new IInventarioProducto().sacarDeInventario(Producto, Integer.parseInt(TFCVencido.getText()));
                 LLenarTablaV();
@@ -176,9 +176,9 @@ public class DefectuosoControlador
         Vendedores Vendedor = BuscarVendedor(TFVendedor.getText());
         if(Vendedor != null)
         {
-            String Mensaje = new IProductosDefectuoso().guardar(Producto, Integer.parseInt(TFCantidad.getText()), TADescripcion.getText(),Vendedor);
+            String Mensaje = new IProductosDefectuoso().guardar(Producto, Float.parseFloat(TFCantidad.getText()), TADescripcion.getText(),Vendedor);
             this.DefectuosoAdministrador.showMensajes(Mensaje);
-            DefectuososModelo Modelo = new DefectuososModelo(Producto.getIdProductos(), Producto.getNombre(), Integer.parseInt(TFCantidad.getText()),Vendedor.getNombre()+" "+Vendedor.getApellido(),  TADescripcion.getText());
+            DefectuososModelo Modelo = new DefectuososModelo(Producto.getIdProductos(), Producto.getNombre(), Float.parseFloat(TFCantidad.getText()),Vendedor.getNombre()+" "+Vendedor.getApellido(),  TADescripcion.getText());
             dataDefectuosos.add(Modelo);
             TablaDefectuosos.setItems(dataDefectuosos);
             TFIdProducto.setText("");

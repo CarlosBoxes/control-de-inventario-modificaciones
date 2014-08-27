@@ -31,13 +31,13 @@ public class NuevoPedidoProveedores {
     
     private List<DescripcionPedidoProveedores> listaDeDescripcion = new ArrayList();
     
-    public void crearNuevoPedidoSinDescripcion (Date fecha,boolean aplicado,String NoFactura,float total,Proveedores proveedor)
+    public void crearNuevoPedidoSinDescripcion (Date fecha,boolean aplicado,String NoFactura,float total,Proveedores proveedor,float descuento,float subTotal)
     {       
-        manejoPedido.guardar(fecha, aplicado, NoFactura, total, proveedor);
+        manejoPedido.guardar(fecha, aplicado, NoFactura, total, proveedor,subTotal,descuento);
         pedidoC = manejoPedido.listaDePedidoProveedores().get(manejoPedido.listaDePedidoProveedores().size()-1);
     }
     
-    public void añadirDescripcionAUltimoPedido(int cantidad,float precioProducto,Productos producto)
+    public void añadirDescripcionAUltimoPedido(float cantidad,float precioProducto,Productos producto)
     {
         descripcionPedido.guardar(cantidad, precioProducto, producto, pedidoC);
         listaDeDescripcion.add(descripcionPedido.listaDeDescripcionPedidoProveedores().get(descripcionPedido.listaDeDescripcionPedidoProveedores().size()-1));

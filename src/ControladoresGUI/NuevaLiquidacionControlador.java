@@ -576,12 +576,12 @@ public class NuevaLiquidacionControlador
     public void AgregarDefectuoso(ActionEvent Event)
     {
         Validaciones Validar = new Validaciones();
-        if(Validar.ValidarNumeros(TFProducto.getText()) && Validar.ValidarNumeros(TFCantidad.getText()))
+        if(Validar.ValidarNumeros(TFProducto.getText()) && Validar.ValidarMontos(TFCantidad.getText()))
         {
             Productos Productos = new IProductos().buscarProductoPorId(Integer.parseInt(TFProducto.getText()));
             if(Productos != null)
             {
-                DefectuososModelo Modelo = new DefectuososModelo(Productos.getIdProductos(), Productos.getNombre(), Integer.parseInt(TFCantidad.getText()), null, TADescripcion.getText());
+                DefectuososModelo Modelo = new DefectuososModelo(Productos.getIdProductos(), Productos.getNombre(), Float.parseFloat(TFCantidad.getText()), null, TADescripcion.getText());
                 dataDefectuosos.add(Modelo);
                 TablaDefectuosos.setItems(dataDefectuosos);
                 TFProducto.setText("");

@@ -31,15 +31,15 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "DescripcionPedidoProveedores.findByCantidad", query = "SELECT d FROM DescripcionPedidoProveedores d WHERE d.cantidad = :cantidad"),
     @NamedQuery(name = "DescripcionPedidoProveedores.findByPrecioProducto", query = "SELECT d FROM DescripcionPedidoProveedores d WHERE d.precioProducto = :precioProducto")})
 public class DescripcionPedidoProveedores implements Serializable {
+    @Basic(optional = false)
+    @Column(name = "cantidad")
+    private float cantidad;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "iddescripcionP")
     private Integer iddescripcionP;
-    @Basic(optional = false)
-    @Column(name = "cantidad")
-    private int cantidad;
     @Basic(optional = false)
     @Column(name = "precioProducto")
     private float precioProducto;
@@ -69,14 +69,6 @@ public class DescripcionPedidoProveedores implements Serializable {
 
     public void setIddescripcionP(Integer iddescripcionP) {
         this.iddescripcionP = iddescripcionP;
-    }
-
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
     }
 
     public float getPrecioProducto() {
@@ -126,6 +118,14 @@ public class DescripcionPedidoProveedores implements Serializable {
     @Override
     public String toString() {
         return "Entidades.DescripcionPedidoProveedores[ iddescripcionP=" + iddescripcionP + " ]";
+    }
+
+    public float getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(float cantidad) {
+        this.cantidad = cantidad;
     }
     
 }

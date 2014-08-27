@@ -325,8 +325,8 @@ public class FabricacionControlador
         for (MateriaPrimaModelo modelo:this.dataProductos)
         {
             producto = this.gestorProductos.buscarProductoPorId(modelo.getId());
-            this.produccionGestor.guardar(producto, fecha,  Math.round(modelo.getCantidad()));
-            this.fabricacionGestor.ingresarAlInventario(modelo.getId(),  Math.round(modelo.getCantidad()));            
+            this.produccionGestor.guardar(producto, fecha,  modelo.getCantidad());
+            this.fabricacionGestor.ingresarAlInventario(modelo.getId(),  modelo.getCantidad());            
         }
         this.FabricacionAdministrador.showMensajes("Productos Transladados Correctamente");
         this.limpiarProductos();
@@ -348,7 +348,7 @@ public class FabricacionControlador
         {
             producto = this.gestorProductos.buscarProductoPorId(modelo.getId());
             this.produccionGestor.guardar(producto, fecha,  Math.round(modelo.getCantidad()));
-            this.fabricacionGestor.sacarDelInventario(modelo.getId(),  Math.round(modelo.getCantidad()));            
+            this.fabricacionGestor.sacarDelInventario(modelo.getId(),  modelo.getCantidad());            
         }
         this.FabricacionAdministrador.showMensajes("Productos Retirados Correctamente");
         this.limpiarProductos();

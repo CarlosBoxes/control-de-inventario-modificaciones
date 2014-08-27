@@ -17,7 +17,7 @@ import javax.persistence.EntityManagerFactory;
  */
 public class IDescripcionPedidoProveedores {
     public IDescripcionPedidoProveedores(){}
-     public String guardar(int cantidad, float precioProducto,Productos producto,PedidoProveedores pedido)
+     public String guardar(float cantidad, float precioProducto,Productos producto,PedidoProveedores pedido)
     {
         try{
             DescripcionPedidoProveedores descripcionPedidoProveedores = new DescripcionPedidoProveedores();
