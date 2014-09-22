@@ -52,10 +52,10 @@
     <class>EntidadesJPA.DescripcionFactura_1</class>
     <class>EntidadesJPA.Traslado</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.1.8:3306/bdcc?zeroDateTimeBehavior=convertToNull"/>
-      <property name="javax.persistence.jdbc.password" value="corporacioncampo"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bdcc?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.password" value="1234"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.user" value="administradorCC"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
     </properties>
   </persistence-unit>
 </persistence>

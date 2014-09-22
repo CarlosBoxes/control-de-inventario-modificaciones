@@ -71,6 +71,7 @@ public class PedidoNuevoEspecialControlador
     public TextField TFTotal;
     public TextArea TAObservaciones;
     public Label LblNombreVendedor;
+    public Label LblNombreCliente;
     public Label LblNombreDeProducto;
     public TableView TablaDescripciones;
     public TableView TablaResumen;
@@ -463,7 +464,7 @@ public class PedidoNuevoEspecialControlador
          List<String> list = new ArrayList<String>();
          for (ListaClientes cliente:this.vendedorPedido.getListaclientesCollection())
          {
-             list.add(cliente.getClientesidCliente().getNombre());
+             list.add(cliente.getClientesidCliente().getIdCliente().toString());
          }
          ObservableList<String> observableList = FXCollections.observableList(list);
          this.ComBoClientes.setItems(observableList);
@@ -750,7 +751,8 @@ public class PedidoNuevoEspecialControlador
     
     public void cambioCliente ()
     {
-        clienteCambiado = GestorClientes.buscarClientesPorNombre(String.valueOf(this.ComBoClientes.getValue()));
+        clienteCambiado = GestorClientes.buscarClientesPorId(Integer.valueOf(this.ComBoClientes.getValue().toString()));
+        this.LblNombreCliente.setText(clienteCambiado.getNombre() +" "+"("+clienteCambiado.getRazonsocial()+")");
         this.data = pedidoEspecial.descripcionCliente(clienteCambiado);
         TablaDescripciones.setItems(data);
         this.calculoDeTotalCliente();

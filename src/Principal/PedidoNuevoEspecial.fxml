@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="pnlFunciones" prefHeight="660.0" prefWidth="907.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.PedidoNuevoEspecialControlador">
+<VBox fx:id="pnlFunciones" prefHeight="660.0" prefWidth="907.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="ControladoresGUI.PedidoNuevoEspecialControlador">
   <children>
     <Label id="lblTituloPnl" alignment="CENTER" prefHeight="47.0" prefWidth="213.0" styleClass="PanelSubMenu, laberMenu" text="Nuevo Pedido Especial:">
       <VBox.margin>
@@ -43,7 +44,15 @@
     <HBox fx:id="HBoxClientes" alignment="CENTER" prefHeight="24.0" prefWidth="700.0">
       <children>
         <Label maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Cliente:" />
-        <ComboBox fx:id="ComBoClientes" maxHeight="25.0" maxWidth="500.0" minHeight="25.0" minWidth="500.0" onAction="#cambioCliente" prefHeight="25.0" prefWidth="500.0" styleClass="fondoBlanco" />
+        <ComboBox fx:id="ComBoClientes" maxHeight="25.0" maxWidth="500.0" minHeight="25.0" minWidth="66.0" onAction="#cambioCliente" prefHeight="25.0" prefWidth="66.0" styleClass="fondoBlanco" />
+            <Label fx:id="LblNombreCliente" prefHeight="20.0" prefWidth="364.0" text="Nombre Cliente">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
       </children>
       <VBox.margin>
         <Insets bottom="5.0" left="50.0" right="50.0" top="10.0" />
