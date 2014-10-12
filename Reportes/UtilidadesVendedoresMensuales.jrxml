@@ -17,12 +17,8 @@
 	<parameter name="ID" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<parameter name="Año" class="java.lang.Integer">
-		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
-	</parameter>
-	<parameter name="Mes" class="java.lang.Integer">
-		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
-	</parameter>
+	<parameter name="Año" class="java.lang.Integer"/>
+	<parameter name="Mes" class="java.lang.Integer"/>
 	<parameter name="Logo" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT

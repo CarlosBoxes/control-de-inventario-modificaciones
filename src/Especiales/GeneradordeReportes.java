@@ -34,7 +34,7 @@ public class GeneradordeReportes
     private Connection conexionBaseDeDatos() throws ClassNotFoundException, SQLException
     {
         //"jdbc:mysql://192.168.1.8:3306/bdcc", "administradorCC", "corporacioncampo"
-        //jdbc:mysql://localhost/bdcc", "root", "1234
+        //"jdbc:mysql://localhost/bdcc", "root", "1234"
         Class.forName("com.mysql.jdbc.Driver"); 
         Connection Conexion = DriverManager.getConnection("jdbc:mysql://192.168.1.8:3306/bdcc", "administradorCC", "corporacioncampo");
         //Connection Conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdcc", "root", "1234");
@@ -78,6 +78,17 @@ public class GeneradordeReportes
          JasperReport Reporte = (JasperReport) JRLoader.loadObject(pathRaiz);
          Map<String, Object> Parametro = new HashMap<String, Object>();
          Parametro.put("ID", Id);
+         Parametro.put("Logo", Logo);
+         Parametro.put("FechaI", FechaI);
+         Parametro.put("FechaF", FechaF);
+         JasperPrint JasperPrint = JasperFillManager.fillReport(Reporte,Parametro,conexionBaseDeDatos());
+         return JasperPrint;
+    }
+    
+    private JasperPrint GenerarReporte(String pathRaiz, Date FechaI, Date FechaF) throws ClassNotFoundException, SQLException, JRException
+    {    
+         JasperReport Reporte = (JasperReport) JRLoader.loadObject(pathRaiz);
+         Map<String, Object> Parametro = new HashMap<String, Object>();
          Parametro.put("Logo", Logo);
          Parametro.put("FechaI", FechaI);
          Parametro.put("FechaF", FechaF);
@@ -171,6 +182,21 @@ public class GeneradordeReportes
         try
         {
             JasperViewer.viewReport(GenerarReporte(pathRaiz, Id, FechaI, FechaF),false);
+            return true;
+        }
+        catch (ClassNotFoundException | SQLException | JRException e)
+        {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, e);
+            return false;
+        }                
+    }
+    
+     public boolean AbrirReporte(String pathRaiz, Date FechaI, Date FechaF)
+    {
+        try
+        {
+            JasperViewer.viewReport(GenerarReporte(pathRaiz, FechaI, FechaF),false);
             return true;
         }
         catch (ClassNotFoundException | SQLException | JRException e)

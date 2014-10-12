@@ -9,21 +9,21 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="pnlFunciones" prefHeight="550.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.ReportesLiquidacionControlador">
+<VBox fx:id="pnlFunciones" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="ControladoresGUI.ReportesLiquidacionControlador">
   <children>
     <Label id="lblTituloPnl" alignment="CENTER" prefHeight="47.0" prefWidth="238.0" styleClass="PanelSubMenu, laberMenu" text="Reportes de Utilidades:">
       <VBox.margin>
         <Insets left="20.0" top="20.0" fx:id="x1" />
       </VBox.margin>
     </Label>
-    <VBox alignment="TOP_CENTER" prefHeight="483.0" prefWidth="850.0">
+    <VBox alignment="TOP_CENTER">
       <children>
-        <SplitPane dividerPositions="0.4947089947089947" focusTraversable="true" maxWidth="750.0" minWidth="750.0" prefHeight="160.0" prefWidth="750.0">
+        <SplitPane dividerPositions="0.34167709637046306, 0.6983729662077597" focusTraversable="true">
           <items>
-            <VBox prefHeight="120.0" prefWidth="375.0">
+            <VBox>
               <children>
                 <Label alignment="CENTER" prefHeight="30.0" prefWidth="190.0" styleClass="laberMenu, fondoNaranja" text="Utilidades Vendedor" />
-                <HBox alignment="CENTER_LEFT" maxWidth="375.0" minWidth="375.0" prefHeight="40.0" prefWidth="375.0" spacing="20.0">
+                <HBox alignment="CENTER_LEFT" prefHeight="40.0" spacing="20.0">
                   <children>
                     <Label maxWidth="105.0" minWidth="105.0" prefWidth="105.0" text="Id Vendedor:">
                       <HBox.margin>
@@ -31,12 +31,11 @@
                       </HBox.margin>
                     </Label>
                     <TextField id="TFAño" fx:id="Id" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onAction="#BuscarVenedor" prefHeight="25.0" prefWidth="86.0" />
-                    <Label fx:id="lblNombre" prefWidth="200.0" />
                   </children>
                 </HBox>
-                <HBox alignment="CENTER" maxWidth="375.0" minWidth="375.0" prefHeight="40.0" prefWidth="375.0" spacing="20.0">
+                <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0">
                   <children>
-                    <Label maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="Mes:" />
+                    <Label maxWidth="40.0" minWidth="40.0" prefWidth="40.0" text="Mes:" />
                     <ComboBox fx:id="ComBoMesVendedores" prefHeight="21.0" prefWidth="111.0" styleClass="fondoBlanco">
                       <items>
                         <FXCollections fx:factory="observableArrayList">
@@ -55,28 +54,28 @@
                         </FXCollections>
                       </items>
                     </ComboBox>
-                    <Label maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="Año:" />
+                    <Label maxWidth="30.0" minWidth="30.0" prefWidth="30.0" text="Año:" />
                     <TextField id="TFAño" fx:id="TFAñoVendedores" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onAction="#AbrirReporteVendedoresMensuales" prefHeight="25.0" prefWidth="86.0" />
                   </children>
                 </HBox>
-                <HBox alignment="TOP_RIGHT" prefHeight="45.0" prefWidth="375.0">
+                <HBox alignment="TOP_RIGHT" prefHeight="45.0">
                   <children>
-                    <Button maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" onAction="#AbrirReporteVendedoresMensuales" prefHeight="45.0" prefWidth="220.0" styleClass="botonAbrirReporte" text="Guardar o Imprimir" />
+                    <Button maxWidth="192.0" minWidth="192.0" mnemonicParsing="false" onAction="#AbrirReporteVendedoresMensuales" prefHeight="45.0" prefWidth="192.0" styleClass="botonAbrirReporte" text="Guardar o Imprimir" />
                   </children>
                 </HBox>
               </children>
             </VBox>
-            <VBox prefHeight="120.0" prefWidth="375.0">
+            <VBox>
               <children>
                 <Label alignment="CENTER" prefHeight="30.0" prefWidth="190.0" styleClass="laberMenu, fondoNaranja" text="Utilidades Bodega" />
-                <HBox alignment="CENTER_LEFT" maxWidth="375.0" minWidth="375.0" prefHeight="40.0" prefWidth="375.0" spacing="20.0">
+                <HBox alignment="CENTER_LEFT" prefHeight="40.0" spacing="10.0">
                   <children>
-                    <Label maxWidth="101.0" minWidth="50.0" prefWidth="101.0" text="Bodegas:">
+                    <Label maxWidth="101.0" minWidth="50.0" prefHeight="20.0" prefWidth="62.0" text="Bodegas:">
                       <HBox.margin>
-                        <Insets left="10.0" />
+                        <Insets />
                       </HBox.margin>
                     </Label>
-                    <ComboBox id="ComboBodega" fx:id="ComBoBodega" prefHeight="21.0" prefWidth="203.0" styleClass="fondoBlanco">
+                    <ComboBox id="ComboBodega" fx:id="ComBoBodega" prefHeight="25.0" prefWidth="146.0" styleClass="fondoBlanco">
                       <items>
                         <FXCollections fx:factory="observableArrayList">
                           <String fx:value="Enero" />
@@ -96,9 +95,9 @@
                     </ComboBox>
                   </children>
                 </HBox>
-                <HBox alignment="CENTER" maxWidth="375.0" minWidth="375.0" prefHeight="40.0" prefWidth="375.0" spacing="20.0">
+                <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0">
                   <children>
-                    <Label maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="Mes:" />
+                    <Label maxWidth="40.0" minWidth="40.0" prefWidth="40.0" text="Mes:" />
                     <ComboBox fx:id="ComBoMesBodegas" prefHeight="21.0" prefWidth="111.0" styleClass="fondoBlanco">
                       <items>
                         <FXCollections fx:factory="observableArrayList">
@@ -117,17 +116,39 @@
                         </FXCollections>
                       </items>
                     </ComboBox>
-                    <Label maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="Año:" />
+                    <Label maxWidth="30.0" minWidth="30.0" prefHeight="20.0" prefWidth="30.0" text="Año:" />
                     <TextField id="TFAño" fx:id="TFAñoBodegas" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onAction="#AbrirReporteBodegasMensuales" prefHeight="25.0" prefWidth="86.0" />
                   </children>
                 </HBox>
-                <HBox alignment="TOP_RIGHT" prefHeight="45.0" prefWidth="375.0">
+                <HBox alignment="TOP_RIGHT" prefHeight="45.0">
                   <children>
-                    <Button maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" onAction="#AbrirReporteBodegasMensuales" prefHeight="45.0" prefWidth="220.0" styleClass="botonAbrirReporte" text="Guardar o Imprimir" />
+                    <Button maxWidth="192.0" minWidth="192.0" mnemonicParsing="false" onAction="#AbrirReporteBodegasMensuales" prefHeight="45.0" prefWidth="192.0" styleClass="botonAbrirReporte" text="Guardar o Imprimir" />
                   </children>
                 </HBox>
               </children>
             </VBox>
+                  <VBox>
+                     <children>
+                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="160.0" styleClass="laberMenu, fondoNaranja" text="Utilidades General" />
+                        <HBox alignment="CENTER" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" spacing="20.0">
+                           <children>
+                              <Label maxWidth="87.0" minWidth="50.0" prefHeight="20.0" prefWidth="87.0" text="Fecha Inicio:" />
+                              <TextField fx:id="TFFechaI" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onAction="#AbrirReporteUtilidades" onKeyReleased="#SoltoTeclaI" prefHeight="25.0" prefWidth="86.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" spacing="20.0">
+                           <children>
+                              <Label maxWidth="87.0" minWidth="50.0" prefHeight="20.0" prefWidth="87.0" text="Fecha Fin:" />
+                              <TextField fx:id="TFFechaF" alignment="CENTER" maxHeight="25.0" minHeight="25.0" onAction="#AbrirReporteUtilidades" onKeyReleased="#SoltoTeclaF" prefHeight="25.0" prefWidth="86.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" maxHeight="45.0" minHeight="45.0" prefHeight="45.0" spacing="20.0">
+                           <children>
+                              <Button maxWidth="192.0" minHeight="45.0" minWidth="192.0" mnemonicParsing="false" onAction="#AbrirReporteUtilidades" prefHeight="45.0" prefWidth="192.0" styleClass="botonAbrirReporte" text="Guardar o Imprimir" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
           </items>
           <VBox.margin>
             <Insets top="20.0" />
