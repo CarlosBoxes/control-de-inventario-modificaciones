@@ -360,7 +360,7 @@ public class NuevaLiquidacionControlador
         }
         else
         {
-            if (Integer.parseInt(this.TFCantidad2.getText())>0)
+            if (Float.parseFloat(this.TFCantidad2.getText())>0)
             {
                 DevolucionModelo Seleccionado = (DevolucionModelo)TablaDevoluciones.getSelectionModel().getSelectedItem();
                 int Index = TablaDevoluciones.getSelectionModel().getSelectedIndex();
@@ -377,15 +377,15 @@ public class NuevaLiquidacionControlador
                     else
                     {
 
-                        if (Float.parseFloat(Seleccionado.getMonto())>=this.nuevaLiquidacionVariante.cambioARealizar(Integer.parseInt(Seleccionado.getNo()), Integer.parseInt(this.TFCantidad2.getText())))
+                        if (Float.parseFloat(Seleccionado.getMonto())>=this.nuevaLiquidacionVariante.cambioARealizar(Integer.parseInt(Seleccionado.getNo()), Float.parseFloat(this.TFCantidad2.getText())))
                         {                            
-                            this.nuevaLiquidacionVariante.actualizarTotalDePedidoPorDevolucion(this.nuevaLiquidacionVariante.cambioARealizar(Integer.parseInt(Seleccionado.getNo()), Integer.parseInt(this.TFCantidad2.getText())));
+                            this.nuevaLiquidacionVariante.actualizarTotalDePedidoPorDevolucion(this.nuevaLiquidacionVariante.cambioARealizar(Integer.parseInt(Seleccionado.getNo()), Float.parseFloat(this.TFCantidad2.getText())));
                             this.TFSubTotal.setText(String.valueOf(this.nuevaLiquidacionVariante.getTotalDelPedido()));
                             this.TFSaldoTotal.setText(String.valueOf(this.nuevaLiquidacionVariante.getTotal()));    
                             dataDevolucion.remove(Index);
                             TablaDevoluciones.setItems(dataDevolucion);
                             this.verificacionDeCuadre ();
-                            this.nuevaLiquidacionVariante.ingresarAlistaDeCambios(Seleccionado.getNombre(),Integer.parseInt(TFCantidad2.getText()),Seleccionado.getPrecio());
+                            this.nuevaLiquidacionVariante.ingresarAlistaDeCambios(Seleccionado.getNombre(),Float.parseFloat(TFCantidad2.getText()),Seleccionado.getPrecio());
                             this.TFCantidad2.setText("");
                             if (this.dataDevolucion.isEmpty())
                             {
@@ -576,12 +576,12 @@ public class NuevaLiquidacionControlador
     public void AgregarDefectuoso(ActionEvent Event)
     {
         Validaciones Validar = new Validaciones();
-        if(Validar.ValidarNumeros(TFProducto.getText()) && Validar.ValidarNumeros(TFCantidad.getText()))
+        if(Validar.ValidarNumeros(TFProducto.getText()) && Validar.ValidarMontos(TFCantidad.getText()))
         {
             Productos Productos = new IProductos().buscarProductoPorId(Integer.parseInt(TFProducto.getText()));
             if(Productos != null)
             {
-                DefectuososModelo Modelo = new DefectuososModelo(Productos.getIdProductos(), Productos.getNombre(), Integer.parseInt(TFCantidad.getText()), null, TADescripcion.getText());
+                DefectuososModelo Modelo = new DefectuososModelo(Productos.getIdProductos(), Productos.getNombre(), Float.parseFloat(TFCantidad.getText()), null, TADescripcion.getText());
                 dataDefectuosos.add(Modelo);
                 TablaDefectuosos.setItems(dataDefectuosos);
                 TFProducto.setText("");

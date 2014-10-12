@@ -147,9 +147,9 @@ public class EliminarPedido {
     
     public void retornarProductos ()
     {
-        if (!this.pedidoProveedor.getDescripcionPedidoProveedoresCollection().isEmpty())
+        if (!this.pedido.getDescripcionPedidoCollection().isEmpty())
         {
-            for (DescripcionPedidoProveedores descripcion:this.pedidoProveedor.getDescripcionPedidoProveedoresCollection())
+            for (DescripcionPedido descripcion:this.pedido.getDescripcionPedidoCollection())
             {
                 this.gestorInventario.meterAlInventario(descripcion.getProductosidProductos(),descripcion.getCantidad());
             }

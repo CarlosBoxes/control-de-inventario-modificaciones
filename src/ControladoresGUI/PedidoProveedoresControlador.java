@@ -71,6 +71,8 @@ public class PedidoProveedoresControlador
     public TextField TFCantidad;
     public TextField TFPrecio;
     public TextField TFTotal;
+    public TextField TFSubTotal;
+    public TextField TFDescuento;
     public TextField TFFecha;
     public TextField TFIdProveedor;
   
@@ -154,8 +156,10 @@ public class PedidoProveedoresControlador
                     Logger.getLogger(NuevoProductoControlador.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 float total = Float.parseFloat(TFTotal.getText());
+                float subTotal =Float.parseFloat(TFSubTotal.getText());
+                float descuento =Float.parseFloat(TFDescuento.getText())/100;
                 Proveedores proveedorX  = proveedor.buscarProveedorPorId(Integer.parseInt(TFIdProveedor.getText()));
-                nuevoPedido.crearNuevoPedidoSinDescripcion(fecha, false,"",total,proveedorX);    
+                nuevoPedido.crearNuevoPedidoSinDescripcion(fecha, false,"",total,proveedorX,descuento,subTotal);    
                 pedido = pedidos.retornarUltimoIngresado();       
                 this.convertirDeModeloAListaDescripciones();
                 this.PedidoProveedoresAdministrador.showMensajes("Pedido Ingresado Correctamente");
@@ -355,7 +359,7 @@ public class PedidoProveedoresControlador
     {
         int id = Integer.parseInt(TFIdProducto.getText());
         Productos Producto = new IProductos().buscarProductoPorId(id);
-        int cantidad = Integer.parseInt(TFCantidad.getText());
+        float cantidad = Float.parseFloat(TFCantidad.getText());
         float subtotal = Float.parseFloat(TFPrecio.getText()) * cantidad;
         DescripcionCompraModelo DescripcionModelo = new DescripcionCompraModelo(Producto.getIdProductos(), Producto.getNombre(), cantidad, Float.parseFloat(TFPrecio.getText()), subtotal);
         dataDescripciones.add(DescripcionModelo);
@@ -396,7 +400,7 @@ public class PedidoProveedoresControlador
             this.TFIdProducto.requestFocus();
         }
         else
-        if (!this.Validar.ValidarNumeros(this.TFCantidad.getText()))
+        if (!this.Validar.ValidarMontos(this.TFCantidad.getText()))
         {
             this.PedidoProveedoresAdministrador.showMensajes("Verifique la Cantidad Del Producto");
             this.TFCantidad.requestFocus();
@@ -448,7 +452,24 @@ public class PedidoProveedoresControlador
             total = total + modelo.getSubTotal();
           
         }
-        TFTotal.setText(String.valueOf(total));    
+        TFSubTotal.setText(String.valueOf(total));
+        TFTotal.setText(String.valueOf(total));
+    }
+      
+    public void AplicarDescuento(ActionEvent event)
+    {
+        
+        float total =0;
+        float subTotal =0;
+        float descuento = 0;
+        for (DescripcionCompraModelo modelo:this.dataDescripciones)
+        {            
+            subTotal = subTotal + modelo.getSubTotal();
+            
+        }
+        descuento = Float.parseFloat(TFDescuento.getText())/100;
+        total = subTotal - subTotal*descuento;
+        TFTotal.setText(String.valueOf(total));
     }
       
      public void mostrarProducto (ActionEvent e)
@@ -582,5 +603,7 @@ public class PedidoProveedoresControlador
             TFFecha.deletePreviousChar();
         }
     } 
+    
+    
 }
 

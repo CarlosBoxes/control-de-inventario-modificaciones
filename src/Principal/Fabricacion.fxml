@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="pnlFunciones" prefHeight="606.0" prefWidth="872.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ControladoresGUI.FabricacionControlador">
+<VBox fx:id="pnlFunciones" prefHeight="606.0" prefWidth="872.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="ControladoresGUI.FabricacionControlador">
   <children>
     <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="872.0">
       <children>
@@ -61,7 +61,7 @@
             <Insets top="10.0" fx:id="x5" />
           </VBox.margin>
         </TableView>
-        <HBox alignment="CENTER_RIGHT" maxWidth="650.0" minWidth="650.0" prefHeight="38.0" prefWidth="650.0" spacing="20.0">
+        <HBox fx:id="HBBotones" alignment="CENTER_RIGHT" disable="true" maxWidth="650.0" minWidth="650.0" prefHeight="38.0" prefWidth="650.0" spacing="20.0">
           <children>
             <Button mnemonicParsing="false" onAction="#limpiarProductos" styleClass="botonCancelar" text="Cancelar" />
             <Button mnemonicParsing="false" onAction="#manejoDeInventario" styleClass="botonAceptar" text="Aceptar">

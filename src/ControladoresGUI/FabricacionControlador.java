@@ -26,6 +26,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 /**
@@ -60,6 +61,7 @@ public class FabricacionControlador
     private ObservableList<MateriaPrimaModelo> dataProductos;
     private ObservableList<MateriaPrimaModelo> dataMateriaPrima;
     public VBox pnlFunciones;
+    public HBox HBBotones;
     private Validaciones validar ;
     private IProductos gestorProductos;
     private IMateriaPrima gestorMateriaPrima;
@@ -100,6 +102,7 @@ public class FabricacionControlador
             if(Permisos.get(i).getPermisosidPermisos().getNombre().equals("Gestión de Inventario"))
             {
                 VBRetiro.setDisable(false);
+                HBBotones.setDisable(false);
             }
         }
     }
@@ -325,8 +328,8 @@ public class FabricacionControlador
         for (MateriaPrimaModelo modelo:this.dataProductos)
         {
             producto = this.gestorProductos.buscarProductoPorId(modelo.getId());
-            this.produccionGestor.guardar(producto, fecha,  Math.round(modelo.getCantidad()));
-            this.fabricacionGestor.ingresarAlInventario(modelo.getId(),  Math.round(modelo.getCantidad()));            
+            this.produccionGestor.guardar(producto, fecha,  modelo.getCantidad());
+            this.fabricacionGestor.ingresarAlInventario(modelo.getId(),  modelo.getCantidad());            
         }
         this.FabricacionAdministrador.showMensajes("Productos Transladados Correctamente");
         this.limpiarProductos();
@@ -348,7 +351,7 @@ public class FabricacionControlador
         {
             producto = this.gestorProductos.buscarProductoPorId(modelo.getId());
             this.produccionGestor.guardar(producto, fecha,  Math.round(modelo.getCantidad()));
-            this.fabricacionGestor.sacarDelInventario(modelo.getId(),  Math.round(modelo.getCantidad()));            
+            this.fabricacionGestor.sacarDelInventario(modelo.getId(),  modelo.getCantidad());            
         }
         this.FabricacionAdministrador.showMensajes("Productos Retirados Correctamente");
         this.limpiarProductos();

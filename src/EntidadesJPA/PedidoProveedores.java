@@ -46,6 +46,12 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "PedidoProveedores.findByAlmacenado", query = "SELECT p FROM PedidoProveedores p WHERE p.almacenado = :almacenado")})
 public class PedidoProveedores implements Serializable {
     @Basic(optional = false)
+    @Column(name = "subTotal")
+    private float subTotal;
+    @Basic(optional = false)
+    @Column(name = "descuento")
+    private float descuento;
+    @Basic(optional = false)
     @Column(name = "eliminado")
     private boolean eliminado;
     private static final long serialVersionUID = 1L;
@@ -205,6 +211,22 @@ public class PedidoProveedores implements Serializable {
 
     public void setEliminado(boolean eliminado) {
         this.eliminado = eliminado;
+    }
+
+    public float getSubTotal() {
+        return subTotal;
+    }
+
+    public void setSubTotal(float subTotal) {
+        this.subTotal = subTotal;
+    }
+
+    public float getDescuento() {
+        return descuento;
+    }
+
+    public void setDescuento(float descuento) {
+        this.descuento = descuento;
     }
     
 }

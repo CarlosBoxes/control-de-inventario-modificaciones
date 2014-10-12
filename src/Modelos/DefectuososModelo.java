@@ -4,6 +4,7 @@
  */
 package Modelos;
 
+import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 /**
@@ -14,15 +15,15 @@ public class DefectuososModelo
 {
         public SimpleIntegerProperty Id;
         public SimpleStringProperty Nombre;
-        public SimpleIntegerProperty Cantidad;
+        public SimpleFloatProperty Cantidad;
         public SimpleStringProperty Vendedor;
         public SimpleStringProperty Descripcion;
         
-        public DefectuososModelo(Integer Id, String Nombre, Integer Cantidad,String Vendedor, String Descripcion)
+        public DefectuososModelo(Integer Id, String Nombre, float Cantidad,String Vendedor, String Descripcion)
         {
             this.Id = new SimpleIntegerProperty(Id);
             this.Nombre = new SimpleStringProperty(Nombre);
-            this.Cantidad = new SimpleIntegerProperty(Cantidad);
+            this.Cantidad = new SimpleFloatProperty(Cantidad);
             this.Vendedor = new SimpleStringProperty(Vendedor);
             this.Descripcion = new SimpleStringProperty(Descripcion);
         }
@@ -37,7 +38,7 @@ public class DefectuososModelo
             return Nombre.get();
         }
         
-        public Integer getCantidad()
+        public float getCantidad()
         {
             return Cantidad.get();
         }

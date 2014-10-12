@@ -15,7 +15,7 @@ import javax.persistence.EntityManagerFactory;
  */
 public class IProductosACambiar {
     public  IProductosACambiar(){}
-    public String guardar(String nombre, int cantidad,Liquidacion liquidacion,Float precio)
+    public String guardar(String nombre, float cantidad,Liquidacion liquidacion,Float precio)
     {
         try{
             ProductoaCambiar ProductoAcambiar = new ProductoaCambiar();

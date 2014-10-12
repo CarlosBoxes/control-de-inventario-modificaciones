@@ -232,7 +232,7 @@ public class ClientesControlador
         }
         else
         {
-            Clientes Editar = new IClientes().buscarClientesPorNitNombre(Seleccionado.getNit(),Seleccionado.getNombre());
+            Clientes Editar = new IClientes().buscarClientesPorId(Seleccionado.getId());
             this.ClientesAdministrador.showEditarClientes(Editar);
         }
     }
