@@ -44,7 +44,7 @@ public class TrasladoJpaController implements Serializable {
             }
             em.persist(traslado);
             if (productosidProductos != null) {
-                productosidProductos.getTrasladoCollection().add(traslado);
+                //productosidProductos.getTrasladoCollection().add(traslado);
                 productosidProductos = em.merge(productosidProductos);
             }
             em.getTransaction().commit();
@@ -74,11 +74,11 @@ public class TrasladoJpaController implements Serializable {
             }
             traslado = em.merge(traslado);
             if (productosidProductosOld != null && !productosidProductosOld.equals(productosidProductosNew)) {
-                productosidProductosOld.getTrasladoCollection().remove(traslado);
+                //productosidProductosOld.getTrasladoCollection().remove(traslado);
                 productosidProductosOld = em.merge(productosidProductosOld);
             }
             if (productosidProductosNew != null && !productosidProductosNew.equals(productosidProductosOld)) {
-                productosidProductosNew.getTrasladoCollection().add(traslado);
+                //productosidProductosNew.getTrasladoCollection().add(traslado);
                 productosidProductosNew = em.merge(productosidProductosNew);
             }
             em.getTransaction().commit();
@@ -112,7 +112,7 @@ public class TrasladoJpaController implements Serializable {
             }
             Productos productosidProductos = traslado.getProductosidProductos();
             if (productosidProductos != null) {
-                productosidProductos.getTrasladoCollection().remove(traslado);
+                //productosidProductos.getTrasladoCollection().remove(traslado);
                 productosidProductos = em.merge(productosidProductos);
             }
             em.remove(traslado);

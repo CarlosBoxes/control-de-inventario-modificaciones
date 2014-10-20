@@ -71,9 +71,9 @@ public class ProductosJpaController implements Serializable {
         if (productos.getProductosDefectuosoCollection() == null) {
             productos.setProductosDefectuosoCollection(new ArrayList<ProductosDefectuoso>());
         }
-        if (productos.getTrasladoCollection() == null) {
-            productos.setTrasladoCollection(new ArrayList<Traslado>());
-        }
+//        if (productos.getTrasladoCollection() == null) {
+  //          productos.setTrasladoCollection(new ArrayList<Traslado>());
+    //    }
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -133,11 +133,11 @@ public class ProductosJpaController implements Serializable {
             }
             productos.setProductosDefectuosoCollection(attachedProductosDefectuosoCollection);
             Collection<Traslado> attachedTrasladoCollection = new ArrayList<Traslado>();
-            for (Traslado trasladoCollectionTrasladoToAttach : productos.getTrasladoCollection()) {
+            /*for (Traslado trasladoCollectionTrasladoToAttach : productos.getTrasladoCollection()) {
                 trasladoCollectionTrasladoToAttach = em.getReference(trasladoCollectionTrasladoToAttach.getClass(), trasladoCollectionTrasladoToAttach.getIdtraslado());
                 attachedTrasladoCollection.add(trasladoCollectionTrasladoToAttach);
             }
-            productos.setTrasladoCollection(attachedTrasladoCollection);
+           // productos.setTrasladoCollection(attachedTrasladoCollection);*/
             em.persist(productos);
             for (DescripcionPedido descripcionPedidoCollectionDescripcionPedido : productos.getDescripcionPedidoCollection()) {
                 Productos oldProductosidProductosOfDescripcionPedidoCollectionDescripcionPedido = descripcionPedidoCollectionDescripcionPedido.getProductosidProductos();
@@ -220,7 +220,7 @@ public class ProductosJpaController implements Serializable {
                     oldProductosidProductosOfProductosDefectuosoCollectionProductosDefectuoso = em.merge(oldProductosidProductosOfProductosDefectuosoCollectionProductosDefectuoso);
                 }
             }
-            for (Traslado trasladoCollectionTraslado : productos.getTrasladoCollection()) {
+/*            for (Traslado trasladoCollectionTraslado : productos.getTrasladoCollection()) {
                 Productos oldProductosidProductosOfTrasladoCollectionTraslado = trasladoCollectionTraslado.getProductosidProductos();
                 trasladoCollectionTraslado.setProductosidProductos(productos);
                 trasladoCollectionTraslado = em.merge(trasladoCollectionTraslado);
@@ -228,7 +228,7 @@ public class ProductosJpaController implements Serializable {
                     oldProductosidProductosOfTrasladoCollectionTraslado.getTrasladoCollection().remove(trasladoCollectionTraslado);
                     oldProductosidProductosOfTrasladoCollectionTraslado = em.merge(oldProductosidProductosOfTrasladoCollectionTraslado);
                 }
-            }
+            }*/
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -261,8 +261,8 @@ public class ProductosJpaController implements Serializable {
             Collection<ProductosClientes> productosClientesCollectionNew = productos.getProductosClientesCollection();
             Collection<ProductosDefectuoso> productosDefectuosoCollectionOld = persistentProductos.getProductosDefectuosoCollection();
             Collection<ProductosDefectuoso> productosDefectuosoCollectionNew = productos.getProductosDefectuosoCollection();
-            Collection<Traslado> trasladoCollectionOld = persistentProductos.getTrasladoCollection();
-            Collection<Traslado> trasladoCollectionNew = productos.getTrasladoCollection();
+//            Collection<Traslado> trasladoCollectionOld = persistentProductos.getTrasladoCollection();
+  //          Collection<Traslado> trasladoCollectionNew = productos.getTrasladoCollection();
             List<String> illegalOrphanMessages = null;
             for (DescripcionPedido descripcionPedidoCollectionOldDescripcionPedido : descripcionPedidoCollectionOld) {
                 if (!descripcionPedidoCollectionNew.contains(descripcionPedidoCollectionOldDescripcionPedido)) {
@@ -336,14 +336,14 @@ public class ProductosJpaController implements Serializable {
                     illegalOrphanMessages.add("You must retain ProductosDefectuoso " + productosDefectuosoCollectionOldProductosDefectuoso + " since its productosidProductos field is not nullable.");
                 }
             }
-            for (Traslado trasladoCollectionOldTraslado : trasladoCollectionOld) {
+            /*for (Traslado trasladoCollectionOldTraslado : trasladoCollectionOld) {
                 if (!trasladoCollectionNew.contains(trasladoCollectionOldTraslado)) {
                     if (illegalOrphanMessages == null) {
                         illegalOrphanMessages = new ArrayList<String>();
                     }
                     illegalOrphanMessages.add("You must retain Traslado " + trasladoCollectionOldTraslado + " since its productosidProductos field is not nullable.");
                 }
-            }
+            }*/
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);
             }
@@ -411,12 +411,12 @@ public class ProductosJpaController implements Serializable {
             productosDefectuosoCollectionNew = attachedProductosDefectuosoCollectionNew;
             productos.setProductosDefectuosoCollection(productosDefectuosoCollectionNew);
             Collection<Traslado> attachedTrasladoCollectionNew = new ArrayList<Traslado>();
-            for (Traslado trasladoCollectionNewTrasladoToAttach : trasladoCollectionNew) {
+            /*for (Traslado trasladoCollectionNewTrasladoToAttach : trasladoCollectionNew) {
                 trasladoCollectionNewTrasladoToAttach = em.getReference(trasladoCollectionNewTrasladoToAttach.getClass(), trasladoCollectionNewTrasladoToAttach.getIdtraslado());
                 attachedTrasladoCollectionNew.add(trasladoCollectionNewTrasladoToAttach);
             }
-            trasladoCollectionNew = attachedTrasladoCollectionNew;
-            productos.setTrasladoCollection(trasladoCollectionNew);
+           // trasladoCollectionNew = attachedTrasladoCollectionNew;
+           // productos.setTrasladoCollection(trasladoCollectionNew);*/
             productos = em.merge(productos);
             for (DescripcionPedido descripcionPedidoCollectionNewDescripcionPedido : descripcionPedidoCollectionNew) {
                 if (!descripcionPedidoCollectionOld.contains(descripcionPedidoCollectionNewDescripcionPedido)) {
@@ -517,7 +517,7 @@ public class ProductosJpaController implements Serializable {
                     }
                 }
             }
-            for (Traslado trasladoCollectionNewTraslado : trasladoCollectionNew) {
+            /*for (Traslado trasladoCollectionNewTraslado : trasladoCollectionNew) {
                 if (!trasladoCollectionOld.contains(trasladoCollectionNewTraslado)) {
                     Productos oldProductosidProductosOfTrasladoCollectionNewTraslado = trasladoCollectionNewTraslado.getProductosidProductos();
                     trasladoCollectionNewTraslado.setProductosidProductos(productos);
@@ -527,7 +527,7 @@ public class ProductosJpaController implements Serializable {
                         oldProductosidProductosOfTrasladoCollectionNewTraslado = em.merge(oldProductosidProductosOfTrasladoCollectionNewTraslado);
                     }
                 }
-            }
+            }*/
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
@@ -621,13 +621,13 @@ public class ProductosJpaController implements Serializable {
                 }
                 illegalOrphanMessages.add("This Productos (" + productos + ") cannot be destroyed since the ProductosDefectuoso " + productosDefectuosoCollectionOrphanCheckProductosDefectuoso + " in its productosDefectuosoCollection field has a non-nullable productosidProductos field.");
             }
-            Collection<Traslado> trasladoCollectionOrphanCheck = productos.getTrasladoCollection();
+           /* Collection<Traslado> trasladoCollectionOrphanCheck = productos.getTrasladoCollection();
             for (Traslado trasladoCollectionOrphanCheckTraslado : trasladoCollectionOrphanCheck) {
                 if (illegalOrphanMessages == null) {
                     illegalOrphanMessages = new ArrayList<String>();
                 }
                 illegalOrphanMessages.add("This Productos (" + productos + ") cannot be destroyed since the Traslado " + trasladoCollectionOrphanCheckTraslado + " in its trasladoCollection field has a non-nullable productosidProductos field.");
-            }
+            }*/
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);
             }

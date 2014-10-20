@@ -51,7 +51,7 @@ public class Productos implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "productosidProductos")
     private Collection<Produccion> produccionCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "productosidProductos")
-    private Collection<Traslado> trasladoCollection;
+    //private Collection<Traslado> trasladoCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -329,14 +329,14 @@ public class Productos implements Serializable {
         return "EntidadesJPA.Productos[ idProductos=" + idProductos + " ]";
     }
 
-    @XmlTransient
-    public Collection<Traslado> getTrasladoCollection() {
-        return trasladoCollection;
-    }
+    //@XmlTransient
+    //public Collection<Traslado> getTrasladoCollection() {
+      //  return trasladoCollection;
+    //}
 
-    public void setTrasladoCollection(Collection<Traslado> trasladoCollection) {
-        this.trasladoCollection = trasladoCollection;
-    }
+    //public void setTrasladoCollection(Collection<Traslado> trasladoCollection) {
+     //   this.trasladoCollection = trasladoCollection;
+    //}
 
     @XmlTransient
     public Collection<Produccion> getProduccionCollection() {
